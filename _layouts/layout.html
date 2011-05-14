@@ -1,0 +1,33 @@
+<!DOCTYPE HTML> 
+<html> 
+<head> 
+  <title>{{ page.title }}</title> 
+  {% if page.id == 'home' %}
+  <!-- Open Graph Protocol --> 
+  <meta property="og:title" content="Activity Streams" /> 
+  <meta property="og:site_name" content="Activity Streams" /> 
+  <meta property="og:image" content="http://wiki.activitystrea.ms/f/1268191455/icon.png" /> 
+  <meta property="og:description" content="Activity Streams is a convenient and consistent way to syndicate social activities around the web." /> 
+  <meta property="fb:admins" content="{{ site.fb_admins }}" /> 
+  {% endif %}
+  <script type="text/javascript" src="http://use.typekit.com/mcr1zct.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+  <script>
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', '{{ site.ga_id }}']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+  <link rel="stylesheet" href="https://github.com/joshuaclayton/blueprint-css/raw/master/blueprint/screen.css" />
+  <link rel="stylesheet" href="/css/style.css" />
+</head> 
+<body{% if page.body_class != '' %} class="{{ page.body_class }}"{% endif %}>
+  {{ content }}
+</body> 
+</html> 

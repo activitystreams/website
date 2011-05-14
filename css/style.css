@@ -1,0 +1,49 @@
+body {
+  font-family: "helvetica neue", "helvetica", arial, sans-serif;
+  font-size: 13px;
+  margin: 0;
+  padding: 0;
+}
+
+a, a:visited {
+  color: #d9e4eb;
+}
+
+h1, h2 {
+  color: inherit;
+}
+
+h1 {
+  font-family: "bello-pro-1","bello-pro-2",sans-serif;
+  font-weight: normal;
+  text-shadow: 0 0.13em #000;
+  margin: 0;
+  font-size: 3em;
+}
+
+#header {
+  background-color:#1E6B9F;
+  color: #FFFBFF;
+  padding: 1em;
+}
+
+#content {
+  margin: 1em;
+}
+
+/* Home Page */
+body.home {
+  margin-left: 4em;
+  color: #FFFBFF;
+  background-color:#1E6B9F;
+}
+
+body.home #header {
+}
+
+body.home h1 {
+  margin-top: 260px; 
+  font-size: 6em;
+  text-shadow: 0 0.06em #000;
+}
+

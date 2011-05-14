@@ -5,7 +5,10 @@ body {
   padding: 0;
 }
 
-a, a:visited {
+a, a:hover, a:visited {
+  color:#1E6B9F;
+}
+a:active {
   color: #d9e4eb;
 }
 
@@ -19,6 +22,10 @@ h1 {
   text-shadow: 0 0.13em #000;
   margin: 0;
   font-size: 3em;
+}
+h1 > a, h1 > a:visited, h1 > a:hover {
+  color: #FFF;
+  text-decoration: none;
 }
 
 #header {
@@ -36,6 +43,11 @@ body.home {
   margin-left: 4em;
   color: #FFFBFF;
   background-color:#1E6B9F;
+}
+body.home a, 
+body.home a:hover, 
+body.home a:visited {
+  color:#FFFBFF;
 }
 
 body.home #header {

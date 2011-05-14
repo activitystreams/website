@@ -1,0 +1,31 @@
+---
+layout: page
+title: Agreements
+---
+## OWFa Agreements ##
+
+The specifications produced by the Activity Streams community are made
+available under the terms of the [OpenWeb Foundation 1.0 Agreement][OWFa].  The
+signed agreements are available in the source repository for each specification.
+
+ - [JSON Activity Streams 1.0](https://github.com/activitystreams/json-activity/agreements)
+
+
+### Signing the CLA and OWFa ###
+
+Any individual or company that intends to contribute to any of the Activity
+Streams specifications is encouraged to sign and submit an
+[OWF Contributor License Agreement][cla].  This indicates the signer's
+voluntary support for the development and publication of the specification.
+
+Once a final specification is ready to be published, contributors and supporters
+of the specification will be asked to sign an [OWFa][] to formalize their copyright
+licenses and patent promises to the entire specification.
+
+See Also: [Open Web Foundation CLA 1.0 & OWFa 1.0 FAQ][faq]
+
+[OWFa]: http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0
+[cla]: http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owf-contributor-license-agreement-1-0---copyright-and-patent
+[faq]: http://www.openwebfoundation.org/faqs/open-web-foundation-cla-1-0-owfa-1-0-faq
+
+

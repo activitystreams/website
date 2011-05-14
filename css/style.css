@@ -29,13 +29,40 @@ h1 > a, h1 > a:visited, h1 > a:hover {
 }
 
 #header {
-  background-color:#1E6B9F;
+  background-color: #1E6B9F;
   color: #FFFBFF;
   padding: 1em;
 }
 
 #content {
   margin: 1em;
+}
+
+#footer {
+  background-color: #EEE;
+  overflow: auto;
+}
+#footer > aside {
+  float: left;
+  max-width: 200px;
+  margin: 1em 3em;
+}
+#footer > aside > h3 {
+  font-size: 1em;
+  font-weight: bold;
+}
+#footer > aside > ul {
+  padding: 0;
+  margin: 0;
+}
+#footer > aside > ul > li {
+  list-style: none;
+}
+#footer > aside a {
+  text-decoration: none;
+}
+#footer > aside a:hover {
+  text-decoration: underline;
 }
 
 /* Home Page */

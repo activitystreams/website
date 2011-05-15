@@ -1,0 +1,115 @@
+
+body {
+    background: #ffffff;
+    color: #000000;
+    margin: 0;
+    padding: 0;
+}
+
+body, td, th {
+    font-size: 12px;
+    font-family: "Helvetica", "Arial", sans-serif;
+}
+
+a {
+    color: rgb(1, 88, 193);
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+header {
+    background: -moz-linear-gradient(rgb(3, 143, 252) 0%, rgb(1, 88, 193) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgb(3, 143, 252)), color-stop(100%, rgb(1, 88, 193)));
+    display: block;
+    padding: 16px;
+    color: #ffffff;
+}
+header h1 {
+    font-size: 2em;
+    width: 750px;
+    margin: 0 auto;
+}
+header a {
+    color: inherit;
+    text-decoration: none;
+}
+header a:hover {
+    text-decoration: underline;
+}
+
+#body {
+    display: block;
+    padding: 16px;
+    width: 750px;
+    margin: 0 auto;
+}
+section section {
+    padding: 0;
+}
+
+h2 {
+    margin: 0;
+    margin-bottom: 8px;
+    font-size: 1.5em;
+}
+h3 {
+    margin: 8px 0;
+    margin-top: 16px;
+    font-size: 1.2em;
+}
+
+table {
+    border-collapse: collapse;
+    border: 1px solid #eeeeee;
+    width: 100%;
+    margin: 16px 0;
+}
+thead {
+    border-bottom: 1px solid #eeeeee;
+    background: -moz-linear-gradient(#ffffff 0%, #eeeeee 100%);
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ffffff), to(#eeeeee));
+}
+
+td, th {
+    padding: 8px;
+    text-align: left;
+    vertical-align: top;
+}
+
+tr.even {
+    background: #eeeeee;
+}
+
+td.componentname, td.componentjson, td.termname, td.termidentifier, td.specdate {
+    width: 100px;
+}
+td.componentspec, td.termspec {
+    width: 150px;
+}
+
+aside.warning {
+    display: block;
+    margin: 8px 0;
+    padding: 16px;
+    border: 1px solid #ee0000;
+    background: -moz-linear-gradient(#ffffff 0%, #ffeeee 100%);
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ffffff), to(#ffeeee));
+}
+aside.warning p {
+    margin: 0;
+}
+
+td.draft a::before {
+    content: "draft";
+    font-size: 10px;
+    text-decoration: none;
+    color: #ffffff;
+    background: #ee0000;
+    display: inline-block;
+    margin-right: 8px;
+    padding: 2px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+}

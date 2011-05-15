@@ -1,0 +1,388 @@
+---
+layout: registry
+---
+<h2>Activity Schema</h2>
+
+
+
+
+<aside class="warning">
+<p>This spec is currently a draft. Its registry
+information is subject to change.</p>
+</aside>
+
+
+
+<section>
+<h3>Verbs</h3>
+<p>The following verbs are defined by this specification:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Identifier</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+
+<tr class="odd">
+<td class="termname"><a href="http://activitystrea.ms/head/activity-schema.html#join">Join</a></td>
+<td class="termidentifier"><tt>join</tt></td>
+<td class="termdesc">Becoming a member of the object</td>
+</tr>
+
+<tr class="even">
+<td class="termname"><a href="http://activitystrea.ms/head/activity-schema.html#make-friend">Make Friend</a></td>
+<td class="termidentifier"><tt>make-friend</tt></td>
+<td class="termdesc">Creating a friendship relationship that is reciprocated by the object</td>
+</tr>
+
+<tr class="odd">
+<td class="termname"><a href="http://activitystrea.ms/head/activity-schema.html#favorite">Mark as Favorite</a></td>
+<td class="termidentifier"><tt>favorite</tt></td>
+<td class="termdesc">Marking the object as an item of special interest</td>
+</tr>
+
+<tr class="even">
+<td class="termname"><a href="http://activitystrea.ms/head/activity-schema.html#like">Mark as Liked</a></td>
+<td class="termidentifier"><tt>like</tt></td>
+<td class="termdesc">Indicating that one likes the object</td>
+</tr>
+
+<tr class="odd">
+<td class="termname"><a href="http://activitystrea.ms/head/activity-schema.html#rsvp-no">Negative RSVP</a></td>
+<td class="termidentifier"><tt>rsvp-no</tt></td>
+<td class="termdesc">Indicating a negative RSVP for the object</td>
+</tr>
+
+<tr class="even">
+<td class="termname"><a href="http://activitystrea.ms/head/activity-schema.html#play">Play</a></td>
+<td class="termidentifier"><tt>play</tt></td>
+<td class="termdesc">Spending some time enjoying the object</td>
+</tr>
+
+<tr class="odd">
+<td class="termname"><a href="http://activitystrea.ms/head/activity-schema.html#rsvp-yes">Positive RSVP</a></td>
+<td class="termidentifier"><tt>rsvp-yes</tt></td>
+<td class="termdesc">Indicating a positive RSVP for the object</td>
+</tr>
+
+<tr class="even">
+<td class="termname"><a href="http://activitystrea.ms/head/activity-schema.html#rsvp-maybe">Possible RSVP</a></td>
+<td class="termidentifier"><tt>rsvp-maybe</tt></td>
+<td class="termdesc">Indicating a possible RSVP for the object</td>
+</tr>
+
+<tr class="odd">
+<td class="termname"><a href="http://activitystrea.ms/head/activity-schema.html#save">Save</a></td>
+<td class="termidentifier"><tt>save</tt></td>
+<td class="termdesc">Calling out the object as being of interest primarily to the actor</td>
+</tr>
+
+<tr class="even">
+<td class="termname"><a href="http://activitystrea.ms/head/activity-schema.html#share">Share</a></td>
+<td class="termidentifier"><tt>share</tt></td>
+<td class="termdesc">Calling out the object to attract others to it</td>
+</tr>
+
+<tr class="odd">
+<td class="termname"><a href="http://activitystrea.ms/head/activity-schema.html#follow">Start Following</a></td>
+<td class="termidentifier"><tt>follow</tt></td>
+<td class="termdesc">Starting to follow the object</td>
+</tr>
+
+<tr class="even">
+<td class="termname"><a href="http://activitystrea.ms/head/activity-schema.html#tag">Tag</a></td>
+<td class="termidentifier"><tt>tag</tt></td>
+<td class="termdesc">Identifying the presence of the object inside the target</td>
+</tr>
+
+<tr class="odd">
+<td class="termname"><a href="http://activitystrea.ms/head/activity-schema.html#update">Update</a></td>
+<td class="termidentifier"><tt>update</tt></td>
+<td class="termdesc">Modifying the object</td>
+</tr>
+
+</tbody>
+</table>
+</section>
+
+
+
+<section>
+<h3>Object Types</h3>
+<p>The following object types are defined by this specification:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Identifier</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+
+<tr class="odd">
+<td class="termname"><a href="http://activitystrea.ms/head/activity-schema.html#article">Article</a></td>
+<td class="termidentifier"><tt>article</tt></td>
+<td class="termspec">An article, such as a news article, knowledge base entry or similar construct</td>
+</tr>
+
+<tr class="even">
+<td class="termname"><a href="http://activitystrea.ms/head/activity-schema.html#audio">Audio</a></td>
+<td class="termidentifier"><tt>audio</tt></td>
+<td class="termspec">An item of audio content</td>
+</tr>
+
+<tr class="odd">
+<td class="termname"><a href="http://activitystrea.ms/head/activity-schema.html#bookmark">Bookmark</a></td>
+<td class="termidentifier"><tt>bookmark</tt></td>
+<td class="termspec">A pointer to a URL</td>
+</tr>
+
+<tr class="even">
+<td class="termname"><a href="http://activitystrea.ms/head/activity-schema.html#comment">Comment</a></td>
+<td class="termidentifier"><tt>comment</tt></td>
+<td class="termspec">A textual response to another object</td>
+</tr>
+
+<tr class="odd">
+<td class="termname"><a href="http://activitystrea.ms/head/activity-schema.html#event">Event</a></td>
+<td class="termidentifier"><tt>event</tt></td>
+<td class="termspec">An event that occurs in a certain place during a particular interval of time</td>
+</tr>
+
+<tr class="even">
+<td class="termname"><a href="http://activitystrea.ms/head/activity-schema.html#file">File</a></td>
+<td class="termidentifier"><tt>file</tt></td>
+<td class="termspec">A document or other file with no additional machine-readable semantics</td>
+</tr>
+
+<tr class="odd">
+<td class="termname"><a href="http://activitystrea.ms/head/activity-schema.html#folder">Folder</a></td>
+<td class="termidentifier"><tt>folder</tt></td>
+<td class="termspec">A collection of files or media objects</td>
+</tr>
+
+<tr class="even">
+<td class="termname"><a href="http://activitystrea.ms/head/activity-schema.html#group">Group</a></td>
+<td class="termidentifier"><tt>group</tt></td>
+<td class="termspec">A social networking group</td>
+</tr>
+
+<tr class="odd">
+<td class="termname"><a href="http://activitystrea.ms/head/activity-schema.html#list">List</a></td>
+<td class="termidentifier"><tt>list</tt></td>
+<td class="termspec">A collection of related objects</td>
+</tr>
+
+<tr class="even">
+<td class="termname"><a href="http://activitystrea.ms/head/activity-schema.html#note">Note</a></td>
+<td class="termidentifier"><tt>note</tt></td>
+<td class="termspec">A short-form text message</td>
+</tr>
+
+<tr class="odd">
+<td class="termname"><a href="http://activitystrea.ms/head/activity-schema.html#person">Person</a></td>
+<td class="termidentifier"><tt>person</tt></td>
+<td class="termspec">A user account</td>
+</tr>
+
+<tr class="even">
+<td class="termname"><a href="http://activitystrea.ms/head/activity-schema.html#photo">Photo</a></td>
+<td class="termidentifier"><tt>photo</tt></td>
+<td class="termspec">A graphical still image</td>
+</tr>
+
+<tr class="odd">
+<td class="termname"><a href="http://activitystrea.ms/head/activity-schema.html#photo-album">Photo Album</a></td>
+<td class="termidentifier"><tt>photo-album</tt></td>
+<td class="termspec">A collection of images</td>
+</tr>
+
+<tr class="even">
+<td class="termname"><a href="http://activitystrea.ms/head/activity-schema.html#place">Place</a></td>
+<td class="termidentifier"><tt>place</tt></td>
+<td class="termspec">A location on earth</td>
+</tr>
+
+<tr class="odd">
+<td class="termname"><a href="http://activitystrea.ms/head/activity-schema.html#playlist">Playlist</a></td>
+<td class="termidentifier"><tt>playlist</tt></td>
+<td class="termspec">An ordered list of time-based media items</td>
+</tr>
+
+<tr class="even">
+<td class="termname"><a href="http://activitystrea.ms/head/activity-schema.html#product">Product</a></td>
+<td class="termidentifier"><tt>product</tt></td>
+<td class="termspec">A commercial good or service</td>
+</tr>
+
+<tr class="odd">
+<td class="termname"><a href="http://activitystrea.ms/head/activity-schema.html#review">Review</a></td>
+<td class="termidentifier"><tt>review</tt></td>
+<td class="termspec">A primarily prosed-based commentary on another object</td>
+</tr>
+
+<tr class="even">
+<td class="termname"><a href="http://activitystrea.ms/head/activity-schema.html#service">Service</a></td>
+<td class="termidentifier"><tt>service</tt></td>
+<td class="termspec">Something that provides a service to others</td>
+</tr>
+
+<tr class="odd">
+<td class="termname"><a href="http://activitystrea.ms/head/activity-schema.html#song">Song</a></td>
+<td class="termidentifier"><tt>song</tt></td>
+<td class="termspec">A song or a recording of a song</td>
+</tr>
+
+<tr class="even">
+<td class="termname"><a href="http://activitystrea.ms/head/activity-schema.html#status">Status</a></td>
+<td class="termidentifier"><tt>status</tt></td>
+<td class="termspec">A human-readable update of the author's situation, mood, location or other status</td>
+</tr>
+
+<tr class="odd">
+<td class="termname"><a href="http://activitystrea.ms/head/activity-schema.html#video">Video</a></td>
+<td class="termidentifier"><tt>video</tt></td>
+<td class="termspec">An item of video content</td>
+</tr>
+
+</tbody>
+</table>
+</section>
+
+
+
+<section>
+<h3>Activity Components</h3>
+<p>The following activity components are defined by this specification:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>JSON Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+
+<tr class="odd">
+<td class="componentname"><a href="http://activitystrea.ms/head/activity-schema.html#anchor6">Location</a></td>
+<td class="componentjson"></td>
+<td class="componentdesc">An object construct representing the location at which the activity occured.</td>
+</tr>
+
+<tr class="even">
+<td class="componentname"><a href="http://activitystrea.ms/head/activity-schema.html#mood">Mood</a></td>
+<td class="componentjson"></td>
+<td class="componentdesc">A human-readable keyword or short phrase describing the mood of the actor at the time the activity was performed.</td>
+</tr>
+
+</tbody>
+</table>
+</section>
+
+
+
+
+<section>
+<h3>Object Components</h3>
+<p>The following object components are defined by this specification:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>JSON Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+
+<tr class="odd">
+<td class="componentname"><a href="http://activitystrea.ms/head/activity-schema.html">Embed Code</a></td>
+<td class="componentjson"><tt><a href="http://activitystrea.ms/head/activity-schema.html">embedCode</a></tt></td>
+<td class="componentdesc">A HTML fragment that provides a viewer or interactive player for the media asset of a media object</td>
+</tr>
+
+<tr class="even">
+<td class="componentname"><a href="http://activitystrea.ms/head/activity-schema.html">End Date and Time</a></td>
+<td class="componentjson"><tt><a href="http://activitystrea.ms/head/activity-schema.html">endTime</a></tt></td>
+<td class="componentdesc">For objects that cease to exist after a certain time, the time that the object ceases to exist</td>
+</tr>
+
+<tr class="odd">
+<td class="componentname"><a href="http://activitystrea.ms/head/activity-schema.html">File URL</a></td>
+<td class="componentjson"><tt><a href="http://activitystrea.ms/head/activity-schema.html">fileUrl</a></tt></td>
+<td class="componentdesc">For an object that represents some kind of file, the URL at which the file can be retrieved</td>
+</tr>
+
+<tr class="even">
+<td class="componentname"><a href="http://activitystrea.ms/head/activity-schema.html">Full Content</a></td>
+<td class="componentjson"><tt><a href="http://activitystrea.ms/head/activity-schema.html">content</a></tt></td>
+<td class="componentdesc">A HTML fragment that represents the object excluding its title and author</td>
+</tr>
+
+<tr class="odd">
+<td class="componentname"><a href="http://activitystrea.ms/head/activity-schema.html">Full Media Stream</a></td>
+<td class="componentjson"><tt><a href="http://activitystrea.ms/head/activity-schema.html">stream</a></tt></td>
+<td class="componentdesc">A media link construct linking to the full-fidelity media asset for a time-based media object</td>
+</tr>
+
+<tr class="even">
+<td class="componentname"><a href="http://activitystrea.ms/head/activity-schema.html">Icon</a></td>
+<td class="componentjson"><tt><a href="http://activitystrea.ms/head/activity-schema.html">icon</a></tt></td>
+<td class="componentdesc">A media link construct for a small icon representing the object</td>
+</tr>
+
+<tr class="odd">
+<td class="componentname"><a href="http://activitystrea.ms/head/activity-schema.html">Larger Image</a></td>
+<td class="componentjson"><tt><a href="http://activitystrea.ms/head/activity-schema.html">fullImage</a></tt></td>
+<td class="componentdesc">A media link construct for an alternative version of the representative image that is larger and intended for standalone viewing</td>
+</tr>
+
+<tr class="even">
+<td class="componentname"><a href="http://activitystrea.ms/head/activity-schema.html">Latitude</a></td>
+<td class="componentjson"><tt><a href="http://activitystrea.ms/head/activity-schema.html">latitude</a></tt></td>
+<td class="componentdesc">For objects that have a physical presence on earth, the (possibly-approximate) latitude of its current location</td>
+</tr>
+
+<tr class="odd">
+<td class="componentname"><a href="http://activitystrea.ms/head/activity-schema.html">Longitude</a></td>
+<td class="componentjson"><tt><a href="http://activitystrea.ms/head/activity-schema.html">longitude</a></tt></td>
+<td class="componentdesc">For objects that have a physical presence on earth, the (possibly-approximate) longitude of its current location</td>
+</tr>
+
+<tr class="even">
+<td class="componentname"><a href="http://activitystrea.ms/head/activity-schema.html">MIME Type</a></td>
+<td class="componentjson"><tt><a href="http://activitystrea.ms/head/activity-schema.html">mimeType</a></tt></td>
+<td class="componentdesc">For an object that has a File URL, an advisory MIME type for the resource at that URL</td>
+</tr>
+
+<tr class="odd">
+<td class="componentname"><a href="http://activitystrea.ms/head/activity-schema.html">Rating</a></td>
+<td class="componentjson"><tt><a href="http://activitystrea.ms/head/activity-schema.html">rating</a></tt></td>
+<td class="componentdesc">For objects that represent some kind of opinion, a number representing the overall rating</td>
+</tr>
+
+<tr class="even">
+<td class="componentname"><a href="http://activitystrea.ms/head/activity-schema.html">Start Date and Time</a></td>
+<td class="componentjson"><tt><a href="http://activitystrea.ms/head/activity-schema.html">startTime</a></tt></td>
+<td class="componentdesc">For objects that exist only after a certain time, the time that the object begins to exist</td>
+</tr>
+
+<tr class="odd">
+<td class="componentname"><a href="http://activitystrea.ms/head/activity-schema.html">Target URL</a></td>
+<td class="componentjson"><tt><a href="http://activitystrea.ms/head/activity-schema.html">targetUrl</a></tt></td>
+<td class="componentdesc">For an object that acts as a pointer to a URL, the URL that is the target of the pointer</td>
+</tr>
+
+</tbody>
+</table>
+</section>
+
+
+
+
+

@@ -1,0 +1,1310 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en"><head><title>Activity Streams Working Group: Atom Activity Extensions 1.0</title>
+<meta http-equiv="Expires" content="Tue, 15 Feb 2011 22:08:44 +0000">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="Atom Activity Extensions 1.0">
+<meta name="generator" content="xml2rfc v1.33 (http://xml.resource.org/)">
+<style type='text/css'><!--
+        body {
+                font-family: verdana, charcoal, helvetica, arial, sans-serif;
+                font-size: small; color: #000; background-color: #FFF;
+                margin: 2em;
+        }
+        h1, h2, h3, h4, h5, h6 {
+                font-family: helvetica, monaco, "MS Sans Serif", arial, sans-serif;
+                font-weight: bold; font-style: normal;
+        }
+        h1 { color: #900; background-color: transparent; text-align: right; }
+        h3 { color: #333; background-color: transparent; }
+
+        td.RFCbug {
+                font-size: x-small; text-decoration: none;
+                width: 30px; height: 30px; padding-top: 2px;
+                text-align: justify; vertical-align: middle;
+                background-color: #000;
+        }
+        td.RFCbug span.RFC {
+                font-family: monaco, charcoal, geneva, "MS Sans Serif", helvetica, verdana, sans-serif;
+                font-weight: bold; color: #666;
+        }
+        td.RFCbug span.hotText {
+                font-family: charcoal, monaco, geneva, "MS Sans Serif", helvetica, verdana, sans-serif;
+                font-weight: normal; text-align: center; color: #FFF;
+        }
+
+        table.TOCbug { width: 30px; height: 15px; }
+        td.TOCbug {
+                text-align: center; width: 30px; height: 15px;
+                color: #FFF; background-color: #900;
+        }
+        td.TOCbug a {
+                font-family: monaco, charcoal, geneva, "MS Sans Serif", helvetica, sans-serif;
+                font-weight: bold; font-size: x-small; text-decoration: none;
+                color: #FFF; background-color: transparent;
+        }
+
+        td.header {
+                font-family: arial, helvetica, sans-serif; font-size: x-small;
+                vertical-align: top; width: 33%;
+                color: #FFF; background-color: #666;
+        }
+        td.author { font-weight: bold; font-size: x-small; margin-left: 4em; }
+        td.author-text { font-size: x-small; }
+
+        /* info code from SantaKlauss at http://www.madaboutstyle.com/tooltip2.html */
+        a.info {
+                /* This is the key. */
+                position: relative;
+                z-index: 24;
+                text-decoration: none;
+        }
+        a.info:hover {
+                z-index: 25;
+                color: #FFF; background-color: #900;
+        }
+        a.info span { display: none; }
+        a.info:hover span.info {
+                /* The span will display just on :hover state. */
+                display: block;
+                position: absolute;
+                font-size: smaller;
+                top: 2em; left: -5em; width: 15em;
+                padding: 2px; border: 1px solid #333;
+                color: #900; background-color: #EEE;
+                text-align: left;
+        }
+
+        a { font-weight: bold; }
+        a:link    { color: #900; background-color: transparent; }
+        a:visited { color: #633; background-color: transparent; }
+        a:active  { color: #633; background-color: transparent; }
+
+        p { margin-left: 2em; margin-right: 2em; }
+        p.copyright { font-size: x-small; }
+        p.toc { font-size: small; font-weight: bold; margin-left: 3em; }
+        table.toc { margin: 0 0 0 3em; padding: 0; border: 0; vertical-align: text-top; }
+        td.toc { font-size: small; font-weight: bold; vertical-align: text-top; }
+
+        ol.text { margin-left: 2em; margin-right: 2em; }
+        ul.text { margin-left: 2em; margin-right: 2em; }
+        li      { margin-left: 3em; }
+
+        /* RFC-2629 <spanx>s and <artwork>s. */
+        em     { font-style: italic; }
+        strong { font-weight: bold; }
+        dfn    { font-weight: bold; font-style: normal; }
+        cite   { font-weight: normal; font-style: normal; }
+        tt     { color: #036; }
+        tt, pre, pre dfn, pre em, pre cite, pre span {
+                font-family: "Courier New", Courier, monospace; font-size: small;
+        }
+        pre {
+                text-align: left; padding: 4px;
+                color: #000; background-color: #CCC;
+        }
+        pre dfn  { color: #900; }
+        pre em   { color: #66F; background-color: #FFC; font-weight: normal; }
+        pre .key { color: #33C; font-weight: bold; }
+        pre .id  { color: #900; }
+        pre .str { color: #000; background-color: #CFF; }
+        pre .val { color: #066; }
+        pre .rep { color: #909; }
+        pre .oth { color: #000; background-color: #FCF; }
+        pre .err { background-color: #FCC; }
+
+        /* RFC-2629 <texttable>s. */
+        table.all, table.full, table.headers, table.none {
+                font-size: small; text-align: center; border-width: 2px;
+                vertical-align: top; border-collapse: collapse;
+        }
+        table.all, table.full { border-style: solid; border-color: black; }
+        table.headers, table.none { border-style: none; }
+        th {
+                font-weight: bold; border-color: black;
+                border-width: 2px 2px 3px 2px;
+        }
+        table.all th, table.full th { border-style: solid; }
+        table.headers th { border-style: none none solid none; }
+        table.none th { border-style: none; }
+        table.all td {
+                border-style: solid; border-color: #333;
+                border-width: 1px 2px;
+        }
+        table.full td, table.headers td, table.none td { border-style: none; }
+
+        hr { height: 1px; }
+        hr.insert {
+                width: 80%; border-style: none; border-width: 0;
+                color: #CCC; background-color: #CCC;
+        }
+--></style>
+</head>
+<body>
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<table summary="layout" width="66%" border="0" cellpadding="0" cellspacing="0"><tr><td><table summary="layout" width="100%" border="0" cellpadding="2" cellspacing="1">
+<tr><td class="header">Activity Streams Working Group</td><td class="header">M. Atkins</td></tr>
+<tr><td class="header">&nbsp;</td><td class="header">SAY Media</td></tr>
+<tr><td class="header">&nbsp;</td><td class="header">W. Norris</td></tr>
+<tr><td class="header">&nbsp;</td><td class="header">Google</td></tr>
+<tr><td class="header">&nbsp;</td><td class="header">C. Messina</td></tr>
+<tr><td class="header">&nbsp;</td><td class="header">Citizen Agency, Google</td></tr>
+<tr><td class="header">&nbsp;</td><td class="header">M. Wilkinson</td></tr>
+<tr><td class="header">&nbsp;</td><td class="header">MySpace, Facebook, Socialcast</td></tr>
+<tr><td class="header">&nbsp;</td><td class="header">R. Dolin</td></tr>
+<tr><td class="header">&nbsp;</td><td class="header">Microsoft</td></tr>
+<tr><td class="header">&nbsp;</td><td class="header">February 13, 2011</td></tr>
+</table></td></tr></table>
+<h1><br />Atom Activity Extensions 1.0</h1>
+
+<h3>Abstract</h3>
+
+<p>This document presents an XML format that allows activities on social
+      objects to be expressed within the Atom Syndication Format.
+</p><a name="toc"></a><br /><hr />
+<h3>Table of Contents</h3>
+<p class="toc">
+<a href="#introduction">1.</a>&nbsp;
+Introduction<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#namespace">1.1.</a>&nbsp;
+Namespace and Version<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#conventions">1.2.</a>&nbsp;
+Notational Conventions<br />
+<a href="#concepts">2.</a>&nbsp;
+Activity Concepts<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#activity">2.1.</a>&nbsp;
+The Activity Construct<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#activity.time">2.1.1.</a>&nbsp;
+Time<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#activity.actor">2.1.2.</a>&nbsp;
+Actor<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#activity.verb">2.1.3.</a>&nbsp;
+Verb<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#activity.object">2.1.4.</a>&nbsp;
+Object<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#activity.target">2.1.5.</a>&nbsp;
+Target<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#activity.title">2.1.6.</a>&nbsp;
+Title<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#activity.summary">2.1.7.</a>&nbsp;
+Summary<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#object">2.2.</a>&nbsp;
+The Object Construct<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#object.id">2.2.1.</a>&nbsp;
+ID<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#object.name">2.2.2.</a>&nbsp;
+Name<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#object.summary">2.2.3.</a>&nbsp;
+Summary<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#object.image">2.2.4.</a>&nbsp;
+Representative Image<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#object.url">2.2.5.</a>&nbsp;
+Permalink URL<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#object.type">2.2.6.</a>&nbsp;
+Object Type<br />
+<a href="#atom">3.</a>&nbsp;
+Atom Representation<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#atom.activity">3.1.</a>&nbsp;
+Activity Representations<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#atom.activity.full">3.1.1.</a>&nbsp;
+Full Activity Entry<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#atom.activity.implied">3.1.2.</a>&nbsp;
+Implied Activity Shorthand<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#atom.object">3.2.</a>&nbsp;
+Object Representations<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#atom.object.elements">3.2.1.</a>&nbsp;
+Object Construct Representations<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#atom.object.components">3.2.2.</a>&nbsp;
+Common Representation for Object Construct Components<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#atom.object.author">3.2.3.</a>&nbsp;
+Object represented as atom:author<br />
+<a href="#rss">4.</a>&nbsp;
+RSS 2.0 Representation<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#rss.activity">4.1.</a>&nbsp;
+Activity Construct Represented as RSS &quot;item&quot;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#rss.object">4.2.</a>&nbsp;
+Object Construct Represented as RSS &quot;item&quot;<br />
+<a href="#xml">5.</a>&nbsp;
+Elements used in XML Representations<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#xml.verb">5.1.</a>&nbsp;
+The activity:verb Element<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#xml.verb.comparing">5.1.1.</a>&nbsp;
+Comparing activity:verb<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#xml.object">5.2.</a>&nbsp;
+The activity:object Element<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#xml.object-type">5.3.</a>&nbsp;
+The activity:object-type Element<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#xml.object-type.comparing">5.3.1.</a>&nbsp;
+Comparing activity:object-type<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#xml.target">5.4.</a>&nbsp;
+The activity:target Element<br />
+<a href="#post">6.</a>&nbsp;
+The &quot;Post&quot; Verb<br />
+<a href="#security">7.</a>&nbsp;
+Security Considerations<br />
+<a href="#iana">8.</a>&nbsp;
+IANA Considerations<br />
+<a href="#license">9.</a>&nbsp;
+License<br />
+<a href="#rfc.references1">10.</a>&nbsp;
+Normative References<br />
+<a href="#acknowledgements">Appendix&nbsp;A.</a>&nbsp;
+Acknowledgements<br />
+<a href="#examples">Appendix&nbsp;B.</a>&nbsp;
+Examples<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#examples.full">B.1.</a>&nbsp;
+Full Activity Entry Examples<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#examples.implied">B.2.</a>&nbsp;
+Implied Activity Entry Example<br />
+<a href="#rfc.authors">&#167;</a>&nbsp;
+Authors' Addresses<br />
+</p>
+<br clear="all" />
+
+<a name="introduction"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.1"></a><h3>1.&nbsp;
+Introduction</h3>
+
+<p>The Atom Syndication Format, as defined in <a class='info' href='#RFC4287'>[RFC4287]<span> (</span><span class='info'>Nottingham, M. and R. Sayre, &ldquo;The Atom Syndication Format,&rdquo; December&nbsp;2005.</span><span>)</span></a>, is widely used to transmit various types of
+      web content such as weblog posts, news headlines, as well as user
+      activities within social sites. In the case of user activities, Atom
+      lacks the ability to express much of the activity-specific metadata in a
+      machine-parseable format. Activity Streams is an XML format designed to
+      allow this additional activity metadata to be expressed within existing
+      Atom entries and feeds.
+</p>
+<p>It is a goal of this specification to provide sufficient metadata
+      about an activity such that a consumer of the data can present it to a
+      user in a rich human-friendly format. This may include constructing
+      readable sentences about the activity that occurred, visual
+      representations of the activity, or combining similar activities for
+      display.
+</p>
+<a name="namespace"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.1.1"></a><h3>1.1.&nbsp;
+Namespace and Version</h3>
+
+<p>The XML Namespaces <a class='info' href='#xml-names'>[xml&#8209;names]<span> (</span><span class='info'>Bray, T., &ldquo;Namespaces in XML 1.0 (Third Edition),&rdquo; December&nbsp;2009.</span><span>)</span></a> URI for the XML
+        data format described in this specification is:
+          </p>
+<blockquote class="text">
+<p><tt>http://activitystrea.ms/spec/1.0/</tt>
+</p>
+</blockquote><p>
+        
+</p>
+<p>For convenience, this data format may be referred to as "Atom
+        Activities 1.0".
+</p>
+<a name="conventions"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.1.2"></a><h3>1.2.&nbsp;
+Notational Conventions</h3>
+
+<p>This specification uses the namespace prefix "activity:" for the
+        Namespace URI identified in <a class='info' href='#namespace'>Section&nbsp;1.1<span> (</span><span class='info'>Namespace and Version</span><span>)</span></a>, and the
+        namespace prefix "atom:" for the Namespace URI identified in Section
+        1.2 of <a class='info' href='#RFC4287'>[RFC4287]<span> (</span><span class='info'>Nottingham, M. and R. Sayre, &ldquo;The Atom Syndication Format,&rdquo; December&nbsp;2005.</span><span>)</span></a>.  Note that the choice of
+        namespace prefixes is arbitrary and not semantically significant.
+</p>
+<p>This specification uses a shorthand form of terms from the XML
+        Infoset <a class='info' href='#xml-infoset'>[xml&#8209;infoset]<span> (</span><span class='info'>Cowan, J., &ldquo;XML Information Set (Second Edition),&rdquo; February&nbsp;2004.</span><span>)</span></a>.  The term "element" is used
+        to refer to an element information item, and "attribute" is used to refer
+        to an attribute information item.
+</p>
+<p>This specification allows the use of IRIs <a class='info' href='#RFC3987'>[RFC3987]<span> (</span><span class='info'>Duerst, M. and M. Suignard, &ldquo;Internationalized Resource Identifiers (IRIs),&rdquo; January&nbsp;2005.</span><span>)</span></a>. Every URI <a class='info' href='#RFC3986'>[RFC3986]<span> (</span><span class='info'>Berners-Lee, T., Fielding, R., and L. Masinter, &ldquo;Uniform Resource Identifiers (URI): Generic Syntax,&rdquo; January&nbsp;2005.</span><span>)</span></a> is
+        also an IRI, so a URI may be used wherever an IRI is named. When an IRI
+        that is not also a URI is given for dereferencing, it MUST be mapped to
+        a URI using the steps in Section 3.1 of <a class='info' href='#RFC3987'>[RFC3987]<span> (</span><span class='info'>Duerst, M. and M. Suignard, &ldquo;Internationalized Resource Identifiers (IRIs),&rdquo; January&nbsp;2005.</span><span>)</span></a>.
+        When an IRI is serving as an identifier, it MUST NOT be so mapped.
+</p>
+<p>The text of this specification provides the sole definition of
+        conformance. Examples in this specification are non-normative.
+</p>
+<p>This specification uses "Atom" to refer to <a class='info' href='#RFC4287'>[RFC4287]<span> (</span><span class='info'>Nottingham, M. and R. Sayre, &ldquo;The Atom Syndication Format,&rdquo; December&nbsp;2005.</span><span>)</span></a>.
+</p>
+<p>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
+        "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this
+        document are to be interpreted as described in <a class='info' href='#RFC2119'>[RFC2119]<span> (</span><span class='info'>Bradner, S., &ldquo;Key words for use in RFCs to Indicate Requirement           Levels,&rdquo; March&nbsp;1997.</span><span>)</span></a>.
+</p>
+<a name="concepts"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.2"></a><h3>2.&nbsp;
+Activity Concepts</h3>
+
+<p>In its simplest form, an activity consists of an actor, a verb, and
+      an object. It tells the story of a person performing an action on or
+      with an object -- "Geraldine posted a photo" or "John shared a video".
+      In most cases these elements will be explicitly declared, but they may
+      also be implied.
+</p>
+<a name="activity"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.2.1"></a><h3>2.1.&nbsp;
+The Activity Construct</h3>
+
+<p>An activity consists of the following logical components:
+</p>
+<a name="activity.time"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.2.1.1"></a><h3>2.1.1.&nbsp;
+Time</h3>
+
+<p>A Date Construct, as defined in section 3.3 of <a class='info' href='#RFC4287'>[RFC4287]<span> (</span><span class='info'>Nottingham, M. and R. Sayre, &ldquo;The Atom Syndication Format,&rdquo; December&nbsp;2005.</span><span>)</span></a>, that identifies the time at which the
+          activity occurred. It is important to note that this is not
+          necessarily the same as the time at which the activity was
+          published. An Activity construct MUST have exactly one Time
+          value.
+</p>
+<a name="activity.actor"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.2.1.2"></a><h3>2.1.2.&nbsp;
+Actor</h3>
+
+<p>An <a class='info' href='#object'>Object Construct<span> (</span><span class='info'>The Object Construct</span><span>)</span></a> that identifies
+          the entity that performed the activity. An Activity construct MUST
+          have exactly one actor.
+</p>
+<a name="activity.verb"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.2.1.3"></a><h3>2.1.3.&nbsp;
+Verb</h3>
+
+<p>An IRI reference that identifies the action of the activity.  This
+          value MUST be an absolute IRI, or a IRI relative to the base IRI of
+          <tt>http://activitystrea.ms/schema/1.0/</tt>.  An
+          Activity construct MUST have exactly one verb.
+</p>
+<a name="activity.object"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.2.1.4"></a><h3>2.1.4.&nbsp;
+Object</h3>
+
+<p>This <a class='info' href='#object'>Object Construct<span> (</span><span class='info'>The Object Construct</span><span>)</span></a> identifies the
+          primary object of the activity. An Activity construct MUST have
+          exactly one object.
+</p>
+<a name="activity.target"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.2.1.5"></a><h3>2.1.5.&nbsp;
+Target</h3>
+
+<p>The target of an activity is an <a class='info' href='#object'>Object
+          Construct<span> (</span><span class='info'>The Object Construct</span><span>)</span></a> that represents the object to which the activity
+          was performed. The exact meaning of an activity's target is
+          dependent on the verb of the activity, but will often be the object
+          of the English preposition "to". For example, in the activity "John
+          saved a movie to his wishlist", the target of the activity is
+          "wishlist". The activity target MUST NOT be used to identify an
+          indirect object that is not a target of the activity. An Activity
+          construct MAY have a target but it MUST NOT have more than one.
+</p>
+<a name="activity.title"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.2.1.6"></a><h3>2.1.6.&nbsp;
+Title</h3>
+
+<p>An HTML representation of the natural language title for this
+          activity. Consumers MAY use the value of this field, if set, as a
+          fallback for when the provided verb is not recognized. An
+          Activity Construct MAY have a title but it MUST NOT have more than
+          one.
+</p>
+<a name="activity.summary"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.2.1.7"></a><h3>2.1.7.&nbsp;
+Summary</h3>
+
+<p>An HTML representation of the activity, including visual elements
+          such as thumbnails. Consumers MAY use the value of this field to
+          present the activity to a user, in lieu of constructing a
+          representation from each of the activity's components.  Publishers
+          SHOULD include a summary for activities in order to provide a
+          fallback for parsers that are not Activity Streams aware.
+          An Activity Construct MAY have a summary but it MUST NOT have more
+          than one.
+</p>
+<a name="object"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.2.2"></a><h3>2.2.&nbsp;
+The Object Construct</h3>
+
+<p>An object construct is a thing, real or imaginary, which
+        participates in an activity. It may be the entity performing the
+        activity, or the entity on which the activity was performed. An object
+        consists of the logical components defined in the following sections.
+        Certain object types may further refine the meaning of these
+        components, or they may define additional components. If an object
+        type defines an additional component then it SHOULD also define the
+        representation of that component in one or more serialization
+        formats.
+</p>
+<a name="object.id"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.2.2.1"></a><h3>2.2.1.&nbsp;
+ID</h3>
+
+<p>The id of an object construct is an IRI that uniquely identifies
+          the object. Note that the definition of "IRI" excludes relative
+          references.  An Object construct SHOULD have an ID value, and MUST
+          NOT have more than one.
+</p>
+<p>If an object construct does not have an ID value consumers MAY use
+          the <a class='info' href='#object.url'>Permalink URL<span> (</span><span class='info'>Permalink URL</span><span>)</span></a> as a weaker
+          identifier, but must in this case allow for the fact that Permalink
+          URL is not defined to be unique across all objects and be prepared
+          to handle duplicates.
+</p>
+<a name="object.name"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.2.2.2"></a><h3>2.2.2.&nbsp;
+Name</h3>
+
+<p>This string value provides a human readable display name for the
+          object, if the object has a name. An Object construct MAY have a
+          name, but MUST NOT have more than one.
+</p>
+<a name="object.summary"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.2.2.3"></a><h3>2.2.3.&nbsp;
+Summary</h3>
+
+<p>This string value provides a human readable description or
+          summary of the Object. An Object construct MAY have a summary, but
+          MUST NOT have more than one.
+</p>
+<a name="object.image"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.2.2.4"></a><h3>2.2.4.&nbsp;
+Representative Image</h3>
+
+<p>This IRI reference identifies an image resource which provides a visual
+          representation of the object, intended for human consumption. An Object
+          construct MAY have a representative image, but MUST NOT have more than
+          one.
+</p>
+<a name="object.url"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.2.2.5"></a><h3>2.2.5.&nbsp;
+Permalink URL</h3>
+
+<p>This IRI reference identifies a resource which provides an HTML
+          representation of the object. An Object construct MAY have a
+          Permalink URL, but MUST NOT have more than one.
+</p>
+<a name="object.type"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.2.2.6"></a><h3>2.2.6.&nbsp;
+Object Type</h3>
+
+<p>An IRI reference that identifies the type of object.  This value
+          MUST be an absolute IRI, or a IRI relative to the base IRI of
+          <tt>http://activitystrea.ms/schema/1.0/</tt>.  An
+          Object construct MAY have a type, but MUST NOT have more than one.
+</p>
+<p>If no object type is present, the object has no specific type.
+          Consumers SHOULD refer to such objects only by their names. For
+          example, when forming an activity sentence a consumer might say
+          "Johan posted 'My Cat'" rather than "Johan posted a photo: 'My
+          Cat'".
+</p>
+<a name="atom"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.3"></a><h3>3.&nbsp;
+Atom Representation</h3>
+
+<p>Activities can be represented in an Atom document using a combination
+      of conventions and custom extension elements. This specification defines
+      two ways that an activity can be represented using <tt>atom:entry</tt> elements, as a Full Activity Entry or
+      using Implied Activity Shorthand.  Other specifications may define
+      additional representations.
+</p>
+<a name="atom.activity"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.3.1"></a><h3>3.1.&nbsp;
+Activity Representations</h3>
+
+<p>Any valid Atom entry as defined by section 4.1.2 of <a class='info' href='#RFC4287'>[RFC4287]<span> (</span><span class='info'>Nottingham, M. and R. Sayre, &ldquo;The Atom Syndication Format,&rdquo; December&nbsp;2005.</span><span>)</span></a> is a representation of an activity as defined
+        in <a class='info' href='#activity'>Section&nbsp;2.1<span> (</span><span class='info'>The Activity Construct</span><span>)</span></a>.
+</p>
+<p>If the <tt>atom:entry</tt> contains an
+        <tt>activity:object</tt> element then it is a Full
+        Activity Entry and MUST be interpreted as described in
+        <a class='info' href='#atom.activity.full'>Section&nbsp;3.1.1<span> (</span><span class='info'>Full Activity Entry</span><span>)</span></a>. Otherwise the entry is an
+        Implied Activity Shorthand Entry and MUST be interpreted as described
+        in <a class='info' href='#atom.activity.implied'>Section&nbsp;3.1.2<span> (</span><span class='info'>Implied Activity Shorthand</span><span>)</span></a>.
+</p>
+<a name="atom.activity.full"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.3.1.1"></a><h3>3.1.1.&nbsp;
+Full Activity Entry</h3>
+
+<p>A Full Activity Entry is one in which the
+          <tt>atom:entry</tt> represents the full
+          <a class='info' href='#activity'>Activity Construct<span> (</span><span class='info'>The Activity Construct</span><span>)</span></a>.  The components of
+          the activity are represented by child elements of the
+          <tt>atom:entry</tt>.  In this section, "the entry"
+          refers to the <tt>atom:entry</tt> element that
+          represents the Full Activity Entry.
+</p>
+<p>The components of the Activity Construct are represented in a
+          Full Activity Entry as follows:
+</p>
+<p></p>
+<blockquote class="text"><dl>
+<dt>Actor</dt>
+<dd>The <a class='info' href='#activity.actor'>Actor<span> (</span><span class='info'>Actor</span><span>)</span></a>
+              of the Activity Construct is represented by the
+              <tt>atom:author</tt> element that
+              applies to the entry, as defined by section 4.2.1 of <a class='info' href='#RFC4287'>[RFC4287]<span> (</span><span class='info'>Nottingham, M. and R. Sayre, &ldquo;The Atom Syndication Format,&rdquo; December&nbsp;2005.</span><span>)</span></a>. The representation of an Object
+              Construct as an <tt>atom:author</tt> element
+              is defined in <a class='info' href='#atom.object.author'>Section&nbsp;3.2.3<span> (</span><span class='info'>Object represented as atom:author</span><span>)</span></a>.
+</dd>
+<dt>Object</dt>
+<dd>The <a class='info' href='#activity.object'>Object<span> (</span><span class='info'>Object</span><span>)</span></a>
+              of the Activity Construct is represented by the
+              <tt>activity:object</tt> child element of the entry,
+              as defined in <a class='info' href='#xml.object'>Section&nbsp;5.2<span> (</span><span class='info'>The activity:object Element</span><span>)</span></a>.
+</dd>
+<dt>Target</dt>
+<dd>The <a class='info' href='#activity.target'>Target<span> (</span><span class='info'>Target</span><span>)</span></a>
+              of the Activity Construct is represented by the
+              <tt>activity:target</tt> child
+              element of the entry, as defined in <a class='info' href='#xml.target'>Section&nbsp;5.4<span> (</span><span class='info'>The activity:target Element</span><span>)</span></a>. If no such element is
+              present, the Activity Construct has no Target.
+</dd>
+<dt>Verb</dt>
+<dd>The <a class='info' href='#activity.verb'>verb
+              IRI<span> (</span><span class='info'>Verb</span><span>)</span></a> of the Activity Construct is represented by an <tt>activity:verb</tt> child element as defined in
+              <a class='info' href='#xml.verb'>Section&nbsp;5.1<span> (</span><span class='info'>The activity:verb Element</span><span>)</span></a>. If the entry has no
+              <tt>activity:verb</tt> child element, then
+              the Activity Construct has the "Post" verb as defined in
+              <a class='info' href='#post'>Section&nbsp;6<span> (</span><span class='info'>The &quot;Post&quot; Verb</span><span>)</span></a>.
+</dd>
+<dt>Time</dt>
+<dd>The <a class='info' href='#activity.time'>Time<span> (</span><span class='info'>Time</span><span>)</span></a>
+              of the Activity Construct is represented by the
+              <tt>atom:published</tt> child element of the
+              entry, as defined in section 4.2.9 of
+              <a class='info' href='#RFC4287'>[RFC4287]<span> (</span><span class='info'>Nottingham, M. and R. Sayre, &ldquo;The Atom Syndication Format,&rdquo; December&nbsp;2005.</span><span>)</span></a>.
+</dd>
+<dt>Title</dt>
+<dd>The <a class='info' href='#activity.title'>Title<span> (</span><span class='info'>Title</span><span>)</span></a>
+              of the Activity Construct is represented by the
+              <tt>atom:title</tt> child element of the
+              entry, as defined in section 4.2.14 of
+              <a class='info' href='#RFC4287'>[RFC4287]<span> (</span><span class='info'>Nottingham, M. and R. Sayre, &ldquo;The Atom Syndication Format,&rdquo; December&nbsp;2005.</span><span>)</span></a>.  Consumers MUST convert the value
+              into HTML if necessary.
+</dd>
+<dt>Summary</dt>
+<dd>The <a class='info' href='#activity.summary'>Summary<span> (</span><span class='info'>Summary</span><span>)</span></a>
+              of the Activity Construct is represented either by the
+              <tt>atom:content</tt> or <tt>atom:summary</tt> child element of the
+              entry, as defined in section 4.1.3 and section 4.2.13 of
+              <a class='info' href='#RFC4287'>[RFC4287]<span> (</span><span class='info'>Nottingham, M. and R. Sayre, &ldquo;The Atom Syndication Format,&rdquo; December&nbsp;2005.</span><span>)</span></a> respectively.  If <tt>atom:summary</tt> is present it MUST contain the summary of the Activity Construct.  If <tt>atom:summary</tt> is not present then the <tt>atom:content</tt> element MUST contain the summary of the Activity Construct.  Consumers MUST convert the value
+              into HTML if necessary.
+</dd>
+</dl></blockquote><p>
+          
+</p>
+<a name="atom.activity.implied"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.3.1.2"></a><h3>3.1.2.&nbsp;
+Implied Activity Shorthand</h3>
+
+<p>An implied activity shorthand entry represents an
+          Activity Construct in terms of its object. In this mode, the <tt>atom:entry</tt> primarily represents the
+          Object Construct that is the object of the Activity Construct, but
+          also represents certain additional components of the Activity
+          Construct. In this section, "the entry" refers to the <tt>atom:entry</tt> element.
+</p>
+<p>The components of the Activity Construct are represented in an
+          Implied Activity Shorthand Entry as follows:
+</p>
+<p></p>
+<blockquote class="text"><dl>
+<dt>Actor</dt>
+<dd>The <a class='info' href='#activity.actor'>Actor<span> (</span><span class='info'>Actor</span><span>)</span></a>
+              of the Activity Construct is represented by the
+              <tt>atom:author</tt> element that
+              applies to the entry, as defined by section 4.2.1 of <a class='info' href='#RFC4287'>[RFC4287]<span> (</span><span class='info'>Nottingham, M. and R. Sayre, &ldquo;The Atom Syndication Format,&rdquo; December&nbsp;2005.</span><span>)</span></a>. The representation of an Object
+              Construct as an <tt>atom:author element</tt>
+              is defined in <a class='info' href='#atom.object.author'>Section&nbsp;3.2.3<span> (</span><span class='info'>Object represented as atom:author</span><span>)</span></a>.
+</dd>
+<dt>Object</dt>
+<dd>The <a class='info' href='#activity.object'>Object<span> (</span><span class='info'>Object</span><span>)</span></a> of the Activity Construct
+              is represented by the entry itself. The representation of an
+              Object Construct as an <tt>atom:entry</tt>
+              element uses the child elements defined in <a class='info' href='#atom.object.components'>Section&nbsp;3.2.2<span> (</span><span class='info'>Common Representation for Object Construct Components</span><span>)</span></a>.
+</dd>
+<dt>Target</dt>
+<dd>The Activity Construct does not have a
+              <a class='info' href='#activity.target'>Target<span> (</span><span class='info'>Target</span><span>)</span></a>.
+</dd>
+<dt>Verb</dt>
+<dd>The <a class='info' href='#activity.verb'>verb
+              IRI<span> (</span><span class='info'>Verb</span><span>)</span></a> of the Activity Construct is represented by an <tt>activity:verb</tt> child element as defined in
+              <a class='info' href='#xml.verb'>Section&nbsp;5.1<span> (</span><span class='info'>The activity:verb Element</span><span>)</span></a>. If the entry has no
+              <tt>activity:verb</tt> child element, then
+              the Activity Construct has the "Post" verb as defined in
+              <a class='info' href='#post'>Section&nbsp;6<span> (</span><span class='info'>The &quot;Post&quot; Verb</span><span>)</span></a>.
+</dd>
+<dt>Time</dt>
+<dd>The <a class='info' href='#activity.time'>Time<span> (</span><span class='info'>Time</span><span>)</span></a>
+              of the Activity Construct is represented by the
+              <tt>atom:published</tt> child element of the
+              entry, as defined in section 4.2.9 of
+              <a class='info' href='#RFC4287'>[RFC4287]<span> (</span><span class='info'>Nottingham, M. and R. Sayre, &ldquo;The Atom Syndication Format,&rdquo; December&nbsp;2005.</span><span>)</span></a>.
+</dd>
+<dt>Title</dt>
+<dd>The Activity Construct does not have a <a class='info' href='#activity.title'>Title<span> (</span><span class='info'>Title</span><span>)</span></a>.
+</dd>
+<dt>Summary</dt>
+<dd>The Activity Construct does not have a <a class='info' href='#activity.summary'>Summary<span> (</span><span class='info'>Summary</span><span>)</span></a>.
+</dd>
+</dl></blockquote>
+
+<p>The Implied Activity Shorthand is an accommodation to allow
+          activity metadata to be added to a feed that is
+          considered by traditional Atom consumers to be a list of content
+          objects rather than a list of activities, without changing the
+          meaning of that feed. Such feeds can often be recognized
+          by the fact that the <tt>atom:title</tt> element
+          of each entry is the title of an object rather than a sentence
+          describing an activity.
+</p>
+<a name="atom.object"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.3.2"></a><h3>3.2.&nbsp;
+Object Representations</h3>
+
+<p><a class='info' href='#object'>Object constructs<span> (</span><span class='info'>The Object Construct</span><span>)</span></a> are used to identify
+        a number of different components in an activity, including the <a class='info' href='#activity.actor'>Actor<span> (</span><span class='info'>Actor</span><span>)</span></a> and <a class='info' href='#activity.target'>Object<span> (</span><span class='info'>Target</span><span>)</span></a> of an activity, among others.
+        Depending on what an object is used to identify, it is rendered in
+        Atom using a different root element, as defined in <a class='info' href='#atom.object.elements'>Section&nbsp;3.2.1<span> (</span><span class='info'>Object Construct Representations</span><span>)</span></a>. The components of the object are
+        represented using child elements as defined in <a class='info' href='#atom.object.components'>Section&nbsp;3.2.2<span> (</span><span class='info'>Common Representation for Object Construct Components</span><span>)</span></a>.
+</p>
+<a name="atom.object.elements"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.3.2.1"></a><h3>3.2.1.&nbsp;
+Object Construct Representations</h3>
+
+<p>Object constructs can be represented using the following
+          elements:
+</p>
+<p></p>
+<blockquote class="text"><dl>
+<dt>atom:entry</dt>
+<dd>When used to describe the object of an
+              Implied Activity as defined in <a class='info' href='#atom.activity.implied'>Section&nbsp;3.1.2<span> (</span><span class='info'>Implied Activity Shorthand</span><span>)</span></a>, an Object Construct is
+              represented using the <tt>atom:entry</tt>
+              element, using the elements defined in <a class='info' href='#atom.object.components'>Section&nbsp;3.2.2<span> (</span><span class='info'>Common Representation for Object Construct Components</span><span>)</span></a>.
+</dd>
+<dt>atom:author</dt>
+<dd>When used to describe the <a class='info' href='#activity.actor'>Actor of an Activity Construct<span> (</span><span class='info'>Actor</span><span>)</span></a>,
+              an Object Construct is represented using the <tt>atom:author</tt> element, as defined in <a class='info' href='#atom.object.author'>Section&nbsp;3.2.3<span> (</span><span class='info'>Object represented as atom:author</span><span>)</span></a>.
+</dd>
+<dt>activity:object</dt>
+<dd>When used to describe the <a class='info' href='#activity.object'>Object of an Activity Construct<span> (</span><span class='info'>Object</span><span>)</span></a>,
+              an Object Construct is represented using the <tt>activity:object</tt> element as defined in <a class='info' href='#xml.object'>Section&nbsp;5.2<span> (</span><span class='info'>The activity:object Element</span><span>)</span></a>.
+</dd>
+<dt>activity:target</dt>
+<dd>When used to describe the <a class='info' href='#activity.target'>Target of an Activity Construct<span> (</span><span class='info'>Target</span><span>)</span></a>,
+              an Object Construct is represented using the <tt>activity:target</tt> element as defined in <a class='info' href='#xml.target'>Section&nbsp;5.4<span> (</span><span class='info'>The activity:target Element</span><span>)</span></a>.
+</dd>
+<dt>other elements</dt>
+<dd>Other specifications or object
+              types may define additional elements that can be used to
+              represent objects.
+</dd>
+</dl></blockquote>
+
+<p>The element used to represent the Object MAY have additional
+          attributes and child elements that represent properties defined by
+          the Object Type of the Object or by other extensions. These
+          extensions are defined by the Atom representation provided for the
+          Object Type or extension.
+</p>
+<a name="atom.object.components"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.3.2.2"></a><h3>3.2.2.&nbsp;
+Common Representation for Object Construct Components</h3>
+
+<p>Unless specified otherwise, the components of an Object Construct
+          are represented using child elements of the representative element
+          as follows, regardless of the type of element used to describe the
+          Object Construct:
+</p>
+<p></p>
+<blockquote class="text"><dl>
+<dt>ID</dt>
+<dd>The <a class='info' href='#object.id'>ID<span> (</span><span class='info'>ID</span><span>)</span></a> of the
+              Object Construct is represented using the <tt>atom:id</tt>
+              element, as defined in section 4.2.6 of <a class='info' href='#RFC4287'>[RFC4287]<span> (</span><span class='info'>Nottingham, M. and R. Sayre, &ldquo;The Atom Syndication Format,&rdquo; December&nbsp;2005.</span><span>)</span></a>.
+</dd>
+<dt>Name</dt>
+<dd>The <a class='info' href='#object.name'>name<span> (</span><span class='info'>Name</span><span>)</span></a> of
+              the Object Construct is represented using the <tt>atom:title</tt> element, as defined in section
+              4.2.14 of <a class='info' href='#RFC4287'>[RFC4287]<span> (</span><span class='info'>Nottingham, M. and R. Sayre, &ldquo;The Atom Syndication Format,&rdquo; December&nbsp;2005.</span><span>)</span></a>.  Consumers MUST convert
+              the value into HTML if necessary.
+</dd>
+<dt>Summary</dt>
+<dd>The <a class='info' href='#object.summary'>summary<span> (</span><span class='info'>Summary</span><span>)</span></a> of the Object Construct
+              is represented using the <tt>atom:summary</tt>
+              element, as defined in section 4.2.13 of <a class='info' href='#RFC4287'>[RFC4287]<span> (</span><span class='info'>Nottingham, M. and R. Sayre, &ldquo;The Atom Syndication Format,&rdquo; December&nbsp;2005.</span><span>)</span></a>.  Consumers MUST convert the value into
+              HTML if necessary.
+</dd>
+<dt>Representative Image</dt>
+<dd>The <a class='info' href='#object.image'>representative image<span> (</span><span class='info'>Representative Image</span><span>)</span></a> of the Object
+              Construct is represented by the first <tt>atom:link</tt>
+              element whose rel attribute value is "preview" and a whose type
+              attribute value is an image media type.
+</dd>
+<dt>Permalink URL</dt>
+<dd>The <a class='info' href='#object.url'>permalink URL<span> (</span><span class='info'>Permalink URL</span><span>)</span></a> of the Object
+              Construct is represented by the href attribute of an <tt>atom:link</tt> element, whose rel attribute
+              value is "alternate" and whose type attribute value is
+              "text/html".
+</dd>
+<dt>Object Type</dt>
+<dd>The <a class='info' href='#object.type'>object type URL<span> (</span><span class='info'>Object Type</span><span>)</span></a> of the Object
+              Construct is represented by an <tt>activity:object-type</tt>
+              element as defined in <a class='info' href='#xml.object-type'>Section&nbsp;5.3<span> (</span><span class='info'>The activity:object-type Element</span><span>)</span></a>.
+</dd>
+</dl></blockquote>
+
+<a name="atom.object.author"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.3.2.3"></a><h3>3.2.3.&nbsp;
+Object represented as atom:author</h3>
+
+<p>When used to describe the <a class='info' href='#activity.actor'>Actor of
+          an Activity<span> (</span><span class='info'>Actor</span><span>)</span></a>, an Object Construct is represented using the
+          <tt>atom:author</tt> element (see section 4.2.1
+          of <a class='info' href='#RFC4287'>[RFC4287]<span> (</span><span class='info'>Nottingham, M. and R. Sayre, &ldquo;The Atom Syndication Format,&rdquo; December&nbsp;2005.</span><span>)</span></a>). The components of the Object
+          Construct are represented using child elements as defined in <a class='info' href='#atom.object.components'>Section&nbsp;3.2.2<span> (</span><span class='info'>Common Representation for Object Construct Components</span><span>)</span></a>, with the following
+          exceptions:
+</p>
+<p></p>
+<blockquote class="text"><dl>
+<dt>Name</dt>
+<dd>The name of the Object Construct is
+              represented using the <tt>atom:name</tt>
+              element, as defined in section 3.2.1 of <a class='info' href='#RFC4287'>[RFC4287]<span> (</span><span class='info'>Nottingham, M. and R. Sayre, &ldquo;The Atom Syndication Format,&rdquo; December&nbsp;2005.</span><span>)</span></a>.
+</dd>
+<dt>Permalink URL</dt>
+<dd>The URL of the Object Construct is
+              represented by the href attribute of an <tt>atom:link</tt>
+              element, whose rel attribute value is "alternate" and a whose
+              type attribute value is "text/html". If no such <tt>atom:link</tt> element is present, consumers
+              SHOULD accept the content of the <tt>atom:uri</tt>
+              element as representing the Object Permalink URL.
+</dd>
+</dl></blockquote>
+
+<a name="rss"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.4"></a><h3>4.&nbsp;
+RSS 2.0 Representation</h3>
+
+<p>Activities can be represented in an RSS 2.0 document, as defined
+      by <a class='info' href='#RSS2'>[RSS2]<span> (</span><span class='info'>, &ldquo;RSS 2.0 Specification,&rdquo; March&nbsp;2009.</span><span>)</span></a>, using a combination of conventions and
+      custom extension elements. An activity is represented using an RSS
+      "item" element. The RSS serialization only supports a subset of the
+      activity data model allowing descriptions of simple activities that have
+      only a verb and an object. This serialization is optimized for posting
+      activities describing the creation of new objects. Publishers with a
+      need for representing other fields that are not catered for by this
+      serialization are recommended to use the Atom serialization instead for
+      best results. This RSS serialization is defined only as a means for
+      those already publishing streams of objects as RSS to produce minimally
+      useful lists of activities for activity-aware consumers.
+</p>
+<p>A specific RSS document has a single activity actor that applies to
+      all activities it represents. This actor has no known id, name, url or
+      object type but it is assumed that all activities in the feed share the
+      same actor and therefore consumers MAY use information obtained from
+      another source, such as the user account which is assumed to be the
+      subject of the feed, to populate these properties.
+</p>
+<a name="rss.activity"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.4.1"></a><h3>4.1.&nbsp;
+Activity Construct Represented as RSS &quot;item&quot;</h3>
+
+<p>In this section, "the item" refers to the RSS "item" element which
+        is representing the activity.
+</p>
+<p>An RSS "item" element represents exactly one Activity Construct in
+        terms of its object. The item actually directly represents both the
+        Object Construct that is the object of the Activity Construct and the
+        Activity Construct itself via different subsets of the child
+        elements.
+</p>
+<p>The components of the Activity Construct are represented in an RSS
+        item as follows:
+</p>
+<p></p>
+<blockquote class="text"><dl>
+<dt>Actor</dt>
+<dd>The <a class='info' href='#activity.actor'>Actor<span> (</span><span class='info'>Actor</span><span>)</span></a>
+            of the Activity Construct is the feed-wide actor as described in
+            <a class='info' href='#rss'>Section&nbsp;4<span> (</span><span class='info'>RSS 2.0 Representation</span><span>)</span></a>.
+</dd>
+<dt>Object</dt>
+<dd>The <a class='info' href='#activity.object'>Object<span> (</span><span class='info'>Object</span><span>)</span></a> of the Activity Construct
+            is represented by the item itself. The representation of an Object
+            Construct as an RSS item element is defined in <a class='info' href='#rss.object'>Section&nbsp;4.2<span> (</span><span class='info'>Object Construct Represented as RSS &quot;item&quot;</span><span>)</span></a>.
+</dd>
+<dt>Target</dt>
+<dd>The Activity Construct does not have a <a class='info' href='#activity.target'>Target<span> (</span><span class='info'>Target</span><span>)</span></a>.
+</dd>
+<dt>Verb</dt>
+<dd>The <a class='info' href='#activity.verb'>verb
+            IRI<span> (</span><span class='info'>Verb</span><span>)</span></a> of the Activity Construct is represented by an <tt>activity:verb</tt> child element as defined in
+            <a class='info' href='#xml.verb'>Section&nbsp;5.1<span> (</span><span class='info'>The activity:verb Element</span><span>)</span></a>. If the item has no
+            <tt>activity:verb</tt> child elements then the
+            Activity Construct has only the "Post" verb as defined in <a class='info' href='#post'>Section&nbsp;6<span> (</span><span class='info'>The &quot;Post&quot; Verb</span><span>)</span></a>.
+</dd>
+<dt>Time</dt>
+<dd>The <a class='info' href='#activity.time'>Time<span> (</span><span class='info'>Time</span><span>)</span></a> of
+            the Activity Construct is represented by the
+            <tt>pubDate</tt> child element of the item, as
+            defined in <a class='info' href='#RSS2'>[RSS2]<span> (</span><span class='info'>, &ldquo;RSS 2.0 Specification,&rdquo; March&nbsp;2009.</span><span>)</span></a>.
+</dd>
+<dt>Title</dt>
+<dd>The Activity Construct does not have a <a class='info' href='#activity.title'>Title<span> (</span><span class='info'>Title</span><span>)</span></a>.
+</dd>
+<dt>Summary</dt>
+<dd>The Activity Construct does not have a <a class='info' href='#activity.summary'>Summary<span> (</span><span class='info'>Summary</span><span>)</span></a>.
+</dd>
+</dl></blockquote>
+
+<a name="rss.object"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.4.2"></a><h3>4.2.&nbsp;
+Object Construct Represented as RSS &quot;item&quot;</h3>
+
+<p>The components of an Object Construct are represented using child
+        elements of an RSS <tt>item</tt> element as
+        follows:
+</p>
+<p></p>
+<blockquote class="text"><dl>
+<dt>ID</dt>
+<dd>The <a class='info' href='#object.id'>ID<span> (</span><span class='info'>ID</span><span>)</span></a> of the
+            Object Construct is represented using the RSS <tt>guid</tt>
+            element, as defined in <a class='info' href='#RSS2'>[RSS2]<span> (</span><span class='info'>, &ldquo;RSS 2.0 Specification,&rdquo; March&nbsp;2009.</span><span>)</span></a>, if and only if
+            its value conforms to the syntax of an IRI as defined in <a class='info' href='#RFC3987'>[RFC3987]<span> (</span><span class='info'>Duerst, M. and M. Suignard, &ldquo;Internationalized Resource Identifiers (IRIs),&rdquo; January&nbsp;2005.</span><span>)</span></a>. If the value is not a valid IRI then the
+            Object Construct has no ID.
+</dd>
+<dt>Name</dt>
+<dd>The <a class='info' href='#object.name'>name<span> (</span><span class='info'>Name</span><span>)</span></a> of
+            the Object Construct is represented using the RSS <tt>title</tt> element, as defined in <a class='info' href='#RSS2'>[RSS2]<span> (</span><span class='info'>, &ldquo;RSS 2.0 Specification,&rdquo; March&nbsp;2009.</span><span>)</span></a>.
+</dd>
+<dt>Summary</dt>
+<dd>The Object Construct has no <a class='info' href='#object.summary'>summary<span> (</span><span class='info'>Summary</span><span>)</span></a>.
+</dd>
+<dt>Representative Image</dt>
+<dd>The <a class='info' href='#object.image'>representative image<span> (</span><span class='info'>Representative Image</span><span>)</span></a> of the Object
+            Construct is represented by the href attribute of an <tt>atom:link</tt> element, whose rel attribute value
+            is "preview" and a whose type attribute value is an appropriate
+            image media type.
+</dd>
+<dt>Permalink URL</dt>
+<dd>The <a class='info' href='#object.url'>permalink URL<span> (</span><span class='info'>Permalink URL</span><span>)</span></a> of the Object
+            Construct is represented by the first RSS <tt>link</tt>
+            child element, as defined in <a class='info' href='#RSS2'>[RSS2]<span> (</span><span class='info'>, &ldquo;RSS 2.0 Specification,&rdquo; March&nbsp;2009.</span><span>)</span></a>. If no
+            such element is present, the value of the first <tt>guid</tt> child element that is marked as a
+            permalink as defined in <a class='info' href='#RSS2'>[RSS2]<span> (</span><span class='info'>, &ldquo;RSS 2.0 Specification,&rdquo; March&nbsp;2009.</span><span>)</span></a> represents the
+            Permalink URL. If neither element is present, the Object Construct
+            has no Permalink URL.
+</dd>
+<dt>Object Type</dt>
+<dd>Each <a class='info' href='#object.type'>object type URL<span> (</span><span class='info'>Object Type</span><span>)</span></a> of the Object
+            Construct is represented by an
+            <tt>activity:object-type</tt> element as defined
+            in <a class='info' href='#xml.object-type'>Section&nbsp;5.3<span> (</span><span class='info'>The activity:object-type Element</span><span>)</span></a>.
+</dd>
+</dl></blockquote>
+
+<a name="xml"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.5"></a><h3>5.&nbsp;
+Elements used in XML Representations</h3>
+
+<p>This specification defines several elements in the XML namespace
+      defined in <a class='info' href='#namespace'>Section&nbsp;1.1<span> (</span><span class='info'>Namespace and Version</span><span>)</span></a>.  These elements are used in
+      both the Atom and RSS serializations and may be used by other XML-based
+      serializations of the activity streams data model defined by other
+      specifications.
+</p>
+<a name="xml.verb"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.5.1"></a><h3>5.1.&nbsp;
+The activity:verb Element</h3>
+
+<p>The <tt>activity:verb</tt> element represents the
+        Verb of an Activity Construct as defined in <a class='info' href='#activity.verb'>Section&nbsp;2.1.3<span> (</span><span class='info'>Verb</span><span>)</span></a>. Its content is an IRI reference that
+        identifies the verb.
+</p>
+<a name="xml.verb.comparing"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.5.1.1"></a><h3>5.1.1.&nbsp;
+Comparing activity:verb</h3>
+
+<p>The value of <tt>activity:verb</tt>
+          elements can be used to determine whether an Activity construct
+          contains a recognized verb.  Processors MUST compare <tt>activity:verb</tt> elements on a
+          character-by-character basis (in a case-sensitive fashion).
+          Comparison operations MUST be based solely on the IRI character
+          strings and MUST NOT rely on dereferencing the IRIs or URIs mapped
+          from them.  As a result, two IRIs that resolve to the same resource
+          but are not character-for-character identical will be considered
+          different for the purposes of identifier comparison.
+</p>
+<p>Processors SHOULD resolve relative IRIs to their absolute form
+          using the base <tt>http://activitystrea.ms/schema/1.0/</tt> prior to
+          comparison.  For example, processors SHOULD consider the following
+          IRIs as equivalent for the purpose of comparison:
+            </p>
+<ul class="text">
+<li><tt>http://activitystrea.ms/schema/1.0/post</tt>
+</li>
+<li><tt>post</tt>
+</li>
+</ul><p>
+          
+</p>
+<a name="xml.object"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.5.2"></a><h3>5.2.&nbsp;
+The activity:object Element</h3>
+
+<p>An <tt>activity:object</tt> element represents
+        the Object Construct that is the Object of an Activity Construct as
+        defined in <a class='info' href='#activity.object'>Section&nbsp;2.1.4<span> (</span><span class='info'>Object</span><span>)</span></a>.
+</p>
+<p>The content model of an <tt>activity:object</tt>
+        element includes the elements indicated in <a class='info' href='#atom.object.components'>Section&nbsp;3.2.2<span> (</span><span class='info'>Common Representation for Object Construct Components</span><span>)</span></a>, with the meanings defined in that
+        section, as well as any extension elements defined by the Atom
+        serializations of the object type listed for the object.
+</p>
+<a name="xml.object-type"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.5.3"></a><h3>5.3.&nbsp;
+The activity:object-type Element</h3>
+
+<p>An <tt>activity:object-type</tt> element
+        represents the Object Type of an Object Construct as defined
+        in <a class='info' href='#object.type'>Section&nbsp;2.2.6<span> (</span><span class='info'>Object Type</span><span>)</span></a>. Its content is an IRI
+        reference that identifies the object type.
+</p>
+<a name="xml.object-type.comparing"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.5.3.1"></a><h3>5.3.1.&nbsp;
+Comparing activity:object-type</h3>
+
+<p>The value of <tt>activity:object-type</tt>
+          elements can be used to determine whether an Object construct is of a
+          recognized type.  Processors MUST compare
+          <tt>activity:object-type</tt> elements using the
+          same comparison rules described in <a class='info' href='#xml.verb.comparing'>Section&nbsp;5.1.1<span> (</span><span class='info'>Comparing activity:verb</span><span>)</span></a>.
+</p>
+<a name="xml.target"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.5.4"></a><h3>5.4.&nbsp;
+The activity:target Element</h3>
+
+<p>An <tt>activity:target</tt> element represents
+        the Object Construct that is the Target of an Activity Construct as
+        defined in <a class='info' href='#activity.target'>Section&nbsp;2.1.5<span> (</span><span class='info'>Target</span><span>)</span></a>.
+</p>
+<p>The content model of an <tt>activity:target</tt>
+        element includes the elements indicated in <a class='info' href='#atom.object.components'>Section&nbsp;3.2.2<span> (</span><span class='info'>Common Representation for Object Construct Components</span><span>)</span></a>, with the meanings defined in that
+        section, as well as any extension elements defined by the Atom
+        serializations of the object type listed for the object.
+</p>
+<a name="post"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.6"></a><h3>6.&nbsp;
+The &quot;Post&quot; Verb</h3>
+
+<p>This specification defines one initial verb and defers to other
+      specifications to define the full schema of verbs and object types.
+</p>
+<p>The "Post" verb describes the act of authoring an object and then
+      publishing it online. The IRI reference for the "Post" verb is:
+        </p>
+<blockquote class="text">
+<p><tt>post</tt>
+</p>
+</blockquote><p>
+      
+</p>
+<p>The actor of an Activity Construct using the "Post" verb is an Object
+      Construct representing the person or object that authored and posted the
+      item represented by the object of the Activity Construct.
+</p>
+<p>The target of the Activity Construct, if present, represents the item
+      into which the object is posted. For example, this could represent a
+      blog that the author has posted in.
+</p>
+<a name="security"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.7"></a><h3>7.&nbsp;
+Security Considerations</h3>
+
+<p>As this specification defines an extension to the Atom Syndication
+      Format, it is subject to the same security considerations defined in
+      <a class='info' href='#RFC4287'>[RFC4287]<span> (</span><span class='info'>Nottingham, M. and R. Sayre, &ldquo;The Atom Syndication Format,&rdquo; December&nbsp;2005.</span><span>)</span></a>.
+</p>
+<p>Publishers or Consumers implementing Activity Streams as a stream of
+      public data may also want to consider the potential for unsolicited
+      commercial or malicious content and should take preventative measures to
+      recognize such content and either identify it or not include it in their
+      stream implementations.
+</p>
+<p>Publishers should take reasonable measures to make sure potentially
+      malicious user input such as cross-site scripting attacks are not
+      included in the Activity Streams data they publish.
+</p>
+<p>Consumers that re-emit ingested content to end-users MUST take
+      reasonable measures if emitting ingested content to make sure
+      potentially malicious ingested input is not re-emitted.
+</p>
+<p>Consumers that re-emit ingested content for crawling by search
+      engines should take reasonable measures to limit any use of their site
+      as a Search Engine Optimization loophole. This may include converting
+      un-trusted hyperlinks to text or including a rel="nofollow"
+      attribute.
+</p>
+<a name="iana"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.8"></a><h3>8.&nbsp;
+IANA Considerations</h3>
+
+<p>None.
+</p>
+<a name="license"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.9"></a><h3>9.&nbsp;
+License</h3>
+
+<p>As of October 12 2010, the following persons or entities have made this
+      Specification available under the Open Web Foundation Agreement Version
+      0.9, which is available at
+      <a href='http://www.openwebfoundation.org/legal/agreement-09'>http://www.openwebfoundation.org/legal/agreement-09</a>.
+
+        </p>
+<blockquote class="text">
+<p>[List of persons or entities]
+</p>
+</blockquote><p>
+      
+</p>
+<p>You can review the signed copies of the Open Web Foundation Agreement
+      Version 0.9 for this Specification at
+      <a href='http://activitystrea.ms/agreements'>http://activitystrea.ms/agreements</a>, which may also
+      include additional parties to those listed above.
+</p>
+<p>Your use of this Specification may be subject to other third party
+      rights. THIS SPECIFICATION IS PROVIDED “AS IS.” The contributors expressly
+      disclaim any warranties (express, implied, or otherwise), including
+      implied warranties of merchantability, non-infringement, fitness for a
+      particular purpose, or title, related to the Specification. The entire
+      risk as to implementing or otherwise using the Specification is assumed by
+      the Specification implementer and user. IN NO EVENT WILL ANY PARTY BE
+      LIABLE TO ANY OTHER PARTY FOR LOST PROFITS OR ANY FORM OF INDIRECT,
+      SPECIAL, INCIDENTAL, OR CONSEQUENTIAL DAMAGES OF ANY CHARACTER FROM ANY
+      CAUSES OF ACTION OF ANY KIND WITH RESPECT TO THIS SPECIFICATION OR ITS
+      GOVERNING AGREEMENT, WHETHER BASED ON BREACH OF CONTRACT, TORT (INCLUDING
+      NEGLIGENCE), OR OTHERWISE, AND WHETHER OR NOT THE OTHER PARTY HAS BEEN
+      ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+</p>
+<a name="rfc.references1"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<h3>10.&nbsp;Normative References</h3>
+<table width="99%" border="0">
+<tr><td class="author-text" valign="top"><a name="RFC2119">[RFC2119]</a></td>
+<td class="author-text">Bradner, S., &ldquo;<a href="http://tools.ietf.org/html/rfc2119">Key words for use in RFCs to Indicate Requirement
+          Levels</a>,&rdquo; March&nbsp;1997.</td></tr>
+<tr><td class="author-text" valign="top"><a name="RFC3986">[RFC3986]</a></td>
+<td class="author-text">Berners-Lee, T., Fielding, R., and L. Masinter, &ldquo;<a href="http://tools.ietf.org/html/rfc3986">Uniform Resource Identifiers (URI): Generic Syntax</a>,&rdquo; January&nbsp;2005.</td></tr>
+<tr><td class="author-text" valign="top"><a name="RFC3987">[RFC3987]</a></td>
+<td class="author-text">Duerst, M. and M. Suignard, &ldquo;<a href="http://tools.ietf.org/html/rfc3987">Internationalized Resource Identifiers (IRIs)</a>,&rdquo; January&nbsp;2005.</td></tr>
+<tr><td class="author-text" valign="top"><a name="RFC4287">[RFC4287]</a></td>
+<td class="author-text">Nottingham, M. and R. Sayre, &ldquo;<a href="http://tools.ietf.org/html/rfc4287">The Atom Syndication Format</a>,&rdquo; December&nbsp;2005.</td></tr>
+<tr><td class="author-text" valign="top"><a name="RSS2">[RSS2]</a></td>
+<td class="author-text">&ldquo;<a href="http://www.rssboard.org/rss-2-0-11">RSS 2.0 Specification</a>,&rdquo; March&nbsp;2009.</td></tr>
+<tr><td class="author-text" valign="top"><a name="xml-infoset">[xml-infoset]</a></td>
+<td class="author-text">Cowan, J., &ldquo;<a href="http://www.w3.org/TR/xml-infoset/">XML Information Set (Second Edition)</a>,&rdquo; February&nbsp;2004.</td></tr>
+<tr><td class="author-text" valign="top"><a name="xml-names">[xml-names]</a></td>
+<td class="author-text">Bray, T., &ldquo;<a href="http://www.w3.org/TR/REC-xml-names/">Namespaces in XML 1.0 (Third Edition)</a>,&rdquo; December&nbsp;2009.</td></tr>
+</table>
+
+<a name="acknowledgements"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.A"></a><h3>Appendix A.&nbsp;
+Acknowledgements</h3>
+
+<p>The authors wish to thank the Activity Streams community and
+      implementers for their support, encouragement, and enthusiasm including
+      but not limited to: Abdul Qabiz, Adina Levin, Adrian Chan, Adriana Javier,
+      Alexandre Loureiro Solleiro, Ari Steinberg, Arne Roomann-Kurrik, Beau
+      Lebens, Ben Hedrington, Ben Metcalfe, Ben Werdmuller, Bill de hÓra, Bob
+      Aman, Bob Wyman, Brynn Evans, Charlie Cauthen, Chris Chabot, Christian
+      Crumlish, Dan Brickley, Danny Ayers, Dare Obasanjo, Darren Bounds, David
+      Cramer, David Recordon, DeWitt Clinton, Douglas Pearce, Ed Summers, Elias
+      Bizannes, Elisabeth Norris, Eric Woods, Evan Prodromou, Gee-Hsien Chuang,
+      Greg Biggers, Hillary Madsen, Howard Liptzin, Ian Kennedy, Ivan Pulleyn,
+      Jacob Kim, James Falkner, James Walker, Jason Kahn, Jeff Kunins, Jian Lin,
+      John Panzer, Jon Paul Davies, Jonathan Coffman, Jonathan Dugan, Joseph
+      Boyle, Joseph Hosten, Joseph Smarr, Jud Valeski, Julien Genestoux, Jyri
+      Engeström, Kaliya Hamlin, Kevin Marks, Laurent Eschenauer, Manu Mukerji,
+      Mark Weitzel, Marshall Kirkpatrick, Mary Hoder, Matt Leventi, Matt
+      Wilkinson, Matthias Muller-Prove, Max Engel,  Melvin Carvalho, Michael
+      Richardson, Nate Benes, NeilFred Picciotto, Nick Lothian, Nissan Dookeran,
+      Nitya Narasimhan, Pablo Martin, Pat G. Cappalaere, Peter Ferne, Peter
+      Reiser, Peter Saint-Andre, Phil Wolff, Philip (flip) Kromer, Rick Severson,
+      Robert Langbert, Todd Barnard, Ryan Boyd, Sam Sethi, Scott Raymond, Scott
+      Seely, Simon Grant, Simon Wistow, Stephen Garcia, Steve Ivy, Steven
+      Livingstone-Perez, Sylvain Carle, Sylvain Hellegouarch, Tantek Celik, Tatu
+      Saloranta, Tim Moore, Timothy Young, Todd Barnard, Tosh Meston, and Tyler
+      Gillies.
+</p>
+<a name="examples"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.B"></a><h3>Appendix B.&nbsp;
+Examples</h3>
+
+<p>This appendix is non-normative.
+</p>
+<a name="examples.full"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.B.1"></a><h3>B.1.&nbsp;
+Full Activity Entry Examples</h3>
+<br /><hr class="insert" />
+<a name="examples.full.simple"></a>
+
+<p>A typical activity entry:
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>
+&lt;entry xmlns="http://www.w3.org/2005/Atom" xmlns:activity="http://activitystrea.ms/spec/1.0/"&gt;
+  &lt;id&gt;tag:photopanic.example.com,2009:activity/4859/4352&lt;/id&gt;
+  &lt;title&gt;Geraldine posted a Photo on PhotoPanic&lt;/title&gt;
+  &lt;published&gt;2009-11-02T15:29:00Z&lt;/published&gt;
+  &lt;link rel="alternate" type="text/html" href="http://example.com/geraldine/activities/4352" /&gt;
+  &lt;activity:verb&gt;post&lt;/activity:verb&gt;
+  &lt;activity:object&gt;
+    &lt;id&gt;tag:photopanic.example.com,2009:photo/4352&lt;/id&gt;
+    &lt;title&gt;My Cat&lt;/title&gt;
+    &lt;published&gt;2009-11-02T15:29:00Z&lt;/published&gt;
+    &lt;link rel="alternate" type="text/html" href="http://example.com/geraldine/photos/4352" /&gt;
+    &lt;activity:object-type&gt;photo&lt;/activity:object-type&gt;
+  &lt;/activity:object&gt;
+  &lt;content type="html"&gt;
+    &amp;lt;p&amp;gt;Geraldine posted a Photo on PhotoPanic&amp;lt;/p&amp;gt;
+    &amp;lt;img src="/geraldine/photos/4352.jpg"&amp;gt;
+  &lt;/content&gt;
+&lt;/entry&gt;
+</pre></div>
+<p>This example shows a typical activity entry using the
+          post verb defined by this specification and a hypothetical "photo"
+          object type. It also demonstrates the use of
+          <tt>atom:title</tt> and
+          <tt>atom:content</tt> to provide fallback content
+          for feed processors that do not support activity extensions. An
+          activity stream application might render this entry into the sentence
+          "Geraldine posted a photo titled 'My Cat'", with the photo title
+          presented as a link.
+</p><table border="0" cellpadding="0" cellspacing="2" align="center"><tr><td align="center"><font face="monaco, MS Sans Serif" size="1"><b>&nbsp;Figure&nbsp;1&nbsp;</b></font><br /></td></tr></table><hr class="insert" />
+<br /><hr class="insert" />
+<a name="examples.full.complex"></a>
+
+<p>A slightly more complex activity entry:
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>
+&lt;entry xmlns="http://www.w3.org/2005/Atom" xmlns:activity="http://activitystrea.ms/spec/1.0/"&gt;
+  &lt;id&gt;tag:photopanic.example.com,2009:/activity/4859/1643&lt;/id&gt;
+  &lt;title&gt;Geraldine posted a photo to the My Pets album.&lt;/title&gt;
+  &lt;published&gt;2010-06-21T00:28:35Z&lt;/published&gt;
+  &lt;link rel="alternate" type="text/html" href="http://example.com/geraldine/activities/1643" /&gt;
+  &lt;author&gt;
+    &lt;name&gt;Geraldine&lt;/name&gt;
+    &lt;uri&gt;http://example.com/geraldine&lt;/uri&gt;
+    &lt;id&gt;tag:photopanic.example.com,2009:person/4859&lt;/id&gt;
+    &lt;activity:object-type&gt;person&lt;/activity:object-type&gt;
+    &lt;link rel="alternate" type="text/html" href="http://example.com/geraldine" /&gt;
+  &lt;/author&gt;
+  &lt;activity:object&gt;
+    &lt;id&gt;tag:photopanic.example.com,2009:photo/1643&lt;/id&gt;
+    &lt;title&gt;My Cat&lt;/title&gt;
+    &lt;link rel="alternate" type="text/html" href="/geraldine/photos/1643" /&gt;
+    &lt;link rel="preview" type="image/jpeg" href="/geraldine/photos/1643/thumb.jpg" /&gt;
+    &lt;link rel="enclosure" type="image/jpeg" href="/geraldine/photos/1643/full.jpg" /&gt;
+    &lt;activity:object-type&gt;photo&lt;/activity:object-type&gt;
+  &lt;/activity:object&gt;
+  &lt;activity:target&gt;
+    &lt;id&gt;tag:photopanic.example.com,2009:photo-album/2519&lt;/id&gt;
+    &lt;title&gt;My Pets&lt;/title&gt;
+    &lt;link rel="alternate" type="text/html" href="/geraldine/albums/pets" /&gt;
+    &lt;activity:object-type&gt;photo-album&lt;/activity:object-type&gt;
+  &lt;/activity:target&gt;
+  &lt;content type="xhtml"&gt;...&lt;/content&gt;
+&lt;/entry&gt;
+</pre></div>
+<p>This example demonstrates the use of the actor,
+          verb, object and target elements.
+</p><table border="0" cellpadding="0" cellspacing="2" align="center"><tr><td align="center"><font face="monaco, MS Sans Serif" size="1"><b>&nbsp;Figure&nbsp;2&nbsp;</b></font><br /></td></tr></table><hr class="insert" />
+
+<a name="examples.implied"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.B.2"></a><h3>B.2.&nbsp;
+Implied Activity Entry Example</h3>
+
+<p>A simple implied activity entry:
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>
+&lt;entry xmlns="http://www.w3.org/2005/Atom" xmlns:activity="http://activitystrea.ms/spec/1.0/"&gt;
+  &lt;id&gt;tag:photopanic.example.com,2009:photo/4352&lt;/id&gt;
+  &lt;title&gt;My Cat&lt;/title&gt;
+  &lt;published&gt;2010-11-02T15:29:00Z&lt;/published&gt;
+  &lt;link rel="alternate" type="text/html" href="http://example.com/geraldine/photos/4352" /&gt;
+  &lt;activity:object-type&gt;photo&lt;/activity:object-type&gt;
+&lt;/entry&gt;
+</pre></div>
+<p>This example shows the same activity from
+          <a class='info' href='#examples.full'>Appendix&nbsp;B.1<span> (</span><span class='info'>Full Activity Entry Examples</span><span>)</span></a>, but represented using the
+          implied activity shorthand.  Note that some of the components of the
+          Activity Construct, such as title and summary, are not supported by
+          this representation.
+</p>
+<a name="rfc.authors"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<h3>Authors' Addresses</h3>
+<table width="99%" border="0" cellpadding="0" cellspacing="0">
+<tr><td class="author-text">&nbsp;</td>
+<td class="author-text">Martin Atkins</td></tr>
+<tr><td class="author-text">&nbsp;</td>
+<td class="author-text">SAY Media</td></tr>
+<tr cellpadding="3"><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td class="author-text">&nbsp;</td>
+<td class="author-text">Will Norris</td></tr>
+<tr><td class="author-text">&nbsp;</td>
+<td class="author-text">Google</td></tr>
+<tr cellpadding="3"><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td class="author-text">&nbsp;</td>
+<td class="author-text">Chris Messina</td></tr>
+<tr><td class="author-text">&nbsp;</td>
+<td class="author-text">Citizen Agency, Google</td></tr>
+<tr cellpadding="3"><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td class="author-text">&nbsp;</td>
+<td class="author-text">Monica Wilkinson</td></tr>
+<tr><td class="author-text">&nbsp;</td>
+<td class="author-text">MySpace, Facebook, Socialcast</td></tr>
+<tr cellpadding="3"><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td class="author-text">&nbsp;</td>
+<td class="author-text">Rob Dolin</td></tr>
+<tr><td class="author-text">&nbsp;</td>
+<td class="author-text">Microsoft</td></tr>
+</table>
+</body></html>

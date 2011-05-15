@@ -1,0 +1,1736 @@
+
+
+
+Network Working Group                                           J. Snell
+Internet-Draft                                                       IBM
+Intended status: Experimental                                  M. Atkins
+Expires: November 14, 2011                                     SAY Media
+                                                             D. Recordon
+                                                     Six Apart, Facebook
+                                                              C. Messina
+                                                  Citizen Agency, Google
+                                                               M. Keller
+                                                       MySpace, Facebook
+                                                            A. Steinberg
+                                                                Facebook
+                                                                R. Dolin
+                                                               Microsoft
+                                                            May 13, 2011
+
+
+                      Activity Base Schema (Draft)
+                           activity-schema-01
+
+Status of this Memo
+
+   This document is an Internet-Draft and is NOT offered in accordance
+   with Section 10 of RFC 2026, and the author does not provide the IETF
+   with any rights other than to publish as an Internet-Draft.
+
+   Internet-Drafts are working documents of the Internet Engineering
+   Task Force (IETF), its areas, and its working groups.  Note that
+   other groups may also distribute working documents as Internet-
+   Drafts.
+
+   Internet-Drafts are draft documents valid for a maximum of six months
+   and may be updated, replaced, or obsoleted by other documents at any
+   time.  It is inappropriate to use Internet-Drafts as reference
+   material or to cite them other than as "work in progress."
+
+   The list of current Internet-Drafts can be accessed at
+   http://www.ietf.org/ietf/1id-abstracts.txt.
+
+   The list of Internet-Draft Shadow Directories can be accessed at
+   http://www.ietf.org/shadow.html.
+
+   This Internet-Draft will expire on November 14, 2011.
+
+Abstract
+
+   This document presents a base set of Object types and Verbs for use
+   with Activity Streams.
+
+
+
+Snell, et al.           Expires November 14, 2011               [Page 1]
+
+Internet-Draft               ActivitySchema                     May 2011
+
+
+Requirements Language
+
+   The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
+   "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this
+   document are to be interpreted as described in RFC 2119 [RFC2119].
+
+
+Table of Contents
+
+   1.  Introduction . . . . . . . . . . . . . . . . . . . . . . . . .  3
+   2.  Notational Conventions . . . . . . . . . . . . . . . . . . . .  3
+   3.  Verbs  . . . . . . . . . . . . . . . . . . . . . . . . . . . .  4
+   4.  Object Types . . . . . . . . . . . . . . . . . . . . . . . . .  7
+     4.1.  Article  . . . . . . . . . . . . . . . . . . . . . . . . .  7
+     4.2.  Audio  . . . . . . . . . . . . . . . . . . . . . . . . . .  8
+     4.3.  Badge  . . . . . . . . . . . . . . . . . . . . . . . . . .  9
+     4.4.  Bookmark . . . . . . . . . . . . . . . . . . . . . . . . . 10
+     4.5.  Collection . . . . . . . . . . . . . . . . . . . . . . . . 11
+     4.6.  Comment  . . . . . . . . . . . . . . . . . . . . . . . . . 12
+     4.7.  Event  . . . . . . . . . . . . . . . . . . . . . . . . . . 14
+     4.8.  File . . . . . . . . . . . . . . . . . . . . . . . . . . . 15
+     4.9.  Group  . . . . . . . . . . . . . . . . . . . . . . . . . . 16
+     4.10. Note . . . . . . . . . . . . . . . . . . . . . . . . . . . 17
+     4.11. Person . . . . . . . . . . . . . . . . . . . . . . . . . . 18
+     4.12. Photo  . . . . . . . . . . . . . . . . . . . . . . . . . . 19
+     4.13. Place  . . . . . . . . . . . . . . . . . . . . . . . . . . 20
+     4.14. Product  . . . . . . . . . . . . . . . . . . . . . . . . . 21
+     4.15. Question . . . . . . . . . . . . . . . . . . . . . . . . . 22
+     4.16. Review . . . . . . . . . . . . . . . . . . . . . . . . . . 23
+     4.17. Service  . . . . . . . . . . . . . . . . . . . . . . . . . 24
+     4.18. Video  . . . . . . . . . . . . . . . . . . . . . . . . . . 25
+   5.  Base Extension Properties  . . . . . . . . . . . . . . . . . . 26
+     5.1.  Location . . . . . . . . . . . . . . . . . . . . . . . . . 27
+     5.2.  Mood . . . . . . . . . . . . . . . . . . . . . . . . . . . 27
+     5.3.  Rating . . . . . . . . . . . . . . . . . . . . . . . . . . 28
+     5.4.  Source Property  . . . . . . . . . . . . . . . . . . . . . 28
+     5.5.  Tags . . . . . . . . . . . . . . . . . . . . . . . . . . . 29
+   6.  Normative References . . . . . . . . . . . . . . . . . . . . . 29
+   Appendix A.  Acknowledgements  . . . . . . . . . . . . . . . . . . 30
+   Authors' Addresses . . . . . . . . . . . . . . . . . . . . . . . . 30
+
+
+
+
+
+
+
+
+
+
+
+Snell, et al.           Expires November 14, 2011               [Page 2]
+
+Internet-Draft               ActivitySchema                     May 2011
+
+
+1.  Introduction
+
+   This document presents a base set of object types and verbs for use
+   with Activity Streams.
+
+
+2.  Notational Conventions
+
+   This specification allows the use of IRIs [RFC3987].  Every URI
+   [RFC3986] is also an IRI, so a URI MAY be used wherever an IRI is
+   named.  When an IRI that is not also a URI is given for
+   dereferencing, it MUST be mapped to a URI using the steps in Section
+   3.1 of [RFC3987].  When an IRI is serving as an identifier, it MUST
+   NOT be so mapped.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Snell, et al.           Expires November 14, 2011               [Page 3]
+
+Internet-Draft               ActivitySchema                     May 2011
+
+
+3.  Verbs
+
+   +------------------+------------------------------------------------+
+   | Verb             | Description                                    |
+   +------------------+------------------------------------------------+
+   | "add"            | Indicates that the actor has added the object  |
+   |                  | to the target. For instance, adding a photo to |
+   |                  | an album.                                      |
+   | "cancel"         | Indicates that the actor has canceled the      |
+   |                  | object. For instance, canceling a calendar     |
+   |                  | event.                                         |
+   | "delete"         | Indicates that the actor has deleted the       |
+   |                  | object. This implies, but does not require,    |
+   |                  | the permanent destruction of the object.       |
+   | "favorite"       | Indicates that the actor marked the object as  |
+   |                  | an item of special interest.                   |
+   | "follow"         | Indicates that the actor began following the   |
+   |                  | activity of the object. In most cases, the     |
+   |                  | object will be a Person (Section 4.11), but it |
+   |                  | can potentially be of any type that can        |
+   |                  | sensibly generate activity. Processors MAY     |
+   |                  | ignore (silently drop) successive identical    |
+   |                  | "follow" activities.                           |
+   | "give"           | Indicates that the actor is giving an object   |
+   |                  | to the target. Examples include one person     |
+   |                  | giving a "badge" object to another person. The |
+   |                  | "object" identifies the object being given.    |
+   |                  | The "target" identifies the receiver.          |
+   | "ignore"         | Indicates that the actor has ignored the       |
+   |                  | object. For instance, this verb may be used    |
+   |                  | when an actor has ignored a friend request, in |
+   |                  | which case the object may be the               |
+   |                  | "request-friend" activity.                     |
+   | "invite"         | Indicates that the actor has invited the       |
+   |                  | object, typically a person object, to join or  |
+   |                  | participate in the object described by the     |
+   |                  | "target". The target could, for instance, be   |
+   |                  | an event, group or a service.                  |
+   | "join"           | Indicates that the actor has become a member   |
+   |                  | of the object. This specification only defines |
+   |                  | the meaning of this verb when its object is a  |
+   |                  | group (Section 4.9), though implementors       |
+   |                  | SHOULD be prepared to handle other Object      |
+   |                  | types as meaning MAY be provided by extension  |
+   |                  | specifications. Processors MAY ignore          |
+   |                  | (silently drop) successive identical "join"    |
+   |                  | activities.                                    |
+
+
+
+
+Snell, et al.           Expires November 14, 2011               [Page 4]
+
+Internet-Draft               ActivitySchema                     May 2011
+
+
+   | "leave"          | Indicates that the actor has left the object.  |
+   |                  | For instance, a Person leaving a Group or      |
+   |                  | checking-out of a Place.                       |
+   | "like"           | Indicates that the actor marked the object as  |
+   |                  | an item of special interest. The "like" verb   |
+   |                  | is considered to be an alias of "favorite".    |
+   |                  | The two verb are semantically identical.       |
+   | "make-friend"    | Indicates the creation of a friendship that is |
+   |                  | reciprocated by the object. Since this verb    |
+   |                  | implies an activity on the part of its object, |
+   |                  | processors MUST NOT accept activities with     |
+   |                  | this verb unless they are able to verify       |
+   |                  | through some external means that there is in   |
+   |                  | fact a reciprocated connection. For example, a |
+   |                  | processor may have received a guarantee from a |
+   |                  | particular publisher that the publisher will   |
+   |                  | only use this Verb in cases where a reciprocal |
+   |                  | relationship exists.                           |
+   | "play"           | Indicates that the actor spent some time       |
+   |                  | enjoying the object. For example, if the       |
+   |                  | object is a video this indicates that the      |
+   |                  | subject watched all or part of the video.      |
+   | "receive"        | Indicates that the actor is receiving an       |
+   |                  | object. Examples include a person receiving a  |
+   |                  | "badge" object. The "object" identifies the    |
+   |                  | object being received.                         |
+   | "remove"         | Indicates that the actor has removed the       |
+   |                  | object from the target.                        |
+   | "remove-friend"  | Indicates that the actor has removed the       |
+   |                  | object from the collection of friends.         |
+   | "request-friend" | Indicates the creation of a friendship that    |
+   |                  | has not yet been reciprocated by the object.   |
+   | "rsvp-maybe"     | The "possible RSVP" verb indicates that the    |
+   |                  | actor has made a possible RSVP for the object. |
+   |                  | This specification only defines the meaning of |
+   |                  | this verb when its object is an event (see     |
+   |                  | Section 4.7), though implementors SHOULD be    |
+   |                  | prepared to handle other object types as       |
+   |                  | meaning MAY be provided by extension           |
+   |                  | specifications. The use of this verb is only   |
+   |                  | appropriate when the RSVP was created by an    |
+   |                  | explicit action by the actor. It is not        |
+   |                  | appropriate to use this verb when a user has   |
+   |                  | been added as an attendee by an event          |
+   |                  | organiser or administrator.                    |
+
+
+
+
+
+
+Snell, et al.           Expires November 14, 2011               [Page 5]
+
+Internet-Draft               ActivitySchema                     May 2011
+
+
+   | "rsvp-no"        | The "negative RSVP" verb indicates that the    |
+   |                  | actor has made a negative RSVP for the object. |
+   |                  | This specification only defines the meaning of |
+   |                  | this verb when its object is an event (see     |
+   |                  | Section 4.7), though implementors SHOULD be    |
+   |                  | prepared to handle other object types as       |
+   |                  | meaning MAY be provided by extension           |
+   |                  | specifications. The use of this verb is only   |
+   |                  | appropriate when the RSVP was created by an    |
+   |                  | explicit action by the actor. It is not        |
+   |                  | appropriate to use this verb when a user has   |
+   |                  | been added as an attendee by an event          |
+   |                  | organiser or administrator.                    |
+   | "rsvp-yes"       | The "positive RSVP" verb indicates that the    |
+   |                  | actor has made a positive RSVP for an object.  |
+   |                  | This specification only defines the meaning of |
+   |                  | this verb when its object is an event (see     |
+   |                  | Section 4.7), though implementors SHOULD be    |
+   |                  | prepared to handle other object types as       |
+   |                  | meaning MAY be provided by extension           |
+   |                  | specifications. The use of this verb is only   |
+   |                  | appropriate when the RSVP was created by an    |
+   |                  | explicit action by the actor. It is not        |
+   |                  | appropriate to use this verb when a user has   |
+   |                  | been added as an attendee by an event          |
+   |                  | organiser or administrator.                    |
+   | "save"           | Indicates that the actor has called out the    |
+   |                  | object as being of interest primarily to him-  |
+   |                  | or herself. Though this action MAY be shared   |
+   |                  | publicly, the implication is that the object   |
+   |                  | has been saved primarily for the actor's own   |
+   |                  | benefit rather than to show it to others as    |
+   |                  | would be indicated by the "share" verb.        |
+   | "share"          | Indicates that the actor has called out the    |
+   |                  | object to readers. In most cases, the actor    |
+   |                  | did not create the object being shared, but is |
+   |                  | instead drawing attention to it.               |
+   | "stop-following" | Indicates that the actor has stopped following |
+   |                  | the object.                                    |
+   | "tag"            | Indicates that the actor has identified the    |
+   |                  | presence of a target inside another object.    |
+   |                  | For example, the actor may have specified that |
+   |                  | a particular user appears in a photo. The      |
+   |                  | target of the "tag" verb gives the object in   |
+   |                  | which the tag has been added. For example, if  |
+   |                  | a user appears in a photo, the "object" is the |
+   |                  | user and the "target" is the photo.            |
+
+
+
+
+Snell, et al.           Expires November 14, 2011               [Page 6]
+
+Internet-Draft               ActivitySchema                     May 2011
+
+
+   | "unfavorite"     | Indicates that the actor has removed the       |
+   |                  | object from the collection of favorited items. |
+   | "unlike"         | Indicates that the actor has removed the       |
+   |                  | object from the collection of liked items.     |
+   | "unsave"         | Indicates that the actor has removed the       |
+   |                  | object from the collection of saved items.     |
+   | "update"         | The "update" verb indicates that the actor has |
+   |                  | modified the object. Implementors SHOULD use   |
+   |                  | verbs such as "post" where the actor is adding |
+   |                  | new items to a collection (Section 4.5) or     |
+   |                  | similar. Update is reserved for modifications  |
+   |                  | to existing objects or data such as changing a |
+   |                  | user's profile information.                    |
+   +------------------+------------------------------------------------+
+
+
+4.  Object Types
+
+4.1.  Article
+
+   The "article" object type indicates that the object is an article,
+   such as a news article, a knowledge base entry, or other similar
+   construct.  Such objects generally consist of paragraphs of text, in
+   some cases incorporating embedded media such as photos and inline
+   hyperlinks to other resources.
+
+   At a minimum, an article object has the following properties:
+
+   +---------------+---------------+-----------------------------------+
+   | Property      | Value         | Description                       |
+   +---------------+---------------+-----------------------------------+
+   | "author"      | Activity      | Activity Object, typically using  |
+   |               | Object        | the "person" object type,         |
+   |               |               | responsible for the creation of   |
+   |               |               | the article. If the article       |
+   |               |               | object appears within an          |
+   |               |               | activity, and the "author" of the |
+   |               |               | article is the "actor" for the    |
+   |               |               | activity, the "author" property   |
+   |               |               | MAY be omitted                    |
+   | "content"     | JSON          | The optional main body content    |
+   |               | [RFC4627]     | represented as a fragment of      |
+   |               | String        | HTML.                             |
+   | "displayName" | JSON          | The natural-language,             |
+   |               | [RFC4627]     | human-readable and plain-text     |
+   |               | String        | title of the article.HTML markup  |
+   |               |               | MUST NOT be included              |
+
+
+
+
+Snell, et al.           Expires November 14, 2011               [Page 7]
+
+Internet-Draft               ActivitySchema                     May 2011
+
+
+   | "id"          | JSON          | The unique identifier for the     |
+   |               | [RFC4627]     | article.                          |
+   |               | String        |                                   |
+   | "published"   | JSON          | The optional time the article was |
+   |               | [RFC4627]     | created in the form of an         |
+   |               | String        | [RFC3339] "date-time".            |
+   | "summary"     | JSON          | Optional short, natural-language, |
+   |               | [RFC4627]     | human-readable snippet or summary |
+   |               | String        | of the article represented as a   |
+   |               |               | fragment of HTML.                 |
+   | "updated"     | JSON          | The optional time the article was |
+   |               | [RFC4627]     | last updated in the form of an    |
+   |               | String        | [RFC3339] "date-time".            |
+   | "url"         | JSON          | The permanent IRI of the          |
+   |               | [RFC4627]     | article's HTML representation.    |
+   |               | String        |                                   |
+   +---------------+---------------+-----------------------------------+
+
+4.2.  Audio
+
+   The "audio" object type represents audio content.
+
+   At a minimum, an audio object has the following properties:
+
+   +---------------+---------------+-----------------------------------+
+   | Property      | Value         | Description                       |
+   +---------------+---------------+-----------------------------------+
+   | "author"      | Activity      | Activity Object, typically using  |
+   |               | Object        | the "person" object type,         |
+   |               |               | responsible for the creation of   |
+   |               |               | the audio stream. If the audio    |
+   |               |               | object appears within an          |
+   |               |               | activity, and the "author" is the |
+   |               |               | "actor" for the activity, the     |
+   |               |               | "author" property MAY be omitted  |
+   | "displayName" | JSON          | The natural-language,             |
+   |               | [RFC4627]     | human-readable and plain-text     |
+   |               | String        | title for the audio stream. HTML  |
+   |               |               | markup MUST NOT be included       |
+   | "embedCode"   | JSON          | An optional HTML fragment that,   |
+   |               | [RFC4627]     | when embedded in an HTML page,    |
+   |               | String        | will provide an interactive       |
+   |               |               | player UI for the audio stream.   |
+   | "id"          | JSON          | The unique identifier for the     |
+   |               | [RFC4627]     | audio object.                     |
+   |               | String        |                                   |
+
+
+
+
+
+Snell, et al.           Expires November 14, 2011               [Page 8]
+
+Internet-Draft               ActivitySchema                     May 2011
+
+
+   | "published"   | JSON          | The optional time the audio       |
+   |               | [RFC4627]     | object was created in the form of |
+   |               | String        | an [RFC3339] "date-time".         |
+   | "stream"      | Media Link    | A link to the audio content       |
+   |               | [TODO: Link   | itself. Represented in JSON as a  |
+   |               | to            | media link as defined in [TODO:   |
+   |               | JSON-Activity | Link to JSON-Activity Media       |
+   |               | Media Link]   | Link].                            |
+   | "summary"     | JSON          | Optional short, natural-language, |
+   |               | [RFC4627]     | human-readable snippet or summary |
+   |               | String        | of the audio stream represented   |
+   |               |               | as a fragment of HTML.            |
+   | "updated"     | JSON          | The optional time the audio       |
+   |               | [RFC4627]     | object was last updated in the    |
+   |               | String        | form of an [RFC3339] "date-time". |
+   +---------------+---------------+-----------------------------------+
+
+4.3.  Badge
+
+   The "badge" object type represents a Badge or Award granted to an
+   object (typically a person).
+
+   At a minimum, an badge object has the following properties:
+
+   +---------------+---------------+-----------------------------------+
+   | Property      | Value         | Description                       |
+   +---------------+---------------+-----------------------------------+
+   | "author"      | Activity      | Activity Object, typically using  |
+   |               | Object        | the "person" object type,         |
+   |               |               | responsible for the creation of   |
+   |               |               | the badge. If the badge object    |
+   |               |               | appears within an activity, and   |
+   |               |               | the "author" is the "actor" for   |
+   |               |               | the activity, the "author"        |
+   |               |               | property MAY be omitted           |
+   | "displayName" | JSON          | The natural-language,             |
+   |               | [RFC4627]     | human-readable and plain-text     |
+   |               | String        | title for the badge. HTML markup  |
+   |               |               | MUST NOT be included              |
+   | "id"          | JSON          | The unique identifier for the     |
+   |               | [RFC4627]     | badge object.                     |
+   |               | String        |                                   |
+   | "image"       | Media Link    | An optional link to an image      |
+   |               | [TODO:        | resource providing a visual       |
+   |               | Reference     | representation of the badge.      |
+   |               | media link    | Processors MAY ignore thumbnails  |
+   |               | spec]         | that are of an inappropriate size |
+   |               |               | for their user interface.         |
+
+
+
+Snell, et al.           Expires November 14, 2011               [Page 9]
+
+Internet-Draft               ActivitySchema                     May 2011
+
+
+   | "published"   | JSON          | The optional time the badge       |
+   |               | [RFC4627]     | object was created in the form of |
+   |               | String        | an [RFC3339] "date-time".         |
+   | "summary"     | JSON          | Optional short, natural-language, |
+   |               | [RFC4627]     | human-readable description of the |
+   |               | String        | badge represented as a fragment   |
+   |               |               | of HTML.                          |
+   | "updated"     | JSON          | The optional time the badge       |
+   |               | [RFC4627]     | object was last updated in the    |
+   |               | String        | form of an [RFC3339] "date-time". |
+   | "url"         | JSON          | The permanent IRI of the badge's  |
+   |               | [RFC4627]     | HTML representation.              |
+   |               | String        |                                   |
+   +---------------+---------------+-----------------------------------+
+
+4.4.  Bookmark
+
+   The "bookmark" object type represents a pointer to some URL --
+   typically a web page.  In most cases, a bookmark is specific to a
+   given user and contains metadata chosen by that user.  Bookmark
+   Objects are similar in principle to the concept of bookmarks or
+   favorites in a web browser.  A bookmark represents a pointer to the
+   URL, not the URL or the associated resource itself.
+
+   When dealing with bookmarks it is important to note the distinction
+   between the title, description, and URL of the bookmark itself and
+   the title, content, and URL of the resource that is the target of the
+   bookmark.  In some implementations these MAY be the same, but
+   bookmark managers often allow a user to edit the title and
+   description of his or her own bookmarks to differ from the metadata
+   on the target itself.
+
+   Some implementations refer to this object type as a "link".  This
+   specification uses the term "bookmark" to avoid confusion with the
+   general concept of hyperlinks which apply to all object types.
+
+   Since bookmarks are often specific to a particular user, even though
+   multiple users might have bookmarks pointing at the same resource, it
+   is appropriate to use the "post" verb to describe the publication of
+   such a bookmark.  The "favorite" verb SHOULD be used when a user
+   flags another user's bookmark as being a favorite without creating
+   his own bookmark, or when a user flags his own bookmark as being a
+   favorite as a special classification within his own bookmark
+   collection.
+
+   At a minimum, a bookmark object has the following properties:
+
+
+
+
+
+Snell, et al.           Expires November 14, 2011              [Page 10]
+
+Internet-Draft               ActivitySchema                     May 2011
+
+
+   +---------------+---------------+-----------------------------------+
+   | Property      | Value         | Description                       |
+   +---------------+---------------+-----------------------------------+
+   | "author"      | Activity      | Activity Object, typically using  |
+   |               | Object        | the "person" object type,         |
+   |               |               | responsible for the creation of   |
+   |               |               | the bookmark. If the bookmark     |
+   |               |               | object appears within an          |
+   |               |               | activity, and the "author" is the |
+   |               |               | "actor" for the activity, the     |
+   |               |               | "author" property MAY be omitted  |
+   | "displayName" | JSON          | The natural-language,             |
+   |               | [RFC4627]     | human-readable and plain-text     |
+   |               | String        | title of the bookmark as entered  |
+   |               |               | by the user who created it. HTML  |
+   |               |               | markup MUST NOT be included.      |
+   |               |               | Publishers MAY user the title of  |
+   |               |               | the target resource as a default  |
+   |               |               | for this peroperty where a user   |
+   |               |               | has not entered a customized      |
+   |               |               | value                             |
+   | "id"          | JSON          | The unique identifier for the     |
+   |               | [RFC4627]     | bookmark object.                  |
+   |               | String        |                                   |
+   | "image"       | Media Link    | An optional link to an image      |
+   |               | [TODO:        | resource providing a visual       |
+   |               | Reference     | representation of the bookmarked  |
+   |               | media link    | resource. Processors MAY ignore   |
+   |               | spec]         | thumbnails that are of an         |
+   |               |               | inappropriate size for their user |
+   |               |               | interface.                        |
+   | "published"   | JSON          | The optional time the bookmark    |
+   |               | [RFC4627]     | object was created in the form of |
+   |               | String        | an [RFC3339] "date-time".         |
+   | "targetUrl"   | JSON          | The IRI of the item that is the   |
+   |               | [RFC4627]     | target of the bookmark.           |
+   |               | String        |                                   |
+   | "updated"     | JSON          | The optional time the bookmark    |
+   |               | [RFC4627]     | object was last updated in the    |
+   |               | String        | form of an [RFC3339] "date-time". |
+   +---------------+---------------+-----------------------------------+
+
+4.5.  Collection
+
+   The "collection" object type represents a collection of objects of
+   any type.  This object type can be used, for instance, to represent a
+   collection of files like a folder, a collection of photos like an
+   album, and so forth.
+
+
+
+Snell, et al.           Expires November 14, 2011              [Page 11]
+
+Internet-Draft               ActivitySchema                     May 2011
+
+
+   At a minimum, the collection object has the following properties:
+
+   +---------------+---------------+-----------------------------------+
+   | Property      | Value         | Description                       |
+   +---------------+---------------+-----------------------------------+
+   | "author"      | Activity      | Activity Object, typically using  |
+   |               | Object        | the "person" object type,         |
+   |               |               | responsible for the creation of   |
+   |               |               | the collection. If the collection |
+   |               |               | object appears within an          |
+   |               |               | activity, and the "author" is the |
+   |               |               | "actor" for the activity, the     |
+   |               |               | "author" property MAY be omitted  |
+   | "displayName" | JSON          | The natural-language,             |
+   |               | [RFC4627]     | human-readable and plain-text     |
+   |               | String        | title of the collection.          |
+   | "id"          | JSON          | The unique identifier for the     |
+   |               | [RFC4627]     | collection object.                |
+   |               | String        |                                   |
+   | "image"       | Media Link    | A link to an image resource that  |
+   |               |               | can be used as a preview image    |
+   |               |               | for the collection. Processors    |
+   |               |               | MAY ignore images that are of an  |
+   |               |               | inappropriate size for their user |
+   |               |               | interface.                        |
+   | "objectTypes" | JSON          | An optional array of JSON strings |
+   |               | [RFC4627]     | identifying the member object     |
+   |               | Array of      | types for the collection.         |
+   |               | Strings       |                                   |
+   | "published"   | JSON          | The optional time the collection  |
+   |               | [RFC4627]     | object was created in the form of |
+   |               | String        | an [RFC3339] "date-time".         |
+   | "updated"     | JSON          | The optional time the collection  |
+   |               | [RFC4627]     | object was last updated in the    |
+   |               | String        | form of an [RFC3339] "date-time". |
+   | "url"         | JSON          | The permanent IRI of the          |
+   |               | [RFC4627]     | collection's HTML representation. |
+   |               | String        |                                   |
+   +---------------+---------------+-----------------------------------+
+
+4.6.  Comment
+
+   The "comment" object type represents a textual response to another
+   object.  The comment object type MUST NOT be used for other kinds of
+   responses, such as video replies or reviews.
+
+   At a minimum, the comment object has the following properties:
+
+
+
+
+Snell, et al.           Expires November 14, 2011              [Page 12]
+
+Internet-Draft               ActivitySchema                     May 2011
+
+
+   +---------------+---------------+-----------------------------------+
+   | Property      | Value         | Description                       |
+   +---------------+---------------+-----------------------------------+
+   | "author"      | Activity      | Activity Object, typically using  |
+   |               | Object        | the "person" object type,         |
+   |               |               | responsible for the creation of   |
+   |               |               | the comment. If the comment       |
+   |               |               | object appears within an          |
+   |               |               | activity, and the "author" is the |
+   |               |               | "actor" for the activity, the     |
+   |               |               | "author" property MAY be omitted  |
+   | "content"     | JSON          | The main body content represented |
+   |               | [RFC4627]     | as a fragment of HTML. Publishers |
+   |               | String        | SHOULD include any markup         |
+   |               |               | necessary to achieve a similar    |
+   |               |               | presentation to that on the       |
+   |               |               | publisher's own HTML pages.       |
+   |               |               | Processors MAY remove all HTML    |
+   |               |               | markup and consider the comment   |
+   |               |               | to be plain text.                 |
+   | "displayName" | JSON          | The optional, natural-language,   |
+   |               | [RFC4627]     | human-readable and plain-text     |
+   |               | String        | subject of the comment. Many      |
+   |               |               | systems do not have the concept   |
+   |               |               | of a title or subject for a       |
+   |               |               | comment; such systems MUST omit   |
+   |               |               | the "displayName" property.       |
+   |               |               | Processors SHOULD refer to such   |
+   |               |               | comments as simply being "a       |
+   |               |               | comment", with appropriate        |
+   |               |               | localization, if they are to be   |
+   |               |               | described in a sentence.          |
+   | "id"          | JSON          | The unique identifier for the     |
+   |               | [RFC4627]     | comment object.                   |
+   |               | String        |                                   |
+   | "inReplyTo"   | JSON          | A listing of one or more objects  |
+   |               | [RFC4627]     | for which this object is a        |
+   |               | Array of      | response.                         |
+   |               | Objects       |                                   |
+   | "published"   | JSON          | The optional time the comment     |
+   |               | [RFC4627]     | object was created in the form of |
+   |               | String        | an [RFC3339] "date-time".         |
+   | "updated"     | JSON          | The optional time the comment     |
+   |               | [RFC4627]     | object was last updated in the    |
+   |               | String        | form of an [RFC3339] "date-time". |
+   +---------------+---------------+-----------------------------------+
+
+
+
+
+
+Snell, et al.           Expires November 14, 2011              [Page 13]
+
+Internet-Draft               ActivitySchema                     May 2011
+
+
+4.7.  Event
+
+   The "event" object type represents an event that occurs in a certain
+   place during a particular interval of time.
+
+   At a minimum, the event object has the following properties:
+
+   +------------------+---------------+--------------------------------+
+   | Property         | Value         | Description                    |
+   +------------------+---------------+--------------------------------+
+   | "attending"      | Collection    | An optional link to a          |
+   |                  | object        | collection providing           |
+   |                  |               | information about actors who   |
+   |                  |               | have responded to the event    |
+   |                  |               | object using the "rsvp-yes"    |
+   |                  |               | verb.                          |
+   | "author"         | Activity      | Activity Object, typically     |
+   |                  | Object        | using the "person" object      |
+   |                  |               | type, responsible for the      |
+   |                  |               | creation of the event. If the  |
+   |                  |               | event object appears within an |
+   |                  |               | activity, and the "author" is  |
+   |                  |               | the "actor" for the activity,  |
+   |                  |               | the "author" property MAY be   |
+   |                  |               | omitted                        |
+   | "displayName"    | JSON          | The natural-language,          |
+   |                  | [RFC4627]     | human-readable and plain-text  |
+   |                  | String        | title of the event.            |
+   | "endTime"        | JSON          | The date and time that the     |
+   |                  | [RFC4627]     | event ends represented as a    |
+   |                  | String        | JSON String conforming to the  |
+   |                  |               | "date-time" production in      |
+   |                  |               | [RFC3339]                      |
+   | "id"             | JSON          | The unique identifier for the  |
+   |                  | [RFC4627]     | event object.                  |
+   |                  | String        |                                |
+   | "location"       | Place         | The optional, location or      |
+   |                  | (Section 5.1) | venue for the event expressed  |
+   |                  | object        | as a place object as described |
+   |                  |               | in Section 5.1.                |
+   | "maybeAttending" | Collection    | An optional link to a          |
+   |                  | object        | collection providing           |
+   |                  |               | information about actors who   |
+   |                  |               | have responded to the event    |
+   |                  |               | object using the "rsvp-maybe"  |
+   |                  |               | verb.                          |
+
+
+
+
+
+Snell, et al.           Expires November 14, 2011              [Page 14]
+
+Internet-Draft               ActivitySchema                     May 2011
+
+
+   | "notAttending"   | Collection    | An optional link to a          |
+   |                  | object        | collection providing           |
+   |                  |               | information about actors who   |
+   |                  |               | have responded to the event    |
+   |                  |               | object using the "rsvp-no"     |
+   |                  |               | verb.                          |
+   | "published"      | JSON          | The optional time the event    |
+   |                  | [RFC4627]     | object was created in the form |
+   |                  | String        | of an [RFC3339] "date-time".   |
+   | "startTime"      | JSON          | The date and time that the     |
+   |                  | [RFC4627]     | event begins represented as a  |
+   |                  | String        | JSON String conforming to the  |
+   |                  |               | "date-time" production in      |
+   |                  |               | [RFC3339]                      |
+   | "updated"        | JSON          | The optional time the event    |
+   |                  | [RFC4627]     | object was last updated in the |
+   |                  | String        | form of an [RFC3339]           |
+   |                  |               | "date-time".                   |
+   | "url"            | JSON          | The permanent IRI of the       |
+   |                  | [RFC4627]     | event's HTML representation.   |
+   |                  | String        |                                |
+   +------------------+---------------+--------------------------------+
+
+4.8.  File
+
+   The "file" object type represents some document or other file with no
+   additional machine-readable semantics.
+
+   It is intended that this type be used as a base type for other
+   Objects that manifest as files, so that additional semantics can be
+   added while providing a fallback ability for clients that do not
+   support the more specific Object type.
+
+   At a minimum, the file object has the following properties:
+
+   +---------------+---------------+-----------------------------------+
+   | Property      | Value         | Description                       |
+   +---------------+---------------+-----------------------------------+
+   | "author"      | Activity      | Activity Object, typically using  |
+   |               | Object        | the "person" object type,         |
+   |               |               | responsible for the creation of   |
+   |               |               | the file. If the file object      |
+   |               |               | appears within an activity, and   |
+   |               |               | the "author" is the "actor" for   |
+   |               |               | the activity, the "author"        |
+   |               |               | property MAY be omitted           |
+
+
+
+
+
+Snell, et al.           Expires November 14, 2011              [Page 15]
+
+Internet-Draft               ActivitySchema                     May 2011
+
+
+   | "displayName" | JSON          | The natural-language,             |
+   |               | [RFC4627]     | human-readable and plain-text     |
+   |               | String        | title of the file.                |
+   | "fileUrl"     | JSON          | The IRI of the file described by  |
+   |               | [RFC4627]     | this object.                      |
+   |               | String        |                                   |
+   | "id"          | JSON          | The unique identifier for the     |
+   |               | [RFC4627]     | file object.                      |
+   |               | String        |                                   |
+   | "published"   | JSON          | The optional time the file object |
+   |               | [RFC4627]     | was created in the form of an     |
+   |               | String        | [RFC3339] "date-time".            |
+   | "mimeType"    | JSON          | The MIME type of the file         |
+   |               | [RFC4627]     | described by the object.          |
+   |               | String        |                                   |
+   | "updated"     | JSON          | The optional time the file object |
+   |               | [RFC4627]     | was last updated in the form of   |
+   |               | String        | an [RFC3339] "date-time".         |
+   | "url"         | JSON          | The permanent IRI of the file's   |
+   |               | [RFC4627]     | HTML representation.              |
+   |               | String        |                                   |
+   +---------------+---------------+-----------------------------------+
+
+4.9.  Group
+
+   The "group" object type represents a grouping of objects in which
+   member objects can join or leave.
+
+   At a minimum, the group object has the following properties:
+
+   +---------------+---------------+-----------------------------------+
+   | Property      | Value         | Description                       |
+   +---------------+---------------+-----------------------------------+
+   | "author"      | Activity      | Activity Object, typically using  |
+   |               | Object        | the "person" object type,         |
+   |               |               | responsible for the creation of   |
+   |               |               | the group. If the group object    |
+   |               |               | appears within an activity, and   |
+   |               |               | the "author" is the "actor" for   |
+   |               |               | the activity, the "author"        |
+   |               |               | property MAY be omitted           |
+   | "displayName" | JSON          | The natural-language,             |
+   |               | [RFC4627]     | human-readable and plain-text     |
+   |               | String        | title of the group.               |
+   | "id"          | JSON          | The unique identifier for the     |
+   |               | [RFC4627]     | group object.                     |
+   |               | String        |                                   |
+
+
+
+
+Snell, et al.           Expires November 14, 2011              [Page 16]
+
+Internet-Draft               ActivitySchema                     May 2011
+
+
+   | "published"   | JSON          | The optional time the group       |
+   |               | [RFC4627]     | object was created in the form of |
+   |               | String        | an [RFC3339] "date-time".         |
+   | "updated"     | JSON          | The optional time the group       |
+   |               | [RFC4627]     | object was last updated in the    |
+   |               | String        | form of an [RFC3339] "date-time". |
+   | "url"         | JSON          | The permanent IRI of the group's  |
+   |               | [RFC4627]     | HTML representation.              |
+   |               | String        |                                   |
+   +---------------+---------------+-----------------------------------+
+
+4.10.  Note
+
+   The "note" object type represents short-form text messages.  This
+   object type is intended for use in "micro-blogging" and in systems
+   where users are invited to publish short, often plain-text messages
+   whose useful lifespan is generally shorter than that of an article or
+   weblog entry.
+
+   A note is similar in structure to an article, but it does not have a
+   title and its body tends to be shorter.  Applications will often
+   display the entire content of a note in an activity stream UI,
+   whereas they MAY display only the title or the title and summary for
+   a weblog entry.
+
+   At a minimum, a note object has the following properties:
+
+   +-------------+---------------+-------------------------------------+
+   | Property    | Value         | Description                         |
+   +-------------+---------------+-------------------------------------+
+   | "author"    | Activity      | Activity Object, typically using    |
+   |             | Object        | the "person" object type,           |
+   |             |               | responsible for the creation of the |
+   |             |               | note. If the note object appears    |
+   |             |               | within an activity, and the         |
+   |             |               | "author" is the "actor" for the     |
+   |             |               | activity, the "author" property MAY |
+   |             |               | be omitted                          |
+   | "content"   | JSON          | The content of the note. Publishers |
+   |             | [RFC4627]     | SHOULD include any markup necessary |
+   |             | String        | to achieve a similar presentation   |
+   |             |               | to that on the publisher's own HTML |
+   |             |               | pages, including any links that the |
+   |             |               | service automatically adds.         |
+   |             |               | Processors MAY remove all HTML      |
+   |             |               | markup and consider the comment to  |
+   |             |               | be plain text.                      |
+
+
+
+
+Snell, et al.           Expires November 14, 2011              [Page 17]
+
+Internet-Draft               ActivitySchema                     May 2011
+
+
+   | "id"        | JSON          | The unique identifier for the note  |
+   |             | [RFC4627]     | object.                             |
+   |             | String        |                                     |
+   | "published" | JSON          | The optional time the note object   |
+   |             | [RFC4627]     | was created in the form of an       |
+   |             | String        | [RFC3339] "date-time".              |
+   | "updated"   | JSON          | The optional time the note object   |
+   |             | [RFC4627]     | was last updated in the form of an  |
+   |             | String        | [RFC3339] "date-time".              |
+   | "url"       | JSON          | The permanent IRI of the note's     |
+   |             | [RFC4627]     | HTML representation.                |
+   |             | String        |                                     |
+   +-------------+---------------+-------------------------------------+
+
+4.11.  Person
+
+   The "person" object type represents a user account.  This is often
+   represents a person, but might also be a company or fictitious
+   character that is being represented by a user account.
+
+   At a minimum, the person object has the following properties:
+
+   +---------------+---------------+-----------------------------------+
+   | Property      | Value         | Description                       |
+   +---------------+---------------+-----------------------------------+
+   | "displayName" | JSON          | A name that can be used for the   |
+   |               | [RFC4627]     | person in the user interface.     |
+   |               | String        | This is often a name by which the |
+   |               |               | individual is known in a given    |
+   |               |               | context; no restriction is placed |
+   |               |               | on what kind of name may be used  |
+   |               |               | here.                             |
+   | "image"       | Media Link    | A link to an image representing   |
+   |               |               | the person. Processors MAY ignore |
+   |               |               | thumbnails that are of an         |
+   |               |               | inappropriate size for their user |
+   |               |               | interface.                        |
+   | "id"          | JSON          | The unique identifier for the     |
+   |               | [RFC4627]     | person object.                    |
+   |               | String        |                                   |
+   | "published"   | JSON          | The optional time the person      |
+   |               | [RFC4627]     | object was created in the form of |
+   |               | String        | an [RFC3339] "date-time".         |
+   | "updated"     | JSON          | The optional time the person      |
+   |               | [RFC4627]     | object was last updated in the    |
+   |               | String        | form of an [RFC3339] "date-time". |
+
+
+
+
+
+Snell, et al.           Expires November 14, 2011              [Page 18]
+
+Internet-Draft               ActivitySchema                     May 2011
+
+
+   | "url"         | JSON          | The permanent IRI of the person's |
+   |               | [RFC4627]     | HTML representation.              |
+   |               | String        |                                   |
+   +---------------+---------------+-----------------------------------+
+
+4.12.  Photo
+
+   The "photo" object type represents a graphical still image.
+
+   At a minimum, the photo object has the following properties:
+
+   +---------------+---------------+-----------------------------------+
+   | Property      | Value         | Description                       |
+   +---------------+---------------+-----------------------------------+
+   | "author"      | Activity      | Activity Object, typically using  |
+   |               | Object        | the "person" object type,         |
+   |               |               | responsible for the creation of   |
+   |               |               | the photo. If the photo object    |
+   |               |               | appears within an activity, and   |
+   |               |               | the "author" is the "actor" for   |
+   |               |               | the activity, the "author"        |
+   |               |               | property MAY be omitted           |
+   | "displayName" | JSON          | Optional natural-language and     |
+   |               | [RFC4627]     | plain-text caption for the photo. |
+   |               | String        | HTML Markup MUST NOT be used.     |
+   | "image"       | Media Link    | A link to a thumbnail version of  |
+   |               |               | the image. Processors MAY ignore  |
+   |               |               | thumbnails that are of an         |
+   |               |               | inappropriate size for their user |
+   |               |               | interface.                        |
+   | "fullImage"   | Media Link    | A link to a larger -- ideally,    |
+   |               |               | full-size -- version of the photo |
+   |               |               | intended for standalone viewing.  |
+   | "id"          | JSON          | The unique identifier for the     |
+   |               | [RFC4627]     | photo object.                     |
+   |               | String        |                                   |
+   | "published"   | JSON          | The optional time the photo       |
+   |               | [RFC4627]     | object was created in the form of |
+   |               | String        | an [RFC3339] "date-time".         |
+   | "summary"     | JSON          | Optional, natural-language        |
+   |               | [RFC4627]     | description of the image in the   |
+   |               | String        | form of a fragment of HTML.       |
+   | "updated"     | JSON          | The optional time the photo       |
+   |               | [RFC4627]     | object was last updated in the    |
+   |               | String        | form of an [RFC3339] "date-time". |
+
+
+
+
+
+
+Snell, et al.           Expires November 14, 2011              [Page 19]
+
+Internet-Draft               ActivitySchema                     May 2011
+
+
+   | "url"         | JSON          | The permanent IRI of the photo's  |
+   |               | [RFC4627]     | HTML representation.              |
+   |               | String        |                                   |
+   +---------------+---------------+-----------------------------------+
+
+4.13.  Place
+
+   The "place" object type represents a location on Earth.  Locations
+   can be represented using geographic coordinates, a physical address,
+   a free-form location name, or any combination of these.
+
+   At a minimum, the place object has the following properties:
+
+   +-------------+-----------+-----------------------------------------+
+   | Property    | Value     | Description                             |
+   +-------------+-----------+-----------------------------------------+
+   | "displayNam | JSON      | An optional natural-language,           |
+   | e"          | [RFC4627] | human-readable and plain-text name of   |
+   |             | String    | the place. HTML markup MUST NOT be      |
+   |             |           | included                                |
+   | "id"        | JSON      | The unique identifier for the place     |
+   |             | [RFC4627] | object.                                 |
+   |             | String    |                                         |
+   | "position"  | JSON      | The optional latitude, longitude and    |
+   |             | [RFC4627] | altitude of the place as a point on     |
+   |             | String    | Earth. Represented as an ISO 6709       |
+   |             |           | compliant string. For instance          |
+   |             |           | ""position":"+27.5916+086.5640+8850/"". |
+   | "address"   | JSON      | A optional physical address represented |
+   |             | [RFC4627] | as a JSON object with the properties    |
+   |             | Object    | defined in the table below.             |
+   | "url"       | JSON      | The permanent IRI of the place's HTML   |
+   |             | [RFC4627] | representation.                         |
+   |             | String    |                                         |
+   +-------------+-----------+-----------------------------------------+
+
+   The properties for the "address" property are:
+
+   +-----------------+---------------+---------------------------------+
+   | Property        | Value         | Description                     |
+   +-----------------+---------------+---------------------------------+
+   | "formatted"     | JSON          | The full mailing address        |
+   |                 | [RFC4627]     | formatted for display or use    |
+   |                 | String        | with a mailing label.           |
+   | "streetAddress" | JSON          | The street address including    |
+   |                 | [RFC4627]     | house number, street name, P.O. |
+   |                 | String        | Box, and extended multi-line    |
+   |                 |               | address information.            |
+
+
+
+Snell, et al.           Expires November 14, 2011              [Page 20]
+
+Internet-Draft               ActivitySchema                     May 2011
+
+
+   | "locality"      | JSON          | The city or locality.           |
+   |                 | [RFC4627]     |                                 |
+   |                 | String        |                                 |
+   | "region"        | JSON          | The state or region.            |
+   |                 | [RFC4627]     |                                 |
+   |                 | String        |                                 |
+   | "postalCode"    | JSON          | The zip or postal code.         |
+   |                 | [RFC4627]     |                                 |
+   |                 | String        |                                 |
+   | "country"       | JSON          | The country name component.     |
+   |                 | [RFC4627]     |                                 |
+   |                 | String        |                                 |
+   +-----------------+---------------+---------------------------------+
+
+4.14.  Product
+
+   The "product" object type represents a commercial good or service.
+
+   At a minimum, the product object has the following properties:
+
+   +---------------+---------------+-----------------------------------+
+   | Property      | Value         | Description                       |
+   +---------------+---------------+-----------------------------------+
+   | "author"      | Activity      | Activity Object, typically using  |
+   |               | Object        | the "person" object type,         |
+   |               |               | responsible for the creation of   |
+   |               |               | the product. If the product       |
+   |               |               | object appears within an          |
+   |               |               | activity, and the "author" is the |
+   |               |               | "actor" for the activity, the     |
+   |               |               | "author" property MAY be omitted  |
+   | "displayName" | JSON          | Optional natural-language and     |
+   |               | [RFC4627]     | plain-text name for the product.  |
+   |               | String        | HTML Markup MUST NOT be used.     |
+   | "fullImage"   | Media Link    | A link to a larger -- ideally,    |
+   |               |               | full-size -- version of the image |
+   |               |               | of the product.                   |
+   | "image"       | Media Link    | A link to a thumbnail-sized image |
+   |               |               | of the product. Processors MAY    |
+   |               |               | ignore thumbnails that are of an  |
+   |               |               | inappropriate size for their user |
+   |               |               | interface.                        |
+   | "id"          | JSON          | The unique identifier for the     |
+   |               | [RFC4627]     | product object.                   |
+   |               | String        |                                   |
+   | "published"   | JSON          | The optional time the product     |
+   |               | [RFC4627]     | object was created in the form of |
+   |               | String        | an [RFC3339] "date-time".         |
+
+
+
+Snell, et al.           Expires November 14, 2011              [Page 21]
+
+Internet-Draft               ActivitySchema                     May 2011
+
+
+   | "updated"     | JSON          | The optional time the product     |
+   |               | [RFC4627]     | object was last updated in the    |
+   |               | String        | form of an [RFC3339] "date-time". |
+   | "url"         | JSON          | The permanent IRI of the          |
+   |               | [RFC4627]     | product's HTML representation.    |
+   |               | String        |                                   |
+   +---------------+---------------+-----------------------------------+
+
+4.15.  Question
+
+   The "question" object type represents a question or poll.
+
+   At a minimum, a question object has the following properties:
+
+   +---------------+---------------+-----------------------------------+
+   | Property      | Value         | Description                       |
+   +---------------+---------------+-----------------------------------+
+   | "author"      | Activity      | Activity Object, typically using  |
+   |               | Object        | the "person" object type,         |
+   |               |               | responsible for the creation of   |
+   |               |               | the question. If the review       |
+   |               |               | object appears within an          |
+   |               |               | activity, and the "author" is the |
+   |               |               | "actor" for the activity, the     |
+   |               |               | "author" property MAY be omitted  |
+   | "content"     | JSON          | The content of the question in    |
+   |               | [RFC4627]     | the form of a fragment of HTML.   |
+   |               | String        | Publishers SHOULD include any     |
+   |               |               | markup necessary to achieve a     |
+   |               |               | similar presentation to that on   |
+   |               |               | the publisher's own HTML pages,   |
+   |               |               | including any links that the      |
+   |               |               | service automatically adds.       |
+   |               |               | Processors MAY remove all HTML    |
+   |               |               | markup and consider the content   |
+   |               |               | to be plain text.                 |
+   | "displayName" | JSON          | The title of the question. Some   |
+   |               | [RFC4627]     | systems do not have the concept   |
+   |               | String        | of a title for a question; such   |
+   |               |               | systems MUST omit the             |
+   |               |               | "displayName" property.           |
+   |               |               | Processors SHOULD refer to such   |
+   |               |               | questions as simply being "a      |
+   |               |               | question", with appropriate       |
+   |               |               | localization, if they are to be   |
+   |               |               | described in a sentence.          |
+
+
+
+
+
+Snell, et al.           Expires November 14, 2011              [Page 22]
+
+Internet-Draft               ActivitySchema                     May 2011
+
+
+   | "id"          | JSON          | The unique identifier for the     |
+   |               | [RFC4627]     | question object.                  |
+   |               | String        |                                   |
+   | "options"     | JSON          | An optional listing of possible   |
+   |               | [RFC4627]     | answers for the question. These   |
+   |               | Array of      | may be of any "objectType" and    |
+   |               | Objects       | SHOULD contain an "id" property   |
+   |               |               | distinctly identifying each       |
+   |               |               | possible answer.                  |
+   | "published"   | JSON          | The optional time the question    |
+   |               | [RFC4627]     | object was created in the form of |
+   |               | String        | an [RFC3339] "date-time".         |
+   | "updated"     | JSON          | The optional time the question    |
+   |               | [RFC4627]     | object was last updated in the    |
+   |               | String        | form of an [RFC3339] "date-time". |
+   | "url"         | JSON          | The permanent IRI of the          |
+   |               | [RFC4627]     | question's HTML representation.   |
+   |               | String        |                                   |
+   +---------------+---------------+-----------------------------------+
+
+4.16.  Review
+
+   The "review" object type represents a primarily prose-based
+   commentary on another object.
+
+   At a minimum, a review object has the following properties:
+
+   +---------------+---------------+-----------------------------------+
+   | Property      | Value         | Description                       |
+   +---------------+---------------+-----------------------------------+
+   | "author"      | Activity      | Activity Object, typically using  |
+   |               | Object        | the "person" object type,         |
+   |               |               | responsible for the creation of   |
+   |               |               | the review. If the review object  |
+   |               |               | appears within an activity, and   |
+   |               |               | the "author" is the "actor" for   |
+   |               |               | the activity, the "author"        |
+   |               |               | property MAY be omitted           |
+
+
+
+
+
+
+
+
+
+
+
+
+
+Snell, et al.           Expires November 14, 2011              [Page 23]
+
+Internet-Draft               ActivitySchema                     May 2011
+
+
+   | "content"     | JSON          | The content of the review in the  |
+   |               | [RFC4627]     | form of a fragment of HTML.       |
+   |               | String        | Publishers SHOULD include any     |
+   |               |               | markup necessary to achieve a     |
+   |               |               | similar presentation to that on   |
+   |               |               | the publisher's own HTML pages,   |
+   |               |               | including any links that the      |
+   |               |               | service automatically adds.       |
+   |               |               | Processors MAY remove all HTML    |
+   |               |               | markup and consider the content   |
+   |               |               | to be plain text.                 |
+   | "displayName" | JSON          | The title of the review. Many     |
+   |               | [RFC4627]     | systems do not have the concept   |
+   |               | String        | of a title for a review; such     |
+   |               |               | systems MUST omit the             |
+   |               |               | "displayName" property.           |
+   |               |               | Processors SHOULD refer to such   |
+   |               |               | reviews as simply being "a        |
+   |               |               | review", with appropriate         |
+   |               |               | localization, if they are to be   |
+   |               |               | described in a sentence.          |
+   | "id"          | JSON          | The unique identifier for the     |
+   |               | [RFC4627]     | review object.                    |
+   |               | String        |                                   |
+   | "published"   | JSON          | The optional time the review      |
+   |               | [RFC4627]     | object was created in the form of |
+   |               | String        | an [RFC3339] "date-time".         |
+   | "rating"      | JSON          | A rating for the object given as  |
+   |               | [RFC4627]     | a number between 1.0 and 5.0      |
+   |               | Number        | inclusive with one decimal place  |
+   |               |               | of precision.                     |
+   | "updated"     | JSON          | The optional time the review      |
+   |               | [RFC4627]     | object was last updated in the    |
+   |               | String        | form of an [RFC3339] "date-time". |
+   | "url"         | JSON          | The permanent IRI of the review's |
+   |               | [RFC4627]     | HTML representation.              |
+   |               | String        |                                   |
+   +---------------+---------------+-----------------------------------+
+
+4.17.  Service
+
+   The "service" object type represents a website, personal website or
+   blog, business, brand, or other entity that performs some kind of
+   work for other entities, people, or services, or acts as kind of
+   container for other objects.
+
+   At a minimum, the service object has the following properties:
+
+
+
+
+Snell, et al.           Expires November 14, 2011              [Page 24]
+
+Internet-Draft               ActivitySchema                     May 2011
+
+
+   +---------------+---------------+-----------------------------------+
+   | Property      | Value         | Description                       |
+   +---------------+---------------+-----------------------------------+
+   | "displayName" | JSON          | The natural-language, plain-text  |
+   |               | [RFC4627]     | name of the service. HTML markup  |
+   |               | String        | MUST NOT be used.                 |
+   | "id"          | JSON          | The unique identifier for the     |
+   |               | [RFC4627]     | service object.                   |
+   |               | String        |                                   |
+   | "image"       | Media Link    | A link to a small image           |
+   |               |               | representing the service.         |
+   | "published"   | JSON          | The optional time the service     |
+   |               | [RFC4627]     | object was created in the form of |
+   |               | String        | an [RFC3339] "date-time".         |
+   | "summary"     | JSON          | A description of the service in   |
+   |               | [RFC4627]     | the form of a fragment of HTML.   |
+   |               | String        | Publishers SHOULD include any     |
+   |               |               | markup necessary to achieve a     |
+   |               |               | similar presentation to that on   |
+   |               |               | the publisher's own HTML pages,   |
+   |               |               | including any links that the      |
+   |               |               | service automatically adds.       |
+   |               |               | Processors MAY remove all HTML    |
+   |               |               | markup and consider the content   |
+   |               |               | to be plain text.                 |
+   | "updated"     | JSON          | The optional time the service     |
+   |               | [RFC4627]     | object was last updated in the    |
+   |               | String        | form of an [RFC3339] "date-time". |
+   | "url"         | JSON          | The permanent IRI of the          |
+   |               | [RFC4627]     | service's HTML representation.    |
+   |               | String        |                                   |
+   +---------------+---------------+-----------------------------------+
+
+4.18.  Video
+
+   The "video" object type represents video content, which usually
+   consists of a motion picture track and an audio track.
+
+   At a minimum, the video object has the following properties:
+
+
+
+
+
+
+
+
+
+
+
+
+Snell, et al.           Expires November 14, 2011              [Page 25]
+
+Internet-Draft               ActivitySchema                     May 2011
+
+
+   +---------------+---------------+-----------------------------------+
+   | Property      | Value         | Description                       |
+   +---------------+---------------+-----------------------------------+
+   | "author"      | Activity      | Activity Object, typically using  |
+   |               | Object        | the "person" object type,         |
+   |               |               | responsible for the creation of   |
+   |               |               | the video stream. If the video    |
+   |               |               | object appears within an          |
+   |               |               | activity, and the "author" is the |
+   |               |               | "actor" for the activity, the     |
+   |               |               | "author" property MAY be omitted  |
+   | "displayName" | JSON          | The natural-language,             |
+   |               | [RFC4627]     | human-readable and plain-text     |
+   |               | String        | title for the video stream. HTML  |
+   |               |               | markup MUST NOT be included       |
+   | "embedCode"   | JSON          | An optional HTML fragment that,   |
+   |               | [RFC4627]     | when embedded in an HTML page,    |
+   |               | String        | will provide an interactive       |
+   |               |               | player UI for the video stream.   |
+   | "id"          | JSON          | The unique identifier for the     |
+   |               | [RFC4627]     | video object.                     |
+   |               | String        |                                   |
+   | "published"   | JSON          | The optional time the video       |
+   |               | [RFC4627]     | object was created in the form of |
+   |               | String        | an [RFC3339] "date-time".         |
+   | "stream"      | Media Link    | A link to the video content       |
+   |               | [TODO: Link   | itself. Represented in JSON as a  |
+   |               | to            | media link as defined in [TODO:   |
+   |               | JSON-Activity | Link to JSON-Activity Media       |
+   |               | Media Link]   | Link].                            |
+   | "summary"     | JSON          | Optional short, natural-language, |
+   |               | [RFC4627]     | human-readable snippet or summary |
+   |               | String        | of the video stream represented   |
+   |               |               | as a fragment of HTML.            |
+   | "updated"     | JSON          | The optional time the video       |
+   |               | [RFC4627]     | object was last updated in the    |
+   |               | String        | form of an [RFC3339] "date-time". |
+   +---------------+---------------+-----------------------------------+
+
+
+5.  Base Extension Properties
+
+   This specification defines an initial set of extension properties
+   that can be used with all activities or objects.
+
+
+
+
+
+
+
+Snell, et al.           Expires November 14, 2011              [Page 26]
+
+Internet-Draft               ActivitySchema                     May 2011
+
+
+5.1.  Location
+
+   Location data can be added to any object type or activity.  Location
+   can be specified via geographic coordinates, a street address, a
+   free-form location name or any combination of these.
+
+   Within a JSON-serialized Activity Stream, the Location is represented
+   using a property named "location" whose value is a Place
+   (Section 4.13) object.  The objectType property of this object MAY be
+   omitted.
+
+   When appearing within an activity, the location data indicates the
+   location where the activity occurred.  When appearing within an
+   object, the location data indicates the location of that object at
+   the time the activity occurred.
+
+   For example:
+
+     {
+       "objectType": "person",
+       "displayName": "John Doe",
+       "location": {
+         "displayName": "Mount Everest",
+         "position": "+27.5916+086.5640+8850/"
+       }
+     }
+
+5.2.  Mood
+
+   Mood describes the mood of the user when the activity was performed.
+   This is usually collected via an extra field in the user interface
+   used to perform the activity.  For the purpose of this schema, a mood
+   is a freeform, short mood keyword or phrase along with an optional
+   mood icon image.
+
+   In JSON, Moods are included within an object or activity using a
+   property named "mood" whose value is a JSON object with the following
+   properties:
+
+   +---------------+---------------+-----------------------------------+
+   | Property      | Value         | Description                       |
+   +---------------+---------------+-----------------------------------+
+   | "displayName" | JSON          | The natural-language,             |
+   |               | [RFC4627]     | human-readable and plain-text     |
+   |               | String        | keyword or phrase describing the  |
+   |               |               | mood. HTML markup MUST NOT be     |
+   |               |               | included                          |
+
+
+
+
+Snell, et al.           Expires November 14, 2011              [Page 27]
+
+Internet-Draft               ActivitySchema                     May 2011
+
+
+   | "image"       | Media Link    | An optional image that provides a |
+   |               |               | visual representation of the      |
+   |               |               | mood.                             |
+   +---------------+---------------+-----------------------------------+
+
+   For example:
+
+     {
+       "objectType": "note",
+       "content": "Working on the activity streams spec",
+       "mood": {
+         "displayName": "Optimistic",
+         "image": "http://example.org/moods/optimistic.png"
+       }
+     }
+
+5.3.  Rating
+
+   A rating given as a number between 1.0 and 5.0 inclusive with one
+   decimal place of precision.  Represented in JSON as a property called
+   "rating" whose value is a JSON number giving the rating.
+
+   Ratings are generally most useful only for particular types of
+   objects, such as audio, video, photos and places.
+
+   For example:
+
+     {
+       "objectType": "review",
+       "content": "This is a great product",
+       "rating": 3.5
+     }
+
+5.4.  Source Property
+
+   The "source" property provides a reference to the original source of
+   an object or activity.  The value of the "source" property is an
+   Object of any object type.
+
+   The "source" property is closely related to the "generator" and
+   "provider" properties but serves the distinct purpose of identifying
+   where the activity or object was originally published as opposed to
+   identifying the applications that generated or published it.
+
+   For example:
+
+
+
+
+
+
+Snell, et al.           Expires November 14, 2011              [Page 28]
+
+Internet-Draft               ActivitySchema                     May 2011
+
+
+     {
+       "actor": {
+         "objectType": "person",
+         "displayName": "Joe"
+       },
+       "verb": "post",
+       "object": {
+         "objectType": "photo",
+         "image": "http://example.org/photos/fluffycat.jpg"
+       },
+       "source": {
+         "objectType": "collection",
+         "displayName": "Joe's Photo's",
+         "url": "http://example.org/joes/photos"
+       }
+     }
+
+5.5.  Tags
+
+   A listing of the objects that have been associated with a particular
+   object using the "tag" verb.  Represented in JSON using a property
+   named "tags" whose value is an Array of objects.
+
+   For example:
+
+     {
+       "objectType": "photo",
+       "image": "http://example.org/photos/fluffycat.jpg",
+       "tags": [
+         {
+           "objectType": "person",
+           "displayName": "John"
+         },
+         {
+           "objectType": "person",
+           "displayName": "Jane"
+         }
+       ]
+     }
+
+
+6.  Normative References
+
+   [RFC2119]  "RFC 2119".
+
+   [RFC3339]  Klyne, G., "Date and Time on the Internet: Timestamps",
+              July 2002.
+
+
+
+
+Snell, et al.           Expires November 14, 2011              [Page 29]
+
+Internet-Draft               ActivitySchema                     May 2011
+
+
+   [RFC3987]  "Internationalized Resource Identifiers (IRIs)".
+
+   [RFC4287]  "The Atom Syndication Format".
+
+   [RFC4627]  Crockford, D., "The application/json Media Type for
+              JavaScript Object Notation (JSON)", July 2006.
+
+   [RFC4685]  Snell, J., "Atom Threading Extensions", September 2006.
+
+   [activitystreams]
+              "Activity Streams Concepts and Representations".
+
+   [atomcommentmeta-00]
+              Atkins, M., "Atom Comment Metadata Extensions".
+
+   [hreview]  microformats community, "The hReview Microformat".
+
+
+Appendix A.  Acknowledgements
+
+   ...
+
+
+Authors' Addresses
+
+   James M Snell
+   IBM
+
+
+   Martin Atkins
+   SAY Media
+
+
+   David Recordon
+   Six Apart, Facebook
+
+
+   Chris Messina
+   Citizen Agency, Google
+
+
+   Monica Keller
+   MySpace, Facebook
+
+
+
+
+
+
+
+
+Snell, et al.           Expires November 14, 2011              [Page 30]
+
+Internet-Draft               ActivitySchema                     May 2011
+
+
+   Ari Steinberg
+   Facebook
+
+
+   Rob Dolin
+   Microsoft
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Snell, et al.           Expires November 14, 2011              [Page 31]
+

@@ -1,0 +1,1106 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en"><head><title>Activity Streams Working Group: JSON Activity Streams 1.0</title>
+<meta http-equiv="Expires" content="Thu, 12 May 2011 15:44:44 +0000">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="JSON Activity Streams 1.0">
+<meta name="generator" content="xml2rfc v1.33 (http://xml.resource.org/)">
+<style type='text/css'><!--
+        body {
+                font-family: verdana, charcoal, helvetica, arial, sans-serif;
+                font-size: small; color: #000; background-color: #FFF;
+                margin: 2em;
+        }
+        h1, h2, h3, h4, h5, h6 {
+                font-family: helvetica, monaco, "MS Sans Serif", arial, sans-serif;
+                font-weight: bold; font-style: normal;
+        }
+        h1 { color: #900; background-color: transparent; text-align: right; }
+        h3 { color: #333; background-color: transparent; }
+
+        td.RFCbug {
+                font-size: x-small; text-decoration: none;
+                width: 30px; height: 30px; padding-top: 2px;
+                text-align: justify; vertical-align: middle;
+                background-color: #000;
+        }
+        td.RFCbug span.RFC {
+                font-family: monaco, charcoal, geneva, "MS Sans Serif", helvetica, verdana, sans-serif;
+                font-weight: bold; color: #666;
+        }
+        td.RFCbug span.hotText {
+                font-family: charcoal, monaco, geneva, "MS Sans Serif", helvetica, verdana, sans-serif;
+                font-weight: normal; text-align: center; color: #FFF;
+        }
+
+        table.TOCbug { width: 30px; height: 15px; }
+        td.TOCbug {
+                text-align: center; width: 30px; height: 15px;
+                color: #FFF; background-color: #900;
+        }
+        td.TOCbug a {
+                font-family: monaco, charcoal, geneva, "MS Sans Serif", helvetica, sans-serif;
+                font-weight: bold; font-size: x-small; text-decoration: none;
+                color: #FFF; background-color: transparent;
+        }
+
+        td.header {
+                font-family: arial, helvetica, sans-serif; font-size: x-small;
+                vertical-align: top; width: 33%;
+                color: #FFF; background-color: #666;
+        }
+        td.author { font-weight: bold; font-size: x-small; margin-left: 4em; }
+        td.author-text { font-size: x-small; }
+
+        /* info code from SantaKlauss at http://www.madaboutstyle.com/tooltip2.html */
+        a.info {
+                /* This is the key. */
+                position: relative;
+                z-index: 24;
+                text-decoration: none;
+        }
+        a.info:hover {
+                z-index: 25;
+                color: #FFF; background-color: #900;
+        }
+        a.info span { display: none; }
+        a.info:hover span.info {
+                /* The span will display just on :hover state. */
+                display: block;
+                position: absolute;
+                font-size: smaller;
+                top: 2em; left: -5em; width: 15em;
+                padding: 2px; border: 1px solid #333;
+                color: #900; background-color: #EEE;
+                text-align: left;
+        }
+
+        a { font-weight: bold; }
+        a:link    { color: #900; background-color: transparent; }
+        a:visited { color: #633; background-color: transparent; }
+        a:active  { color: #633; background-color: transparent; }
+
+        p { margin-left: 2em; margin-right: 2em; }
+        p.copyright { font-size: x-small; }
+        p.toc { font-size: small; font-weight: bold; margin-left: 3em; }
+        table.toc { margin: 0 0 0 3em; padding: 0; border: 0; vertical-align: text-top; }
+        td.toc { font-size: small; font-weight: bold; vertical-align: text-top; }
+
+        ol.text { margin-left: 2em; margin-right: 2em; }
+        ul.text { margin-left: 2em; margin-right: 2em; }
+        li      { margin-left: 3em; }
+
+        /* RFC-2629 <spanx>s and <artwork>s. */
+        em     { font-style: italic; }
+        strong { font-weight: bold; }
+        dfn    { font-weight: bold; font-style: normal; }
+        cite   { font-weight: normal; font-style: normal; }
+        tt     { color: #036; }
+        tt, pre, pre dfn, pre em, pre cite, pre span {
+                font-family: "Courier New", Courier, monospace; font-size: small;
+        }
+        pre {
+                text-align: left; padding: 4px;
+                color: #000; background-color: #CCC;
+        }
+        pre dfn  { color: #900; }
+        pre em   { color: #66F; background-color: #FFC; font-weight: normal; }
+        pre .key { color: #33C; font-weight: bold; }
+        pre .id  { color: #900; }
+        pre .str { color: #000; background-color: #CFF; }
+        pre .val { color: #066; }
+        pre .rep { color: #909; }
+        pre .oth { color: #000; background-color: #FCF; }
+        pre .err { background-color: #FCC; }
+
+        /* RFC-2629 <texttable>s. */
+        table.all, table.full, table.headers, table.none {
+                font-size: small; text-align: center; border-width: 2px;
+                vertical-align: top; border-collapse: collapse;
+        }
+        table.all, table.full { border-style: solid; border-color: black; }
+        table.headers, table.none { border-style: none; }
+        th {
+                font-weight: bold; border-color: black;
+                border-width: 2px 2px 3px 2px;
+        }
+        table.all th, table.full th { border-style: solid; }
+        table.headers th { border-style: none none solid none; }
+        table.none th { border-style: none; }
+        table.all td {
+                border-style: solid; border-color: #333;
+                border-width: 1px 2px;
+        }
+        table.full td, table.headers td, table.none td { border-style: none; }
+
+        hr { height: 1px; }
+        hr.insert {
+                width: 80%; border-style: none; border-width: 0;
+                color: #CCC; background-color: #CCC;
+        }
+--></style>
+</head>
+<body>
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<table summary="layout" width="66%" border="0" cellpadding="0" cellspacing="0"><tr><td><table summary="layout" width="100%" border="0" cellpadding="2" cellspacing="1">
+<tr><td class="header">Activity Streams Working Group</td><td class="header">J. Snell</td></tr>
+<tr><td class="header">&nbsp;</td><td class="header">IBM</td></tr>
+<tr><td class="header">&nbsp;</td><td class="header">M. Atkins</td></tr>
+<tr><td class="header">&nbsp;</td><td class="header">SAY Media</td></tr>
+<tr><td class="header">&nbsp;</td><td class="header">W. Norris</td></tr>
+<tr><td class="header">&nbsp;</td><td class="header">Google</td></tr>
+<tr><td class="header">&nbsp;</td><td class="header">C. Messina</td></tr>
+<tr><td class="header">&nbsp;</td><td class="header">Citizen Agency, Google</td></tr>
+<tr><td class="header">&nbsp;</td><td class="header">M. Wilkinson</td></tr>
+<tr><td class="header">&nbsp;</td><td class="header">MySpace, Facebook, Socialcast</td></tr>
+<tr><td class="header">&nbsp;</td><td class="header">R. Dolin</td></tr>
+<tr><td class="header">&nbsp;</td><td class="header">Microsoft</td></tr>
+<tr><td class="header">&nbsp;</td><td class="header">May 12, 2011</td></tr>
+</table></td></tr></table>
+<h1><br />JSON Activity Streams 1.0</h1>
+
+<h3>Abstract</h3>
+
+<p>This specification details the serialization of a stream of social
+        activities using the JSON format. Activities are important in that
+        they allow individuals to process the latest news of people and things
+        they care about.
+</p><a name="toc"></a><br /><hr />
+<h3>Table of Contents</h3>
+<p class="toc">
+<a href="#anchor1">1.</a>&nbsp;
+Introduction<br />
+<a href="#anchor2">2.</a>&nbsp;
+Notational Conventions<br />
+<a href="#format">3.</a>&nbsp;
+JSON Serialization<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#examples">3.1.</a>&nbsp;
+Example Activities<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#activity-serialization">3.2.</a>&nbsp;
+Activity Serialization<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#media-link-serialization">3.3.</a>&nbsp;
+Media Link Serialization<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#object-serialization">3.4.</a>&nbsp;
+Object Serialization<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#collection-serialization">3.5.</a>&nbsp;
+Collection Serialization<br />
+<a href="#document">4.</a>&nbsp;
+The Activity Stream JSON Document<br />
+<a href="#anchor3">5.</a>&nbsp;
+Comparison of Identifier Values<br />
+<a href="#post-verb">6.</a>&nbsp;
+The &quot;post&quot; Verb<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#anchor4">6.1.</a>&nbsp;
+Implied &quot;post&quot; Activity<br />
+<a href="#anchor5">7.</a>&nbsp;
+The &quot;activity&quot; Object Type<br />
+<a href="#extensions">8.</a>&nbsp;
+Extension Object Types and Verbs<br />
+<a href="#other-serializations">9.</a>&nbsp;
+Other Representations<br />
+<a href="#republisher">10.</a>&nbsp;
+Requirements for Re-publishers<br />
+<a href="#anchor6">11.</a>&nbsp;
+Security Considerations<br />
+<a href="#anchor7">12.</a>&nbsp;
+IANA Considerations<br />
+<a href="#license">13.</a>&nbsp;
+License<br />
+<a href="#rfc.references1">14.</a>&nbsp;
+Normative References<br />
+<a href="#anchor9">Appendix&nbsp;A.</a>&nbsp;
+Acknowledgements<br />
+<a href="#rfc.authors">&#167;</a>&nbsp;
+Authors' Addresses<br />
+</p>
+<br clear="all" />
+
+<a name="anchor1"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.1"></a><h3>1.&nbsp;
+Introduction</h3>
+
+<p>In its simplest form, an <tt>activity</tt> consists
+      of an <tt>actor</tt>, a
+      <tt>verb</tt>, an
+      an <tt>object</tt>, and a <tt>target</tt>.
+      It tells the story of a person performing an action on or with an object --
+      "Geraldine posted a photo to her album"
+      or "John shared a video". In most cases these components will be
+      explicit, but they may also be implied.
+</p>
+<p>It is a goal of this specification to provide sufficient metadata
+      about an activity such that a consumer of the data can present it to a
+      user in a rich human-friendly format. This may include constructing
+      readable sentences about the activity that occurred, visual
+      representations of the activity, or combining similar activities for
+      display.
+</p>
+<p>The basic properties that comprise the description of an
+      <tt>activity</tt> are defined in the following sections.
+</p>
+<p>Within this specification, an <tt>object</tt> is a
+      thing, real or imaginary, which participates in an
+      activity. It may be the entity performing the activity, or the entity
+      on which the activity was performed. An <tt>object</tt>
+      consists of properties defined in the following sections. Certain object
+      types may further refine the meaning of these properties, or they may
+      define additional properties.
+</p>
+<p>Some types of objects may have an alternative visual representation
+      in the form of an image, video or embedded HTML fragments.
+      A <tt>Media Link</tt> represents a hyperlink to
+      such resources.
+</p>
+<p>An <tt>Activity Stream</tt> is a collection one or
+      more individual activities. The relationship between the activities within
+      the collection is undefined by this specification.
+</p>
+<a name="anchor2"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.2"></a><h3>2.&nbsp;
+Notational Conventions</h3>
+
+<p>The text of this specification provides the sole definition of
+      conformance. Examples in this specification are non-normative.
+</p>
+<p>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
+      "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this
+      document are to be interpreted as described in <a class='info' href='#RFC2119'>[RFC2119]<span> (</span><span class='info'>Bradner, S., &ldquo;Key words for use in RFCs to Indicate Requirement           Levels,&rdquo; March&nbsp;1997.</span><span>)</span></a>.
+</p>
+<p>This specification allows the use of IRIs <a class='info' href='#RFC3987'>[RFC3987]<span> (</span><span class='info'>Duerst, M. and M. Suignard, &ldquo;Internationalized Resource Identifiers (IRIs),&rdquo; January&nbsp;2005.</span><span>)</span></a>.
+      Every URI <a class='info' href='#RFC3986'>[RFC3986]<span> (</span><span class='info'>Berners-Lee, T., Fielding, R., and L. Masinter, &ldquo;Uniform Resource Identifier (URI),&rdquo; January&nbsp;2005.</span><span>)</span></a> is also an IRI, so a URI may be used
+      wherever below an IRI is named.  There are two special considerations:
+      (1) when an IRI that is not also a URI is given for dereferencing, it
+      MUST be mapped to a URI using the steps in Section 3.1 of
+      <a class='info' href='#RFC3987'>[RFC3987]<span> (</span><span class='info'>Duerst, M. and M. Suignard, &ldquo;Internationalized Resource Identifiers (IRIs),&rdquo; January&nbsp;2005.</span><span>)</span></a> and (2) when an IRI is serving as
+      an <tt>id</tt> value, it MUST NOT be so mapped.
+</p>
+<a name="format"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.3"></a><h3>3.&nbsp;
+JSON Serialization</h3>
+
+<p>Activities are serialized using the JSON format, as
+      defined in <a class='info' href='#RFC4627'>[RFC4627]<span> (</span><span class='info'>Crockford, D., &ldquo;The application/json Media Type for JavaScript Object           Notation (JSON),&rdquo; July&nbsp;2006.</span><span>)</span></a>. Alternative serializations
+      MAY be used but are outside the scope of this specification.
+</p>
+<p>In the JSON serialization, absent properties MAY be represented either
+      by an explicit declaration of the property whose value is null or by
+      omitting the property declaration altogether at the option of the
+      publisher; these two representations are semantically equivalent. If a
+      property is having a value whose type is a JSON array, the absence of
+      any items in that array MUST be represented by omitting the property
+      entirely or publishing it with the value null, and MUST NOT be
+      represented as an empty array, except as otherwise stated in the
+      definition of a specific property.
+</p>
+<p>Unless otherwise specified, all properties specifying date and
+      time values within the JSON serialization, including extensions,
+      MUST conform to the "date-time" production in <a class='info' href='#RFC3339'>[RFC3339]<span> (</span><span class='info'>Klyne, G., &ldquo;Date and Time on the Internet: Timestamps,&rdquo; July&nbsp;2002.</span><span>)</span></a>.
+      In addition, an uppercase "T" character MUST be used to separate date
+      and time, and an uppercase "Z" character MUST be present in the absence of
+      a numeric time zone offset.
+</p>
+<a name="examples"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.3.1"></a><h3>3.1.&nbsp;
+Example Activities</h3>
+
+<p>Following is a simple, minimal example of a JSON serialized
+        <tt>activity</tt>:
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>
+  {
+    "published": "2011-02-10T15:04:55Z",
+    "actor": {
+      "url": "http://example.org/martin",
+      "objectType" : "person",
+      "id": "tag:example.org,2011:martin",
+      "image": {
+        "url": "http://example.org/martin/image",
+        "width": 250,
+        "height": 250
+      },
+      "displayName": "Martin Smith"
+    },
+    "verb": "post",
+    "object" : {
+      "url": "http://example.org/blog/2011/02/entry",
+      "id": "tag:example.org,2011:abc123/xyz"
+    },
+    "target" : {
+      "url": "http://example.org/blog/",
+      "objectType": "blog",
+      "id": "tag:example.org,2011:abc123",
+      "displayName": "Martin's Blog"
+    }
+  }
+</pre></div>
+<p>A more extensive, single-entry <tt>Activity Stream</tt>
+        follows. In addition to containing a number of required and optional
+        core properties, the example contains the additional, undefined extension
+        properties "foo" and "foo2" for illustrative purposes only.
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>
+  {
+    "items" : [
+      {
+        "published": "2011-02-10T15:04:55Z",
+        "foo": "some extension property",
+        "generator": {
+          "url": "http://example.org/activities-app"
+        },
+        "provider": {
+          "url": "http://example.org/activity-stream"
+        },
+        "title": "Martin posted a new video to his album.",
+        "actor": {
+          "url": "http://example.org/martin",
+          "objectType": "person",
+          "id": "tag:example.org,2011:martin",
+          "foo2": "some other extension property",
+          "image": {
+            "url": "http://example.org/martin/image",
+            "width": 250,
+            "height": 250
+          },
+          "displayName": "Martin Smith"
+        },
+        "verb": "post",
+        "object" : {
+          "url": "http://example.org/album/my_fluffy_cat.jpg",
+          "objectType": "photo",
+          "id": "tag:example.org,2011:my_fluffy_cat",
+          "image": {
+            "url": "http://example.org/album/my_fluffy_cat_thumb.jpg",
+            "width": 250,
+            "height": 250
+          }
+        },
+        "target": {
+          "url": "http://example.org/album/",
+          "objectType": "photo-album",
+          "id": "tag:example.org,2011:abc123",
+          "displayName": "Martin's Photo Album",
+          "image": {
+            "url": "http://example.org/album/thumbnail.jpg",
+            "width": 250,
+            "height": 250
+          }
+        }
+      }
+    ]
+  }
+</pre></div>
+<a name="activity-serialization"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.3.2"></a><h3>3.2.&nbsp;
+Activity Serialization</h3>
+<table class="full" align="center" border="0" cellpadding="2" cellspacing="2">
+<col align="left" width="15%"><col align="left" width="21%"><col align="left">
+<tr><th align="left">Property</th><th align="left">Value</th><th align="left">Description</th></tr>
+<tr>
+<td align="left"><tt>actor</tt>&nbsp;</td>
+<td align="left"><a class='info' href='#object-serialization'>Object<span> (</span><span class='info'>Object Serialization</span><span>)</span></a></td>
+<td align="left">Describes the entity that performed the activity. An activity
+          MUST contain one <tt>actor</tt> property whose value is a
+          single <a class='info' href='#object-serialization'>Object<span> (</span><span class='info'>Object Serialization</span><span>)</span></a>.</td>
+</tr>
+<tr>
+<td align="left"><tt>content</tt>&nbsp;</td>
+<td align="left"><a class='info' href='#RFC4627'>JSON<span> (</span><span class='info'>Crockford, D., &ldquo;The application/json Media Type for JavaScript Object           Notation (JSON),&rdquo; July&nbsp;2006.</span><span>)</span></a> [RFC4627] String</td>
+<td align="left">Natural-language description of the activity encoded as a single
+          JSON String containing HTML markup. Visual elements such as thumbnail
+          images MAY be included. An activity MAY contain a
+          <tt>content</tt> property.</td>
+</tr>
+<tr>
+<td align="left"><tt>generator</tt>&nbsp;</td>
+<td align="left"><a class='info' href='#object-serialization'>Object<span> (</span><span class='info'>Object Serialization</span><span>)</span></a></td>
+<td align="left">Describes the application that generated the activity. An activity
+          MAY contain a <tt>generator</tt> property whose value is a single
+          <a class='info' href='#object-serialization'>Object<span> (</span><span class='info'>Object Serialization</span><span>)</span></a>.</td>
+</tr>
+<tr>
+<td align="left"><tt>icon</tt>&nbsp;</td>
+<td align="left"><a class='info' href='#media-link-serialization'>Media Link<span> (</span><span class='info'>Media Link Serialization</span><span>)</span></a></td>
+<td align="left">Description of a resource providing a visual representation of
+          the object, intended for human consumption. The image SHOULD have an 
+          aspect ratio of one (horizontal) to one (vertical) and SHOULD be suitable 
+          for presentation at a small size. An activity MAY have an 
+          <tt>icon</tt> property.</td>
+</tr>
+<tr>
+<td align="left"><tt>id</tt>&nbsp;</td>
+<td align="left"><a class='info' href='#RFC4627'>JSON<span> (</span><span class='info'>Crockford, D., &ldquo;The application/json Media Type for JavaScript Object           Notation (JSON),&rdquo; July&nbsp;2006.</span><span>)</span></a> [RFC4627] String</td>
+<td align="left">Provides a permanent, universally unique identifier for the 
+          activity in the form of an absolute IRI <a class='info' href='#RFC3987'>[RFC3987]<span> (</span><span class='info'>Duerst, M. and M. Suignard, &ldquo;Internationalized Resource Identifiers (IRIs),&rdquo; January&nbsp;2005.</span><span>)</span></a>.
+          An activity SHOULD contain a single <tt>id</tt> property. If an activity 
+          does not contain an <tt>id</tt> property, consumers MAY use the value of
+          the <tt>url</tt> property as a less-reliable, non-unique identifier.</td>
+</tr>
+<tr>
+<td align="left"><tt>object</tt>&nbsp;</td>
+<td align="left"><a class='info' href='#object-serialization'>Object<span> (</span><span class='info'>Object Serialization</span><span>)</span></a></td>
+<td align="left">Describes the primary object of the activity. For instance,
+          in the activity, "John saved a movie to his wishlist", the object
+          of the activity is "movie". An activity SHOULD contain an
+          <tt>object</tt> property whose value is a single
+          <a class='info' href='#object-serialization'>Object<span> (</span><span class='info'>Object Serialization</span><span>)</span></a>. If the
+          <tt>object</tt> property is not contained, the
+          primary object of the activity MAY be implied by context.</td>
+</tr>
+<tr>
+<td align="left"><tt>published</tt>&nbsp;</td>
+<td align="left"><a class='info' href='#RFC3339'>[RFC3339]<span> (</span><span class='info'>Klyne, G., &ldquo;Date and Time on the Internet: Timestamps,&rdquo; July&nbsp;2002.</span><span>)</span></a> date-time</td>
+<td align="left">The date and time at which the activity was published. An activity 
+          MUST contain a <tt>published</tt> property.</td>
+</tr>
+<tr>
+<td align="left"><tt>provider</tt>&nbsp;</td>
+<td align="left"><a class='info' href='#object-serialization'>Object<span> (</span><span class='info'>Object Serialization</span><span>)</span></a></td>
+<td align="left">Describes the application that published the activity. Note that
+          this is not necessarily the same entity that generated the activity.
+          An activity MAY contain a <tt>provider</tt> property whose value is a
+          single <a class='info' href='#object-serialization'>Object<span> (</span><span class='info'>Object Serialization</span><span>)</span></a>.</td>
+</tr>
+<tr>
+<td align="left"><tt>target</tt>&nbsp;</td>
+<td align="left"><a class='info' href='#object-serialization'>Object<span> (</span><span class='info'>Object Serialization</span><span>)</span></a></td>
+<td align="left">Describes the target of the activity. The precise meaning of the
+          activity's target is dependent on the activities <tt>verb</tt>,
+          but will often be the object the English preposition "to".
+          For instance, in the activity, "John saved a movie to his
+          wishlist", the target of the activity is "wishlist". The activity
+          target MUST NOT be used to identity an indirect object that is
+          not a target of the activity. An activity MAY contain a <tt>target</tt>
+          property whose value is a single <a class='info' href='#object-serialization'>Object<span> (</span><span class='info'>Object Serialization</span><span>)</span></a>.</td>
+</tr>
+<tr>
+<td align="left"><tt>title</tt>&nbsp;</td>
+<td align="left"><a class='info' href='#RFC4627'>JSON<span> (</span><span class='info'>Crockford, D., &ldquo;The application/json Media Type for JavaScript Object           Notation (JSON),&rdquo; July&nbsp;2006.</span><span>)</span></a> [RFC4627] String</td>
+<td align="left">Natural-language title or headline for the activity encoded as a single
+          JSON String containing HTML markup. An activity MAY contain a
+          <tt>title</tt> property.</td>
+</tr>
+<tr>
+<td align="left"><tt>updated</tt>&nbsp;</td>
+<td align="left"><a class='info' href='#RFC3339'>[RFC3339]<span> (</span><span class='info'>Klyne, G., &ldquo;Date and Time on the Internet: Timestamps,&rdquo; July&nbsp;2002.</span><span>)</span></a> date-time</td>
+<td align="left">The date and time at which a previously published activity has
+          been modified. An Activity MAY contain an <tt>updated</tt>
+          property.</td>
+</tr>
+<tr>
+<td align="left"><tt>url</tt>&nbsp;</td>
+<td align="left"><a class='info' href='#RFC4627'>JSON<span> (</span><span class='info'>Crockford, D., &ldquo;The application/json Media Type for JavaScript Object           Notation (JSON),&rdquo; July&nbsp;2006.</span><span>)</span></a> [RFC4627] String</td>
+<td align="left">An IRI <a class='info' href='#RFC3987'>[RFC3987]<span> (</span><span class='info'>Duerst, M. and M. Suignard, &ldquo;Internationalized Resource Identifiers (IRIs),&rdquo; January&nbsp;2005.</span><span>)</span></a> identifying a resource providing
+          an HTML representation of the activity. An activity MAY contain 
+          a <tt>url</tt> property.</td>
+</tr>
+<tr>
+<td align="left"><tt>verb</tt>&nbsp;</td>
+<td align="left"><a class='info' href='#RFC4627'>JSON<span> (</span><span class='info'>Crockford, D., &ldquo;The application/json Media Type for JavaScript Object           Notation (JSON),&rdquo; July&nbsp;2006.</span><span>)</span></a> [RFC4627] String</td>
+<td align="left">Identifies the action that the activity describes. An activity
+          SHOULD contain a <tt>verb</tt> property whose 
+          value is a JSON String that is non-empty and matches either the 
+          "isegment-nz-nc" or the "IRI" production in <a class='info' href='#RFC3339'>[RFC3339]<span> (</span><span class='info'>Klyne, G., &ldquo;Date and Time on the Internet: Timestamps,&rdquo; July&nbsp;2002.</span><span>)</span></a>. 
+          Note that the use of a relative reference other than a simple name 
+          is not allowed. If the <tt>verb</tt> is not 
+          specified, or if the value is null, the <tt>verb</tt> 
+          is assumed to be <a class='info' href='#post-verb'>"post"<span> (</span><span class='info'>The &quot;post&quot; Verb</span><span>)</span></a>.</td>
+</tr>
+</table>
+<br clear="all" />
+
+<a name="media-link-serialization"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.3.3"></a><h3>3.3.&nbsp;
+Media Link Serialization</h3>
+<table class="full" align="center" border="0" cellpadding="2" cellspacing="2">
+<col align="left" width="15%"><col align="left" width="21%"><col align="left">
+<tr><th align="left">Property</th><th align="left">Value</th><th align="left">Description</th></tr>
+<tr>
+<td align="left"><tt>duration</tt>&nbsp;</td>
+<td align="left"><a class='info' href='#RFC4627'>JSON<span> (</span><span class='info'>Crockford, D., &ldquo;The application/json Media Type for JavaScript Object           Notation (JSON),&rdquo; July&nbsp;2006.</span><span>)</span></a> [RFC4627] int</td>
+<td align="left">A hint to the consumer about the length, in seconds, of the
+          media resource identified by the <tt>url</tt> property. A media link MAY
+          contain a "duration" property when the target resource is a
+          time-based media item such as an audio or video.</td>
+</tr>
+<tr>
+<td align="left"><tt>height</tt>&nbsp;</td>
+<td align="left"><a class='info' href='#RFC4627'>JSON<span> (</span><span class='info'>Crockford, D., &ldquo;The application/json Media Type for JavaScript Object           Notation (JSON),&rdquo; July&nbsp;2006.</span><span>)</span></a> [RFC4627] int</td>
+<td align="left">A hint to the consumer about the height, in pixels, of the
+          media resource identified by the <tt>url</tt> property. A media link MAY
+          contain a <tt>height</tt> property when the target resource is a visual
+          media item such as an image, video or embeddable HTML page.</td>
+</tr>
+<tr>
+<td align="left"><tt>url</tt>&nbsp;</td>
+<td align="left">String</td>
+<td align="left">The IRI of the media resource being linked. A media link MUST
+          have a <tt>url</tt> property.</td>
+</tr>
+<tr>
+<td align="left"><tt>width</tt>&nbsp;</td>
+<td align="left"><a class='info' href='#RFC4627'>JSON<span> (</span><span class='info'>Crockford, D., &ldquo;The application/json Media Type for JavaScript Object           Notation (JSON),&rdquo; July&nbsp;2006.</span><span>)</span></a> [RFC4627] int</td>
+<td align="left">A hint to the consumer about the width, in pixels, of the
+          media resource identified by the <tt>url</tt> property. A media link MAY
+          contain a <tt>width</tt> property when the target resource is a visual
+          media item such as an image, video or embeddable HTML page.</td>
+</tr>
+</table>
+<br clear="all" />
+
+<a name="object-serialization"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.3.4"></a><h3>3.4.&nbsp;
+Object Serialization</h3>
+<table class="full" align="center" border="0" cellpadding="2" cellspacing="2">
+<col align="left" width="15%"><col align="left" width="21%"><col align="left">
+<tr><th align="left">Property</th><th align="left">Value</th><th align="left">Description</th></tr>
+<tr>
+<td align="left"><tt>attachments</tt>&nbsp;</td>
+<td align="left"><a class='info' href='#RFC4627'>JSON<span> (</span><span class='info'>Crockford, D., &ldquo;The application/json Media Type for JavaScript Object           Notation (JSON),&rdquo; July&nbsp;2006.</span><span>)</span></a> [RFC4627] Array of <a class='info' href='#object-serialization'>Objects<span> (</span><span class='info'>Object Serialization</span><span>)</span></a></td>
+<td align="left">A collection of one or more additional, associated objects, similar
+          to the concept of attached files in an email message. An object MAY
+          have an <tt>attachments</tt> property whose value is a JSON Array of
+          <a class='info' href='#object-serialization'>Objects<span> (</span><span class='info'>Object Serialization</span><span>)</span></a>.</td>
+</tr>
+<tr>
+<td align="left"><tt>author</tt>&nbsp;</td>
+<td align="left"><a class='info' href='#object-serialization'>Object<span> (</span><span class='info'>Object Serialization</span><span>)</span></a></td>
+<td align="left">Describes the entity that created or authored the object. An 
+          object MAY contain a single <tt>author</tt> 
+          property whose value is an <a class='info' href='#object-serialization'>Object<span> (</span><span class='info'>Object Serialization</span><span>)</span></a>
+          of any type. Note that the author field identifies the entity that 
+          created the object and does not necessarily identify the entity 
+          that published the object. For instance, it may be the case that 
+          an object created by one person is posted and published to a system
+          by an entirely different entity.</td>
+</tr>
+<tr>
+<td align="left"><tt>content</tt>&nbsp;</td>
+<td align="left"><a class='info' href='#RFC4627'>JSON<span> (</span><span class='info'>Crockford, D., &ldquo;The application/json Media Type for JavaScript Object           Notation (JSON),&rdquo; July&nbsp;2006.</span><span>)</span></a> [RFC4627] String</td>
+<td align="left">Natural-language description of the object encoded as a single
+          JSON String containing HTML markup. Visual elements such as thumbnail
+          images MAY be included. An object MAY contain a
+          <tt>content</tt> property.</td>
+</tr>
+<tr>
+<td align="left"><tt>displayName</tt>&nbsp;</td>
+<td align="left"><a class='info' href='#RFC4627'>JSON<span> (</span><span class='info'>Crockford, D., &ldquo;The application/json Media Type for JavaScript Object           Notation (JSON),&rdquo; July&nbsp;2006.</span><span>)</span></a> [RFC4627] String</td>
+<td align="left">A natural-language, human-readable and plain-text name for the object.
+          HTML markup MUST NOT be included. An object MAY contain a <tt>displayName</tt>
+          property. If the object does not specify an <tt>objectType</tt>
+          property, the object SHOULD specify a <tt>displayName</tt>.</td>
+</tr>
+<tr>
+<td align="left"><tt>downstreamDuplicates</tt>&nbsp;</td>
+<td align="left"><a class='info' href='#RFC4627'>JSON<span> (</span><span class='info'>Crockford, D., &ldquo;The application/json Media Type for JavaScript Object           Notation (JSON),&rdquo; July&nbsp;2006.</span><span>)</span></a> [RFC4627] Array of Strings</td>
+<td align="left">A JSON Array of one or more absolute IRI's <a class='info' href='#RFC3987'>[RFC3987]<span> (</span><span class='info'>Duerst, M. and M. Suignard, &ldquo;Internationalized Resource Identifiers (IRIs),&rdquo; January&nbsp;2005.</span><span>)</span></a>
+          identifying objects that duplicate this object's content. An object
+          SHOULD contain a <tt>downstreamDuplicates</tt> property when there are known
+          objects, possibly in a different system, that duplicate the content
+          in this object. This MAY be used as a hint for consumers to use when
+          resolving duplicates between objects received from different sources.</td>
+</tr>
+<tr>
+<td align="left"><tt>id</tt>&nbsp;</td>
+<td align="left"><a class='info' href='#RFC4627'>JSON<span> (</span><span class='info'>Crockford, D., &ldquo;The application/json Media Type for JavaScript Object           Notation (JSON),&rdquo; July&nbsp;2006.</span><span>)</span></a> [RFC4627] String</td>
+<td align="left">Provides a permanent, universally unique identifier for the
+          object in the form of an absolute IRI <a class='info' href='#RFC3987'>[RFC3987]<span> (</span><span class='info'>Duerst, M. and M. Suignard, &ldquo;Internationalized Resource Identifiers (IRIs),&rdquo; January&nbsp;2005.</span><span>)</span></a>.
+          An object SHOULD contain a single <tt>id</tt> property. If an object
+          does not contain an <tt>id</tt> property, consumers MAY use the value of
+          the <tt>url</tt> property as a less-reliable, non-unique identifier.</td>
+</tr>
+<tr>
+<td align="left"><tt>image</tt>&nbsp;</td>
+<td align="left"><a class='info' href='#media-link-serialization'>Media Link<span> (</span><span class='info'>Media Link Serialization</span><span>)</span></a></td>
+<td align="left">Description of a resource providing a visual representation of
+          the object, intended for human consumption. An object MAY contain
+          an <tt>image</tt> property whose value is a
+          <a class='info' href='#media-link-serialization'>Media Link<span> (</span><span class='info'>Media Link Serialization</span><span>)</span></a>.</td>
+</tr>
+<tr>
+<td align="left"><tt>objectType</tt>&nbsp;</td>
+<td align="left"><a class='info' href='#RFC4627'>JSON<span> (</span><span class='info'>Crockford, D., &ldquo;The application/json Media Type for JavaScript Object           Notation (JSON),&rdquo; July&nbsp;2006.</span><span>)</span></a> [RFC4627] String</td>
+<td align="left">Identifies the type of object. An object MAY contain an
+          <tt>objectType</tt>
+          property whose value is a JSON String that is non-empty and matches
+          either the "isegment-nz-nc" or the "IRI" production in
+          <a class='info' href='#RFC3987'>[RFC3987]<span> (</span><span class='info'>Duerst, M. and M. Suignard, &ldquo;Internationalized Resource Identifiers (IRIs),&rdquo; January&nbsp;2005.</span><span>)</span></a>. Note that the use of a relative reference
+          other than a simple name is not allowed. If no
+          <tt>objectType</tt> property
+          is contained, the object has no specific type.</td>
+</tr>
+<tr>
+<td align="left"><tt>published</tt>&nbsp;</td>
+<td align="left"><a class='info' href='#RFC3339'>[RFC3339]<span> (</span><span class='info'>Klyne, G., &ldquo;Date and Time on the Internet: Timestamps,&rdquo; July&nbsp;2002.</span><span>)</span></a> date-time</td>
+<td align="left">The date and time at which the object was published. An object 
+          MAY contain a <tt>published</tt> property.</td>
+</tr>
+<tr>
+<td align="left"><tt>summary</tt>&nbsp;</td>
+<td align="left"><a class='info' href='#RFC4627'>JSON<span> (</span><span class='info'>Crockford, D., &ldquo;The application/json Media Type for JavaScript Object           Notation (JSON),&rdquo; July&nbsp;2006.</span><span>)</span></a> [RFC4627] String</td>
+<td align="left">Natural-language summarization of the object encoded as a single
+          JSON String containing HTML markup. Visual elements such as thumbnail
+          images MAY be included. An activity MAY contain a
+          <tt>summary</tt> property.</td>
+</tr>
+<tr>
+<td align="left"><tt>updated</tt>&nbsp;</td>
+<td align="left"><a class='info' href='#RFC3339'>[RFC3339]<span> (</span><span class='info'>Klyne, G., &ldquo;Date and Time on the Internet: Timestamps,&rdquo; July&nbsp;2002.</span><span>)</span></a> date-time</td>
+<td align="left">The date and time at which a previously published object has
+          been modified. An Object MAY contain an <tt>updated</tt>
+          property.</td>
+</tr>
+<tr>
+<td align="left"><tt>upstreamDuplicates</tt>&nbsp;</td>
+<td align="left"><a class='info' href='#RFC4627'>JSON<span> (</span><span class='info'>Crockford, D., &ldquo;The application/json Media Type for JavaScript Object           Notation (JSON),&rdquo; July&nbsp;2006.</span><span>)</span></a> [RFC4627] Array of Strings</td>
+<td align="left">A JSON Array of one or more absolute IRI's <a class='info' href='#RFC3987'>[RFC3987]<span> (</span><span class='info'>Duerst, M. and M. Suignard, &ldquo;Internationalized Resource Identifiers (IRIs),&rdquo; January&nbsp;2005.</span><span>)</span></a>
+          identifying objects that duplicate this object's content.
+          An object SHOULD contain an <tt>upstreamDuplicates</tt>
+          property when a publisher is knowingly duplicating with a new ID
+          the content from another object. This MAY be used as a hint for consumers to use
+          when resolving duplicates between objects received from different
+          sources.</td>
+</tr>
+<tr>
+<td align="left"><tt>url</tt>&nbsp;</td>
+<td align="left"><a class='info' href='#RFC4627'>JSON<span> (</span><span class='info'>Crockford, D., &ldquo;The application/json Media Type for JavaScript Object           Notation (JSON),&rdquo; July&nbsp;2006.</span><span>)</span></a> [RFC4627] String</td>
+<td align="left">An IRI <a class='info' href='#RFC3987'>[RFC3987]<span> (</span><span class='info'>Duerst, M. and M. Suignard, &ldquo;Internationalized Resource Identifiers (IRIs),&rdquo; January&nbsp;2005.</span><span>)</span></a> identifying a resource providing
+          an HTML representation of the object. An object MAY contain
+          a <tt>url</tt> property </td>
+</tr>
+</table>
+<br clear="all" />
+
+<a name="collection-serialization"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.3.5"></a><h3>3.5.&nbsp;
+Collection Serialization</h3>
+
+<p>A "collection" is a generic list of <a class='info' href='#object-serialization'>Objects<span> (</span><span class='info'>Object Serialization</span><span>)</span></a>
+        of any object type. The <tt>objectType</tt> of each 
+        item in the collection MAY be omitted if the type of object can be established
+        through context. The collection is used primarily as the root of an 
+        Activity Streams document as described in <a class='info' href='#document'>Section&nbsp;4<span> (</span><span class='info'>The Activity Stream JSON Document</span><span>)</span></a>,
+        but can be used as the value of extension properties in a variety 
+        of situations.
+</p><table class="full" align="center" border="0" cellpadding="2" cellspacing="2">
+<col align="left" width="15%"><col align="left" width="21%"><col align="left">
+<tr><th align="left">Property</th><th align="left">Value</th><th align="left">Description</th></tr>
+<tr>
+<td align="left"><tt>totalItems</tt>&nbsp;</td>
+<td align="left"><a class='info' href='#RFC4627'>JSON<span> (</span><span class='info'>Crockford, D., &ldquo;The application/json Media Type for JavaScript Object           Notation (JSON),&rdquo; July&nbsp;2006.</span><span>)</span></a> [RFC4627] Integer</td>
+<td align="left">Non-negative integer specifying the total number of activities
+          within the stream. The Stream serialization MAY contain a
+          <tt>count</tt> property.</td>
+</tr>
+<tr>
+<td align="left"><tt>items</tt>&nbsp;</td>
+<td align="left"><a class='info' href='#RFC4627'>JSON<span> (</span><span class='info'>Crockford, D., &ldquo;The application/json Media Type for JavaScript Object           Notation (JSON),&rdquo; July&nbsp;2006.</span><span>)</span></a> [RFC4627] Array of 
+          <a class='info' href='#object-serialization'>Objects<span> (</span><span class='info'>Object Serialization</span><span>)</span></a></td>
+<td align="left">An array containing a listing of  
+          <a class='info' href='#object-serialization'>Objects<span> (</span><span class='info'>Object Serialization</span><span>)</span></a> of any 
+          object type. If used in combination with the <tt>url</tt>
+          property, the <tt>items</tt> array can be used 
+          to provide a subset of the objects that may be found in the resource
+          identified by the <tt>url</tt>.</td>
+</tr>
+<tr>
+<td align="left"><tt>url</tt>&nbsp;</td>
+<td align="left"><a class='info' href='#RFC4627'>JSON<span> (</span><span class='info'>Crockford, D., &ldquo;The application/json Media Type for JavaScript Object           Notation (JSON),&rdquo; July&nbsp;2006.</span><span>)</span></a> [RFC4627] String</td>
+<td align="left">An IRI <a class='info' href='#RFC3987'>[RFC3987]<span> (</span><span class='info'>Duerst, M. and M. Suignard, &ldquo;Internationalized Resource Identifiers (IRIs),&rdquo; January&nbsp;2005.</span><span>)</span></a> referencing a
+          JSON document containing the full listing of objects in the 
+          collection.</td>
+</tr>
+</table>
+<br clear="all" />
+
+<p>A valid Collection object serialization MUST contain at least the 
+        <tt>url</tt> or <tt>items</tt>
+        properties.
+</p>
+<a name="document"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.4"></a><h3>4.&nbsp;
+The Activity Stream JSON Document</h3>
+
+<p>The above defined JSON serialization can be used to represent
+      activities, objects and media links in any JSON context. This section
+      defines one particular use of the above formats to publish a JSON 
+      document representing a stream of activities.
+</p>
+<p>Publishers using this format MUST produce a valid JSON document
+      whose root value is a <a class='info' href='#collection-serialization'>Collection<span> (</span><span class='info'>Collection Serialization</span><span>)</span></a>. 
+      This object MUST, at a minimum, include the <tt>items</tt> 
+      property whose objects MUST be <a class='info' href='#activity-serialization'>Activities<span> (</span><span class='info'>Activity Serialization</span><span>)</span></a>.
+</p>
+<a name="anchor3"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.5"></a><h3>5.&nbsp;
+Comparison of Identifier Values</h3>
+
+<p>The values of multiple <a class='info' href='#object-serialization'>Object's<span> (</span><span class='info'>Object Serialization</span><span>)</span></a>
+      <tt>id</tt>, <tt>upstreamDuplicates</tt>,
+      and <tt>downstreamDuplicates</tt> properties can be
+      compared to determine if the objects represent duplicate content.
+      Processors MUST compare these values on a character-by-character basis
+      (in a case-sensitive fashion).  Comparison operations MUST be based solely
+      on the IRI character strings and MUST NOT rely on dereferencing the
+      IRIs or URIs mapped from them.
+</p>
+<p>As a result, two IRIs that resolve to the same resource but are not
+      character-for-character identical will be considered different for
+      the purposes of identifier comparison.
+</p>
+<a name="post-verb"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.6"></a><h3>6.&nbsp;
+The &quot;post&quot; Verb</h3>
+
+<p>This specification defines one initial verb and defers to other
+      specifications to define additional verb and object types as
+      defined in <a class='info' href='#extensions'>Section&nbsp;8<span> (</span><span class='info'>Extension Object Types and Verbs</span><span>)</span></a>.
+</p>
+<p>The "post" verb describes the act of authoring an object and then
+      publishing it online. The <tt>actor</tt> can be
+      any entity; the <tt>object</tt> can be of any
+      object type; and the <tt>target</tt>, if specified,
+      can be of any object type. A <tt>target</tt>,
+      however, is not required.
+</p>
+<a name="anchor4"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.6.1"></a><h3>6.1.&nbsp;
+Implied &quot;post&quot; Activity</h3>
+
+<p>Because the "post" verb is defined to include the act of publishing
+        an object online, it is possible to assume an implied "post" activity
+        for any object even if such an activity was never explicitly
+        published or received. The properties of this implied activity are as
+        follows; any property not explicitly listed here is absent from the
+        resulting activity unless the consumer is able to infer a value based
+        on out-of-band information outside the scope of this
+        specification:
+</p>
+<p></p>
+<blockquote class="text"><dl>
+<dt>actor</dt>
+<dd>The <tt>actor</tt>
+          of the implied activity is unknown unless the consumer is able
+          to infer an <tt>actor</tt> based on information
+          outside the scope of this specification. For example, the consumer
+          may know via some out-of-band information that all of the objects in
+          a particular document were posted by a particular user.
+</dd>
+<dt>object</dt>
+<dd>The <tt>object</tt> of the
+          implied activity is the object for which this implied activity is
+          being constructed.
+</dd>
+<dt>verb</dt>
+<dd>The <tt>verb</tt> of the
+          implied activity is "post".
+</dd>
+<dt>published</dt>
+<dd>The <tt>published</tt>
+          of the implied activity is unknown unless the consumer is able to
+          infer a time based on information outside the scope of this
+          specification.
+</dd>
+</dl></blockquote>
+
+<a name="anchor5"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.7"></a><h3>7.&nbsp;
+The &quot;activity&quot; Object Type</h3>
+
+<p>The "activity" object type indicates that an Object represents an 
+      Activity. It can be used whenever an event involving another activity
+      is described within an Activity Stream. For instance, when one user 
+      "shares" or "reposts" an activity from another user.
+</p>
+<p>In addition to the core Object properties, an "activity" object
+      MAY contain any combination of the properties defined for an
+      <a class='info' href='#activity-serialization'>Activity<span> (</span><span class='info'>Activity Serialization</span><span>)</span></a>. The values of 
+      the object's <tt>id</tt> and <tt>url</tt>
+      fields MUST match those of the activity being described.
+</p>
+<p>Note that an <tt>activity</tt> object MUST 
+      be processable as both an <a class='info' href='#object-serialization'>Object<span> (</span><span class='info'>Object Serialization</span><span>)</span></a>
+      and an <a class='info' href='#activity-serialization'>Activity<span> (</span><span class='info'>Activity Serialization</span><span>)</span></a> and 
+      may contain fields from either construct, some of which may overlap or 
+      duplicate content. When duplication of content may occur, an implementation
+      SHOULD choose to use the fields from the <a class='info' href='#activity-serialization'>Activity<span> (</span><span class='info'>Activity Serialization</span><span>)</span></a>
+      object. For instance, in an <tt>activity</tt> object,
+      the Activity's <tt>title</tt> property and the 
+      Object's <tt>displayName</tt> properties serve 
+      identical functions, therefore the use of the <tt>title</tt>
+      property SHOULD be favored over the use of <tt>displayName</tt>.
+</p>
+<p>The example below illustrates an activity in which one user, Jane,
+      is sharing another activity performed by a second user, John.
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>
+  {
+    "published": "2011-02-10T15:04:55Z",
+    "actor": {
+      "objectType" : "person",
+      "id": "tag:example.org,2011:jane"
+    },
+    "verb": "share",
+    "object" : {
+      "objectType":"activity",
+      "title": "John posted a photo",
+      "id": "tag:example.org,2011:abc123",
+      "verb": "post",
+      "actor": {
+        "objectType":"person",
+        "id":"tag:example.org,2011:john"
+      },
+      "object": {
+        "objectType":"photo",
+        "url":"http://example.org/album/my_fluffy_cat.jpg"
+      }
+    }
+  }
+</pre></div>
+<a name="extensions"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.8"></a><h3>8.&nbsp;
+Extension Object Types and Verbs</h3>
+
+<p>Other specifications MAY define new object types and verbs for use
+      with the concepts and serializations defined in this specification.
+      To be clear, new extension properties can be added anywhere in the 
+      JSON serialization of an object or activity.
+</p>
+<p>When defining a new verb, the defining specification MUST provide a
+      verb identifier for the new verb and MUST define the meaning of the
+      verb in terms of the <tt>actor</tt>,
+      <tt>object</tt> and <tt>target</tt>
+      properties of the activity, and MUST define whether a
+      <tt>target</tt> is required and what it
+      represents when present.
+</p>
+<p>When defining a new object type, the defining specification MUST
+      provide an object type identifier for the new object type. The
+      definition of the new object type MAY define additional properties
+      specific to that object type; if so, the specification SHOULD define how
+      these additional properties are to be serialized within the JSON document,
+      and the specification MAY define how these additional properties are to
+      be represented in other serialization formats. The definition of the new
+      object type MAY impose additional meaning or constraint on the core
+      object properties as long as the new definition remains compatible with
+      the definition of the base component.
+</p>
+<p>Additional extension properties MAY also be defined for
+      <a class='info' href='#activity-serialization'>Activities<span> (</span><span class='info'>Activity Serialization</span><span>)</span></a> and
+      <a class='info' href='#media-link-serialization'>Media Links<span> (</span><span class='info'>Media Link Serialization</span><span>)</span></a>. The
+      specification of these properties SHOULD define how they are to be
+      serialized within the JSON document, and the specification MAY define
+      how they are to be represented in other serialization formats.
+</p>
+<p>New properties SHOULD be defined such that the
+      <a class='info' href='#object-serialization'>Object<span> (</span><span class='info'>Object Serialization</span><span>)</span></a>,
+      <a class='info' href='#activity-serialization'>Activity<span> (</span><span class='info'>Activity Serialization</span><span>)</span></a> or
+      <a class='info' href='#media-link-serialization'>Media Link<span> (</span><span class='info'>Media Link Serialization</span><span>)</span></a> would remain
+      useful if those properties are omitted or removed during processing, to
+      enable graceful fallback by consumers that do not implement the
+      extension properties or alternative representations that are unable to
+      represent the extensions.
+</p>
+<p>Processors that encounter unfamiliar extension properties within an
+      <a class='info' href='#object-serialization'>Object<span> (</span><span class='info'>Object Serialization</span><span>)</span></a>,
+      <a class='info' href='#activity-serialization'>Activity<span> (</span><span class='info'>Activity Serialization</span><span>)</span></a> or
+      <a class='info' href='#media-link-serialization'>Media Link<span> (</span><span class='info'>Media Link Serialization</span><span>)</span></a> MUST NOT
+      stop processing or signal an error and MUST continue processing the
+      items as if the extension properties were not present.
+</p>
+<a name="other-serializations"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.9"></a><h3>9.&nbsp;
+Other Representations</h3>
+
+<p>This specification defines the primary representation for
+      "activities", "objects" and "media links" in terms of the JSON
+      serialization format. Other specifications MAY define additional
+      serializations of these items. If the new serialization is compatible with
+      the JSON data model, the new representation SHOULD be defined as a
+      transformation of the raw JSON structures.
+</p>
+<p>Defining a new representation as a transformation from JSON will
+      allow the new representation to automatically support additional
+      properties added for new object types as described in <a class='info' href='#extensions'>Section&nbsp;8<span> (</span><span class='info'>Extension Object Types and Verbs</span><span>)</span></a>. Otherwise the representation of these new
+      properties must be defined on a case-by-case basis.
+</p>
+<a name="republisher"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.10"></a><h3>10.&nbsp;
+Requirements for Re-publishers</h3>
+
+<p>A Re-publisher is an agent which receives "activities" or
+      "objects" and then transmits these items to other agents.
+</p>
+<p>When a Re-publisher transmits an "activity", the Re-publisher
+      MUST preserve the original <tt>verb</tt>,
+      <tt>published</tt>, <tt>actor</tt>,
+      <tt>object</tt> and
+      <tt>target</tt> properties. The Re-publisher MAY
+      preserve the remaining properties, OR the Re-publisher MAY omit these
+      properties entirely or replace these properties with locally-determined
+      values.
+</p>
+<p>When a Re-publisher transmits an <tt>object</tt>,
+      the Re-publisher MUST maintain the full integrity of the
+      <tt>object</tt>, including any extension properties,
+      and retain the original <tt>id</tt> value OR, if
+      maintaining full fidelity is not possible the Re-publisher MUST assign
+      this copy a new <tt>id</tt> and include the
+      <tt>id</tt> of the original object as a value
+      of the <tt>upstreamDuplicates</tt> property of the
+      new copy. In the latter case, a new <tt>object</tt>
+      is created which is considered to be a duplicate of the original.
+</p>
+<a name="anchor6"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.11"></a><h3>11.&nbsp;
+Security Considerations</h3>
+
+<p>Publishers or Consumers implementing Activity Streams as a stream of
+      public data may also want to consider the potential for unsolicited
+      commercial or malicious content and should take preventative measures to
+      recognize such content and either identify it or not include it in their
+      stream implementations.
+</p>
+<p>Publishers should take reasonable measures to make sure potentially
+      malicious user input such as cross-site scripting attacks are not
+      included in the Activity Streams data they publish.
+</p>
+<p>Consumers that re-emit ingested content to end-users MUST take
+      reasonable measures if emitting ingested content to make sure
+      potentially malicious ingested input is not re-emitted.
+</p>
+<p>Consumers that re-emit ingested content for crawling by search
+      engines should take reasonable measures to limit any use of their site
+      as a Search Engine Optimization loophole. This may include converting
+      un-trusted hyperlinks to text or including a rel="nofollow"
+      attribute.
+</p>
+<p>Consumers should be aware of the potential for spoofing attacks
+      where the attacker publishes activities or objects with falsified
+      property values with the intent of injecting malicious content,
+      hiding or corrupting legitimate content, or misleading users.
+</p>
+<p>Activity Streams are JSON Documents and are subject to the same
+      security considerations described in <a class='info' href='#RFC4627'>[RFC4627]<span> (</span><span class='info'>Crockford, D., &ldquo;The application/json Media Type for JavaScript Object           Notation (JSON),&rdquo; July&nbsp;2006.</span><span>)</span></a>.
+</p>
+<p>Activity Streams implementations handle URIs.  See Section 7 of
+      <a class='info' href='#RFC3986'>[RFC3986]<span> (</span><span class='info'>Berners-Lee, T., Fielding, R., and L. Masinter, &ldquo;Uniform Resource Identifier (URI),&rdquo; January&nbsp;2005.</span><span>)</span></a>.
+</p>
+<p>Activity Streams implementations handle IRIs.  See Section 8 of
+      <a class='info' href='#RFC3987'>[RFC3987]<span> (</span><span class='info'>Duerst, M. and M. Suignard, &ldquo;Internationalized Resource Identifiers (IRIs),&rdquo; January&nbsp;2005.</span><span>)</span></a>.
+</p>
+<a name="anchor7"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.12"></a><h3>12.&nbsp;
+IANA Considerations</h3>
+
+<p>None.
+</p>
+<a name="license"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.13"></a><h3>13.&nbsp;
+License</h3>
+
+<p>As of [date], the following persons or entities have made this
+      Specification available under the Open Web Foundation Agreement Version
+      1.0, which is available at
+      <a href='http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0'>http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0</a>.
+
+        </p>
+<blockquote class="text">
+<p>[List of persons or entities]
+</p>
+</blockquote><p>
+      
+</p>
+<p>You can review the signed copies of the Open Web Foundation Agreement
+      Version 1.0 for this Specification at
+      <a href='http://activitystrea.ms/agreements'>http://activitystrea.ms/agreements</a>, which may also
+      include additional parties to those listed above.
+</p>
+<p>Your use of this Specification may be subject to other third party
+      rights. THIS SPECIFICATION IS PROVIDED "AS IS." The contributors expressly
+      disclaim any warranties (express, implied, or otherwise), including
+      implied warranties of merchantability, non-infringement, fitness for a
+      particular purpose, or title, related to the Specification. The entire
+      risk as to implementing or otherwise using the Specification is assumed by
+      the Specification implementer and user. IN NO EVENT WILL ANY PARTY BE
+      LIABLE TO ANY OTHER PARTY FOR LOST PROFITS OR ANY FORM OF INDIRECT,
+      SPECIAL, INCIDENTAL, OR CONSEQUENTIAL DAMAGES OF ANY CHARACTER FROM ANY
+      CAUSES OF ACTION OF ANY KIND WITH RESPECT TO THIS SPECIFICATION OR ITS
+      GOVERNING AGREEMENT, WHETHER BASED ON BREACH OF CONTRACT, TORT (INCLUDING
+      NEGLIGENCE), OR OTHERWISE, AND WHETHER OR NOT THE OTHER PARTY HAS BEEN
+      ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+</p>
+<a name="rfc.references1"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<h3>14.&nbsp;Normative References</h3>
+<table width="99%" border="0">
+<tr><td class="author-text" valign="top"><a name="RFC2119">[RFC2119]</a></td>
+<td class="author-text">Bradner, S., &ldquo;Key words for use in RFCs to Indicate Requirement
+          Levels,&rdquo; March&nbsp;1997.</td></tr>
+<tr><td class="author-text" valign="top"><a name="RFC3339">[RFC3339]</a></td>
+<td class="author-text">Klyne, G., &ldquo;Date and Time on the Internet: Timestamps,&rdquo; July&nbsp;2002.</td></tr>
+<tr><td class="author-text" valign="top"><a name="RFC3986">[RFC3986]</a></td>
+<td class="author-text">Berners-Lee, T., Fielding, R., and L. Masinter, &ldquo;Uniform Resource Identifier (URI),&rdquo; January&nbsp;2005.</td></tr>
+<tr><td class="author-text" valign="top"><a name="RFC3987">[RFC3987]</a></td>
+<td class="author-text">Duerst, M. and M. Suignard, &ldquo;Internationalized Resource Identifiers (IRIs),&rdquo; January&nbsp;2005.</td></tr>
+<tr><td class="author-text" valign="top"><a name="RFC4627">[RFC4627]</a></td>
+<td class="author-text">Crockford, D., &ldquo;The application/json Media Type for JavaScript Object
+          Notation (JSON),&rdquo; July&nbsp;2006.</td></tr>
+</table>
+
+<a name="anchor9"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.A"></a><h3>Appendix A.&nbsp;
+Acknowledgements</h3>
+
+<p>...
+</p>
+<a name="rfc.authors"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<h3>Authors' Addresses</h3>
+<table width="99%" border="0" cellpadding="0" cellspacing="0">
+<tr><td class="author-text">&nbsp;</td>
+<td class="author-text">James M Snell</td></tr>
+<tr><td class="author-text">&nbsp;</td>
+<td class="author-text">IBM</td></tr>
+<tr cellpadding="3"><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td class="author-text">&nbsp;</td>
+<td class="author-text">Martin Atkins</td></tr>
+<tr><td class="author-text">&nbsp;</td>
+<td class="author-text">SAY Media</td></tr>
+<tr cellpadding="3"><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td class="author-text">&nbsp;</td>
+<td class="author-text">Will Norris</td></tr>
+<tr><td class="author-text">&nbsp;</td>
+<td class="author-text">Google</td></tr>
+<tr cellpadding="3"><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td class="author-text">&nbsp;</td>
+<td class="author-text">Chris Messina</td></tr>
+<tr><td class="author-text">&nbsp;</td>
+<td class="author-text">Citizen Agency, Google</td></tr>
+<tr cellpadding="3"><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td class="author-text">&nbsp;</td>
+<td class="author-text">Monica Wilkinson</td></tr>
+<tr><td class="author-text">&nbsp;</td>
+<td class="author-text">MySpace, Facebook, Socialcast</td></tr>
+<tr cellpadding="3"><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td class="author-text">&nbsp;</td>
+<td class="author-text">Rob Dolin</td></tr>
+<tr><td class="author-text">&nbsp;</td>
+<td class="author-text">Microsoft</td></tr>
+</table>
+</body></html>

@@ -13,7 +13,7 @@ Activity Streams Working Group                                  J. Snell
                                            MySpace, Facebook, Socialcast
                                                                 R. Dolin
                                                                Microsoft
-                                                            May 12, 2011
+                                                            May 17, 2011
 
 
                        JSON Activity Streams 1.0
@@ -80,7 +80,7 @@ Table of Contents
    13. License  . . . . . . . . . . . . . . . . . . . . . . . . . . . 19
    14. Normative References . . . . . . . . . . . . . . . . . . . . . 20
    Appendix A.  Acknowledgements  . . . . . . . . . . . . . . . . . . 20
-   Authors' Addresses . . . . . . . . . . . . . . . . . . . . . . . . 20
+   Authors' Addresses . . . . . . . . . . . . . . . . . . . . . . . . 21
 
 
 
@@ -343,7 +343,7 @@ Snell, et al.                                                   [Page 6]
    | Property    | Value         | Description                         |
    +-------------+---------------+-------------------------------------+
    | "actor"     | Object        | Describes the entity that performed |
-   |             | (Section 3.4) | the activity. An activity MUST      |
+   |             | (Section 3.4) | the activity.  An activity MUST     |
    |             |               | contain one "actor" property whose  |
    |             |               | value is a single Object            |
    |             |               | (Section 3.4).                      |
@@ -351,33 +351,33 @@ Snell, et al.                                                   [Page 6]
    |             | [RFC4627]     | activity encoded as a single JSON   |
    |             | String        | String containing HTML markup.      |
    |             |               | Visual elements such as thumbnail   |
-   |             |               | images MAY be included. An activity |
-   |             |               | MAY contain a "content" property.   |
+   |             |               | images MAY be included.  An         |
+   |             |               | activity MAY contain a "content"    |
+   |             |               | property.                           |
    | "generator" | Object        | Describes the application that      |
-   |             | (Section 3.4) | generated the activity. An activity |
-   |             |               | MAY contain a "generator" property  |
-   |             |               | whose value is a single Object      |
-   |             |               | (Section 3.4).                      |
+   |             | (Section 3.4) | generated the activity.  An         |
+   |             |               | activity MAY contain a "generator"  |
+   |             |               | property whose value is a single    |
+   |             |               | Object (Section 3.4).               |
    | "icon"      | Media Link    | Description of a resource providing |
    |             | (Section 3.3) | a visual representation of the      |
    |             |               | object, intended for human          |
-   |             |               | consumption. The image SHOULD have  |
+   |             |               | consumption.  The image SHOULD have |
    |             |               | an aspect ratio of one (horizontal) |
    |             |               | to one (vertical) and SHOULD be     |
    |             |               | suitable for presentation at a      |
-   |             |               | small size. An activity MAY have an |
-   |             |               | "icon" property.                    |
+   |             |               | small size.  An activity MAY have   |
+   |             |               | an "icon" property.                 |
    | "id"        | JSON          | Provides a permanent, universally   |
    |             | [RFC4627]     | unique identifier for the activity  |
    |             | String        | in the form of an absolute IRI      |
-   |             |               | [RFC3987]. An activity SHOULD       |
-   |             |               | contain a single "id" property. If  |
+   |             |               | [RFC3987].  An activity SHOULD      |
+   |             |               | contain a single "id" property.  If |
    |             |               | an activity does not contain an     |
    |             |               | "id" property, consumers MAY use    |
    |             |               | the value of the "url" property as  |
    |             |               | a less-reliable, non-unique         |
    |             |               | identifier.                         |
-
 
 
 
@@ -394,50 +394,50 @@ Snell, et al.                                                   [Page 7]
 
 
    | "object"    | Object        | Describes the primary object of the |
-   |             | (Section 3.4) | activity. For instance, in the      |
+   |             | (Section 3.4) | activity.  For instance, in the     |
    |             |               | activity, "John saved a movie to    |
    |             |               | his wishlist", the object of the    |
-   |             |               | activity is "movie". An activity    |
+   |             |               | activity is "movie".  An activity   |
    |             |               | SHOULD contain an "object" property |
    |             |               | whose value is a single Object      |
-   |             |               | (Section 3.4). If the "object"      |
+   |             |               | (Section 3.4).  If the "object"     |
    |             |               | property is not contained, the      |
    |             |               | primary object of the activity MAY  |
    |             |               | be implied by context.              |
    | "published" | [RFC3339]     | The date and time at which the      |
-   |             | date-time     | activity was published. An activity |
-   |             |               | MUST contain a "published"          |
+   |             | date-time     | activity was published.  An         |
+   |             |               | activity MUST contain a "published" |
    |             |               | property.                           |
    | "provider"  | Object        | Describes the application that      |
-   |             | (Section 3.4) | published the activity. Note that   |
+   |             | (Section 3.4) | published the activity.  Note that  |
    |             |               | this is not necessarily the same    |
    |             |               | entity that generated the activity. |
    |             |               | An activity MAY contain a           |
    |             |               | "provider" property whose value is  |
    |             |               | a single Object (Section 3.4).      |
    | "target"    | Object        | Describes the target of the         |
-   |             | (Section 3.4) | activity. The precise meaning of    |
+   |             | (Section 3.4) | activity.  The precise meaning of   |
    |             |               | the activity's target is dependent  |
    |             |               | on the activities "verb", but will  |
    |             |               | often be the object the English     |
-   |             |               | preposition "to". For instance, in  |
+   |             |               | preposition "to".  For instance, in |
    |             |               | the activity, "John saved a movie   |
    |             |               | to his wishlist", the target of the |
-   |             |               | activity is "wishlist". The         |
+   |             |               | activity is "wishlist".  The        |
    |             |               | activity target MUST NOT be used to |
    |             |               | identity an indirect object that is |
-   |             |               | not a target of the activity. An    |
+   |             |               | not a target of the activity.  An   |
    |             |               | activity MAY contain a "target"     |
    |             |               | property whose value is a single    |
    |             |               | Object (Section 3.4).               |
    | "title"     | JSON          | Natural-language title or headline  |
    |             | [RFC4627]     | for the activity encoded as a       |
    |             | String        | single JSON String containing HTML  |
-   |             |               | markup. An activity MAY contain a   |
+   |             |               | markup.  An activity MAY contain a  |
    |             |               | "title" property.                   |
    | "updated"   | [RFC3339]     | The date and time at which a        |
    |             | date-time     | previously published activity has   |
-   |             |               | been modified. An Activity MAY      |
+   |             |               | been modified.  An Activity MAY     |
    |             |               | contain an "updated" property.      |
 
 
@@ -451,19 +451,19 @@ Snell, et al.                                                   [Page 8]
 
    | "url"       | JSON          | An IRI [RFC3987] identifying a      |
    |             | [RFC4627]     | resource providing an HTML          |
-   |             | String        | representation of the activity. An  |
+   |             | String        | representation of the activity.  An |
    |             |               | activity MAY contain a "url"        |
    |             |               | property.                           |
    | "verb"      | JSON          | Identifies the action that the      |
-   |             | [RFC4627]     | activity describes. An activity     |
+   |             | [RFC4627]     | activity describes.  An activity    |
    |             | String        | SHOULD contain a "verb" property    |
    |             |               | whose value is a JSON String that   |
    |             |               | is non-empty and matches either the |
    |             |               | "isegment-nz-nc" or the "IRI"       |
-   |             |               | production in [RFC3339]. Note that  |
+   |             |               | production in [RFC3339].  Note that |
    |             |               | the use of a relative reference     |
    |             |               | other than a simple name is not     |
-   |             |               | allowed. If the "verb" is not       |
+   |             |               | allowed.  If the "verb" is not      |
    |             |               | specified, or if the value is null, |
    |             |               | the "verb" is assumed to be "post"  |
    |             |               | (Section 6).                        |
@@ -477,22 +477,22 @@ Snell, et al.                                                   [Page 8]
    | "duration" | JSON          | A hint to the consumer about the     |
    |            | [RFC4627] int | length, in seconds, of the media     |
    |            |               | resource identified by the "url"     |
-   |            |               | property. A media link MAY contain a |
-   |            |               | "duration" property when the target  |
-   |            |               | resource is a time-based media item  |
-   |            |               | such as an audio or video.           |
+   |            |               | property.  A media link MAY contain  |
+   |            |               | a "duration" property when the       |
+   |            |               | target resource is a time-based      |
+   |            |               | media item such as an audio or       |
+   |            |               | video.                               |
    | "height"   | JSON          | A hint to the consumer about the     |
    |            | [RFC4627] int | height, in pixels, of the media      |
    |            |               | resource identified by the "url"     |
-   |            |               | property. A media link MAY contain a |
-   |            |               | "height" property when the target    |
+   |            |               | property.  A media link MAY contain  |
+   |            |               | a "height" property when the target  |
    |            |               | resource is a visual media item such |
    |            |               | as an image, video or embeddable     |
    |            |               | HTML page.                           |
    | "url"      | String        | The IRI of the media resource being  |
-   |            |               | linked. A media link MUST have a     |
+   |            |               | linked.  A media link MUST have a    |
    |            |               | "url" property.                      |
-
 
 
 
@@ -508,8 +508,8 @@ Snell, et al.                                                   [Page 9]
    | "width"    | JSON          | A hint to the consumer about the     |
    |            | [RFC4627] int | width, in pixels, of the media       |
    |            |               | resource identified by the "url"     |
-   |            |               | property. A media link MAY contain a |
-   |            |               | "width" property when the target     |
+   |            |               | property.  A media link MAY contain  |
+   |            |               | a "width" property when the target   |
    |            |               | resource is a visual media item such |
    |            |               | as an image, video or embeddable     |
    |            |               | HTML page.                           |
@@ -525,26 +525,26 @@ Snell, et al.                                                   [Page 9]
    |                        | Array of      | associated objects,      |
    |                        | Objects       | similar to the concept   |
    |                        | (Section 3.4) | of attached files in an  |
-   |                        |               | email message. An object |
-   |                        |               | MAY have an              |
+   |                        |               | email message.  An       |
+   |                        |               | object MAY have an       |
    |                        |               | "attachments" property   |
    |                        |               | whose value is a JSON    |
    |                        |               | Array of Objects         |
    |                        |               | (Section 3.4).           |
    | "author"               | Object        | Describes the entity     |
    |                        | (Section 3.4) | that created or authored |
-   |                        |               | the object. An object    |
+   |                        |               | the object.  An object   |
    |                        |               | MAY contain a single     |
    |                        |               | "author" property whose  |
    |                        |               | value is an Object       |
    |                        |               | (Section 3.4) of any     |
-   |                        |               | type. Note that the      |
+   |                        |               | type.  Note that the     |
    |                        |               | author field identifies  |
    |                        |               | the entity that created  |
    |                        |               | the object and does not  |
    |                        |               | necessarily identify the |
    |                        |               | entity that published    |
-   |                        |               | the object. For          |
+   |                        |               | the object.  For         |
    |                        |               | instance, it may be the  |
    |                        |               | case that an object      |
    |                        |               | created by one person is |
@@ -568,15 +568,15 @@ Snell, et al.                                                  [Page 10]
    |                        |               | containing HTML markup.  |
    |                        |               | Visual elements such as  |
    |                        |               | thumbnail images MAY be  |
-   |                        |               | included. An object MAY  |
+   |                        |               | included.  An object MAY |
    |                        |               | contain a "content"      |
    |                        |               | property.                |
    | "displayName"          | JSON          | A natural-language,      |
    |                        | [RFC4627]     | human-readable and       |
    |                        | String        | plain-text name for the  |
-   |                        |               | object. HTML markup MUST |
-   |                        |               | NOT be included. An      |
-   |                        |               | object MAY contain a     |
+   |                        |               | object.  HTML markup     |
+   |                        |               | MUST NOT be included.    |
+   |                        |               | An object MAY contain a  |
    |                        |               | "displayName" property.  |
    |                        |               | If the object does not   |
    |                        |               | specify an "objectType"  |
@@ -635,13 +635,13 @@ Snell, et al.                                                  [Page 11]
    |                        | (Section 3.3) | resource providing a     |
    |                        |               | visual representation of |
    |                        |               | the object, intended for |
-   |                        |               | human consumption. An    |
+   |                        |               | human consumption.  An   |
    |                        |               | object MAY contain an    |
    |                        |               | "image" property whose   |
    |                        |               | value is a Media Link    |
    |                        |               | (Section 3.3).           |
    | "objectType"           | JSON          | Identifies the type of   |
-   |                        | [RFC4627]     | object. An object MAY    |
+   |                        | [RFC4627]     | object.  An object MAY   |
    |                        | String        | contain an "objectType"  |
    |                        |               | property whose value is  |
    |                        |               | a JSON String that is    |
@@ -649,19 +649,19 @@ Snell, et al.                                                  [Page 11]
    |                        |               | either the               |
    |                        |               | "isegment-nz-nc" or the  |
    |                        |               | "IRI" production in      |
-   |                        |               | [RFC3987]. Note that the |
-   |                        |               | use of a relative        |
+   |                        |               | [RFC3987].  Note that    |
+   |                        |               | the use of a relative    |
    |                        |               | reference other than a   |
    |                        |               | simple name is not       |
-   |                        |               | allowed. If no           |
+   |                        |               | allowed.  If no          |
    |                        |               | "objectType" property is |
    |                        |               | contained, the object    |
    |                        |               | has no specific type.    |
    | "published"            | [RFC3339]     | The date and time at     |
    |                        | date-time     | which the object was     |
-   |                        |               | published. An object MAY |
-   |                        |               | contain a "published"    |
-   |                        |               | property.                |
+   |                        |               | published.  An object    |
+   |                        |               | MAY contain a            |
+   |                        |               | "published" property.    |
 
 
 
@@ -680,15 +680,15 @@ Snell, et al.                                                  [Page 12]
    |                        |               | containing HTML markup.  |
    |                        |               | Visual elements such as  |
    |                        |               | thumbnail images MAY be  |
-   |                        |               | included. An activity    |
+   |                        |               | included.  An activity   |
    |                        |               | MAY contain a "summary"  |
    |                        |               | property.                |
    | "updated"              | [RFC3339]     | The date and time at     |
    |                        | date-time     | which a previously       |
    |                        |               | published object has     |
-   |                        |               | been modified. An Object |
-   |                        |               | MAY contain an "updated" |
-   |                        |               | property.                |
+   |                        |               | been modified.  An       |
+   |                        |               | Object MAY contain an    |
+   |                        |               | "updated" property.      |
    | "upstreamDuplicates"   | JSON          | A JSON Array of one or   |
    |                        | [RFC4627]     | more absolute IRI's      |
    |                        | Array of      | [RFC3987] identifying    |
@@ -700,17 +700,18 @@ Snell, et al.                                                  [Page 12]
    |                        |               | publisher is knowingly   |
    |                        |               | duplicating with a new   |
    |                        |               | ID the content from      |
-   |                        |               | another object. This MAY |
-   |                        |               | be used as a hint for    |
-   |                        |               | consumers to use when    |
-   |                        |               | resolving duplicates     |
-   |                        |               | between objects received |
-   |                        |               | from different sources.  |
+   |                        |               | another object.  This    |
+   |                        |               | MAY be used as a hint    |
+   |                        |               | for consumers to use     |
+   |                        |               | when resolving           |
+   |                        |               | duplicates between       |
+   |                        |               | objects received from    |
+   |                        |               | different sources.       |
    | "url"                  | JSON          | An IRI [RFC3987]         |
    |                        | [RFC4627]     | identifying a resource   |
    |                        | String        | providing an HTML        |
    |                        |               | representation of the    |
-   |                        |               | object. An object MAY    |
+   |                        |               | object.  An object MAY   |
    |                        |               | contain a "url" property |
    +------------------------+---------------+--------------------------+
 
@@ -720,7 +721,6 @@ Snell, et al.                                                  [Page 12]
    object type.  The "objectType" of each item in the collection MAY be
    omitted if the type of object can be established through context.
    The collection is used primarily as the root of an Activity Streams
-   document as described in Section 4, but can be used as the value of
 
 
 
@@ -729,6 +729,7 @@ Snell, et al.                                                  [Page 13]
                              ActivityStreams                    May 2011
 
 
+   document as described in Section 4, but can be used as the value of
    extension properties in a variety of situations.
 
    +--------------+---------------+------------------------------------+
@@ -736,12 +737,12 @@ Snell, et al.                                                  [Page 13]
    +--------------+---------------+------------------------------------+
    | "totalItems" | JSON          | Non-negative integer specifying    |
    |              | [RFC4627]     | the total number of activities     |
-   |              | Integer       | within the stream. The Stream      |
+   |              | Integer       | within the stream.  The Stream     |
    |              |               | serialization MAY contain a        |
    |              |               | "count" property.                  |
    | "items"      | JSON          | An array containing a listing of   |
    |              | [RFC4627]     | Objects (Section 3.4) of any       |
-   |              | Array of      | object type. If used in            |
+   |              | Array of      | object type.  If used in           |
    |              | Objects       | combination with the "url"         |
    |              | (Section 3.4) | property, the "items" array can be |
    |              |               | used to provide a subset of the    |
@@ -776,7 +777,6 @@ Snell, et al.                                                  [Page 13]
    "upstreamDuplicates", and "downstreamDuplicates" properties can be
    compared to determine if the objects represent duplicate content.
    Processors MUST compare these values on a character-by-character
-   basis (in a case-sensitive fashion).  Comparison operations MUST be
 
 
 
@@ -785,6 +785,7 @@ Snell, et al.                                                  [Page 14]
                              ActivityStreams                    May 2011
 
 
+   basis (in a case-sensitive fashion).  Comparison operations MUST be
    based solely on the IRI character strings and MUST NOT rely on
    dereferencing the IRIs or URIs mapped from them.
 
@@ -829,7 +830,6 @@ Snell, et al.                                                  [Page 14]
    published  The "published" of the implied activity is unknown unless
       the consumer is able to infer a time based on information outside
       the scope of this specification.
-
 
 
 
@@ -1048,7 +1048,7 @@ Snell, et al.                                                  [Page 18]
 
    You can review the signed copies of the Open Web Foundation Agreement
    Version 1.0 for this Specification at
-   <http://activitystrea.ms/agreements>, which may also include
+   <http://activitystrea.ms/licensing/>, which may also include
    additional parties to those listed above.
 
    Your use of this Specification may be subject to other third party
@@ -1095,7 +1095,52 @@ Snell, et al.                                                  [Page 19]
 
 Appendix A.  Acknowledgements
 
-   ...
+   The authors wish to thank the Activity Streams community and
+   implementers for their support, encouragement, and enthusiasm
+   including but not limited to: Abdul Qabiz, Adina Levin, Adrian Chan,
+   Adriana Javier, Alan Hoffman, Alex Kessinger, Alexander Ovchinnikov,
+   Alexander Zhuravlev, Alexandre Loureiro Solleiro, Amy Walgenbach,
+   Andres Vidal, Angel Robert Marquez, Ari Steinberg, Arjan
+   Scherpenisse, Arne Roomann-Kurrik, Beau Lebens, Ben Hedrington, Ben
+   Metcalfe, Ben Werdmuller, Benjamin Goering, Bill de hOra, Bo Xing,
+   Bob Aman, Bob Wyman, Brett Slatkin, Brian Walsh, Brynn Evans, Charlie
+   Cauthen, Chris Chabot, Chris Toomey, Christian Crumlish, Dan
+   Brickley, Dan Scott, Daniel Chapman, Danny Ayers, Dare Obasanjo,
+   Darren Bounds, David Cramer, David Nelson, David Recordon, DeWitt
+   Clinton, Douglas Pearce, Ed Summers, Elias Bizannes, Elisabeth
+   Norris, Eric Marcoullier, Eric Woods, Evan Prodromou, Gee-Hsien
+   Chuang, Greg Biggers, Gregory Foster, Henry Saputra, Hillary Madsen,
+   Howard Liptzin, Hung Tran, Ian Kennedy, Ian Mulvany, Ivan Pulleyn,
+   Jacob Kim, James Falkner, James Pike, James Walker, Jason Kahn, Jason
+   Kantz, Jeff Kunins, Jeff Martin, Jian Lin, Johannes Ernst, John
+
+
+
+Snell, et al.                                                  [Page 20]
+
+                             ActivityStreams                    May 2011
+
+
+   Panzer, Jon Lebkowsky, Jon Paul Davies, Jonathan Coffman, Jonathan
+   Dugan, Joseph Boyle, Joseph Holsten, Joseph Smarr, Josh Brewer, Jud
+   Valeski, Julien Chaumond, Julien Genestoux, Jyri Engestroem, Kaliya
+   Hamlin, Kevin Marks, Laurent Eschenauer, Laurie Voss, Leah Culver,
+   Libby Miller, Manu Mukerji, Mark Weitzel, Marko Degenkolb, Marshall
+   Kirkpatrick, Martin Svensson, Marty Alchin, Mary Hoder, Matt Leventi,
+   Matt Wilkinson, Matthias Mueller-Prove, Max Engel, Max Wegmueller,
+   Melvin Carvalho, Michael Buckbee, Michael Chan, Michael Richardson,
+   Michael Sullivan, Mike Macgirvin, Mislav Marohni&#263;, Mo Jangda,
+   Nate Benes, NeilFred Picciotto, Nick Howard, Nick Lothian, Nissan
+   Dookeran, Nitya Narasimhan, Pablo Martin, Padraic Brady, Pat G.
+   Cappalaere, Patrick Aljord, Peter Ferne, Peter Reiser, Peter Saint-
+   Andre, Phil Wolff, Philip (flip) Kromer, Richard Cunningham, Richard
+   Zhao, Rick Severson, Robert Hall, Robert Langbert, Robin Cover, Ryan
+   Boyd, Sam Sethi, Scott Raymond, Scott Seely, Simon Grant, Simon
+   Wistow, Stephen Garcia, Stephen Sisk, Stephen Paul Weber, Steve Ivy,
+   Steve Midgley, Steven Livingstone-Perez, Sylvain Carle, Sylvain
+   Hellegouarch, Tantek Celik, Tatu Saloranta, Tim Moore, Timothy Young,
+   Todd Barnard, Tosh Meston, Tyler Gillies, Zach Copley, and Zach
+   Shepherd.
 
 
 Authors' Addresses
@@ -1112,15 +1157,6 @@ Authors' Addresses
    Google
 
 
-
-
-
-
-Snell, et al.                                                  [Page 20]
-
-                             ActivityStreams                    May 2011
-
-
    Chris Messina
    Citizen Agency, Google
 
@@ -1131,42 +1167,6 @@ Snell, et al.                                                  [Page 20]
 
    Rob Dolin
    Microsoft
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

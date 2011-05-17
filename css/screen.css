@@ -1408,38 +1408,39 @@ textarea {
   text-align: right;
   border-top: 1px solid #999;
   padding: 0.5em 1em;
-  font-size: 90%;
+  font-size: 85%;
+  color: #999;
   line-height: 2em;
 }
 
-/* line 89, ../sass/screen.scss */
+/* line 90, ../sass/screen.scss */
 .box {
   border: 1px solid #999;
   background: #eee;
   padding: 1em;
   margin-bottom: 1em;
 }
-/* line 95, ../sass/screen.scss */
+/* line 96, ../sass/screen.scss */
 .box.left {
   float: left;
   margin-right: 1em;
 }
-/* line 99, ../sass/screen.scss */
+/* line 100, ../sass/screen.scss */
 .box.right {
   float: right;
   margin-left: 1em;
 }
-/* line 104, ../sass/screen.scss */
+/* line 105, ../sass/screen.scss */
 .box > h3 {
   font-size: 1em;
   font-weight: bold;
 }
-/* line 108, ../sass/screen.scss */
+/* line 109, ../sass/screen.scss */
 .box > ul {
   margin: 0;
 }
 
-/* line 115, ../sass/screen.scss */
+/* line 116, ../sass/screen.scss */
 .warning {
   padding: 0.8em;
   margin-bottom: 1em;
@@ -1452,12 +1453,12 @@ textarea {
 .warning a {
   color: #8a1f11;
 }
-/* line 117, ../sass/screen.scss */
+/* line 118, ../sass/screen.scss */
 .warning > p:last-child {
   margin-bottom: 0;
 }
 
-/* line 123, ../sass/screen.scss */
+/* line 124, ../sass/screen.scss */
 .draft a::before {
   content: "draft";
   background: #fbe3e4;

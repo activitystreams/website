@@ -1,0 +1,122 @@
+@import "blueprint";
+@import "blueprint/interaction";
+@import "compass/css3/border-radius";
+@import "compass/css3/box-sizing";
+@import "compass/typography/lists/horizontal-list";
+@import "compass/typography/links";
+@import "compass/typography/text/replacement";
+
+// Config
+$blueprint-liquid-grid-columns: 24;
+$blueprint-liquid-container-max-width: 950px;
+
+$blueprint-font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+$blueprint-fixed-font-family: "andale mono", "lucida console", monospace;
+$blueprint-title-font-family: "bello-pro-1","bello-pro-2",sans-serif;
+$blueprint-font-size: 13px;
+
+$link-color: #1e6b9f;
+$link-hover-color: $link-color;
+$link-visited-color: $link-color;
+$link-active-color: #d9e4eb;
+
+
+@import "blueprint/reset";
+@include blueprint;
+@include blueprint-interaction;
+
+#header {
+  > h1 {
+    background-color: #1E6B9F;
+    font-family: $blueprint-title-font-family;
+    font-weight: normal;
+    text-shadow: 0 0.13em #000;
+    margin: 0;
+    padding: 0 0.5em;
+
+    a, a:visited, a:hover {
+      line-height: 1.5em;
+      color: #FFF;
+      text-decoration: none;
+    }
+  }
+
+  > nav {
+    border-top: 1px solid #999;
+    border-bottom: 1px solid #999;
+    padding: 0 2em;
+
+    > ul {
+      @include horizontal-list;
+
+      li:first-child {
+        > a {
+          display: block;
+          @include replace-text('http://activitystrea.ms/images/icon/white-20.png');
+        }
+      }
+
+      a {
+        padding: 0 1em;
+        color: #000;
+        font-weight: bold;
+        line-height: 2.5em;
+        @include hover-link;
+      }
+    }
+  }
+}
+
+#content {
+  overflow: auto;
+  margin: 1em;
+}
+
+#footer {
+  text-align: right;
+  border-top: 1px solid #999;
+  padding: 0.5em 1em;
+  font-size: 90%;
+  line-height: 2em;
+}
+
+
+.box.left {
+  float: left;
+  border: 1px solid #999;
+  background: #eee;
+  padding: 1em;
+  margin-right: 1em;
+
+  > h3 {
+    font-size: 1em;
+    font-weight: bold;
+  }
+  > ul {
+    margin: 0;
+  }
+}
+
+
+// registry
+.warning {
+  @include error();
+  > p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.draft {
+  a::before {
+    content: "draft";
+    background: $error-bg-color;
+    color: $error-color;
+    border: 1px solid $error-border-color;
+    font-size: 85%;
+    padding: 0 2px;
+    margin-right: 8px;
+    text-decoration: none;
+    display: inline-block;
+    @include border-radius(4px);
+  }
+}

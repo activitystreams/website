@@ -25,9 +25,14 @@ $link-active-color: #d9e4eb;
 @include blueprint;
 @include blueprint-interaction;
 
+#wrapper {
+  @include container;
+  margin: 0;
+}
 #header {
   > h1 {
     background-color: #1E6B9F;
+    border-bottom: 4px solid #333;
     font-family: $blueprint-title-font-family;
     font-weight: normal;
     text-shadow: 0 0.13em #000;
@@ -35,16 +40,16 @@ $link-active-color: #d9e4eb;
     padding: 0 0.5em;
 
     a, a:visited, a:hover {
-      line-height: 1.5em;
+      font-size: .75em;
+      line-height: 2em;
       color: #FFF;
       text-decoration: none;
     }
   }
 
   > nav {
-    border-top: 1px solid #999;
-    border-bottom: 1px solid #999;
-    padding: 0 2em;
+    border-bottom: 1px solid #ccc;
+    padding: 0 1em;
 
     > ul {
       @include horizontal-list;
@@ -52,15 +57,15 @@ $link-active-color: #d9e4eb;
       li:first-child {
         > a {
           display: block;
-          @include replace-text('http://activitystrea.ms/images/icon/white-20.png');
+          @include replace-text('/images/icon/white-32.png');
         }
       }
 
       a {
         padding: 0 1em;
-        color: #000;
+        color: #666;
         font-weight: bold;
-        line-height: 2.5em;
+        line-height: 3em;
         @include hover-link;
       }
     }

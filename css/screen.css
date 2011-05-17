@@ -1413,24 +1413,33 @@ textarea {
 }
 
 /* line 89, ../sass/screen.scss */
-.box.left {
-  float: left;
+.box {
   border: 1px solid #999;
   background: #eee;
   padding: 1em;
+  margin-bottom: 1em;
+}
+/* line 95, ../sass/screen.scss */
+.box.left {
+  float: left;
   margin-right: 1em;
 }
-/* line 96, ../sass/screen.scss */
-.box.left > h3 {
+/* line 99, ../sass/screen.scss */
+.box.right {
+  float: right;
+  margin-left: 1em;
+}
+/* line 104, ../sass/screen.scss */
+.box > h3 {
   font-size: 1em;
   font-weight: bold;
 }
-/* line 100, ../sass/screen.scss */
-.box.left > ul {
+/* line 108, ../sass/screen.scss */
+.box > ul {
   margin: 0;
 }
 
-/* line 107, ../sass/screen.scss */
+/* line 115, ../sass/screen.scss */
 .warning {
   padding: 0.8em;
   margin-bottom: 1em;
@@ -1443,12 +1452,12 @@ textarea {
 .warning a {
   color: #8a1f11;
 }
-/* line 109, ../sass/screen.scss */
+/* line 117, ../sass/screen.scss */
 .warning > p:last-child {
   margin-bottom: 0;
 }
 
-/* line 115, ../sass/screen.scss */
+/* line 123, ../sass/screen.scss */
 .draft a::before {
   content: "draft";
   background: #fbe3e4;

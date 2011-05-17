@@ -86,12 +86,20 @@ $link-active-color: #d9e4eb;
 }
 
 
-.box.left {
-  float: left;
+.box {
   border: 1px solid #999;
   background: #eee;
   padding: 1em;
-  margin-right: 1em;
+  margin-bottom: 1em;
+
+  &.left {
+    float: left;
+    margin-right: 1em;
+  }
+  &.right {
+    float: right;
+    margin-left: 1em;
+  }
 
   > h3 {
     font-size: 1em;

@@ -166,54 +166,54 @@
 </p><a name="toc"></a><br /><hr />
 <h3>Table of Contents</h3>
 <p class="toc">
-<a href="#anchor1">1.</a>&nbsp;
+<a href="#introduction">1.</a>&nbsp;
 Introduction<br />
-<a href="#anchor2">2.</a>&nbsp;
+<a href="#notation">2.</a>&nbsp;
 Notational Conventions<br />
-<a href="#format">3.</a>&nbsp;
+<a href="#json">3.</a>&nbsp;
 JSON Serialization<br />
 &nbsp;&nbsp;&nbsp;&nbsp;<a href="#examples">3.1.</a>&nbsp;
 Example Activities<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<a href="#activity-serialization">3.2.</a>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#activity">3.2.</a>&nbsp;
 Activity Serialization<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<a href="#media-link-serialization">3.3.</a>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#media-link">3.3.</a>&nbsp;
 Media Link Serialization<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<a href="#object-serialization">3.4.</a>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#object">3.4.</a>&nbsp;
 Object Serialization<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<a href="#collection-serialization">3.5.</a>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#collection">3.5.</a>&nbsp;
 Collection Serialization<br />
 <a href="#document">4.</a>&nbsp;
 The Activity Stream JSON Document<br />
-<a href="#anchor3">5.</a>&nbsp;
+<a href="#id-comparison">5.</a>&nbsp;
 Comparison of Identifier Values<br />
 <a href="#post-verb">6.</a>&nbsp;
 The &quot;post&quot; Verb<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<a href="#anchor4">6.1.</a>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#implied-activity">6.1.</a>&nbsp;
 Implied &quot;post&quot; Activity<br />
-<a href="#anchor5">7.</a>&nbsp;
+<a href="#activity-object">7.</a>&nbsp;
 The &quot;activity&quot; Object Type<br />
 <a href="#extensions">8.</a>&nbsp;
 Extension Object Types and Verbs<br />
-<a href="#other-serializations">9.</a>&nbsp;
+<a href="#other-representations">9.</a>&nbsp;
 Other Representations<br />
 <a href="#republisher">10.</a>&nbsp;
 Requirements for Re-publishers<br />
-<a href="#anchor6">11.</a>&nbsp;
+<a href="#security">11.</a>&nbsp;
 Security Considerations<br />
-<a href="#anchor7">12.</a>&nbsp;
+<a href="#iana">12.</a>&nbsp;
 IANA Considerations<br />
 <a href="#license">13.</a>&nbsp;
 License<br />
 <a href="#rfc.references1">14.</a>&nbsp;
 Normative References<br />
-<a href="#anchor9">Appendix&nbsp;A.</a>&nbsp;
+<a href="#acknowledgements">Appendix&nbsp;A.</a>&nbsp;
 Acknowledgements<br />
 <a href="#rfc.authors">&#167;</a>&nbsp;
 Authors' Addresses<br />
 </p>
 <br clear="all" />
 
-<a name="anchor1"></a><br /><hr />
+<a name="introduction"></a><br /><hr />
 <table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
 <a name="rfc.section.1"></a><h3>1.&nbsp;
 Introduction</h3>
@@ -254,7 +254,7 @@ Introduction</h3>
       more individual activities. The relationship between the activities within
       the collection is undefined by this specification.
 </p>
-<a name="anchor2"></a><br /><hr />
+<a name="notation"></a><br /><hr />
 <table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
 <a name="rfc.section.2"></a><h3>2.&nbsp;
 Notational Conventions</h3>
@@ -274,7 +274,7 @@ Notational Conventions</h3>
       <a class='info' href='#RFC3987'>[RFC3987]<span> (</span><span class='info'>Duerst, M. and M. Suignard, &ldquo;Internationalized Resource Identifiers (IRIs),&rdquo; January&nbsp;2005.</span><span>)</span></a> and (2) when an IRI is serving as
       an <tt>id</tt> value, it MUST NOT be so mapped.
 </p>
-<a name="format"></a><br /><hr />
+<a name="json"></a><br /><hr />
 <table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
 <a name="rfc.section.3"></a><h3>3.&nbsp;
 JSON Serialization</h3>
@@ -389,7 +389,7 @@ Example Activities</h3>
     ]
   }
 </pre></div>
-<a name="activity-serialization"></a><br /><hr />
+<a name="activity"></a><br /><hr />
 <table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
 <a name="rfc.section.3.2"></a><h3>3.2.&nbsp;
 Activity Serialization</h3>
@@ -398,10 +398,10 @@ Activity Serialization</h3>
 <tr><th align="left">Property</th><th align="left">Value</th><th align="left">Description</th></tr>
 <tr>
 <td align="left"><tt>actor</tt>&nbsp;</td>
-<td align="left"><a class='info' href='#object-serialization'>Object<span> (</span><span class='info'>Object Serialization</span><span>)</span></a></td>
+<td align="left"><a class='info' href='#object'>Object<span> (</span><span class='info'>Object Serialization</span><span>)</span></a></td>
 <td align="left">Describes the entity that performed the activity. An activity
           MUST contain one <tt>actor</tt> property whose value is a
-          single <a class='info' href='#object-serialization'>Object<span> (</span><span class='info'>Object Serialization</span><span>)</span></a>.</td>
+          single <a class='info' href='#object'>Object<span> (</span><span class='info'>Object Serialization</span><span>)</span></a>.</td>
 </tr>
 <tr>
 <td align="left"><tt>content</tt>&nbsp;</td>
@@ -413,14 +413,14 @@ Activity Serialization</h3>
 </tr>
 <tr>
 <td align="left"><tt>generator</tt>&nbsp;</td>
-<td align="left"><a class='info' href='#object-serialization'>Object<span> (</span><span class='info'>Object Serialization</span><span>)</span></a></td>
+<td align="left"><a class='info' href='#object'>Object<span> (</span><span class='info'>Object Serialization</span><span>)</span></a></td>
 <td align="left">Describes the application that generated the activity. An activity
           MAY contain a <tt>generator</tt> property whose value is a single
-          <a class='info' href='#object-serialization'>Object<span> (</span><span class='info'>Object Serialization</span><span>)</span></a>.</td>
+          <a class='info' href='#object'>Object<span> (</span><span class='info'>Object Serialization</span><span>)</span></a>.</td>
 </tr>
 <tr>
 <td align="left"><tt>icon</tt>&nbsp;</td>
-<td align="left"><a class='info' href='#media-link-serialization'>Media Link<span> (</span><span class='info'>Media Link Serialization</span><span>)</span></a></td>
+<td align="left"><a class='info' href='#media-link'>Media Link<span> (</span><span class='info'>Media Link Serialization</span><span>)</span></a></td>
 <td align="left">Description of a resource providing a visual representation of
           the object, intended for human consumption. The image SHOULD have an
           aspect ratio of one (horizontal) to one (vertical) and SHOULD be suitable
@@ -438,12 +438,12 @@ Activity Serialization</h3>
 </tr>
 <tr>
 <td align="left"><tt>object</tt>&nbsp;</td>
-<td align="left"><a class='info' href='#object-serialization'>Object<span> (</span><span class='info'>Object Serialization</span><span>)</span></a></td>
+<td align="left"><a class='info' href='#object'>Object<span> (</span><span class='info'>Object Serialization</span><span>)</span></a></td>
 <td align="left">Describes the primary object of the activity. For instance,
           in the activity, "John saved a movie to his wishlist", the object
           of the activity is "movie". An activity SHOULD contain an
           <tt>object</tt> property whose value is a single
-          <a class='info' href='#object-serialization'>Object<span> (</span><span class='info'>Object Serialization</span><span>)</span></a>. If the
+          <a class='info' href='#object'>Object<span> (</span><span class='info'>Object Serialization</span><span>)</span></a>. If the
           <tt>object</tt> property is not contained, the
           primary object of the activity MAY be implied by context.</td>
 </tr>
@@ -455,15 +455,15 @@ Activity Serialization</h3>
 </tr>
 <tr>
 <td align="left"><tt>provider</tt>&nbsp;</td>
-<td align="left"><a class='info' href='#object-serialization'>Object<span> (</span><span class='info'>Object Serialization</span><span>)</span></a></td>
+<td align="left"><a class='info' href='#object'>Object<span> (</span><span class='info'>Object Serialization</span><span>)</span></a></td>
 <td align="left">Describes the application that published the activity. Note that
           this is not necessarily the same entity that generated the activity.
           An activity MAY contain a <tt>provider</tt> property whose value is a
-          single <a class='info' href='#object-serialization'>Object<span> (</span><span class='info'>Object Serialization</span><span>)</span></a>.</td>
+          single <a class='info' href='#object'>Object<span> (</span><span class='info'>Object Serialization</span><span>)</span></a>.</td>
 </tr>
 <tr>
 <td align="left"><tt>target</tt>&nbsp;</td>
-<td align="left"><a class='info' href='#object-serialization'>Object<span> (</span><span class='info'>Object Serialization</span><span>)</span></a></td>
+<td align="left"><a class='info' href='#object'>Object<span> (</span><span class='info'>Object Serialization</span><span>)</span></a></td>
 <td align="left">Describes the target of the activity. The precise meaning of the
           activity's target is dependent on the activities <tt>verb</tt>,
           but will often be the object the English preposition "to".
@@ -471,7 +471,7 @@ Activity Serialization</h3>
           wishlist", the target of the activity is "wishlist". The activity
           target MUST NOT be used to identity an indirect object that is
           not a target of the activity. An activity MAY contain a <tt>target</tt>
-          property whose value is a single <a class='info' href='#object-serialization'>Object<span> (</span><span class='info'>Object Serialization</span><span>)</span></a>.</td>
+          property whose value is a single <a class='info' href='#object'>Object<span> (</span><span class='info'>Object Serialization</span><span>)</span></a>.</td>
 </tr>
 <tr>
 <td align="left"><tt>title</tt>&nbsp;</td>
@@ -509,7 +509,7 @@ Activity Serialization</h3>
 </table>
 <br clear="all" />
 
-<a name="media-link-serialization"></a><br /><hr />
+<a name="media-link"></a><br /><hr />
 <table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
 <a name="rfc.section.3.3"></a><h3>3.3.&nbsp;
 Media Link Serialization</h3>
@@ -549,7 +549,7 @@ Media Link Serialization</h3>
 </table>
 <br clear="all" />
 
-<a name="object-serialization"></a><br /><hr />
+<a name="object"></a><br /><hr />
 <table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
 <a name="rfc.section.3.4"></a><h3>3.4.&nbsp;
 Object Serialization</h3>
@@ -558,18 +558,18 @@ Object Serialization</h3>
 <tr><th align="left">Property</th><th align="left">Value</th><th align="left">Description</th></tr>
 <tr>
 <td align="left"><tt>attachments</tt>&nbsp;</td>
-<td align="left"><a class='info' href='#RFC4627'>JSON<span> (</span><span class='info'>Crockford, D., &ldquo;The application/json Media Type for JavaScript Object           Notation (JSON),&rdquo; July&nbsp;2006.</span><span>)</span></a> [RFC4627] Array of <a class='info' href='#object-serialization'>Objects<span> (</span><span class='info'>Object Serialization</span><span>)</span></a></td>
+<td align="left"><a class='info' href='#RFC4627'>JSON<span> (</span><span class='info'>Crockford, D., &ldquo;The application/json Media Type for JavaScript Object           Notation (JSON),&rdquo; July&nbsp;2006.</span><span>)</span></a> [RFC4627] Array of <a class='info' href='#object'>Objects<span> (</span><span class='info'>Object Serialization</span><span>)</span></a></td>
 <td align="left">A collection of one or more additional, associated objects, similar
           to the concept of attached files in an email message. An object MAY
           have an <tt>attachments</tt> property whose value is a JSON Array of
-          <a class='info' href='#object-serialization'>Objects<span> (</span><span class='info'>Object Serialization</span><span>)</span></a>.</td>
+          <a class='info' href='#object'>Objects<span> (</span><span class='info'>Object Serialization</span><span>)</span></a>.</td>
 </tr>
 <tr>
 <td align="left"><tt>author</tt>&nbsp;</td>
-<td align="left"><a class='info' href='#object-serialization'>Object<span> (</span><span class='info'>Object Serialization</span><span>)</span></a></td>
+<td align="left"><a class='info' href='#object'>Object<span> (</span><span class='info'>Object Serialization</span><span>)</span></a></td>
 <td align="left">Describes the entity that created or authored the object. An
           object MAY contain a single <tt>author</tt>
-          property whose value is an <a class='info' href='#object-serialization'>Object<span> (</span><span class='info'>Object Serialization</span><span>)</span></a>
+          property whose value is an <a class='info' href='#object'>Object<span> (</span><span class='info'>Object Serialization</span><span>)</span></a>
           of any type. Note that the author field identifies the entity that
           created the object and does not necessarily identify the entity
           that published the object. For instance, it may be the case that
@@ -613,11 +613,11 @@ Object Serialization</h3>
 </tr>
 <tr>
 <td align="left"><tt>image</tt>&nbsp;</td>
-<td align="left"><a class='info' href='#media-link-serialization'>Media Link<span> (</span><span class='info'>Media Link Serialization</span><span>)</span></a></td>
+<td align="left"><a class='info' href='#media-link'>Media Link<span> (</span><span class='info'>Media Link Serialization</span><span>)</span></a></td>
 <td align="left">Description of a resource providing a visual representation of
           the object, intended for human consumption. An object MAY contain
           an <tt>image</tt> property whose value is a
-          <a class='info' href='#media-link-serialization'>Media Link<span> (</span><span class='info'>Media Link Serialization</span><span>)</span></a>.</td>
+          <a class='info' href='#media-link'>Media Link<span> (</span><span class='info'>Media Link Serialization</span><span>)</span></a>.</td>
 </tr>
 <tr>
 <td align="left"><tt>objectType</tt>&nbsp;</td>
@@ -673,12 +673,12 @@ Object Serialization</h3>
 </table>
 <br clear="all" />
 
-<a name="collection-serialization"></a><br /><hr />
+<a name="collection"></a><br /><hr />
 <table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
 <a name="rfc.section.3.5"></a><h3>3.5.&nbsp;
 Collection Serialization</h3>
 
-<p>A "collection" is a generic list of <a class='info' href='#object-serialization'>Objects<span> (</span><span class='info'>Object Serialization</span><span>)</span></a>
+<p>A "collection" is a generic list of <a class='info' href='#object'>Objects<span> (</span><span class='info'>Object Serialization</span><span>)</span></a>
         of any object type. The <tt>objectType</tt> of each
         item in the collection MAY be omitted if the type of object can be established
         through context. The collection is used primarily as the root of an
@@ -698,9 +698,9 @@ Collection Serialization</h3>
 <tr>
 <td align="left"><tt>items</tt>&nbsp;</td>
 <td align="left"><a class='info' href='#RFC4627'>JSON<span> (</span><span class='info'>Crockford, D., &ldquo;The application/json Media Type for JavaScript Object           Notation (JSON),&rdquo; July&nbsp;2006.</span><span>)</span></a> [RFC4627] Array of
-          <a class='info' href='#object-serialization'>Objects<span> (</span><span class='info'>Object Serialization</span><span>)</span></a></td>
+          <a class='info' href='#object'>Objects<span> (</span><span class='info'>Object Serialization</span><span>)</span></a></td>
 <td align="left">An array containing a listing of
-          <a class='info' href='#object-serialization'>Objects<span> (</span><span class='info'>Object Serialization</span><span>)</span></a> of any
+          <a class='info' href='#object'>Objects<span> (</span><span class='info'>Object Serialization</span><span>)</span></a> of any
           object type. If used in combination with the <tt>url</tt>
           property, the <tt>items</tt> array can be used
           to provide a subset of the objects that may be found in the resource
@@ -731,16 +731,16 @@ The Activity Stream JSON Document</h3>
       document representing a stream of activities.
 </p>
 <p>Publishers using this format MUST produce a valid JSON document
-      whose root value is a <a class='info' href='#collection-serialization'>Collection<span> (</span><span class='info'>Collection Serialization</span><span>)</span></a>.
+      whose root value is a <a class='info' href='#collection'>Collection<span> (</span><span class='info'>Collection Serialization</span><span>)</span></a>.
       This object MUST, at a minimum, include the <tt>items</tt>
-      property whose objects MUST be <a class='info' href='#activity-serialization'>Activities<span> (</span><span class='info'>Activity Serialization</span><span>)</span></a>.
+      property whose objects MUST be <a class='info' href='#activity'>Activities<span> (</span><span class='info'>Activity Serialization</span><span>)</span></a>.
 </p>
-<a name="anchor3"></a><br /><hr />
+<a name="id-comparison"></a><br /><hr />
 <table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
 <a name="rfc.section.5"></a><h3>5.&nbsp;
 Comparison of Identifier Values</h3>
 
-<p>The values of multiple <a class='info' href='#object-serialization'>Object's<span> (</span><span class='info'>Object Serialization</span><span>)</span></a>
+<p>The values of multiple <a class='info' href='#object'>Object's<span> (</span><span class='info'>Object Serialization</span><span>)</span></a>
       <tt>id</tt>, <tt>upstreamDuplicates</tt>,
       and <tt>downstreamDuplicates</tt> properties can be
       compared to determine if the objects represent duplicate content.
@@ -769,7 +769,7 @@ The &quot;post&quot; Verb</h3>
       can be of any object type. A <tt>target</tt>,
       however, is not required.
 </p>
-<a name="anchor4"></a><br /><hr />
+<a name="implied-activity"></a><br /><hr />
 <table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
 <a name="rfc.section.6.1"></a><h3>6.1.&nbsp;
 Implied &quot;post&quot; Activity</h3>
@@ -810,7 +810,7 @@ Implied &quot;post&quot; Activity</h3>
 </dd>
 </dl></blockquote>
 
-<a name="anchor5"></a><br /><hr />
+<a name="activity-object"></a><br /><hr />
 <table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
 <a name="rfc.section.7"></a><h3>7.&nbsp;
 The &quot;activity&quot; Object Type</h3>
@@ -822,16 +822,16 @@ The &quot;activity&quot; Object Type</h3>
 </p>
 <p>In addition to the core Object properties, an "activity" object
       MAY contain any combination of the properties defined for an
-      <a class='info' href='#activity-serialization'>Activity<span> (</span><span class='info'>Activity Serialization</span><span>)</span></a>. The values of
+      <a class='info' href='#activity'>Activity<span> (</span><span class='info'>Activity Serialization</span><span>)</span></a>. The values of
       the object's <tt>id</tt> and <tt>url</tt>
       fields MUST match those of the activity being described.
 </p>
 <p>Note that an <tt>activity</tt> object MUST
-      be processable as both an <a class='info' href='#object-serialization'>Object<span> (</span><span class='info'>Object Serialization</span><span>)</span></a>
-      and an <a class='info' href='#activity-serialization'>Activity<span> (</span><span class='info'>Activity Serialization</span><span>)</span></a> and
+      be processable as both an <a class='info' href='#object'>Object<span> (</span><span class='info'>Object Serialization</span><span>)</span></a>
+      and an <a class='info' href='#activity'>Activity<span> (</span><span class='info'>Activity Serialization</span><span>)</span></a> and
       may contain fields from either construct, some of which may overlap or
       duplicate content. When duplication of content may occur, an implementation
-      SHOULD choose to use the fields from the <a class='info' href='#activity-serialization'>Activity<span> (</span><span class='info'>Activity Serialization</span><span>)</span></a>
+      SHOULD choose to use the fields from the <a class='info' href='#activity'>Activity<span> (</span><span class='info'>Activity Serialization</span><span>)</span></a>
       object. For instance, in an <tt>activity</tt> object,
       the Activity's <tt>title</tt> property and the
       Object's <tt>displayName</tt> properties serve
@@ -894,29 +894,29 @@ Extension Object Types and Verbs</h3>
       the definition of the base component.
 </p>
 <p>Additional extension properties MAY also be defined for
-      <a class='info' href='#activity-serialization'>Activities<span> (</span><span class='info'>Activity Serialization</span><span>)</span></a> and
-      <a class='info' href='#media-link-serialization'>Media Links<span> (</span><span class='info'>Media Link Serialization</span><span>)</span></a>. The
+      <a class='info' href='#activity'>Activities<span> (</span><span class='info'>Activity Serialization</span><span>)</span></a> and
+      <a class='info' href='#media-link'>Media Links<span> (</span><span class='info'>Media Link Serialization</span><span>)</span></a>. The
       specification of these properties SHOULD define how they are to be
       serialized within the JSON document, and the specification MAY define
       how they are to be represented in other serialization formats.
 </p>
 <p>New properties SHOULD be defined such that the
-      <a class='info' href='#object-serialization'>Object<span> (</span><span class='info'>Object Serialization</span><span>)</span></a>,
-      <a class='info' href='#activity-serialization'>Activity<span> (</span><span class='info'>Activity Serialization</span><span>)</span></a> or
-      <a class='info' href='#media-link-serialization'>Media Link<span> (</span><span class='info'>Media Link Serialization</span><span>)</span></a> would remain
+      <a class='info' href='#object'>Object<span> (</span><span class='info'>Object Serialization</span><span>)</span></a>,
+      <a class='info' href='#activity'>Activity<span> (</span><span class='info'>Activity Serialization</span><span>)</span></a> or
+      <a class='info' href='#media-link'>Media Link<span> (</span><span class='info'>Media Link Serialization</span><span>)</span></a> would remain
       useful if those properties are omitted or removed during processing, to
       enable graceful fallback by consumers that do not implement the
       extension properties or alternative representations that are unable to
       represent the extensions.
 </p>
 <p>Processors that encounter unfamiliar extension properties within an
-      <a class='info' href='#object-serialization'>Object<span> (</span><span class='info'>Object Serialization</span><span>)</span></a>,
-      <a class='info' href='#activity-serialization'>Activity<span> (</span><span class='info'>Activity Serialization</span><span>)</span></a> or
-      <a class='info' href='#media-link-serialization'>Media Link<span> (</span><span class='info'>Media Link Serialization</span><span>)</span></a> MUST NOT
+      <a class='info' href='#object'>Object<span> (</span><span class='info'>Object Serialization</span><span>)</span></a>,
+      <a class='info' href='#activity'>Activity<span> (</span><span class='info'>Activity Serialization</span><span>)</span></a> or
+      <a class='info' href='#media-link'>Media Link<span> (</span><span class='info'>Media Link Serialization</span><span>)</span></a> MUST NOT
       stop processing or signal an error and MUST continue processing the
       items as if the extension properties were not present.
 </p>
-<a name="other-serializations"></a><br /><hr />
+<a name="other-representations"></a><br /><hr />
 <table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
 <a name="rfc.section.9"></a><h3>9.&nbsp;
 Other Representations</h3>
@@ -961,7 +961,7 @@ Requirements for Re-publishers</h3>
       new copy. In the latter case, a new <tt>object</tt>
       is created which is considered to be a duplicate of the original.
 </p>
-<a name="anchor6"></a><br /><hr />
+<a name="security"></a><br /><hr />
 <table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
 <a name="rfc.section.11"></a><h3>11.&nbsp;
 Security Considerations</h3>
@@ -1000,7 +1000,7 @@ Security Considerations</h3>
 <p>Activity Streams implementations handle IRIs.  See Section 8 of
       <a class='info' href='#RFC3987'>[RFC3987]<span> (</span><span class='info'>Duerst, M. and M. Suignard, &ldquo;Internationalized Resource Identifiers (IRIs),&rdquo; January&nbsp;2005.</span><span>)</span></a>.
 </p>
-<a name="anchor7"></a><br /><hr />
+<a name="iana"></a><br /><hr />
 <table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
 <a name="rfc.section.12"></a><h3>12.&nbsp;
 IANA Considerations</h3>
@@ -1061,7 +1061,7 @@ License</h3>
           Notation (JSON),&rdquo; July&nbsp;2006.</td></tr>
 </table>
 
-<a name="anchor9"></a><br /><hr />
+<a name="acknowledgements"></a><br /><hr />
 <table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
 <a name="rfc.section.A"></a><h3>Appendix A.&nbsp;
 Acknowledgements</h3>

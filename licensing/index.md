@@ -8,7 +8,7 @@ The specifications produced by the Activity Streams community are made
 available under the terms of the [OpenWeb Foundation 1.0 Agreement][OWFa].  The
 signed agreements are available in the source repository for each specification.
 
- - [JSON Activity Streams 1.0](https://github.com/activitystreams/json-activity/agreements)
+ - [JSON Activity Streams 1.0](https://github.com/activitystreams/json-activity/tree/master/agreements)
 
 
 ### Signing the CLA and OWFa ###

@@ -19,24 +19,38 @@ layout: registry
 <tbody>
 
 <tr class="odd">
-<td class="componentname draft"><a href="http://activitystrea.ms/head/json-activity.html#object.action-link">Action Link</a></td>
-<td class="componentjson"><tt><a href="http://activitystrea.ms/head/json-activity.html#json.object.full">actionLinks</a></tt></td>
-<td class="componentspec"><a href="specs/activity-concepts/">Activity Streams Concepts and Representations</a></td>
-<td class="componentdesc">An action link construct representing an action that a human could perform on this object.</td>
+<td class="componentname"><a href="http://activitystrea.ms/specs/json/1.0/#object">Attachments</a></td>
+<td class="componentjson"><tt><a href="http://activitystrea.ms/specs/json/1.0/#object">attachments</a></tt></td>
+<td class="componentspec"><a href="specs/json-activity/">JSON Activity Streams 1.0</a></td>
+<td class="componentdesc">A collection of one or more additional, associated objects, similar to the concept of attached files in an email message.</td>
 </tr>
 
 <tr class="even">
-<td class="componentname draft"><a href="http://activitystrea.ms/head/json-activity.html#object.attached-object">Attached Object</a></td>
-<td class="componentjson"><tt><a href="http://activitystrea.ms/head/json-activity.html#json.object.full">attachedObjects</a></tt></td>
-<td class="componentspec"><a href="specs/activity-concepts/">Activity Streams Concepts and Representations</a></td>
-<td class="componentdesc">An object construct that is attached to this object.</td>
+<td class="componentname"><a href="http://activitystrea.ms/specs/json/1.0/#object">Author</a></td>
+<td class="componentjson"><tt><a href="http://activitystrea.ms/specs/json/1.0/#object">author</a></tt></td>
+<td class="componentspec"><a href="specs/json-activity/">JSON Activity Streams 1.0</a></td>
+<td class="componentdesc">An Object that describes the entity that created or authored the object.  Note that the author field identifies the entity that created the object and does not necessarily identify the entity that published the object.</td>
 </tr>
 
 <tr class="odd">
-<td class="componentname draft"><a href="http://activitystrea.ms/head/json-activity.html#object.downstream-duplicate-id">Downstream Duplicate ID</a></td>
-<td class="componentjson"><tt><a href="http://activitystrea.ms/head/json-activity.html#json.object.full">downstreamDuplicates</a></tt></td>
-<td class="componentspec"><a href="specs/activity-concepts/">Activity Streams Concepts and Representations</a></td>
-<td class="componentdesc">A string containing the ID value of another object construct which is a duplicate of this object created by re-publishing.</td>
+<td class="componentname"><a href="http://activitystrea.ms/specs/json/1.0/#object">Content</a></td>
+<td class="componentjson"><tt><a href="http://activitystrea.ms/specs/json/1.0/#object">content</a></tt></td>
+<td class="componentspec"><a href="specs/json-activity/">JSON Activity Streams 1.0</a></td>
+<td class="componentdesc">Natural-language description of the object encoded as a single JSON String containing HTML markup.</td>
+</tr>
+
+<tr class="even">
+<td class="componentname"><a href="http://activitystrea.ms/specs/json/1.0/#object">Display Name</a></td>
+<td class="componentjson"><tt><a href="http://activitystrea.ms/specs/json/1.0/#object">displayName</a></tt></td>
+<td class="componentspec"><a href="specs/json-activity/">JSON Activity Streams 1.0</a></td>
+<td class="componentdesc">A natural-language, human-readable and plain-text name for the object. HTML markup MUST NOT be included.</td>
+</tr>
+
+<tr class="odd">
+<td class="componentname"><a href="http://activitystrea.ms/specs/json/1.0/#object">Downstream Duplicates</a></td>
+<td class="componentjson"><tt><a href="http://activitystrea.ms/specs/json/1.0/#object">downstreamDuplicates</a></tt></td>
+<td class="componentspec"><a href="specs/json-activity/">JSON Activity Streams 1.0</a></td>
+<td class="componentdesc">A JSON Array of one or more absolute IRIs identifying objects that duplicate this object's content.</td>
 </tr>
 
 <tr class="even">
@@ -75,9 +89,9 @@ layout: registry
 </tr>
 
 <tr class="odd">
-<td class="componentname draft"><a href="http://activitystrea.ms/head/json-activity.html#object.id">ID</a></td>
-<td class="componentjson"><tt><a href="http://activitystrea.ms/head/json-activity.html#json.object.full">id</a></tt></td>
-<td class="componentspec"><a href="specs/activity-concepts/">Activity Streams Concepts and Representations</a></td>
+<td class="componentname"><a href="http://activitystrea.ms/specs/json/1.0/#object">ID</a></td>
+<td class="componentjson"><tt><a href="http://activitystrea.ms/specs/json/1.0/#object">id</a></tt></td>
+<td class="componentspec"><a href="specs/json-activity/">JSON Activity Streams 1.0</a></td>
 <td class="componentdesc">An absolute URI that uniquely identifies the object.</td>
 </tr>
 
@@ -89,10 +103,10 @@ layout: registry
 </tr>
 
 <tr class="odd">
-<td class="componentname draft"><a href="http://activitystrea.ms/head/json-activity.html#object.in-reply-to-object">In Reply To Object</a></td>
-<td class="componentjson"><tt><a href="http://activitystrea.ms/head/json-activity.html#json.object.full">inReplyTo</a></tt></td>
-<td class="componentspec"><a href="specs/activity-concepts/">Activity Streams Concepts and Representations</a></td>
-<td class="componentdesc">An object construct that this object is a response to.</td>
+<td class="componentname"><a href="http://activitystrea.ms/specs/json/1.0/#object">Image</a></td>
+<td class="componentjson"><tt><a href="http://activitystrea.ms/specs/json/1.0/#object">image</a></tt></td>
+<td class="componentspec"><a href="specs/json-activity/">JSON Activity Streams 1.0</a></td>
+<td class="componentdesc">A Media Link that describes a resource providing a visual representation of the object, intended for human consumption.</td>
 </tr>
 
 <tr class="even">
@@ -124,87 +138,66 @@ layout: registry
 </tr>
 
 <tr class="even">
-<td class="componentname draft"><a href="http://activitystrea.ms/head/json-activity.html#object.name">Name</a></td>
-<td class="componentjson"><tt><a href="http://activitystrea.ms/head/json-activity.html#json.object.full">displayName</a></tt></td>
-<td class="componentspec"><a href="specs/activity-concepts/">Activity Streams Concepts and Representations</a></td>
-<td class="componentdesc">A human readable display name for the object, if the object has a name.</td>
+<td class="componentname"><a href="http://activitystrea.ms/specs/json/1.0/#object">Object Type</a></td>
+<td class="componentjson"><tt><a href="http://activitystrea.ms/specs/json/1.0/#object">objectType</a></tt></td>
+<td class="componentspec"><a href="specs/json-activity/">JSON Activity Streams 1.0</a></td>
+<td class="componentdesc">Identifies the type of object.</td>
 </tr>
 
 <tr class="odd">
-<td class="componentname draft"><a href="http://activitystrea.ms/head/json-activity.html#object.object-type">Object Type</a></td>
-<td class="componentjson"><tt><a href="http://activitystrea.ms/head/json-activity.html#json.object.full">objectType</a></tt></td>
-<td class="componentspec"><a href="specs/activity-concepts/">Activity Streams Concepts and Representations</a></td>
-<td class="componentdesc">An object type keyword that identifies the type of the object.</td>
+<td class="componentname"><a href="http://activitystrea.ms/specs/json/1.0/#activity">Published</a></td>
+<td class="componentjson"><tt><a href="http://activitystrea.ms/specs/json/1.0/#activity">published</a></tt></td>
+<td class="componentspec"><a href="specs/json-activity/">JSON Activity Streams 1.0</a></td>
+<td class="componentdesc">The date and time at which the object was published.</td>
 </tr>
 
 <tr class="even">
-<td class="componentname draft"><a href="http://activitystrea.ms/head/json-activity.html#object.permalink">Permalink URL</a></td>
-<td class="componentjson"><tt><a href="http://activitystrea.ms/head/json-activity.html#json.object.full">link</a></tt></td>
-<td class="componentspec"><a href="specs/activity-concepts/">Activity Streams Concepts and Representations</a></td>
-<td class="componentdesc">The URI of a resource which provides an HTML representation of the object.</td>
-</tr>
-
-<tr class="odd">
 <td class="componentname draft"><a href="http://activitystrea.ms/head/activity-schema.html">Rating</a></td>
 <td class="componentjson"><tt><a href="http://activitystrea.ms/head/activity-schema.html">rating</a></tt></td>
 <td class="componentspec"><a href="specs/activity-schema/">Activity Schema</a></td>
 <td class="componentdesc">For objects that represent some kind of opinion, a number representing the overall rating</td>
 </tr>
 
-<tr class="even">
-<td class="componentname draft"><a href="http://activitystrea.ms/head/json-activity.html#object.reaction">Reaction Activity</a></td>
-<td class="componentjson"><tt><a href="http://activitystrea.ms/head/json-activity.html#json.object.full">reactions</a></tt></td>
-<td class="componentspec"><a href="specs/activity-concepts/">Activity Streams Concepts and Representations</a></td>
-<td class="componentdesc">An activity construct that describes an activity whose object is this object.</td>
-</tr>
-
 <tr class="odd">
-<td class="componentname draft"><a href="http://activitystrea.ms/head/json-activity.html#object.reply">Reply Object</a></td>
-<td class="componentjson"><tt><a href="http://activitystrea.ms/head/json-activity.html#json.object.full">replies</a></tt></td>
-<td class="componentspec"><a href="specs/activity-concepts/">Activity Streams Concepts and Representations</a></td>
-<td class="componentdesc">An object construct that has this object as its in reply to object.</td>
-</tr>
-
-<tr class="even">
-<td class="componentname draft"><a href="http://activitystrea.ms/head/json-activity.html#object.image">Representative Image</a></td>
-<td class="componentjson"><tt><a href="http://activitystrea.ms/head/json-activity.html#json.object.full">image</a></tt></td>
-<td class="componentspec"><a href="specs/activity-concepts/">Activity Streams Concepts and Representations</a></td>
-<td class="componentdesc">A media link construct that identifies an image resource which provides a visual representation of the object.</td>
-</tr>
-
-<tr class="odd">
-<td class="componentname draft"><a href="http://activitystrea.ms/head/json-activity.html#object.standard-link">Standard Link</a></td>
-<td class="componentjson"><tt><a href="http://activitystrea.ms/head/json-activity.html#json.object.full">links</a></tt></td>
-<td class="componentspec"><a href="specs/activity-concepts/">Activity Streams Concepts and Representations</a></td>
-<td class="componentdesc">A standard hypertext link whose source is the object.</td>
-</tr>
-
-<tr class="even">
 <td class="componentname draft"><a href="http://activitystrea.ms/head/activity-schema.html">Start Date and Time</a></td>
 <td class="componentjson"><tt><a href="http://activitystrea.ms/head/activity-schema.html">startTime</a></tt></td>
 <td class="componentspec"><a href="specs/activity-schema/">Activity Schema</a></td>
 <td class="componentdesc">For objects that exist only after a certain time, the time that the object begins to exist</td>
 </tr>
 
-<tr class="odd">
-<td class="componentname draft"><a href="http://activitystrea.ms/head/json-activity.html#object.summary">Summary</a></td>
-<td class="componentjson"><tt><a href="http://activitystrea.ms/head/json-activity.html#json.object.full">summary</a></tt></td>
-<td class="componentspec"><a href="specs/activity-concepts/">Activity Streams Concepts and Representations</a></td>
-<td class="componentdesc">A human-readable description or summary of the object.</td>
+<tr class="even">
+<td class="componentname"><a href="http://activitystrea.ms/specs/json/1.0/#object">Summary</a></td>
+<td class="componentjson"><tt><a href="http://activitystrea.ms/specs/json/1.0/#object">summary</a></tt></td>
+<td class="componentspec"><a href="specs/json-activity/">JSON Activity Streams 1.0</a></td>
+<td class="componentdesc">Natural-language summarization of the object encoded as a single JSON String containing HTML markup.</td>
 </tr>
 
-<tr class="even">
+<tr class="odd">
 <td class="componentname draft"><a href="http://activitystrea.ms/head/activity-schema.html">Target URL</a></td>
 <td class="componentjson"><tt><a href="http://activitystrea.ms/head/activity-schema.html">targetUrl</a></tt></td>
 <td class="componentspec"><a href="specs/activity-schema/">Activity Schema</a></td>
 <td class="componentdesc">For an object that acts as a pointer to a URL, the URL that is the target of the pointer</td>
 </tr>
 
+<tr class="even">
+<td class="componentname"><a href="http://activitystrea.ms/specs/json/1.0/#object">URL</a></td>
+<td class="componentjson"><tt><a href="http://activitystrea.ms/specs/json/1.0/#object">url</a></tt></td>
+<td class="componentspec"><a href="specs/json-activity/">JSON Activity Streams 1.0</a></td>
+<td class="componentdesc">An IRI identifying a resource providing an HTML representation of the object.</td>
+</tr>
+
 <tr class="odd">
-<td class="componentname draft"><a href="http://activitystrea.ms/head/json-activity.html#object.upstream-duplicate-id">Upstream Duplicate ID</a></td>
-<td class="componentjson"><tt><a href="http://activitystrea.ms/head/json-activity.html#json.object.full">upstreamDuplicates</a></tt></td>
-<td class="componentspec"><a href="specs/activity-concepts/">Activity Streams Concepts and Representations</a></td>
-<td class="componentdesc">A string containing the ID value of another object construct for which this object is a duplicate created by re-publishing.</td>
+<td class="componentname"><a href="http://activitystrea.ms/specs/json/1.0/#object">Updated</a></td>
+<td class="componentjson"><tt><a href="http://activitystrea.ms/specs/json/1.0/#object">updated</a></tt></td>
+<td class="componentspec"><a href="specs/json-activity/">JSON Activity Streams 1.0</a></td>
+<td class="componentdesc">The date and time at which the object was modified.</td>
+</tr>
+
+<tr class="even">
+<td class="componentname"><a href="http://activitystrea.ms/specs/json/1.0/#object">Upstream Duplicates</a></td>
+<td class="componentjson"><tt><a href="http://activitystrea.ms/specs/json/1.0/#object">upstreamDuplicates</a></tt></td>
+<td class="componentspec"><a href="specs/json-activity/">JSON Activity Streams 1.0</a></td>
+<td class="componentdesc">A JSON Array of one or more absolute IRIs identifying objects that duplicate this object's content.</td>
 </tr>
 
 </tbody>

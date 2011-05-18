@@ -7,6 +7,8 @@
 @import "compass/typography/text/replacement";
 
 // Config
+$activity-blue: #1E6B9F;
+
 $blueprint-liquid-grid-columns: 24;
 $blueprint-liquid-container-max-width: 950px;
 
@@ -33,7 +35,7 @@ $link-active-color: #d9e4eb;
 }
 #header {
   > h1 {
-    background-color: #1E6B9F;
+    background-color: $activity-blue;
     border-bottom: 4px solid #333;
     font-family: $blueprint-title-font-family;
     font-weight: normal;
@@ -123,14 +125,17 @@ body.registry {
     }
   }
 
-  .name, .property, .spec {
-    white-space: nowrap;
-  }
-
   table {
     border: 1px solid #CCC;
   }
 
+  th, .name, .property, .spec {
+    white-space: nowrap;
+  }
+
+  th {
+    padding: 6px 12px;
+  }
   td {
     padding: 10px 12px;
     border-right: 1px solid #fff;

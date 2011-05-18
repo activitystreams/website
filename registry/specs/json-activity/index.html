@@ -9,26 +9,26 @@ layout: registry
 
 
 <section>
-<h3>Verbs</h3>
-<p>The following verbs are defined by this specification:</p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Identifier</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-
-<tr class="odd">
-<td class="termname"><a href="http://activitystrea.ms/specs/json/1.0/#post-verb">Post</a></td>
-<td class="termidentifier"><tt>post</tt></td>
-<td class="termdesc">The act of authoring an object and then publishing it online.</td>
-</tr>
-
-</tbody>
-</table>
+  <h3>Verbs</h3>
+  <p>The following verbs are defined by this specification:</p>
+  <table class="verbs">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Identifier</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+    
+      <tr class="odd">
+        <td class="name">Post</td>
+        <td class="property"><code><a href="http://activitystrea.ms/specs/json/1.0/#post-verb">post</a></code></td>
+        <td class="description">The act of authoring an object and then publishing it online.</td>
+      </tr>
+    
+    </tbody>
+  </table>
 </section>
 
 
@@ -36,198 +36,197 @@ layout: registry
 
 
 <section>
-<h3>Activity Components</h3>
-<p>The following activity components are defined by this specification:</p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>JSON Property</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-
-<tr class="odd">
-<td class="componentname"><a href="http://activitystrea.ms/specs/json/1.0/#activity">Actor</a></td>
-<td class="componentjson"><tt><a href="http://activitystrea.ms/specs/json/1.0/#activity">actor</a></tt></td>
-<td class="componentdesc">An Object that describes the entity that performed the activity.</td>
-</tr>
-
-<tr class="even">
-<td class="componentname"><a href="http://activitystrea.ms/specs/json/1.0/#activity">Content</a></td>
-<td class="componentjson"><tt><a href="http://activitystrea.ms/specs/json/1.0/#activity">content</a></tt></td>
-<td class="componentdesc">Natural-language description of the activity encoded as a single JSON String containing HTML markup. Visual elements such as thumbnail images MAY be included.</td>
-</tr>
-
-<tr class="odd">
-<td class="componentname"><a href="http://activitystrea.ms/specs/json/1.0/#activity">Generator</a></td>
-<td class="componentjson"><tt><a href="http://activitystrea.ms/specs/json/1.0/#activity">generator</a></tt></td>
-<td class="componentdesc">An Object that describes the application that generated the activity.</td>
-</tr>
-
-<tr class="even">
-<td class="componentname"><a href="http://activitystrea.ms/specs/json/1.0/#activity">ID</a></td>
-<td class="componentjson"><tt><a href="http://activitystrea.ms/specs/json/1.0/#activity">id</a></tt></td>
-<td class="componentdesc">Provides a permanent, universally unique identifier for the activity in the form of an absolute IRI.</td>
-</tr>
-
-<tr class="odd">
-<td class="componentname"><a href="http://activitystrea.ms/specs/json/1.0/#activity">Icon</a></td>
-<td class="componentjson"><tt><a href="http://activitystrea.ms/specs/json/1.0/#activity">icon</a></tt></td>
-<td class="componentdesc">A Media Link that describes a resource providing a visual representation of the object, intended for human consumption.</td>
-</tr>
-
-<tr class="even">
-<td class="componentname"><a href="http://activitystrea.ms/specs/json/1.0/#activity">Object</a></td>
-<td class="componentjson"><tt><a href="http://activitystrea.ms/specs/json/1.0/#activity">object</a></tt></td>
-<td class="componentdesc">An object construct that describes the primary object of the activity.</td>
-</tr>
-
-<tr class="odd">
-<td class="componentname"><a href="http://activitystrea.ms/specs/json/1.0/#activity">Provider</a></td>
-<td class="componentjson"><tt><a href="http://activitystrea.ms/specs/json/1.0/#activity">provider</a></tt></td>
-<td class="componentdesc">An object construct that describes the application that published the activity.</td>
-</tr>
-
-<tr class="even">
-<td class="componentname"><a href="http://activitystrea.ms/specs/json/1.0/#activity">Published</a></td>
-<td class="componentjson"><tt><a href="http://activitystrea.ms/specs/json/1.0/#activity">published</a></tt></td>
-<td class="componentdesc">The date and time at which the activity was published.</td>
-</tr>
-
-<tr class="odd">
-<td class="componentname"><a href="http://activitystrea.ms/specs/json/1.0/#activity">Target</a></td>
-<td class="componentjson"><tt><a href="http://activitystrea.ms/specs/json/1.0/#activity">target</a></tt></td>
-<td class="componentdesc">An Object that describes the target of the activity. The precise meaning of the activity target is dependent on the activities verb, but will often be the object the English preposition &quot;to&quot;.</td>
-</tr>
-
-<tr class="even">
-<td class="componentname"><a href="http://activitystrea.ms/specs/json/1.0/#activity">Title</a></td>
-<td class="componentjson"><tt><a href="http://activitystrea.ms/specs/json/1.0/#activity">title</a></tt></td>
-<td class="componentdesc">Natural-language title or headline for the activity encoded as a single JSON String containing HTML markup.</td>
-</tr>
-
-<tr class="odd">
-<td class="componentname"><a href="http://activitystrea.ms/specs/json/1.0/#activity">URL</a></td>
-<td class="componentjson"><tt><a href="http://activitystrea.ms/specs/json/1.0/#activity">url</a></tt></td>
-<td class="componentdesc">An IRI identifying a resource providing an HTML representation of the activity.</td>
-</tr>
-
-<tr class="even">
-<td class="componentname"><a href="http://activitystrea.ms/specs/json/1.0/#activity">Updated</a></td>
-<td class="componentjson"><tt><a href="http://activitystrea.ms/specs/json/1.0/#activity">updated</a></tt></td>
-<td class="componentdesc">The date and time at which the activity was modified.</td>
-</tr>
-
-<tr class="odd">
-<td class="componentname"><a href="http://activitystrea.ms/specs/json/1.0/#activity">Verb</a></td>
-<td class="componentjson"><tt><a href="http://activitystrea.ms/specs/json/1.0/#activity">verb</a></tt></td>
-<td class="componentdesc">Identifies the action that the activity describes.</td>
-</tr>
-
-</tbody>
-</table>
+  <h3>Activity Components</h3>
+  <p>The following activity components are defined by this specification:</p>
+  <table class="activity-components">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>JSON Property</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+    
+      <tr class="odd">
+        <td class="name">Actor</td>
+        <td class="property"><code><a href="http://activitystrea.ms/specs/json/1.0/#activity">actor</a></code></td>
+        <td class="description">An Object that describes the entity that performed the activity.</td>
+      </tr>
+    
+      <tr class="even">
+        <td class="name">Content</td>
+        <td class="property"><code><a href="http://activitystrea.ms/specs/json/1.0/#activity">content</a></code></td>
+        <td class="description">Natural-language description of the activity encoded as a single JSON String containing HTML markup. Visual elements such as thumbnail images MAY be included.</td>
+      </tr>
+    
+      <tr class="odd">
+        <td class="name">Generator</td>
+        <td class="property"><code><a href="http://activitystrea.ms/specs/json/1.0/#activity">generator</a></code></td>
+        <td class="description">An Object that describes the application that generated the activity.</td>
+      </tr>
+    
+      <tr class="even">
+        <td class="name">ID</td>
+        <td class="property"><code><a href="http://activitystrea.ms/specs/json/1.0/#activity">id</a></code></td>
+        <td class="description">Provides a permanent, universally unique identifier for the activity in the form of an absolute IRI.</td>
+      </tr>
+    
+      <tr class="odd">
+        <td class="name">Icon</td>
+        <td class="property"><code><a href="http://activitystrea.ms/specs/json/1.0/#activity">icon</a></code></td>
+        <td class="description">A Media Link that describes a resource providing a visual representation of the object, intended for human consumption.</td>
+      </tr>
+    
+      <tr class="even">
+        <td class="name">Object</td>
+        <td class="property"><code><a href="http://activitystrea.ms/specs/json/1.0/#activity">object</a></code></td>
+        <td class="description">An object construct that describes the primary object of the activity.</td>
+      </tr>
+    
+      <tr class="odd">
+        <td class="name">Provider</td>
+        <td class="property"><code><a href="http://activitystrea.ms/specs/json/1.0/#activity">provider</a></code></td>
+        <td class="description">An object construct that describes the application that published the activity.</td>
+      </tr>
+    
+      <tr class="even">
+        <td class="name">Published</td>
+        <td class="property"><code><a href="http://activitystrea.ms/specs/json/1.0/#activity">published</a></code></td>
+        <td class="description">The date and time at which the activity was published.</td>
+      </tr>
+    
+      <tr class="odd">
+        <td class="name">Target</td>
+        <td class="property"><code><a href="http://activitystrea.ms/specs/json/1.0/#activity">target</a></code></td>
+        <td class="description">An Object that describes the target of the activity. The precise meaning of the activity target is dependent on the activities verb, but will often be the object the English preposition &quot;to&quot;.</td>
+      </tr>
+    
+      <tr class="even">
+        <td class="name">Title</td>
+        <td class="property"><code><a href="http://activitystrea.ms/specs/json/1.0/#activity">title</a></code></td>
+        <td class="description">Natural-language title or headline for the activity encoded as a single JSON String containing HTML markup.</td>
+      </tr>
+    
+      <tr class="odd">
+        <td class="name">URL</td>
+        <td class="property"><code><a href="http://activitystrea.ms/specs/json/1.0/#activity">url</a></code></td>
+        <td class="description">An IRI identifying a resource providing an HTML representation of the activity.</td>
+      </tr>
+    
+      <tr class="even">
+        <td class="name">Updated</td>
+        <td class="property"><code><a href="http://activitystrea.ms/specs/json/1.0/#activity">updated</a></code></td>
+        <td class="description">The date and time at which the activity was modified.</td>
+      </tr>
+    
+      <tr class="odd">
+        <td class="name">Verb</td>
+        <td class="property"><code><a href="http://activitystrea.ms/specs/json/1.0/#activity">verb</a></code></td>
+        <td class="description">Identifies the action that the activity describes.</td>
+      </tr>
+    
+    </tbody>
+  </table>
 </section>
 
 
 
 
 <section>
-<h3>Object Components</h3>
-<p>The following object components are defined by this specification:</p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>JSON Property</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-
-<tr class="odd">
-<td class="componentname"><a href="http://activitystrea.ms/specs/json/1.0/#object">Attachments</a></td>
-<td class="componentjson"><tt><a href="http://activitystrea.ms/specs/json/1.0/#object">attachments</a></tt></td>
-<td class="componentdesc">A collection of one or more additional, associated objects, similar to the concept of attached files in an email message.</td>
-</tr>
-
-<tr class="even">
-<td class="componentname"><a href="http://activitystrea.ms/specs/json/1.0/#object">Author</a></td>
-<td class="componentjson"><tt><a href="http://activitystrea.ms/specs/json/1.0/#object">author</a></tt></td>
-<td class="componentdesc">An Object that describes the entity that created or authored the object.  Note that the author field identifies the entity that created the object and does not necessarily identify the entity that published the object.</td>
-</tr>
-
-<tr class="odd">
-<td class="componentname"><a href="http://activitystrea.ms/specs/json/1.0/#object">Content</a></td>
-<td class="componentjson"><tt><a href="http://activitystrea.ms/specs/json/1.0/#object">content</a></tt></td>
-<td class="componentdesc">Natural-language description of the object encoded as a single JSON String containing HTML markup.</td>
-</tr>
-
-<tr class="even">
-<td class="componentname"><a href="http://activitystrea.ms/specs/json/1.0/#object">Display Name</a></td>
-<td class="componentjson"><tt><a href="http://activitystrea.ms/specs/json/1.0/#object">displayName</a></tt></td>
-<td class="componentdesc">A natural-language, human-readable and plain-text name for the object. HTML markup MUST NOT be included.</td>
-</tr>
-
-<tr class="odd">
-<td class="componentname"><a href="http://activitystrea.ms/specs/json/1.0/#object">Downstream Duplicates</a></td>
-<td class="componentjson"><tt><a href="http://activitystrea.ms/specs/json/1.0/#object">downstreamDuplicates</a></tt></td>
-<td class="componentdesc">A JSON Array of one or more absolute IRIs identifying objects that duplicate this object's content.</td>
-</tr>
-
-<tr class="even">
-<td class="componentname"><a href="http://activitystrea.ms/specs/json/1.0/#object">ID</a></td>
-<td class="componentjson"><tt><a href="http://activitystrea.ms/specs/json/1.0/#object">id</a></tt></td>
-<td class="componentdesc">An absolute URI that uniquely identifies the object.</td>
-</tr>
-
-<tr class="odd">
-<td class="componentname"><a href="http://activitystrea.ms/specs/json/1.0/#object">Image</a></td>
-<td class="componentjson"><tt><a href="http://activitystrea.ms/specs/json/1.0/#object">image</a></tt></td>
-<td class="componentdesc">A Media Link that describes a resource providing a visual representation of the object, intended for human consumption.</td>
-</tr>
-
-<tr class="even">
-<td class="componentname"><a href="http://activitystrea.ms/specs/json/1.0/#object">Object Type</a></td>
-<td class="componentjson"><tt><a href="http://activitystrea.ms/specs/json/1.0/#object">objectType</a></tt></td>
-<td class="componentdesc">Identifies the type of object.</td>
-</tr>
-
-<tr class="odd">
-<td class="componentname"><a href="http://activitystrea.ms/specs/json/1.0/#activity">Published</a></td>
-<td class="componentjson"><tt><a href="http://activitystrea.ms/specs/json/1.0/#activity">published</a></tt></td>
-<td class="componentdesc">The date and time at which the object was published.</td>
-</tr>
-
-<tr class="even">
-<td class="componentname"><a href="http://activitystrea.ms/specs/json/1.0/#object">Summary</a></td>
-<td class="componentjson"><tt><a href="http://activitystrea.ms/specs/json/1.0/#object">summary</a></tt></td>
-<td class="componentdesc">Natural-language summarization of the object encoded as a single JSON String containing HTML markup.</td>
-</tr>
-
-<tr class="odd">
-<td class="componentname"><a href="http://activitystrea.ms/specs/json/1.0/#object">URL</a></td>
-<td class="componentjson"><tt><a href="http://activitystrea.ms/specs/json/1.0/#object">url</a></tt></td>
-<td class="componentdesc">An IRI identifying a resource providing an HTML representation of the object.</td>
-</tr>
-
-<tr class="even">
-<td class="componentname"><a href="http://activitystrea.ms/specs/json/1.0/#object">Updated</a></td>
-<td class="componentjson"><tt><a href="http://activitystrea.ms/specs/json/1.0/#object">updated</a></tt></td>
-<td class="componentdesc">The date and time at which the object was modified.</td>
-</tr>
-
-<tr class="odd">
-<td class="componentname"><a href="http://activitystrea.ms/specs/json/1.0/#object">Upstream Duplicates</a></td>
-<td class="componentjson"><tt><a href="http://activitystrea.ms/specs/json/1.0/#object">upstreamDuplicates</a></tt></td>
-<td class="componentdesc">A JSON Array of one or more absolute IRIs identifying objects that duplicate this object's content.</td>
-</tr>
-
-</tbody>
-</table>
+  <h3>Object Components</h3>
+  <p>The following object components are defined by this specification:</p>
+  <table class="object-components">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>JSON Property</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+    
+      <tr class="odd">
+        <td class="name">Attachments</td>
+        <td class="property"><code><a href="http://activitystrea.ms/specs/json/1.0/#object">attachments</a></code></td>
+        <td class="description">A collection of one or more additional, associated objects, similar to the concept of attached files in an email message.</td>
+      </tr>
+    
+      <tr class="even">
+        <td class="name">Author</td>
+        <td class="property"><code><a href="http://activitystrea.ms/specs/json/1.0/#object">author</a></code></td>
+        <td class="description">An Object that describes the entity that created or authored the object.  Note that the author field identifies the entity that created the object and does not necessarily identify the entity that published the object.</td>
+      </tr>
+    
+      <tr class="odd">
+        <td class="name">Content</td>
+        <td class="property"><code><a href="http://activitystrea.ms/specs/json/1.0/#object">content</a></code></td>
+        <td class="description">Natural-language description of the object encoded as a single JSON String containing HTML markup.</td>
+      </tr>
+    
+      <tr class="even">
+        <td class="name">Display Name</td>
+        <td class="property"><code><a href="http://activitystrea.ms/specs/json/1.0/#object">displayName</a></code></td>
+        <td class="description">A natural-language, human-readable and plain-text name for the object. HTML markup MUST NOT be included.</td>
+      </tr>
+    
+      <tr class="odd">
+        <td class="name">Downstream Duplicates</td>
+        <td class="property"><code><a href="http://activitystrea.ms/specs/json/1.0/#object">downstreamDuplicates</a></code></td>
+        <td class="description">A JSON Array of one or more absolute IRIs identifying objects that duplicate this object's content.</td>
+      </tr>
+    
+      <tr class="even">
+        <td class="name">ID</td>
+        <td class="property"><code><a href="http://activitystrea.ms/specs/json/1.0/#object">id</a></code></td>
+        <td class="description">An absolute URI that uniquely identifies the object.</td>
+      </tr>
+    
+      <tr class="odd">
+        <td class="name">Image</td>
+        <td class="property"><code><a href="http://activitystrea.ms/specs/json/1.0/#object">image</a></code></td>
+        <td class="description">A Media Link that describes a resource providing a visual representation of the object, intended for human consumption.</td>
+      </tr>
+    
+      <tr class="even">
+        <td class="name">Object Type</td>
+        <td class="property"><code><a href="http://activitystrea.ms/specs/json/1.0/#object">objectType</a></code></td>
+        <td class="description">Identifies the type of object.</td>
+      </tr>
+    
+      <tr class="odd">
+        <td class="name">Published</td>
+        <td class="property"><code><a href="http://activitystrea.ms/specs/json/1.0/#activity">published</a></code></td>
+        <td class="description">The date and time at which the object was published.</td>
+      </tr>
+    
+      <tr class="even">
+        <td class="name">Summary</td>
+        <td class="property"><code><a href="http://activitystrea.ms/specs/json/1.0/#object">summary</a></code></td>
+        <td class="description">Natural-language summarization of the object encoded as a single JSON String containing HTML markup.</td>
+      </tr>
+    
+      <tr class="odd">
+        <td class="name">URL</td>
+        <td class="property"><code><a href="http://activitystrea.ms/specs/json/1.0/#object">url</a></code></td>
+        <td class="description">An IRI identifying a resource providing an HTML representation of the object.</td>
+      </tr>
+    
+      <tr class="even">
+        <td class="name">Updated</td>
+        <td class="property"><code><a href="http://activitystrea.ms/specs/json/1.0/#object">updated</a></code></td>
+        <td class="description">The date and time at which the object was modified.</td>
+      </tr>
+    
+      <tr class="odd">
+        <td class="name">Upstream Duplicates</td>
+        <td class="property"><code><a href="http://activitystrea.ms/specs/json/1.0/#object">upstreamDuplicates</a></code></td>
+        <td class="description">A JSON Array of one or more absolute IRIs identifying objects that duplicate this object's content.</td>
+      </tr>
+    
+    </tbody>
+  </table>
 </section>
-
 
 
 

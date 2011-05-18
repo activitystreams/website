@@ -10,6 +10,8 @@
 $blueprint-liquid-grid-columns: 24;
 $blueprint-liquid-container-max-width: 950px;
 
+$blueprint-table-stripe-color: #F0F3F9;
+
 $blueprint-font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
 $blueprint-fixed-font-family: "andale mono", "lucida console", monospace;
 $blueprint-title-font-family: "bello-pro-1","bello-pro-2",sans-serif;
@@ -113,24 +115,33 @@ $link-active-color: #d9e4eb;
 
 
 // registry
-.warning {
-  @include error();
-  > p:last-child {
-    margin-bottom: 0;
+body.registry {
+  .warning {
+    @include error();
+    > p:last-child {
+      margin-bottom: 0;
+    }
   }
-}
 
-.draft {
-  a::before {
-    content: "draft";
-    background: $error-bg-color;
-    color: $error-color;
-    border: 1px solid $error-border-color;
-    font-size: 85%;
-    padding: 0 2px;
-    margin-right: 8px;
-    text-decoration: none;
-    display: inline-block;
-    @include border-radius(4px);
+  .name, .property, .spec {
+    white-space: nowrap;
+  }
+
+  table {
+    border: 1px solid #CCC;
+  }
+
+  td {
+    padding: 10px 12px;
+    border-right: 1px solid #fff;
+    vertical-align: top;
+  }
+
+  tr.draft {
+    .spec::after {
+      content: " (Draft)";
+      color: $error-color;
+      font-size: 85%;
+    }
   }
 }

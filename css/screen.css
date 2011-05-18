@@ -265,7 +265,7 @@ th, td, caption {
 /* line 85, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.1/frameworks/blueprint/stylesheets/blueprint/_typography.scss */
 table.striped tr:nth-child(even) td,
 table tr.even td {
-  background: #e5ecf9;
+  background: #f0f3f9;
 }
 
 /* line 86, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.1/frameworks/blueprint/stylesheets/blueprint/_typography.scss */
@@ -1312,7 +1312,7 @@ textarea {
   color: white;
 }
 
-/* line 28, ../sass/screen.scss */
+/* line 30, ../sass/screen.scss */
 #wrapper {
   width: 950px;
   margin: 0 auto;
@@ -1321,7 +1321,7 @@ textarea {
   margin: 0;
 }
 
-/* line 33, ../sass/screen.scss */
+/* line 35, ../sass/screen.scss */
 #header > h1 {
   background-color: #1E6B9F;
   border-bottom: 4px solid #333;
@@ -1331,19 +1331,19 @@ textarea {
   margin: 0;
   padding: 0 0.5em;
 }
-/* line 42, ../sass/screen.scss */
+/* line 44, ../sass/screen.scss */
 #header > h1 a, #header > h1 a:visited, #header > h1 a:hover {
   font-size: .75em;
   line-height: 2em;
   color: #FFF;
   text-decoration: none;
 }
-/* line 50, ../sass/screen.scss */
+/* line 52, ../sass/screen.scss */
 #header > nav {
   border-bottom: 1px solid #ccc;
   padding: 0 1em;
 }
-/* line 54, ../sass/screen.scss */
+/* line 56, ../sass/screen.scss */
 #header > nav > ul {
   margin: 0;
   padding: 0;
@@ -1374,7 +1374,7 @@ textarea {
 #header > nav > ul li.last {
   padding-right: 0;
 }
-/* line 58, ../sass/screen.scss */
+/* line 60, ../sass/screen.scss */
 #header > nav > ul li:first-child > a {
   display: block;
   text-indent: -119988px;
@@ -1384,7 +1384,7 @@ textarea {
   background-repeat: no-repeat;
   background-position: 50% 50%;
 }
-/* line 64, ../sass/screen.scss */
+/* line 66, ../sass/screen.scss */
 #header > nav > ul a {
   padding: 0 1em;
   color: #666;
@@ -1397,13 +1397,13 @@ textarea {
   text-decoration: underline;
 }
 
-/* line 75, ../sass/screen.scss */
+/* line 77, ../sass/screen.scss */
 #content {
   overflow: auto;
   margin: 1em;
 }
 
-/* line 80, ../sass/screen.scss */
+/* line 82, ../sass/screen.scss */
 #footer {
   text-align: right;
   border-top: 1px solid #999;
@@ -1413,35 +1413,35 @@ textarea {
   line-height: 2em;
 }
 
-/* line 90, ../sass/screen.scss */
+/* line 92, ../sass/screen.scss */
 .box {
   border: 1px solid #999;
   background: #eee;
   padding: 1em;
   margin-bottom: 1em;
 }
-/* line 96, ../sass/screen.scss */
+/* line 98, ../sass/screen.scss */
 .box.left {
   float: left;
   margin-right: 1em;
 }
-/* line 100, ../sass/screen.scss */
+/* line 102, ../sass/screen.scss */
 .box.right {
   float: right;
   margin-left: 1em;
 }
-/* line 105, ../sass/screen.scss */
+/* line 107, ../sass/screen.scss */
 .box > h3 {
   font-size: 1em;
   font-weight: bold;
 }
-/* line 109, ../sass/screen.scss */
+/* line 111, ../sass/screen.scss */
 .box > ul {
   margin: 0;
 }
 
-/* line 116, ../sass/screen.scss */
-.warning {
+/* line 119, ../sass/screen.scss */
+body.registry .warning {
   padding: 0.8em;
   margin-bottom: 1em;
   border: 2px solid #dddddd;
@@ -1450,29 +1450,30 @@ textarea {
   border-color: #fbc2c4;
 }
 /* line 27, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.1/frameworks/blueprint/stylesheets/blueprint/_interaction.scss */
-.warning a {
+body.registry .warning a {
   color: #8a1f11;
 }
-/* line 118, ../sass/screen.scss */
-.warning > p:last-child {
+/* line 121, ../sass/screen.scss */
+body.registry .warning > p:last-child {
   margin-bottom: 0;
 }
-
-/* line 124, ../sass/screen.scss */
-.draft a::before {
-  content: "draft";
-  background: #fbe3e4;
+/* line 126, ../sass/screen.scss */
+body.registry .name, body.registry .property, body.registry .spec {
+  white-space: nowrap;
+}
+/* line 130, ../sass/screen.scss */
+body.registry table {
+  border: 1px solid #CCC;
+}
+/* line 134, ../sass/screen.scss */
+body.registry td {
+  padding: 10px 12px;
+  border-right: 1px solid #fff;
+  vertical-align: top;
+}
+/* line 141, ../sass/screen.scss */
+body.registry tr.draft .spec::after {
+  content: " (Draft)";
   color: #8a1f11;
-  border: 1px solid #fbc2c4;
   font-size: 85%;
-  padding: 0 2px;
-  margin-right: 8px;
-  text-decoration: none;
-  display: inline-block;
-  -moz-border-radius: 4px;
-  -webkit-border-radius: 4px;
-  -o-border-radius: 4px;
-  -ms-border-radius: 4px;
-  -khtml-border-radius: 4px;
-  border-radius: 4px;
 }

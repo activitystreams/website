@@ -13,7 +13,7 @@ Activity Streams Working Group                                  J. Snell
                                            MySpace, Facebook, Socialcast
                                                                 R. Dolin
                                                                Microsoft
-                                                            May 17, 2011
+                                                            May 18, 2011
 
 
                        JSON Activity Streams 1.0
@@ -1041,8 +1041,8 @@ Snell, et al.                                                  [Page 18]
 
    As of [date], the following persons or entities have made this
    Specification available under the Open Web Foundation Agreement
-   Version 1.0, which is available at <http://www.openwebfoundation.org/
-   legal/the-owf-1-0-agreements/owfa-1-0>.
+   Version 1.0, which is available at
+   <http://www.openwebfoundation.org/legal/>.
 
       [List of persons or entities]
 

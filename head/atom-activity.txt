@@ -14,7 +14,7 @@ Activity Streams Working Group                                 M. Atkins
                                                        February 13, 2011
 
 
-                      Atom Activity Extensions 1.0
+                       Atom Activity Streams 1.0
 
 Abstract
 
@@ -884,10 +884,10 @@ Atkins, et al.                                                 [Page 15]
 
 9.  License
 
-   As of October 12 2010, the following persons or entities have made
-   this Specification available under the Open Web Foundation Agreement
-   Version 0.9, which is available at
-   <http://www.openwebfoundation.org/legal/agreement-09>.
+   As of [date], the following persons or entities have made this
+   Specification available under the Open Web Foundation Agreement
+   Version 1.0, which is available at
+   <http://www.openwebfoundation.org/legal/>.
 
 
 
@@ -900,8 +900,8 @@ Atkins, et al.                                                 [Page 16]
       [List of persons or entities]
 
    You can review the signed copies of the Open Web Foundation Agreement
-   Version 0.9 for this Specification at
-   <http://activitystrea.ms/agreements>, which may also include
+   Version 1.0 for this Specification at
+   <http://activitystrea.ms/licensing/>, which may also include
    additional parties to those listed above.
 
    Your use of this Specification may be subject to other third party

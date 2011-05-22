@@ -32,6 +32,7 @@ $link-active-color: #d9e4eb;
 #wrapper {
   @include container;
   margin: 0;
+  width: auto;
 }
 #header {
   > h1 {

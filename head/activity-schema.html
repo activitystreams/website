@@ -144,7 +144,7 @@
 <tr><td class="header">Network Working Group</td><td class="header">J. Snell</td></tr>
 <tr><td class="header">Internet-Draft</td><td class="header">IBM</td></tr>
 <tr><td class="header">Intended status: Experimental</td><td class="header">M. Atkins</td></tr>
-<tr><td class="header">Expires: November 18, 2011</td><td class="header">SAY Media</td></tr>
+<tr><td class="header">Expires: November 28, 2011</td><td class="header">SAY Media</td></tr>
 <tr><td class="header">&nbsp;</td><td class="header">D. Recordon</td></tr>
 <tr><td class="header">&nbsp;</td><td class="header">Six Apart, Facebook</td></tr>
 <tr><td class="header">&nbsp;</td><td class="header">C. Messina</td></tr>
@@ -155,7 +155,7 @@
 <tr><td class="header">&nbsp;</td><td class="header">Facebook</td></tr>
 <tr><td class="header">&nbsp;</td><td class="header">R. Dolin</td></tr>
 <tr><td class="header">&nbsp;</td><td class="header">Microsoft</td></tr>
-<tr><td class="header">&nbsp;</td><td class="header">May 17, 2011</td></tr>
+<tr><td class="header">&nbsp;</td><td class="header">May 27, 2011</td></tr>
 </table></td></tr></table>
 <h1><br />Activity Base Schema (Draft)<br />activity-schema-01</h1>
 
@@ -187,7 +187,7 @@ and may be updated, replaced, or obsoleted by other documents at any time.
 It is inappropriate to use Internet-Drafts as reference material or to cite
 them other than as &ldquo;work in progress.&rdquo;</p>
 <p>
-This Internet-Draft will expire on November 18, 2011.</p>
+This Internet-Draft will expire on November 28, 2011.</p>
 <a name="toc"></a><br /><hr />
 <h3>Table of Contents</h3>
 <p class="toc">
@@ -217,12 +217,12 @@ Event<br />
 File<br />
 &nbsp;&nbsp;&nbsp;&nbsp;<a href="#group">4.9.</a>&nbsp;
 Group<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<a href="#note">4.10.</a>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#image">4.10.</a>&nbsp;
+Image<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#note">4.11.</a>&nbsp;
 Note<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<a href="#person">4.11.</a>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#person">4.12.</a>&nbsp;
 Person<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<a href="#photo">4.12.</a>&nbsp;
-Photo<br />
 &nbsp;&nbsp;&nbsp;&nbsp;<a href="#place">4.13.</a>&nbsp;
 Place<br />
 &nbsp;&nbsp;&nbsp;&nbsp;<a href="#product">4.14.</a>&nbsp;
@@ -291,6 +291,11 @@ Verbs</h3>
 <td align="left"><tt>cancel</tt>&nbsp;</td>
 <td align="left">Indicates that the actor has canceled the object. For 
           instance, canceling a calendar event.</td>
+</tr>
+<tr>
+<td align="left"><tt>checkin</tt>&nbsp;</td>
+<td align="left">Indicates that the actor has checked-in to the object. For 
+          instance, a person checking-in to a Place.</td>
 </tr>
 <tr>
 <td align="left"><tt>delete</tt>&nbsp;</td>
@@ -773,7 +778,7 @@ Bookmark</h3>
 <a name="rfc.section.4.5"></a><h3>4.5.&nbsp;
 Collection</h3>
 
-<p>The "collection" object type represents a collection of objects 
+<p>The "collection" object type represents a generic collection of objects 
           of any type. This object type can be used, for instance, to represent
           a collection of files like a folder, a collection of photos like 
           an album, and so forth.
@@ -1124,9 +1129,83 @@ Group</h3>
 </table>
 <br clear="all" />
 
-<a name="note"></a><br /><hr />
+<a name="image"></a><br /><hr />
 <table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
 <a name="rfc.section.4.10"></a><h3>4.10.&nbsp;
+Image</h3>
+
+<p>The "image" object type represents a graphical image.
+</p>
+<p>Previous versions of this specification had defined a "photo" 
+          object type which SHOULD be treated as a deprecated alias of 
+          "image".
+</p>
+<p>At a minimum, the image object has the following properties:
+</p><table class="full" align="center" border="0" cellpadding="2" cellspacing="2">
+<col align="left" width="15%"><col align="left" width="21%"><col align="left">
+<tr><th align="left">Property</th><th align="left">Value</th><th align="left">Description</th></tr>
+<tr>
+<td align="left"><tt>author</tt>&nbsp;</td>
+<td align="left">Activity Object</td>
+<td align="left">Activity Object, typically using the "person" object type, 
+          responsible for the creation of the image. If the image 
+          object appears within an activity, and the 
+          <tt>author</tt> is the 
+          <tt>actor</tt> for the activity, the 
+          <tt>author</tt> property MAY be omitted</td>
+</tr>
+<tr>
+<td align="left"><tt>displayName</tt>&nbsp;</td>
+<td align="left"><a class='info' href='#RFC4627'>JSON<span> (</span><span class='info'>Crockford, D., &ldquo;The application/json Media Type for JavaScript Object           Notation (JSON),&rdquo; July&nbsp;2006.</span><span>)</span></a> [RFC4627] String</td>
+<td align="left">Optional natural-language and plain-text caption for the image. 
+          HTML Markup MUST NOT be used.</td>
+</tr>
+<tr>
+<td align="left"><tt>image</tt>&nbsp;</td>
+<td align="left">Media Link</td>
+<td align="left">A link to a thumbnail version of the image. Processors MAY ignore
+          thumbnails that are of an inappropriate size for their user interface.</td>
+</tr>
+<tr>
+<td align="left"><tt>fullImage</tt>&nbsp;</td>
+<td align="left">Media Link</td>
+<td align="left">A link to a larger -- ideally, full-size -- version of the image
+          intended for standalone viewing.</td>
+</tr>
+<tr>
+<td align="left"><tt>id</tt>&nbsp;</td>
+<td align="left"><a class='info' href='#RFC4627'>JSON<span> (</span><span class='info'>Crockford, D., &ldquo;The application/json Media Type for JavaScript Object           Notation (JSON),&rdquo; July&nbsp;2006.</span><span>)</span></a> [RFC4627] String</td>
+<td align="left">The unique identifier for the image object.</td>
+</tr>
+<tr>
+<td align="left"><tt>published</tt>&nbsp;</td>
+<td align="left"><a class='info' href='#RFC4627'>JSON<span> (</span><span class='info'>Crockford, D., &ldquo;The application/json Media Type for JavaScript Object           Notation (JSON),&rdquo; July&nbsp;2006.</span><span>)</span></a> [RFC4627] String</td>
+<td align="left">The optional time the image object was created in the form of an 
+          <a class='info' href='#RFC3339'>[RFC3339]<span> (</span><span class='info'>Klyne, G., &ldquo;Date and Time on the Internet: Timestamps,&rdquo; July&nbsp;2002.</span><span>)</span></a> "date-time".</td>
+</tr>
+<tr>
+<td align="left"><tt>summary</tt>&nbsp;</td>
+<td align="left"><a class='info' href='#RFC4627'>JSON<span> (</span><span class='info'>Crockford, D., &ldquo;The application/json Media Type for JavaScript Object           Notation (JSON),&rdquo; July&nbsp;2006.</span><span>)</span></a> [RFC4627] String</td>
+<td align="left">Optional, natural-language description of the image in the form
+          of a fragment of HTML.</td>
+</tr>
+<tr>
+<td align="left"><tt>updated</tt>&nbsp;</td>
+<td align="left"><a class='info' href='#RFC4627'>JSON<span> (</span><span class='info'>Crockford, D., &ldquo;The application/json Media Type for JavaScript Object           Notation (JSON),&rdquo; July&nbsp;2006.</span><span>)</span></a> [RFC4627] String</td>
+<td align="left">The optional time the image object was last updated in the form of an 
+          <a class='info' href='#RFC3339'>[RFC3339]<span> (</span><span class='info'>Klyne, G., &ldquo;Date and Time on the Internet: Timestamps,&rdquo; July&nbsp;2002.</span><span>)</span></a> "date-time".</td>
+</tr>
+<tr>
+<td align="left"><tt>url</tt>&nbsp;</td>
+<td align="left"><a class='info' href='#RFC4627'>JSON<span> (</span><span class='info'>Crockford, D., &ldquo;The application/json Media Type for JavaScript Object           Notation (JSON),&rdquo; July&nbsp;2006.</span><span>)</span></a> [RFC4627] String</td>
+<td align="left">The permanent IRI of the image's HTML representation.</td>
+</tr>
+</table>
+<br clear="all" />
+
+<a name="note"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.4.11"></a><h3>4.11.&nbsp;
 Note</h3>
 
 <p>The "note" object type represents short-form text messages. This
@@ -1189,9 +1268,19 @@ Note</h3>
 </table>
 <br clear="all" />
 
+<p>It is expected that the "note" object type can be used for a 
+          broad range of purposes, including the representation of a human-readable 
+          description of what the author is doing, feeling or experiencing.
+          Older versions of this specification had defined a "status" object type
+          for that purpose. There are deployed implementations that currently
+          still use "status". The "status" object type SHOULD be treated as a
+          deprecated alias of the "note" object type. The determination of 
+          whether or not a "note" object represents a person's current status
+          is based on the context in which the "note" is used.
+</p>
 <a name="person"></a><br /><hr />
 <table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
-<a name="rfc.section.4.11"></a><h3>4.11.&nbsp;
+<a name="rfc.section.4.12"></a><h3>4.12.&nbsp;
 Person</h3>
 
 <p>The "person" object type represents a user account. This is often
@@ -1236,76 +1325,6 @@ Person</h3>
 <td align="left"><tt>url</tt>&nbsp;</td>
 <td align="left"><a class='info' href='#RFC4627'>JSON<span> (</span><span class='info'>Crockford, D., &ldquo;The application/json Media Type for JavaScript Object           Notation (JSON),&rdquo; July&nbsp;2006.</span><span>)</span></a> [RFC4627] String</td>
 <td align="left">The permanent IRI of the person's HTML representation.</td>
-</tr>
-</table>
-<br clear="all" />
-
-<a name="photo"></a><br /><hr />
-<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
-<a name="rfc.section.4.12"></a><h3>4.12.&nbsp;
-Photo</h3>
-
-<p>The "photo" object type represents a graphical still image.
-</p>
-<p>At a minimum, the photo object has the following properties:
-</p><table class="full" align="center" border="0" cellpadding="2" cellspacing="2">
-<col align="left" width="15%"><col align="left" width="21%"><col align="left">
-<tr><th align="left">Property</th><th align="left">Value</th><th align="left">Description</th></tr>
-<tr>
-<td align="left"><tt>author</tt>&nbsp;</td>
-<td align="left">Activity Object</td>
-<td align="left">Activity Object, typically using the "person" object type, 
-          responsible for the creation of the photo. If the photo 
-          object appears within an activity, and the 
-          <tt>author</tt> is the 
-          <tt>actor</tt> for the activity, the 
-          <tt>author</tt> property MAY be omitted</td>
-</tr>
-<tr>
-<td align="left"><tt>displayName</tt>&nbsp;</td>
-<td align="left"><a class='info' href='#RFC4627'>JSON<span> (</span><span class='info'>Crockford, D., &ldquo;The application/json Media Type for JavaScript Object           Notation (JSON),&rdquo; July&nbsp;2006.</span><span>)</span></a> [RFC4627] String</td>
-<td align="left">Optional natural-language and plain-text caption for the photo. 
-          HTML Markup MUST NOT be used.</td>
-</tr>
-<tr>
-<td align="left"><tt>image</tt>&nbsp;</td>
-<td align="left">Media Link</td>
-<td align="left">A link to a thumbnail version of the image. Processors MAY ignore
-          thumbnails that are of an inappropriate size for their user interface.</td>
-</tr>
-<tr>
-<td align="left"><tt>fullImage</tt>&nbsp;</td>
-<td align="left">Media Link</td>
-<td align="left">A link to a larger -- ideally, full-size -- version of the photo
-          intended for standalone viewing.</td>
-</tr>
-<tr>
-<td align="left"><tt>id</tt>&nbsp;</td>
-<td align="left"><a class='info' href='#RFC4627'>JSON<span> (</span><span class='info'>Crockford, D., &ldquo;The application/json Media Type for JavaScript Object           Notation (JSON),&rdquo; July&nbsp;2006.</span><span>)</span></a> [RFC4627] String</td>
-<td align="left">The unique identifier for the photo object.</td>
-</tr>
-<tr>
-<td align="left"><tt>published</tt>&nbsp;</td>
-<td align="left"><a class='info' href='#RFC4627'>JSON<span> (</span><span class='info'>Crockford, D., &ldquo;The application/json Media Type for JavaScript Object           Notation (JSON),&rdquo; July&nbsp;2006.</span><span>)</span></a> [RFC4627] String</td>
-<td align="left">The optional time the photo object was created in the form of an 
-          <a class='info' href='#RFC3339'>[RFC3339]<span> (</span><span class='info'>Klyne, G., &ldquo;Date and Time on the Internet: Timestamps,&rdquo; July&nbsp;2002.</span><span>)</span></a> "date-time".</td>
-</tr>
-<tr>
-<td align="left"><tt>summary</tt>&nbsp;</td>
-<td align="left"><a class='info' href='#RFC4627'>JSON<span> (</span><span class='info'>Crockford, D., &ldquo;The application/json Media Type for JavaScript Object           Notation (JSON),&rdquo; July&nbsp;2006.</span><span>)</span></a> [RFC4627] String</td>
-<td align="left">Optional, natural-language description of the image in the form
-          of a fragment of HTML.</td>
-</tr>
-<tr>
-<td align="left"><tt>updated</tt>&nbsp;</td>
-<td align="left"><a class='info' href='#RFC4627'>JSON<span> (</span><span class='info'>Crockford, D., &ldquo;The application/json Media Type for JavaScript Object           Notation (JSON),&rdquo; July&nbsp;2006.</span><span>)</span></a> [RFC4627] String</td>
-<td align="left">The optional time the photo object was last updated in the form of an 
-          <a class='info' href='#RFC3339'>[RFC3339]<span> (</span><span class='info'>Klyne, G., &ldquo;Date and Time on the Internet: Timestamps,&rdquo; July&nbsp;2002.</span><span>)</span></a> "date-time".</td>
-</tr>
-<tr>
-<td align="left"><tt>url</tt>&nbsp;</td>
-<td align="left"><a class='info' href='#RFC4627'>JSON<span> (</span><span class='info'>Crockford, D., &ldquo;The application/json Media Type for JavaScript Object           Notation (JSON),&rdquo; July&nbsp;2006.</span><span>)</span></a> [RFC4627] String</td>
-<td align="left">The permanent IRI of the photo's HTML representation.</td>
 </tr>
 </table>
 <br clear="all" />
@@ -1905,19 +1924,11 @@ Tags</h3>
 <td class="author-text">Klyne, G., &ldquo;Date and Time on the Internet: Timestamps,&rdquo; July&nbsp;2002.</td></tr>
 <tr><td class="author-text" valign="top"><a name="RFC3987">[RFC3987]</a></td>
 <td class="author-text">&ldquo;Internationalized Resource Identifiers (IRIs).&rdquo;</td></tr>
-<tr><td class="author-text" valign="top"><a name="RFC4287">[RFC4287]</a></td>
-<td class="author-text">&ldquo;The Atom Syndication Format.&rdquo;</td></tr>
 <tr><td class="author-text" valign="top"><a name="RFC4627">[RFC4627]</a></td>
 <td class="author-text">Crockford, D., &ldquo;The application/json Media Type for JavaScript Object
           Notation (JSON),&rdquo; July&nbsp;2006.</td></tr>
-<tr><td class="author-text" valign="top"><a name="RFC4685">[RFC4685]</a></td>
-<td class="author-text">Snell, J., &ldquo;Atom Threading Extensions,&rdquo; September&nbsp;2006.</td></tr>
 <tr><td class="author-text" valign="top"><a name="activitystreams">[activitystreams]</a></td>
-<td class="author-text">&ldquo;Activity Streams Concepts and Representations.&rdquo;</td></tr>
-<tr><td class="author-text" valign="top"><a name="atomcommentmeta-00">[atomcommentmeta-00]</a></td>
-<td class="author-text">Atkins, M., &ldquo;Atom Comment Metadata Extensions.&rdquo;</td></tr>
-<tr><td class="author-text" valign="top"><a name="hreview">[hreview]</a></td>
-<td class="author-text">microformats community, &ldquo;The hReview Microformat.&rdquo;</td></tr>
+<td class="author-text">Snell, J., Atkins, M., Norris, W., Messina, C., Wilkinson, M., and R. Dolin, &ldquo;JSON Activity Streams 1.0,&rdquo; May&nbsp;2011.</td></tr>
 </table>
 
 <a name="anchor5"></a><br /><hr />

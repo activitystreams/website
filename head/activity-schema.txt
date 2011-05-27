@@ -4,7 +4,7 @@
 Network Working Group                                           J. Snell
 Internet-Draft                                                       IBM
 Intended status: Experimental                                  M. Atkins
-Expires: November 18, 2011                                     SAY Media
+Expires: November 28, 2011                                     SAY Media
                                                              D. Recordon
                                                      Six Apart, Facebook
                                                               C. Messina
@@ -15,7 +15,7 @@ Expires: November 18, 2011                                     SAY Media
                                                                 Facebook
                                                                 R. Dolin
                                                                Microsoft
-                                                            May 17, 2011
+                                                            May 27, 2011
 
 
                       Activity Base Schema (Draft)
@@ -48,11 +48,11 @@ Status of this Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on November 18, 2011.
+   This Internet-Draft will expire on November 28, 2011.
 
 
 
-Snell, et al.           Expires November 18, 2011               [Page 1]
+Snell, et al.           Expires November 28, 2011               [Page 1]
 
 Internet-Draft               ActivitySchema                     May 2011
 
@@ -67,29 +67,29 @@ Table of Contents
      4.2.  Audio  . . . . . . . . . . . . . . . . . . . . . . . . . .  8
      4.3.  Badge  . . . . . . . . . . . . . . . . . . . . . . . . . .  9
      4.4.  Bookmark . . . . . . . . . . . . . . . . . . . . . . . . . 10
-     4.5.  Collection . . . . . . . . . . . . . . . . . . . . . . . . 11
-     4.6.  Comment  . . . . . . . . . . . . . . . . . . . . . . . . . 12
+     4.5.  Collection . . . . . . . . . . . . . . . . . . . . . . . . 12
+     4.6.  Comment  . . . . . . . . . . . . . . . . . . . . . . . . . 13
      4.7.  Event  . . . . . . . . . . . . . . . . . . . . . . . . . . 14
-     4.8.  File . . . . . . . . . . . . . . . . . . . . . . . . . . . 15
-     4.9.  Group  . . . . . . . . . . . . . . . . . . . . . . . . . . 16
-     4.10. Note . . . . . . . . . . . . . . . . . . . . . . . . . . . 17
-     4.11. Person . . . . . . . . . . . . . . . . . . . . . . . . . . 18
-     4.12. Photo  . . . . . . . . . . . . . . . . . . . . . . . . . . 19
-     4.13. Place  . . . . . . . . . . . . . . . . . . . . . . . . . . 20
-     4.14. Product  . . . . . . . . . . . . . . . . . . . . . . . . . 21
-     4.15. Question . . . . . . . . . . . . . . . . . . . . . . . . . 22
+     4.8.  File . . . . . . . . . . . . . . . . . . . . . . . . . . . 16
+     4.9.  Group  . . . . . . . . . . . . . . . . . . . . . . . . . . 17
+     4.10. Image  . . . . . . . . . . . . . . . . . . . . . . . . . . 18
+     4.11. Note . . . . . . . . . . . . . . . . . . . . . . . . . . . 19
+     4.12. Person . . . . . . . . . . . . . . . . . . . . . . . . . . 20
+     4.13. Place  . . . . . . . . . . . . . . . . . . . . . . . . . . 21
+     4.14. Product  . . . . . . . . . . . . . . . . . . . . . . . . . 22
+     4.15. Question . . . . . . . . . . . . . . . . . . . . . . . . . 23
      4.16. Review . . . . . . . . . . . . . . . . . . . . . . . . . . 24
-     4.17. Service  . . . . . . . . . . . . . . . . . . . . . . . . . 25
-     4.18. Video  . . . . . . . . . . . . . . . . . . . . . . . . . . 26
-   5.  Base Extension Properties  . . . . . . . . . . . . . . . . . . 27
-     5.1.  Location . . . . . . . . . . . . . . . . . . . . . . . . . 27
+     4.17. Service  . . . . . . . . . . . . . . . . . . . . . . . . . 26
+     4.18. Video  . . . . . . . . . . . . . . . . . . . . . . . . . . 27
+   5.  Base Extension Properties  . . . . . . . . . . . . . . . . . . 28
+     5.1.  Location . . . . . . . . . . . . . . . . . . . . . . . . . 28
      5.2.  Mood . . . . . . . . . . . . . . . . . . . . . . . . . . . 28
-     5.3.  Rating . . . . . . . . . . . . . . . . . . . . . . . . . . 28
+     5.3.  Rating . . . . . . . . . . . . . . . . . . . . . . . . . . 29
      5.4.  Source . . . . . . . . . . . . . . . . . . . . . . . . . . 29
-     5.5.  Tags . . . . . . . . . . . . . . . . . . . . . . . . . . . 29
-   6.  Normative References . . . . . . . . . . . . . . . . . . . . . 30
-   Appendix A.  Acknowledgements  . . . . . . . . . . . . . . . . . . 30
-   Authors' Addresses . . . . . . . . . . . . . . . . . . . . . . . . 30
+     5.5.  Tags . . . . . . . . . . . . . . . . . . . . . . . . . . . 30
+   6.  Normative References . . . . . . . . . . . . . . . . . . . . . 31
+   Appendix A.  Acknowledgements  . . . . . . . . . . . . . . . . . . 31
+   Authors' Addresses . . . . . . . . . . . . . . . . . . . . . . . . 31
 
 
 
@@ -108,7 +108,7 @@ Table of Contents
 
 
 
-Snell, et al.           Expires November 18, 2011               [Page 2]
+Snell, et al.           Expires November 28, 2011               [Page 2]
 
 Internet-Draft               ActivitySchema                     May 2011
 
@@ -164,7 +164,7 @@ Internet-Draft               ActivitySchema                     May 2011
 
 
 
-Snell, et al.           Expires November 18, 2011               [Page 3]
+Snell, et al.           Expires November 28, 2011               [Page 3]
 
 Internet-Draft               ActivitySchema                     May 2011
 
@@ -180,6 +180,9 @@ Internet-Draft               ActivitySchema                     May 2011
    | "cancel"         | Indicates that the actor has canceled the      |
    |                  | object.  For instance, canceling a calendar    |
    |                  | event.                                         |
+   | "checkin"        | Indicates that the actor has checked-in to the |
+   |                  | object.  For instance, a person checking-in to |
+   |                  | a Place.                                       |
    | "delete"         | Indicates that the actor has deleted the       |
    |                  | object.  This implies, but does not require,   |
    |                  | the permanent destruction of the object.       |
@@ -187,7 +190,7 @@ Internet-Draft               ActivitySchema                     May 2011
    |                  | an item of special interest.                   |
    | "follow"         | Indicates that the actor began following the   |
    |                  | activity of the object.  In most cases, the    |
-   |                  | object will be a Person (Section 4.11), but it |
+   |                  | object will be a Person (Section 4.12), but it |
    |                  | can potentially be of any type that can        |
    |                  | sensibly generate activity.  Processors MAY    |
    |                  | ignore (silently drop) successive identical    |
@@ -207,6 +210,21 @@ Internet-Draft               ActivitySchema                     May 2011
    |                  | participate in the object described by the     |
    |                  | "target".  The target could, for instance, be  |
    |                  | an event, group or a service.                  |
+
+
+
+
+
+
+
+
+
+
+Snell, et al.           Expires November 28, 2011               [Page 4]
+
+Internet-Draft               ActivitySchema                     May 2011
+
+
    | "join"           | Indicates that the actor has become a member   |
    |                  | of the object.  This specification only        |
    |                  | defines the meaning of this verb when its      |
@@ -216,15 +234,6 @@ Internet-Draft               ActivitySchema                     May 2011
    |                  | by extension specifications.  Processors MAY   |
    |                  | ignore (silently drop) successive identical    |
    |                  | "join" activities.                             |
-
-
-
-
-Snell, et al.           Expires November 18, 2011               [Page 4]
-
-Internet-Draft               ActivitySchema                     May 2011
-
-
    | "leave"          | Indicates that the actor has left the object.  |
    |                  | For instance, a Person leaving a Group or      |
    |                  | checking-out of a Place.                       |
@@ -257,6 +266,21 @@ Internet-Draft               ActivitySchema                     May 2011
    |                  | object from the collection of friends.         |
    | "request-friend" | Indicates the creation of a friendship that    |
    |                  | has not yet been reciprocated by the object.   |
+
+
+
+
+
+
+
+
+
+
+Snell, et al.           Expires November 28, 2011               [Page 5]
+
+Internet-Draft               ActivitySchema                     May 2011
+
+
    | "rsvp-maybe"     | The "possible RSVP" verb indicates that the    |
    |                  | actor has made a possible RSVP for the object. |
    |                  | This specification only defines the meaning of |
@@ -270,17 +294,6 @@ Internet-Draft               ActivitySchema                     May 2011
    |                  | appropriate to use this verb when a user has   |
    |                  | been added as an attendee by an event          |
    |                  | organiser or administrator.                    |
-
-
-
-
-
-
-Snell, et al.           Expires November 18, 2011               [Page 5]
-
-Internet-Draft               ActivitySchema                     May 2011
-
-
    | "rsvp-no"        | The "negative RSVP" verb indicates that the    |
    |                  | actor has made a negative RSVP for the object. |
    |                  | This specification only defines the meaning of |
@@ -314,6 +327,16 @@ Internet-Draft               ActivitySchema                     May 2011
    |                  | has been saved primarily for the actor's own   |
    |                  | benefit rather than to show it to others as    |
    |                  | would be indicated by the "share" verb.        |
+
+
+
+
+
+Snell, et al.           Expires November 28, 2011               [Page 6]
+
+Internet-Draft               ActivitySchema                     May 2011
+
+
    | "share"          | Indicates that the actor has called out the    |
    |                  | object to readers.  In most cases, the actor   |
    |                  | did not create the object being shared, but is |
@@ -328,15 +351,6 @@ Internet-Draft               ActivitySchema                     May 2011
    |                  | which the tag has been added.  For example, if |
    |                  | a user appears in a photo, the "object" is the |
    |                  | user and the "target" is the photo.            |
-
-
-
-
-Snell, et al.           Expires November 18, 2011               [Page 6]
-
-Internet-Draft               ActivitySchema                     May 2011
-
-
    | "unfavorite"     | Indicates that the actor has removed the       |
    |                  | object from the collection of favorited items. |
    | "unlike"         | Indicates that the actor has removed the       |
@@ -365,6 +379,20 @@ Internet-Draft               ActivitySchema                     May 2011
 
    At a minimum, an article object has the following properties:
 
+
+
+
+
+
+
+
+
+
+Snell, et al.           Expires November 28, 2011               [Page 7]
+
+Internet-Draft               ActivitySchema                     May 2011
+
+
    +---------------+---------------+-----------------------------------+
    | Property      | Value         | Description                       |
    +---------------+---------------+-----------------------------------+
@@ -384,15 +412,6 @@ Internet-Draft               ActivitySchema                     May 2011
    |               | [RFC4627]     | human-readable and plain-text     |
    |               | String        | title of the article.HTML markup  |
    |               |               | MUST NOT be included              |
-
-
-
-
-Snell, et al.           Expires November 18, 2011               [Page 7]
-
-Internet-Draft               ActivitySchema                     May 2011
-
-
    | "id"          | JSON          | The unique identifier for the     |
    |               | [RFC4627]     | article.                          |
    |               | String        |                                   |
@@ -417,6 +436,19 @@ Internet-Draft               ActivitySchema                     May 2011
 
    At a minimum, an audio object has the following properties:
 
+
+
+
+
+
+
+
+
+Snell, et al.           Expires November 28, 2011               [Page 8]
+
+Internet-Draft               ActivitySchema                     May 2011
+
+
    +---------------+---------------+-----------------------------------+
    | Property      | Value         | Description                       |
    +---------------+---------------+-----------------------------------+
@@ -439,16 +471,6 @@ Internet-Draft               ActivitySchema                     May 2011
    | "id"          | JSON          | The unique identifier for the     |
    |               | [RFC4627]     | audio object.                     |
    |               | String        |                                   |
-
-
-
-
-
-Snell, et al.           Expires November 18, 2011               [Page 8]
-
-Internet-Draft               ActivitySchema                     May 2011
-
-
    | "published"   | JSON          | The optional time the audio       |
    |               | [RFC4627]     | object was created in the form of |
    |               | String        | an [RFC3339] "date-time".         |
@@ -471,6 +493,17 @@ Internet-Draft               ActivitySchema                     May 2011
    object (typically a person).
 
    At a minimum, an badge object has the following properties:
+
+
+
+
+
+
+
+Snell, et al.           Expires November 28, 2011               [Page 9]
+
+Internet-Draft               ActivitySchema                     May 2011
+
 
    +---------------+---------------+-----------------------------------+
    | Property      | Value         | Description                       |
@@ -496,15 +529,6 @@ Internet-Draft               ActivitySchema                     May 2011
    |               |               | Processors MAY ignore images that |
    |               |               | are of an inappropriate size for  |
    |               |               | their user interface.             |
-
-
-
-
-Snell, et al.           Expires November 18, 2011               [Page 9]
-
-Internet-Draft               ActivitySchema                     May 2011
-
-
    | "published"   | JSON          | The optional time the badge       |
    |               | [RFC4627]     | object was created in the form of |
    |               | String        | an [RFC3339] "date-time".         |
@@ -529,6 +553,14 @@ Internet-Draft               ActivitySchema                     May 2011
    favorites in a web browser.  A bookmark represents a pointer to the
    URL, not the URL or the associated resource itself.
 
+
+
+
+Snell, et al.           Expires November 28, 2011              [Page 10]
+
+Internet-Draft               ActivitySchema                     May 2011
+
+
    When dealing with bookmarks it is important to note the distinction
    between the title, description, and URL of the bookmark itself and
    the title, content, and URL of the resource that is the target of the
@@ -551,15 +583,6 @@ Internet-Draft               ActivitySchema                     May 2011
    collection.
 
    At a minimum, a bookmark object has the following properties:
-
-
-
-
-
-Snell, et al.           Expires November 18, 2011              [Page 10]
-
-Internet-Draft               ActivitySchema                     May 2011
-
 
    +---------------+---------------+-----------------------------------+
    | Property      | Value         | Description                       |
@@ -585,6 +608,15 @@ Internet-Draft               ActivitySchema                     May 2011
    | "id"          | JSON          | The unique identifier for the     |
    |               | [RFC4627]     | bookmark object.                  |
    |               | String        |                                   |
+
+
+
+
+Snell, et al.           Expires November 28, 2011              [Page 11]
+
+Internet-Draft               ActivitySchema                     May 2011
+
+
    | "image"       | Media Link    | An optional link to an image      |
    |               |               | resource providing a visual       |
    |               |               | representation of the bookmarked  |
@@ -605,17 +637,10 @@ Internet-Draft               ActivitySchema                     May 2011
 
 4.5.  Collection
 
-   The "collection" object type represents a collection of objects of
-   any type.  This object type can be used, for instance, to represent a
-   collection of files like a folder, a collection of photos like an
-   album, and so forth.
-
-
-
-Snell, et al.           Expires November 18, 2011              [Page 11]
-
-Internet-Draft               ActivitySchema                     May 2011
-
+   The "collection" object type represents a generic collection of
+   objects of any type.  This object type can be used, for instance, to
+   represent a collection of files like a folder, a collection of photos
+   like an album, and so forth.
 
    At a minimum, the collection object has the following properties:
 
@@ -636,6 +661,18 @@ Internet-Draft               ActivitySchema                     May 2011
    | "id"          | JSON          | The unique identifier for the     |
    |               | [RFC4627]     | collection object.                |
    |               | String        |                                   |
+
+
+
+
+
+
+
+Snell, et al.           Expires November 28, 2011              [Page 12]
+
+Internet-Draft               ActivitySchema                     May 2011
+
+
    | "image"       | Media Link    | A link to an image resource that  |
    |               |               | can be used as a preview image    |
    |               |               | for the collection.  Processors   |
@@ -665,14 +702,6 @@ Internet-Draft               ActivitySchema                     May 2011
 
    At a minimum, the comment object has the following properties:
 
-
-
-
-Snell, et al.           Expires November 18, 2011              [Page 12]
-
-Internet-Draft               ActivitySchema                     May 2011
-
-
    +---------------+---------------+-----------------------------------+
    | Property      | Value         | Description                       |
    +---------------+---------------+-----------------------------------+
@@ -684,6 +713,22 @@ Internet-Draft               ActivitySchema                     May 2011
    |               |               | activity, and the "author" is the |
    |               |               | "actor" for the activity, the     |
    |               |               | "author" property MAY be omitted  |
+
+
+
+
+
+
+
+
+
+
+
+Snell, et al.           Expires November 28, 2011              [Page 13]
+
+Internet-Draft               ActivitySchema                     May 2011
+
+
    | "content"     | JSON          | The main body content represented |
    |               | [RFC4627]     | as a fragment of HTML.            |
    |               | String        | Publishers SHOULD include any     |
@@ -720,21 +765,25 @@ Internet-Draft               ActivitySchema                     May 2011
    |               | String        | form of an [RFC3339] "date-time". |
    +---------------+---------------+-----------------------------------+
 
-
-
-
-
-Snell, et al.           Expires November 18, 2011              [Page 13]
-
-Internet-Draft               ActivitySchema                     May 2011
-
-
 4.7.  Event
 
    The "event" object type represents an event that occurs in a certain
    place during a particular interval of time.
 
    At a minimum, the event object has the following properties:
+
+
+
+
+
+
+
+
+
+Snell, et al.           Expires November 28, 2011              [Page 14]
+
+Internet-Draft               ActivitySchema                     May 2011
+
 
    +------------------+---------------+--------------------------------+
    | Property         | Value         | Description                    |
@@ -775,16 +824,6 @@ Internet-Draft               ActivitySchema                     May 2011
    |                  |               | have responded to the event    |
    |                  |               | object using the "rsvp-maybe"  |
    |                  |               | verb.                          |
-
-
-
-
-
-Snell, et al.           Expires November 18, 2011              [Page 14]
-
-Internet-Draft               ActivitySchema                     May 2011
-
-
    | "notAttending"   | Collection    | An optional link to a          |
    |                  | object        | collection providing           |
    |                  |               | information about actors who   |
@@ -794,6 +833,14 @@ Internet-Draft               ActivitySchema                     May 2011
    | "published"      | JSON          | The optional time the event    |
    |                  | [RFC4627]     | object was created in the form |
    |                  | String        | of an [RFC3339] "date-time".   |
+
+
+
+Snell, et al.           Expires November 28, 2011              [Page 15]
+
+Internet-Draft               ActivitySchema                     May 2011
+
+
    | "startTime"      | JSON          | The date and time that the     |
    |                  | [RFC4627]     | event begins represented as a  |
    |                  | String        | JSON String conforming to the  |
@@ -825,22 +872,6 @@ Internet-Draft               ActivitySchema                     May 2011
 
    At a minimum, the file object has the following properties:
 
-
-
-
-
-
-
-
-
-
-
-
-Snell, et al.           Expires November 18, 2011              [Page 15]
-
-Internet-Draft               ActivitySchema                     May 2011
-
-
    +---------------+---------------+-----------------------------------+
    | Property      | Value         | Description                       |
    +---------------+---------------+-----------------------------------+
@@ -858,6 +889,14 @@ Internet-Draft               ActivitySchema                     May 2011
    | "fileUrl"     | JSON          | The IRI of the file described by  |
    |               | [RFC4627]     | this object.                      |
    |               | String        |                                   |
+
+
+
+Snell, et al.           Expires November 28, 2011              [Page 16]
+
+Internet-Draft               ActivitySchema                     May 2011
+
+
    | "id"          | JSON          | The unique identifier for the     |
    |               | [RFC4627]     | file object.                      |
    |               | String        |                                   |
@@ -882,21 +921,6 @@ Internet-Draft               ActivitySchema                     May 2011
 
    At a minimum, the group object has the following properties:
 
-
-
-
-
-
-
-
-
-
-
-Snell, et al.           Expires November 18, 2011              [Page 16]
-
-Internet-Draft               ActivitySchema                     May 2011
-
-
    +---------------+---------------+-----------------------------------+
    | Property      | Value         | Description                       |
    +---------------+---------------+-----------------------------------+
@@ -920,12 +944,77 @@ Internet-Draft               ActivitySchema                     May 2011
    | "updated"     | JSON          | The optional time the group       |
    |               | [RFC4627]     | object was last updated in the    |
    |               | String        | form of an [RFC3339] "date-time". |
+
+
+
+
+Snell, et al.           Expires November 28, 2011              [Page 17]
+
+Internet-Draft               ActivitySchema                     May 2011
+
+
    | "url"         | JSON          | The permanent IRI of the group's  |
    |               | [RFC4627]     | HTML representation.              |
    |               | String        |                                   |
    +---------------+---------------+-----------------------------------+
 
-4.10.  Note
+4.10.  Image
+
+   The "image" object type represents a graphical image.
+
+   Previous versions of this specification had defined a "photo" object
+   type which SHOULD be treated as a deprecated alias of "image".
+
+   At a minimum, the image object has the following properties:
+
+   +---------------+---------------+-----------------------------------+
+   | Property      | Value         | Description                       |
+   +---------------+---------------+-----------------------------------+
+   | "author"      | Activity      | Activity Object, typically using  |
+   |               | Object        | the "person" object type,         |
+   |               |               | responsible for the creation of   |
+   |               |               | the image.  If the image object   |
+   |               |               | appears within an activity, and   |
+   |               |               | the "author" is the "actor" for   |
+   |               |               | the activity, the "author"        |
+   |               |               | property MAY be omitted           |
+   | "displayName" | JSON          | Optional natural-language and     |
+   |               | [RFC4627]     | plain-text caption for the image. |
+   |               | String        | HTML Markup MUST NOT be used.     |
+   | "image"       | Media Link    | A link to a thumbnail version of  |
+   |               |               | the image.  Processors MAY ignore |
+   |               |               | thumbnails that are of an         |
+   |               |               | inappropriate size for their user |
+   |               |               | interface.                        |
+   | "fullImage"   | Media Link    | A link to a larger -- ideally,    |
+   |               |               | full-size -- version of the image |
+   |               |               | intended for standalone viewing.  |
+   | "id"          | JSON          | The unique identifier for the     |
+   |               | [RFC4627]     | image object.                     |
+   |               | String        |                                   |
+   | "published"   | JSON          | The optional time the image       |
+   |               | [RFC4627]     | object was created in the form of |
+   |               | String        | an [RFC3339] "date-time".         |
+   | "summary"     | JSON          | Optional, natural-language        |
+   |               | [RFC4627]     | description of the image in the   |
+   |               | String        | form of a fragment of HTML.       |
+   | "updated"     | JSON          | The optional time the image       |
+   |               | [RFC4627]     | object was last updated in the    |
+   |               | String        | form of an [RFC3339] "date-time". |
+
+
+
+Snell, et al.           Expires November 28, 2011              [Page 18]
+
+Internet-Draft               ActivitySchema                     May 2011
+
+
+   | "url"         | JSON          | The permanent IRI of the image's  |
+   |               | [RFC4627]     | HTML representation.              |
+   |               | String        |                                   |
+   +---------------+---------------+-----------------------------------+
+
+4.11.  Note
 
    The "note" object type represents short-form text messages.  This
    object type is intended for use in "micro-blogging" and in systems
@@ -940,18 +1029,6 @@ Internet-Draft               ActivitySchema                     May 2011
    a weblog entry.
 
    At a minimum, a note object has the following properties:
-
-
-
-
-
-
-
-
-Snell, et al.           Expires November 18, 2011              [Page 17]
-
-Internet-Draft               ActivitySchema                     May 2011
-
 
    +-------------+---------------+-------------------------------------+
    | Property    | Value         | Description                         |
@@ -980,6 +1057,14 @@ Internet-Draft               ActivitySchema                     May 2011
    | "published" | JSON          | The optional time the note object   |
    |             | [RFC4627]     | was created in the form of an       |
    |             | String        | [RFC3339] "date-time".              |
+
+
+
+Snell, et al.           Expires November 28, 2011              [Page 19]
+
+Internet-Draft               ActivitySchema                     May 2011
+
+
    | "updated"   | JSON          | The optional time the note object   |
    |             | [RFC4627]     | was last updated in the form of an  |
    |             | String        | [RFC3339] "date-time".              |
@@ -988,26 +1073,23 @@ Internet-Draft               ActivitySchema                     May 2011
    |             | String        |                                     |
    +-------------+---------------+-------------------------------------+
 
-4.11.  Person
+   It is expected that the "note" object type can be used for a broad
+   range of purposes, including the representation of a human-readable
+   description of what the author is doing, feeling or experiencing.
+   Older versions of this specification had defined a "status" object
+   type for that purpose.  There are deployed implementations that
+   currently still use "status".  The "status" object type SHOULD be
+   treated as a deprecated alias of the "note" object type.  The
+   determination of whether or not a "note" object represents a person's
+   current status is based on the context in which the "note" is used.
+
+4.12.  Person
 
    The "person" object type represents a user account.  This is often
    represents a person, but might also be a company or fictitious
    character that is being represented by a user account.
 
    At a minimum, the person object has the following properties:
-
-
-
-
-
-
-
-
-
-Snell, et al.           Expires November 18, 2011              [Page 18]
-
-Internet-Draft               ActivitySchema                     May 2011
-
 
    +---------------+---------------+-----------------------------------+
    | Property      | Value         | Description                       |
@@ -1030,65 +1112,19 @@ Internet-Draft               ActivitySchema                     May 2011
    | "published"   | JSON          | The optional time the person      |
    |               | [RFC4627]     | object was created in the form of |
    |               | String        | an [RFC3339] "date-time".         |
-   | "updated"     | JSON          | The optional time the person      |
-   |               | [RFC4627]     | object was last updated in the    |
-   |               | String        | form of an [RFC3339] "date-time". |
-   | "url"         | JSON          | The permanent IRI of the person's |
-   |               | [RFC4627]     | HTML representation.              |
-   |               | String        |                                   |
-   +---------------+---------------+-----------------------------------+
-
-4.12.  Photo
-
-   The "photo" object type represents a graphical still image.
-
-   At a minimum, the photo object has the following properties:
-
-   +---------------+---------------+-----------------------------------+
-   | Property      | Value         | Description                       |
-   +---------------+---------------+-----------------------------------+
-   | "author"      | Activity      | Activity Object, typically using  |
-   |               | Object        | the "person" object type,         |
-   |               |               | responsible for the creation of   |
-   |               |               | the photo.  If the photo object   |
-   |               |               | appears within an activity, and   |
-   |               |               | the "author" is the "actor" for   |
-   |               |               | the activity, the "author"        |
-   |               |               | property MAY be omitted           |
 
 
 
 
-
-Snell, et al.           Expires November 18, 2011              [Page 19]
+Snell, et al.           Expires November 28, 2011              [Page 20]
 
 Internet-Draft               ActivitySchema                     May 2011
 
 
-   | "displayName" | JSON          | Optional natural-language and     |
-   |               | [RFC4627]     | plain-text caption for the photo. |
-   |               | String        | HTML Markup MUST NOT be used.     |
-   | "image"       | Media Link    | A link to a thumbnail version of  |
-   |               |               | the image.  Processors MAY ignore |
-   |               |               | thumbnails that are of an         |
-   |               |               | inappropriate size for their user |
-   |               |               | interface.                        |
-   | "fullImage"   | Media Link    | A link to a larger -- ideally,    |
-   |               |               | full-size -- version of the photo |
-   |               |               | intended for standalone viewing.  |
-   | "id"          | JSON          | The unique identifier for the     |
-   |               | [RFC4627]     | photo object.                     |
-   |               | String        |                                   |
-   | "published"   | JSON          | The optional time the photo       |
-   |               | [RFC4627]     | object was created in the form of |
-   |               | String        | an [RFC3339] "date-time".         |
-   | "summary"     | JSON          | Optional, natural-language        |
-   |               | [RFC4627]     | description of the image in the   |
-   |               | String        | form of a fragment of HTML.       |
-   | "updated"     | JSON          | The optional time the photo       |
+   | "updated"     | JSON          | The optional time the person      |
    |               | [RFC4627]     | object was last updated in the    |
    |               | String        | form of an [RFC3339] "date-time". |
-   | "url"         | JSON          | The permanent IRI of the photo's  |
+   | "url"         | JSON          | The permanent IRI of the person's |
    |               | [RFC4627]     | HTML representation.              |
    |               | String        |                                   |
    +---------------+---------------+-----------------------------------+
@@ -1111,16 +1147,6 @@ Internet-Draft               ActivitySchema                     May 2011
    | "id"        | JSON      | The unique identifier for the place     |
    |             | [RFC4627] | object.                                 |
    |             | String    |                                         |
-
-
-
-
-
-Snell, et al.           Expires November 18, 2011              [Page 20]
-
-Internet-Draft               ActivitySchema                     May 2011
-
-
    | "position"  | JSON      | The optional latitude, longitude and    |
    |             | [RFC4627] | altitude of the place as a point on     |
    |             | String    | Earth.  Represented as an ISO 6709      |
@@ -1135,6 +1161,21 @@ Internet-Draft               ActivitySchema                     May 2011
    +-------------+-----------+-----------------------------------------+
 
    The properties for the "address" property are:
+
+
+
+
+
+
+
+
+
+
+
+Snell, et al.           Expires November 28, 2011              [Page 21]
+
+Internet-Draft               ActivitySchema                     May 2011
+
 
    +-----------------+---------------+---------------------------------+
    | Property        | Value         | Description                     |
@@ -1166,17 +1207,6 @@ Internet-Draft               ActivitySchema                     May 2011
 
    At a minimum, the product object has the following properties:
 
-
-
-
-
-
-
-Snell, et al.           Expires November 18, 2011              [Page 21]
-
-Internet-Draft               ActivitySchema                     May 2011
-
-
    +---------------+---------------+-----------------------------------+
    | Property      | Value         | Description                       |
    +---------------+---------------+-----------------------------------+
@@ -1194,6 +1224,15 @@ Internet-Draft               ActivitySchema                     May 2011
    | "fullImage"   | Media Link    | A link to a larger -- ideally,    |
    |               |               | full-size -- version of the image |
    |               |               | of the product.                   |
+
+
+
+
+Snell, et al.           Expires November 28, 2011              [Page 22]
+
+Internet-Draft               ActivitySchema                     May 2011
+
+
    | "image"       | Media Link    | A link to a thumbnail-sized image |
    |               |               | of the product.  Processors MAY   |
    |               |               | ignore thumbnails that are of an  |
@@ -1222,17 +1261,6 @@ Internet-Draft               ActivitySchema                     May 2011
 
    At a minimum, a question object has the following properties:
 
-
-
-
-
-
-
-Snell, et al.           Expires November 18, 2011              [Page 22]
-
-Internet-Draft               ActivitySchema                     May 2011
-
-
    +---------------+---------------+-----------------------------------+
    | Property      | Value         | Description                       |
    +---------------+---------------+-----------------------------------+
@@ -1244,6 +1272,23 @@ Internet-Draft               ActivitySchema                     May 2011
    |               |               | activity, and the "author" is the |
    |               |               | "actor" for the activity, the     |
    |               |               | "author" property MAY be omitted  |
+
+
+
+
+
+
+
+
+
+
+
+
+Snell, et al.           Expires November 28, 2011              [Page 23]
+
+Internet-Draft               ActivitySchema                     May 2011
+
+
    | "content"     | JSON          | The content of the question in    |
    |               | [RFC4627]     | the form of a fragment of HTML.   |
    |               | String        | Publishers SHOULD include any     |
@@ -1280,15 +1325,6 @@ Internet-Draft               ActivitySchema                     May 2011
    | "updated"     | JSON          | The optional time the question    |
    |               | [RFC4627]     | object was last updated in the    |
    |               | String        | form of an [RFC3339] "date-time". |
-
-
-
-
-Snell, et al.           Expires November 18, 2011              [Page 23]
-
-Internet-Draft               ActivitySchema                     May 2011
-
-
    | "url"         | JSON          | The permanent IRI of the          |
    |               | [RFC4627]     | question's HTML representation.   |
    |               | String        |                                   |
@@ -1300,6 +1336,14 @@ Internet-Draft               ActivitySchema                     May 2011
    commentary on another object.
 
    At a minimum, a review object has the following properties:
+
+
+
+
+Snell, et al.           Expires November 28, 2011              [Page 24]
+
+Internet-Draft               ActivitySchema                     May 2011
+
 
    +---------------+---------------+-----------------------------------+
    | Property      | Value         | Description                       |
@@ -1336,15 +1380,6 @@ Internet-Draft               ActivitySchema                     May 2011
    | "id"          | JSON          | The unique identifier for the     |
    |               | [RFC4627]     | review object.                    |
    |               | String        |                                   |
-
-
-
-
-Snell, et al.           Expires November 18, 2011              [Page 24]
-
-Internet-Draft               ActivitySchema                     May 2011
-
-
    | "published"   | JSON          | The optional time the review      |
    |               | [RFC4627]     | object was created in the form of |
    |               | String        | an [RFC3339] "date-time".         |
@@ -1355,6 +1390,17 @@ Internet-Draft               ActivitySchema                     May 2011
    | "updated"     | JSON          | The optional time the review      |
    |               | [RFC4627]     | object was last updated in the    |
    |               | String        | form of an [RFC3339] "date-time". |
+
+
+
+
+
+
+Snell, et al.           Expires November 28, 2011              [Page 25]
+
+Internet-Draft               ActivitySchema                     May 2011
+
+
    | "url"         | JSON          | The permanent IRI of the review's |
    |               | [RFC4627]     | HTML representation.              |
    |               | String        |                                   |
@@ -1383,24 +1429,6 @@ Internet-Draft               ActivitySchema                     May 2011
    | "published"   | JSON          | The optional time the service     |
    |               | [RFC4627]     | object was created in the form of |
    |               | String        | an [RFC3339] "date-time".         |
-
-
-
-
-
-
-
-
-
-
-
-
-
-Snell, et al.           Expires November 18, 2011              [Page 25]
-
-Internet-Draft               ActivitySchema                     May 2011
-
-
    | "summary"     | JSON          | A description of the service in   |
    |               | [RFC4627]     | the form of a fragment of HTML.   |
    |               | String        | Publishers SHOULD include any     |
@@ -1419,6 +1447,15 @@ Internet-Draft               ActivitySchema                     May 2011
    |               | [RFC4627]     | service's HTML representation.    |
    |               | String        |                                   |
    +---------------+---------------+-----------------------------------+
+
+
+
+
+
+Snell, et al.           Expires November 28, 2011              [Page 26]
+
+Internet-Draft               ActivitySchema                     May 2011
+
 
 4.18.  Video
 
@@ -1449,14 +1486,6 @@ Internet-Draft               ActivitySchema                     May 2011
    | "id"          | JSON          | The unique identifier for the     |
    |               | [RFC4627]     | video object.                     |
    |               | String        |                                   |
-
-
-
-Snell, et al.           Expires November 18, 2011              [Page 26]
-
-Internet-Draft               ActivitySchema                     May 2011
-
-
    | "published"   | JSON          | The optional time the video       |
    |               | [RFC4627]     | object was created in the form of |
    |               | String        | an [RFC3339] "date-time".         |
@@ -1472,6 +1501,16 @@ Internet-Draft               ActivitySchema                     May 2011
    |               | [RFC4627]     | object was last updated in the    |
    |               | String        | form of an [RFC3339] "date-time". |
    +---------------+---------------+-----------------------------------+
+
+
+
+
+
+
+
+Snell, et al.           Expires November 28, 2011              [Page 27]
+
+Internet-Draft               ActivitySchema                     May 2011
 
 
 5.  Base Extension Properties
@@ -1506,13 +1545,6 @@ Internet-Draft               ActivitySchema                     May 2011
        }
      }
 
-
-
-Snell, et al.           Expires November 18, 2011              [Page 27]
-
-Internet-Draft               ActivitySchema                     May 2011
-
-
 5.2.  Mood
 
    Mood describes the mood of the user when the activity was performed.
@@ -1524,6 +1556,18 @@ Internet-Draft               ActivitySchema                     May 2011
    In JSON, Moods are included within an object or activity using a
    property named "mood" whose value is a JSON object with the following
    properties:
+
+
+
+
+
+
+
+
+Snell, et al.           Expires November 28, 2011              [Page 28]
+
+Internet-Draft               ActivitySchema                     May 2011
+
 
    +---------------+---------------+-----------------------------------+
    | Property      | Value         | Description                       |
@@ -1560,15 +1604,6 @@ Internet-Draft               ActivitySchema                     May 2011
 
    For example:
 
-
-
-
-
-Snell, et al.           Expires November 18, 2011              [Page 28]
-
-Internet-Draft               ActivitySchema                     May 2011
-
-
      {
        "objectType": "review",
        "content": "This is a great product",
@@ -1582,6 +1617,14 @@ Internet-Draft               ActivitySchema                     May 2011
    Object of any object type.
 
    The "source" property is closely related to the "generator" and
+
+
+
+Snell, et al.           Expires November 28, 2011              [Page 29]
+
+Internet-Draft               ActivitySchema                     May 2011
+
+
    "provider" properties but serves the distinct purpose of identifying
    where the activity or object was originally published as opposed to
    identifying the applications that generated or published it.
@@ -1613,18 +1656,6 @@ Internet-Draft               ActivitySchema                     May 2011
 
    For example:
 
-
-
-
-
-
-
-
-Snell, et al.           Expires November 18, 2011              [Page 29]
-
-Internet-Draft               ActivitySchema                     May 2011
-
-
      {
        "objectType": "photo",
        "image": "http://example.org/photos/fluffycat.jpg",
@@ -1641,6 +1672,15 @@ Internet-Draft               ActivitySchema                     May 2011
      }
 
 
+
+
+
+
+Snell, et al.           Expires November 28, 2011              [Page 30]
+
+Internet-Draft               ActivitySchema                     May 2011
+
+
 6.  Normative References
 
    [RFC2119]  "RFC 2119".
@@ -1650,35 +1690,17 @@ Internet-Draft               ActivitySchema                     May 2011
 
    [RFC3987]  "Internationalized Resource Identifiers (IRIs)".
 
-   [RFC4287]  "The Atom Syndication Format".
-
    [RFC4627]  Crockford, D., "The application/json Media Type for
               JavaScript Object Notation (JSON)", July 2006.
 
-   [RFC4685]  Snell, J., "Atom Threading Extensions", September 2006.
-
    [activitystreams]
-              "Activity Streams Concepts and Representations".
-
-   [atomcommentmeta-00]
-              Atkins, M., "Atom Comment Metadata Extensions".
-
-   [hreview]  microformats community, "The hReview Microformat".
+              Snell, J., Atkins, M., Norris, W., Messina, C., Wilkinson,
+              M., and R. Dolin, "JSON Activity Streams 1.0", May 2011.
 
 
 Appendix A.  Acknowledgements
 
    ...
-
-
-
-
-
-
-
-Snell, et al.           Expires November 18, 2011              [Page 30]
-
-Internet-Draft               ActivitySchema                     May 2011
 
 
 Authors' Addresses
@@ -1707,6 +1729,14 @@ Authors' Addresses
    Facebook
 
 
+
+
+
+Snell, et al.           Expires November 28, 2011              [Page 31]
+
+Internet-Draft               ActivitySchema                     May 2011
+
+
    Rob Dolin
    Microsoft
 
@@ -1732,5 +1762,31 @@ Authors' Addresses
 
 
 
-Snell, et al.           Expires November 18, 2011              [Page 31]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Snell, et al.           Expires November 28, 2011              [Page 32]
 

@@ -53,53 +53,11 @@ layout: registry
       <td class="description">A JSON Array of one or more absolute IRIs identifying objects that duplicate this object's content.</td>
     </tr>
   
-    <tr class="even draft">
-      <td class="name"><b>Embed Code</b></td>
-      <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html">embedCode</a></code></td>
-      <td class="spec"><a href="specs/activity-schema/">Activity Schema</a></td>
-      <td class="description">A HTML fragment that provides a viewer or interactive player for the media asset of a media object</td>
-    </tr>
-  
-    <tr class="odd draft">
-      <td class="name"><b>End Date and Time</b></td>
-      <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html">endTime</a></code></td>
-      <td class="spec"><a href="specs/activity-schema/">Activity Schema</a></td>
-      <td class="description">For objects that cease to exist after a certain time, the time that the object ceases to exist</td>
-    </tr>
-  
-    <tr class="even draft">
-      <td class="name"><b>File URL</b></td>
-      <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html">fileUrl</a></code></td>
-      <td class="spec"><a href="specs/activity-schema/">Activity Schema</a></td>
-      <td class="description">For an object that represents some kind of file, the URL at which the file can be retrieved</td>
-    </tr>
-  
-    <tr class="odd draft">
-      <td class="name"><b>Full Content</b></td>
-      <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html">content</a></code></td>
-      <td class="spec"><a href="specs/activity-schema/">Activity Schema</a></td>
-      <td class="description">A HTML fragment that represents the object excluding its title and author</td>
-    </tr>
-  
-    <tr class="even draft">
-      <td class="name"><b>Full Media Stream</b></td>
-      <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html">stream</a></code></td>
-      <td class="spec"><a href="specs/activity-schema/">Activity Schema</a></td>
-      <td class="description">A media link construct linking to the full-fidelity media asset for a time-based media object</td>
-    </tr>
-  
-    <tr class="odd">
+    <tr class="even">
       <td class="name"><b>ID</b></td>
       <td class="property"><code><a href="http://activitystrea.ms/specs/json/1.0/#object">id</a></code></td>
       <td class="spec"><a href="specs/json-activity/">JSON Activity Streams 1.0</a></td>
       <td class="description">An absolute URI that uniquely identifies the object.</td>
-    </tr>
-  
-    <tr class="even draft">
-      <td class="name"><b>Icon</b></td>
-      <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html">icon</a></code></td>
-      <td class="spec"><a href="specs/activity-schema/">Activity Schema</a></td>
-      <td class="description">A media link construct for a small icon representing the object</td>
     </tr>
   
     <tr class="odd">
@@ -110,31 +68,17 @@ layout: registry
     </tr>
   
     <tr class="even draft">
-      <td class="name"><b>Larger Image</b></td>
-      <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html">fullImage</a></code></td>
+      <td class="name"><b>Location</b></td>
+      <td class="property"></td>
       <td class="spec"><a href="specs/activity-schema/">Activity Schema</a></td>
-      <td class="description">A media link construct for an alternative version of the representative image that is larger and intended for standalone viewing</td>
+      <td class="description">An object construct representing the location at which the activity occured.</td>
     </tr>
   
     <tr class="odd draft">
-      <td class="name"><b>Latitude</b></td>
-      <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html">latitude</a></code></td>
+      <td class="name"><b>Mood</b></td>
+      <td class="property"></td>
       <td class="spec"><a href="specs/activity-schema/">Activity Schema</a></td>
-      <td class="description">For objects that have a physical presence on earth, the (possibly-approximate) latitude of its current location</td>
-    </tr>
-  
-    <tr class="even draft">
-      <td class="name"><b>Longitude</b></td>
-      <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html">longitude</a></code></td>
-      <td class="spec"><a href="specs/activity-schema/">Activity Schema</a></td>
-      <td class="description">For objects that have a physical presence on earth, the (possibly-approximate) longitude of its current location</td>
-    </tr>
-  
-    <tr class="odd draft">
-      <td class="name"><b>MIME Type</b></td>
-      <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html">mimeType</a></code></td>
-      <td class="spec"><a href="specs/activity-schema/">Activity Schema</a></td>
-      <td class="description">For an object that has a File URL, an advisory MIME type for the resource at that URL</td>
+      <td class="description">A human-readable keyword or short phrase describing the mood of the actor at the time the activity was performed.</td>
     </tr>
   
     <tr class="even">
@@ -153,16 +97,16 @@ layout: registry
   
     <tr class="even draft">
       <td class="name"><b>Rating</b></td>
-      <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html">rating</a></code></td>
+      <td class="property"></td>
       <td class="spec"><a href="specs/activity-schema/">Activity Schema</a></td>
-      <td class="description">For objects that represent some kind of opinion, a number representing the overall rating</td>
+      <td class="description">A rating given as a number between 1.0 and 5.0 inclusive with one decimal place of precision.</td>
     </tr>
   
     <tr class="odd draft">
-      <td class="name"><b>Start Date and Time</b></td>
-      <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html">startTime</a></code></td>
+      <td class="name"><b>Source</b></td>
+      <td class="property"></td>
       <td class="spec"><a href="specs/activity-schema/">Activity Schema</a></td>
-      <td class="description">For objects that exist only after a certain time, the time that the object begins to exist</td>
+      <td class="description">A reference to the original source of an object or activity.</td>
     </tr>
   
     <tr class="even">
@@ -173,10 +117,10 @@ layout: registry
     </tr>
   
     <tr class="odd draft">
-      <td class="name"><b>Target URL</b></td>
-      <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html">targetUrl</a></code></td>
+      <td class="name"><b>Tags</b></td>
+      <td class="property"></td>
       <td class="spec"><a href="specs/activity-schema/">Activity Schema</a></td>
-      <td class="description">For an object that acts as a pointer to a URL, the URL that is the target of the pointer</td>
+      <td class="description">A listing of the objects that have been associated with a particular object using the tag verb.</td>
     </tr>
   
     <tr class="even">

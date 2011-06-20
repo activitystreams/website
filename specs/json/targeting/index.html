@@ -1,0 +1,412 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> 
+<html lang="en"><head><title>Audience Targeting for JSON Activity Streams (Draft)</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+<meta name="description" content="Audience Targeting for JSON Activity Streams (Draft)"> 
+<meta name="generator" content="xml2rfc v1.36 (http://xml.resource.org/)"> 
+<style type='text/css'><!--
+        body {
+                font-family: verdana, charcoal, helvetica, arial, sans-serif;
+                font-size: small; color: #000; background-color: #FFF;
+                margin: 2em;
+        }
+        h1, h2, h3, h4, h5, h6 {
+                font-family: helvetica, monaco, "MS Sans Serif", arial, sans-serif;
+                font-weight: bold; font-style: normal;
+        }
+        h1 { color: #900; background-color: transparent; text-align: right; }
+        h3 { color: #333; background-color: transparent; }
+ 
+        td.RFCbug {
+                font-size: x-small; text-decoration: none;
+                width: 30px; height: 30px; padding-top: 2px;
+                text-align: justify; vertical-align: middle;
+                background-color: #000;
+        }
+        td.RFCbug span.RFC {
+                font-family: monaco, charcoal, geneva, "MS Sans Serif", helvetica, verdana, sans-serif;
+                font-weight: bold; color: #666;
+        }
+        td.RFCbug span.hotText {
+                font-family: charcoal, monaco, geneva, "MS Sans Serif", helvetica, verdana, sans-serif;
+                font-weight: normal; text-align: center; color: #FFF;
+        }
+ 
+        table.TOCbug { width: 30px; height: 15px; }
+        td.TOCbug {
+                text-align: center; width: 30px; height: 15px;
+                color: #FFF; background-color: #900;
+        }
+        td.TOCbug a {
+                font-family: monaco, charcoal, geneva, "MS Sans Serif", helvetica, sans-serif;
+                font-weight: bold; font-size: x-small; text-decoration: none;
+                color: #FFF; background-color: transparent;
+        }
+ 
+        td.header {
+                font-family: arial, helvetica, sans-serif; font-size: x-small;
+                vertical-align: top; width: 33%;
+                color: #FFF; background-color: #666;
+        }
+        td.author { font-weight: bold; font-size: x-small; margin-left: 4em; }
+        td.author-text { font-size: x-small; }
+ 
+        /* info code from SantaKlauss at http://www.madaboutstyle.com/tooltip2.html */
+        a.info {
+                /* This is the key. */
+                position: relative;
+                z-index: 24;
+                text-decoration: none;
+        }
+        a.info:hover {
+                z-index: 25;
+                color: #FFF; background-color: #900;
+        }
+        a.info span { display: none; }
+        a.info:hover span.info {
+                /* The span will display just on :hover state. */
+                display: block;
+                position: absolute;
+                font-size: smaller;
+                top: 2em; left: -5em; width: 15em;
+                padding: 2px; border: 1px solid #333;
+                color: #900; background-color: #EEE;
+                text-align: left;
+        }
+ 
+        a { font-weight: bold; }
+        a:link    { color: #900; background-color: transparent; }
+        a:visited { color: #633; background-color: transparent; }
+        a:active  { color: #633; background-color: transparent; }
+ 
+        p { margin-left: 2em; margin-right: 2em; }
+        p.copyright { font-size: x-small; }
+        p.toc { font-size: small; font-weight: bold; margin-left: 3em; }
+        table.toc { margin: 0 0 0 3em; padding: 0; border: 0; vertical-align: text-top; }
+        td.toc { font-size: small; font-weight: bold; vertical-align: text-top; }
+ 
+        ol.text { margin-left: 2em; margin-right: 2em; }
+        ul.text { margin-left: 2em; margin-right: 2em; }
+        li      { margin-left: 3em; }
+ 
+        /* RFC-2629 <spanx>s and <artwork>s. */
+        em     { font-style: italic; }
+        strong { font-weight: bold; }
+        dfn    { font-weight: bold; font-style: normal; }
+        cite   { font-weight: normal; font-style: normal; }
+        tt     { color: #036; }
+        tt, pre, pre dfn, pre em, pre cite, pre span {
+                font-family: "Courier New", Courier, monospace; font-size: small;
+        }
+        pre {
+                text-align: left; padding: 4px;
+                color: #000; background-color: #CCC;
+        }
+        pre dfn  { color: #900; }
+        pre em   { color: #66F; background-color: #FFC; font-weight: normal; }
+        pre .key { color: #33C; font-weight: bold; }
+        pre .id  { color: #900; }
+        pre .str { color: #000; background-color: #CFF; }
+        pre .val { color: #066; }
+        pre .rep { color: #909; }
+        pre .oth { color: #000; background-color: #FCF; }
+        pre .err { background-color: #FCC; }
+ 
+        /* RFC-2629 <texttable>s. */
+        table.all, table.full, table.headers, table.none {
+                font-size: small; text-align: center; border-width: 2px;
+                vertical-align: top; border-collapse: collapse;
+        }
+        table.all, table.full { border-style: solid; border-color: black; }
+        table.headers, table.none { border-style: none; }
+        th {
+                font-weight: bold; border-color: black;
+                border-width: 2px 2px 3px 2px;
+        }
+        table.all th, table.full th { border-style: solid; }
+        table.headers th { border-style: none none solid none; }
+        table.none th { border-style: none; }
+        table.all td {
+                border-style: solid; border-color: #333;
+                border-width: 1px 2px;
+        }
+        table.full td, table.headers td, table.none td { border-style: none; }
+ 
+        hr { height: 1px; }
+        hr.insert {
+                width: 80%; border-style: none; border-width: 0;
+                color: #CCC; background-color: #CCC;
+        }
+--></style> 
+</head> 
+<body> 
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table> 
+<table summary="layout" width="66%" border="0" cellpadding="0" cellspacing="0"><tr><td><table summary="layout" width="100%" border="0" cellpadding="2" cellspacing="1"> 
+<tr><td class="header">Network Working Group</td><td class="header">J. Snell</td></tr> 
+<tr><td class="header">Internet-Draft</td><td class="header">IBM</td></tr> 
+<tr><td class="header">Intended status: Experimental</td><td class="header">March 2011</td></tr> 
+<tr><td class="header">Expires: September 2, 2011</td><td class="header">&nbsp;</td></tr> 
+</table></td></tr></table> 
+<h1><br />Audience Targeting for JSON Activity Streams (Draft)<br />json-activity-01</h1> 
+ 
+<h3>Abstract</h3> 
+ 
+<p>This specification details an extension to the JSON Activity 
+      Streams serialization to support explicit identification of 
+      the audience for a specific activity.
+</p> 
+<h3>Status of this Memo</h3> 
+<p> 
+This document is an Internet-Draft and is
+NOT offered in accordance with Section&nbsp;10 of RFC&nbsp;2026,
+and the author does not provide the IETF with any rights other
+than to publish as an Internet-Draft.</p> 
+<p> 
+Internet-Drafts are working documents of the Internet Engineering
+Task Force (IETF).  Note that other groups may also distribute
+working documents as Internet-Drafts.  The list of current
+Internet-Drafts is at http://datatracker.ietf.org/drafts/current/.</p> 
+<p> 
+Internet-Drafts are draft documents valid for a maximum of six months
+and may be updated, replaced, or obsoleted by other documents at any time.
+It is inappropriate to use Internet-Drafts as reference material or to cite
+them other than as &ldquo;work in progress.&rdquo;</p> 
+<p> 
+This Internet-Draft will expire on September 2, 2011.</p> 
+<a name="toc"></a><br /><hr /> 
+<h3>Table of Contents</h3> 
+<p class="toc"> 
+<a href="#anchor1">1.</a>&nbsp;
+Introduction<br /> 
+<a href="#anchor2">2.</a>&nbsp;
+Notational Conventions<br /> 
+<a href="#properties">3.</a>&nbsp;
+Targeting Properties<br /> 
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#cc-bcc">3.1.</a>&nbsp;
+Public and Private Audiences<br /> 
+<a href="#anchor3">4.</a>&nbsp;
+Security Considerations<br /> 
+<a href="#rfc.references1">5.</a>&nbsp;
+Normative References<br /> 
+<a href="#rfc.authors">&#167;</a>&nbsp;
+Author's Address<br /> 
+</p> 
+<br clear="all" /> 
+ 
+<a name="anchor1"></a><br /><hr /> 
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table> 
+<a name="rfc.section.1"></a><h3>1.&nbsp;
+Introduction</h3> 
+ 
+<p>The Activity Streams specification defines a format for describing
+      socially interesting events, or "Activities", about the people and things 
+      an individual may care about.
+</p> 
+<p>Every Activity has both a Primary and Secondary audience. The Primary
+      audience consists of those entities either directly involved in the 
+      performance of the activity or who "own" the objects involved. The Secondary 
+      audience consists of the collection of entities sharing an interest in the 
+      activity but who are not directly involved (e.g. "followers").
+</p> 
+<p>For instance, suppose a social network of three individuals: Bob, Joe 
+      and Jane. Bob and Joe are each friends with Jane but not friends with one 
+      another. Bob has chosen to "follow" activities for which Jane is directly 
+      involved. Jane shares a file with Joe.
+</p> 
+<p>In this example, Jane and Joe are each directly involved in the 
+      file sharing activity and together make up the Primary Audience for
+      that event. Bob, having an interest in activities involving Jane, is 
+      the Secondary Audience. Knowing this, a system that produces or 
+      consumes the activity can more intelligently notify each of the users
+      of the event.
+</p> 
+<p>The core Activity Streams specification does not define a means of 
+      explicitly identifying the Primary or Secondary audience for an event. 
+      There are means, based on the verb, actor, object and target of the 
+      activity, to infer the primary audience for many types of activities,
+      but not all. This specification introduces four optional extension 
+      properties for an Activity to explicitly describe the Primary and
+      Secondary audience. An activity utilizing these extension properties 
+      is hereafter referred to as a "Targeted Activity".
+</p> 
+<a name="anchor2"></a><br /><hr /> 
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table> 
+<a name="rfc.section.2"></a><h3>2.&nbsp;
+Notational Conventions</h3> 
+ 
+<p>The text of this specification provides the sole definition of
+      conformance. Examples in this specification are non-normative.
+</p> 
+<p>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
+      "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this
+      document are to be interpreted as described in <a class='info' href='#RFC2119'>[RFC2119]<span> (</span><span class='info'>Bradner, S., &ldquo;Key words for use in RFCs to Indicate Requirement           Levels,&rdquo; March&nbsp;1997.</span><span>)</span></a>. 
+</p> 
+<a name="properties"></a><br /><hr /> 
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table> 
+<a name="rfc.section.3"></a><h3>3.&nbsp;
+Targeting Properties</h3> 
+ 
+<p>The <tt>to</tt>, <tt>cc</tt>, 
+        <tt>bto</tt> and <tt>bcc</tt> 
+        properties MAY be used within an Activity to identify the Primary and 
+        Secondary audiences. The value of each of these properties when 
+        serialized using the JSON format is an array of Objects. The objects 
+        can be of any objectType but will typically represent individuals or 
+        groups of individuals.
+</p><table class="full" align="center" border="0" cellpadding="2" cellspacing="2"> 
+<col align="left" width="15%"><col align="left" width="21%"><col align="left"> 
+<tr><th align="left">Property</th><th align="left">Value</th><th align="left">Description</th></tr> 
+<tr> 
+<td align="left"><tt>to</tt>&nbsp;</td> 
+<td align="left">JSON Array of Activity Stream Objects</td> 
+<td align="left">Specifies the public primary audience of an activity.</td> 
+</tr> 
+<tr> 
+<td align="left"><tt>cc</tt>&nbsp;</td> 
+<td align="left">JSON Array of Activity Stream Objects</td> 
+<td align="left">Specifies the public secondary audience of an activity.</td> 
+</tr> 
+<tr> 
+<td align="left"><tt>bto</tt>&nbsp;</td> 
+<td align="left">JSON Array of Activity Stream Objects</td> 
+<td align="left">Specifies the private primary audience of an activity.</td> 
+</tr> 
+<tr> 
+<td align="left"><tt>bcc</tt>&nbsp;</td> 
+<td align="left">JSON Array of Activity Stream Objects</td> 
+<td align="left">Specifies the private secondary audience of an activity.</td> 
+</tr> 
+</table> 
+<br clear="all" /> 
+ 
+<a name="cc-bcc"></a><br /><hr /> 
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table> 
+<a name="rfc.section.3.1"></a><h3>3.1.&nbsp;
+Public and Private Audiences</h3> 
+ 
+<p>The prototypical use case for a Targeted Activity is the 
+          publication and redistribution of Activities through an intermediary.
+          An event source generates the activity and publishes it to the 
+          intermediary which determines the subset of events to display 
+          to specific individual users or groups. Such a determination can 
+          be made, in part, by identifying the Primary and Secondary Audiences 
+          for each activity.
+</p> 
+<p>When the event source generates the activity and specifies values
+          for the <tt>to</tt> and <tt>cc</tt> 
+          fields, the intermediary SHOULD redistribute
+          that event with the values of those fields intact, allowing any 
+          entity receiving and processing that entity to see who the activity
+          has been targeted to. This is precisely the same model used by the 
+          to and cc fields in email systems.
+</p> 
+<p>There are situations, however, in which disclosing the identity
+          of specific members of the audience may be inappropriate. For instance,
+          a user may not wish to let other users know that they are interested
+          in various topics, individuals or types of events. To support this
+          option, an event source generating an activity MAY use the <tt>bto</tt> and 
+          <tt>bcc</tt> properties to list entities to whom the activity should be 
+          privately targeted. When the intermediary receives an activity 
+          containing these properties, it MUST remove their values prior to 
+          redistributing the activity. The intermediary MAY insert new "bto" 
+          and "bcc" property values containing empty arrays as an indication 
+          that a private audience exists without disclosing the specific 
+          individual members of that private audience.
+</p> 
+<p>The following example illustrates the expected behavior of 
+          an intermediary redistributing an activity that has both a 
+          public and private audience:
+</p> 
+<p>First, the event source generates an activity that is published
+          to the intermediary.
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre> 
+  {
+    "to":[
+      {"objectType":"person",
+       "id":"tag:example.org,2011:jane"}
+    ],
+    "bto":[
+      {"objectType":"person",
+       "id":"tag:example.org,2011:joe"}
+    ],
+    "cc":[
+      {"objectType":"person",
+       "id":"tag:example.org,2011:bob"}
+    ],
+    "bcc":[
+      {"objectType":"person",
+       "id":"tag:example.org,2011:lisa"}
+    ],
+    "verb":"post",
+    "actor":{
+      "objectType":"person",
+      "id":"tag:example.org,2011:jane"},
+    "object":{
+      ...
+    }
+  }
+</pre></div> 
+<p>Upon receiving the activity, the intermediary would generate a
+        modified copy of the activity, omitting the <tt>bto</tt> 
+        and <tt>bcc</tt> values, 
+        and display that to each of the four entities identified.
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre> 
+  {
+    "to":[
+      {"objectType":"person",
+       "id":"tag:example.org,2011:jane"}
+    ],
+    "cc":[
+      {"objectType":"person",
+       "id":"tag:example.org,2011:bob"}
+    ],
+    "bto":[],
+    "bcc":[],
+    "verb":"post",
+    "actor":{
+      "objectType":"person",
+      "id":"tag:example.org,2011:jane"},
+    "object":{
+      ...
+    }
+  }
+</pre></div> 
+<a name="anchor3"></a><br /><hr /> 
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table> 
+<a name="rfc.section.4"></a><h3>4.&nbsp;
+Security Considerations</h3> 
+ 
+<p>Targeted Activities are subject to the same security considerations
+      as all activities. Applications publishing targeted activities to 
+      untrusted intermediaries must be aware of the risk that the intermediary 
+      may not properly handle the <tt>bto</tt> and 
+      <tt>bcc</tt> properties leading to inappropriate 
+      disclosure of a targets private audience. Intermediaries and consumers
+      of targeted activities must be aware of the potential for spoofing 
+      and phishing attacks caused by inappropriately or maliciously targeted
+      activities.
+</p> 
+<a name="rfc.references1"></a><br /><hr /> 
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table> 
+<h3>5.&nbsp;Normative References</h3> 
+<table width="99%" border="0"> 
+<tr><td class="author-text" valign="top"><a name="RFC2119">[RFC2119]</a></td> 
+<td class="author-text">Bradner, S., &ldquo;Key words for use in RFCs to Indicate Requirement
+          Levels,&rdquo; March&nbsp;1997.</td></tr> 
+<tr><td class="author-text" valign="top"><a name="RFC4627">[RFC4627]</a></td> 
+<td class="author-text">Crockford, D., &ldquo;The application/json Media Type for JavaScript Object
+          Notation (JSON),&rdquo; July&nbsp;2006.</td></tr> 
+<tr><td class="author-text" valign="top"><a name="json-activity-streams-01">[json-activity-streams-01]</a></td> 
+<td class="author-text">Snell, J., Atkins, M., Norris, W., Messina, C., Wilkinson, M., and R. Dolin, &ldquo;<a href="http://activitystrea.ms/specs/json/1.0/">JSON Activity Streams 1.0</a>,&rdquo; May&nbsp;2011.</td></tr> 
+</table> 
+ 
+<a name="rfc.authors"></a><br /><hr /> 
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table> 
+<h3>Author's Address</h3> 
+<table width="99%" border="0" cellpadding="0" cellspacing="0"> 
+<tr><td class="author-text">&nbsp;</td> 
+<td class="author-text">James M Snell</td></tr> 
+<tr><td class="author-text">&nbsp;</td> 
+<td class="author-text">IBM</td></tr> 
+</table> 
+</body></html> 

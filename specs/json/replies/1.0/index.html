@@ -1,0 +1,450 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> 
+<html lang="en"><head><title>Responses for Activity Streams (Draft)</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+<meta name="description" content="Responses for Activity Streams (Draft)"> 
+<meta name="generator" content="xml2rfc v1.36 (http://xml.resource.org/)"> 
+<style type='text/css'><!--
+        body {
+                font-family: verdana, charcoal, helvetica, arial, sans-serif;
+                font-size: small; color: #000; background-color: #FFF;
+                margin: 2em;
+        }
+        h1, h2, h3, h4, h5, h6 {
+                font-family: helvetica, monaco, "MS Sans Serif", arial, sans-serif;
+                font-weight: bold; font-style: normal;
+        }
+        h1 { color: #900; background-color: transparent; text-align: right; }
+        h3 { color: #333; background-color: transparent; }
+ 
+        td.RFCbug {
+                font-size: x-small; text-decoration: none;
+                width: 30px; height: 30px; padding-top: 2px;
+                text-align: justify; vertical-align: middle;
+                background-color: #000;
+        }
+        td.RFCbug span.RFC {
+                font-family: monaco, charcoal, geneva, "MS Sans Serif", helvetica, verdana, sans-serif;
+                font-weight: bold; color: #666;
+        }
+        td.RFCbug span.hotText {
+                font-family: charcoal, monaco, geneva, "MS Sans Serif", helvetica, verdana, sans-serif;
+                font-weight: normal; text-align: center; color: #FFF;
+        }
+ 
+        table.TOCbug { width: 30px; height: 15px; }
+        td.TOCbug {
+                text-align: center; width: 30px; height: 15px;
+                color: #FFF; background-color: #900;
+        }
+        td.TOCbug a {
+                font-family: monaco, charcoal, geneva, "MS Sans Serif", helvetica, sans-serif;
+                font-weight: bold; font-size: x-small; text-decoration: none;
+                color: #FFF; background-color: transparent;
+        }
+ 
+        td.header {
+                font-family: arial, helvetica, sans-serif; font-size: x-small;
+                vertical-align: top; width: 33%;
+                color: #FFF; background-color: #666;
+        }
+        td.author { font-weight: bold; font-size: x-small; margin-left: 4em; }
+        td.author-text { font-size: x-small; }
+ 
+        /* info code from SantaKlauss at http://www.madaboutstyle.com/tooltip2.html */
+        a.info {
+                /* This is the key. */
+                position: relative;
+                z-index: 24;
+                text-decoration: none;
+        }
+        a.info:hover {
+                z-index: 25;
+                color: #FFF; background-color: #900;
+        }
+        a.info span { display: none; }
+        a.info:hover span.info {
+                /* The span will display just on :hover state. */
+                display: block;
+                position: absolute;
+                font-size: smaller;
+                top: 2em; left: -5em; width: 15em;
+                padding: 2px; border: 1px solid #333;
+                color: #900; background-color: #EEE;
+                text-align: left;
+        }
+ 
+        a { font-weight: bold; }
+        a:link    { color: #900; background-color: transparent; }
+        a:visited { color: #633; background-color: transparent; }
+        a:active  { color: #633; background-color: transparent; }
+ 
+        p { margin-left: 2em; margin-right: 2em; }
+        p.copyright { font-size: x-small; }
+        p.toc { font-size: small; font-weight: bold; margin-left: 3em; }
+        table.toc { margin: 0 0 0 3em; padding: 0; border: 0; vertical-align: text-top; }
+        td.toc { font-size: small; font-weight: bold; vertical-align: text-top; }
+ 
+        ol.text { margin-left: 2em; margin-right: 2em; }
+        ul.text { margin-left: 2em; margin-right: 2em; }
+        li      { margin-left: 3em; }
+ 
+        /* RFC-2629 <spanx>s and <artwork>s. */
+        em     { font-style: italic; }
+        strong { font-weight: bold; }
+        dfn    { font-weight: bold; font-style: normal; }
+        cite   { font-weight: normal; font-style: normal; }
+        tt     { color: #036; }
+        tt, pre, pre dfn, pre em, pre cite, pre span {
+                font-family: "Courier New", Courier, monospace; font-size: small;
+        }
+        pre {
+                text-align: left; padding: 4px;
+                color: #000; background-color: #CCC;
+        }
+        pre dfn  { color: #900; }
+        pre em   { color: #66F; background-color: #FFC; font-weight: normal; }
+        pre .key { color: #33C; font-weight: bold; }
+        pre .id  { color: #900; }
+        pre .str { color: #000; background-color: #CFF; }
+        pre .val { color: #066; }
+        pre .rep { color: #909; }
+        pre .oth { color: #000; background-color: #FCF; }
+        pre .err { background-color: #FCC; }
+ 
+        /* RFC-2629 <texttable>s. */
+        table.all, table.full, table.headers, table.none {
+                font-size: small; text-align: center; border-width: 2px;
+                vertical-align: top; border-collapse: collapse;
+        }
+        table.all, table.full { border-style: solid; border-color: black; }
+        table.headers, table.none { border-style: none; }
+        th {
+                font-weight: bold; border-color: black;
+                border-width: 2px 2px 3px 2px;
+        }
+        table.all th, table.full th { border-style: solid; }
+        table.headers th { border-style: none none solid none; }
+        table.none th { border-style: none; }
+        table.all td {
+                border-style: solid; border-color: #333;
+                border-width: 1px 2px;
+        }
+        table.full td, table.headers td, table.none td { border-style: none; }
+ 
+        hr { height: 1px; }
+        hr.insert {
+                width: 80%; border-style: none; border-width: 0;
+                color: #CCC; background-color: #CCC;
+        }
+--></style> 
+</head> 
+<body> 
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table> 
+<table summary="layout" width="66%" border="0" cellpadding="0" cellspacing="0"><tr><td><table summary="layout" width="100%" border="0" cellpadding="2" cellspacing="1"> 
+<tr><td class="header">Network Working Group</td><td class="header">J. Snell</td></tr> 
+<tr><td class="header">Internet-Draft</td><td class="header">IBM</td></tr> 
+<tr><td class="header">Intended status: Experimental</td><td class="header">April 2011</td></tr> 
+<tr><td class="header">Expires: October 3, 2011</td><td class="header">&nbsp;</td></tr> 
+</table></td></tr></table> 
+<h1><br />Responses for Activity Streams (Draft)<br />json-activity-01</h1> 
+ 
+<h3>Abstract</h3> 
+ 
+<p>This specification details an extension to the JSON Activity Streams
+      to express the serialization of responses and reactions to an Activity or
+      an Object.
+</p> 
+<h3>Status of this Memo</h3> 
+<p> 
+This document is an Internet-Draft and is
+NOT offered in accordance with Section&nbsp;10 of RFC&nbsp;2026,
+and the author does not provide the IETF with any rights other
+than to publish as an Internet-Draft.</p> 
+<p> 
+Internet-Drafts are working documents of the Internet Engineering
+Task Force (IETF).  Note that other groups may also distribute
+working documents as Internet-Drafts.  The list of current
+Internet-Drafts is at http://datatracker.ietf.org/drafts/current/.</p> 
+<p> 
+Internet-Drafts are draft documents valid for a maximum of six months
+and may be updated, replaced, or obsoleted by other documents at any time.
+It is inappropriate to use Internet-Drafts as reference material or to cite
+them other than as &ldquo;work in progress.&rdquo;</p> 
+<p> 
+This Internet-Draft will expire on October 3, 2011.</p> 
+<a name="toc"></a><br /><hr /> 
+<h3>Table of Contents</h3> 
+<p class="toc"> 
+<a href="#anchor1">1.</a>&nbsp;
+Introduction<br /> 
+<a href="#anchor2">2.</a>&nbsp;
+Notational Conventions<br /> 
+<a href="#inreplyto">3.</a>&nbsp;
+The &quot;inReplyTo&quot; Property<br /> 
+<a href="#stream">4.</a>&nbsp;
+Responses and Activity Summaries<br /> 
+<a href="#anchor3">5.</a>&nbsp;
+Security Considerations<br /> 
+<a href="#rfc.references1">6.</a>&nbsp;
+Normative References<br /> 
+<a href="#anchor5">Appendix&nbsp;A.</a>&nbsp;
+Acknowledgements<br /> 
+<a href="#rfc.authors">&#167;</a>&nbsp;
+Author's Address<br /> 
+</p> 
+<br clear="all" /> 
+ 
+<a name="anchor1"></a><br /><hr /> 
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table> 
+<a name="rfc.section.1"></a><h3>1.&nbsp;
+Introduction</h3> 
+ 
+<p>The Activity Streams specification defines a format for describing
+      socially interesting events, or "Activities", about the people and things 
+      an individual may care about. This specification describes the mechanisms
+      by which responses or reactions to those events or their related objects
+       may also be described.
+</p> 
+<p>The possible range of reactions to an event or object vary broadly 
+      and include such actions as posting a comment, sharing the event with 
+      others, "liking" or "favoriting" the event or object, RSVP'ing to an
+      event invite and so on. This specification does not attempt to cover 
+      the full range of possible reactions. Rather, it seeks to establish a
+      common pattern for the expression of those reactions within an Activity
+      Stream and defines a set of extension properties exemplifying that 
+      pattern.
+</p> 
+<a name="anchor2"></a><br /><hr /> 
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table> 
+<a name="rfc.section.2"></a><h3>2.&nbsp;
+Notational Conventions</h3> 
+ 
+<p>The text of this specification provides the sole definition of
+      conformance. Examples in this specification are non-normative.
+</p> 
+<p>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
+      "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this
+      document are to be interpreted as described in <a class='info' href='#RFC2119'>[RFC2119]<span> (</span><span class='info'>Bradner, S., &ldquo;Key words for use in RFCs to Indicate Requirement           Levels,&rdquo; March&nbsp;1997.</span><span>)</span></a>.
+</p> 
+<a name="inreplyto"></a><br /><hr /> 
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table> 
+<a name="rfc.section.3"></a><h3>3.&nbsp;
+The &quot;inReplyTo&quot; Property</h3> 
+ 
+<p>The <tt>inReplyTo</tt> property MAY be used within any Activity Stream 
+      object to identify other objects for which the containing object is
+      considered a response. The value of the <tt>inReplyTo</tt> 
+      property is a <a class='info' href='#RFC4627'>JSON<span> (</span><span class='info'>Crockford, D., &ldquo;The application/json Media Type for JavaScript Object           Notation (JSON),&rdquo; July&nbsp;2006.</span><span>)</span></a> [RFC4627] Array of 
+      Activity Stream Objects. For example:
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre> 
+  {
+    "objectType": "comment",
+    "content": "&lt;p&gt;This is a comment&lt;/p&gt;",
+    "inReplyTo": [
+      {
+        "objectType": "note",
+        "id": "http://example.org/objects/123",
+        "displayName": "A simple note"
+      }
+    ]
+  }
+</pre></div> 
+<p>In many cases, such as when an object appears as a member of a collection
+       of objects in a property that clearly indicates a response or reaction 
+       relationship with a parent object, the <tt>inReplyTo</tt> 
+       property can be implied. For instance, the <tt>replies</tt> 
+       property defined below in <a class='info' href='#stream'>Section&nbsp;4<span> (</span><span class='info'>Responses and Activity Summaries</span><span>)</span></a> may contain a listing
+       of child objects with an implied <tt>inReplyTo</tt> 
+       property referring to the parent object.
+</p> 
+<a name="stream"></a><br /><hr /> 
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table> 
+<a name="rfc.section.4"></a><h3>4.&nbsp;
+Responses and Activity Summaries</h3> 
+ 
+<p>It is common practice to provide summary information on the number 
+      and types of activities that have occurred with respect to a given 
+      object. For instance, a "note" object may have been the target of 
+      any number of comment, like, or share activities. This summary information 
+      MAY be expressed in the JSON serialization of an object by using a property
+      name descriptive of the data being summarized and using the Collection
+      object as defined by the JSON Activity Streams document.
+</p> 
+<p>The following properties MAY be used on any object type or activity 
+      for each of the specified situations:
+</p><table class="full" align="center" border="0" cellpadding="2" cellspacing="2"> 
+<col align="left" width="15%"><col align="left"> 
+<tr><th align="left">Property</th><th align="left">Description</th></tr> 
+<tr> 
+<td align="left"><tt>attending</tt>&nbsp;</td> 
+<td align="left">Used to provide information about the collection of actors that 
+        have responded to an <tt>event</tt> using the 
+        <tt>rsvp-yes</tt> verb.</td> 
+</tr> 
+<tr> 
+<td align="left"><tt>followers</tt>&nbsp;</td> 
+<td align="left">Used to provide information about the collection of objects (typically
+        person objects) that are "following" the containing object.</td> 
+</tr> 
+<tr> 
+<td align="left"><tt>following</tt>&nbsp;</td> 
+<td align="left">Used to provide information about the collection of objects that this 
+        object is "following".</td> 
+</tr> 
+<tr> 
+<td align="left"><tt>friends</tt>&nbsp;</td> 
+<td align="left">Used to provide information about the collection of objects with which
+        a "friendship" relationship has been established using the <tt>make-friend</tt> 
+        verb. This property will typically only be relevant for the <tt>person</tt> object type.</td> 
+</tr> 
+<tr> 
+<td align="left"><tt>friend-requests</tt>&nbsp;</td> 
+<td align="left">Used to provide information about the collection of objects with which
+        a "friendship" relationship is being requested using the <tt>request-friend</tt> 
+        verb. This property will typically only be relevant for the <tt>person</tt> object type.</td> 
+</tr> 
+<tr> 
+<td align="left"><tt>likes</tt>&nbsp;</td> 
+<td align="left">Used to provide information about the actors (typically person 
+        objects) that have favorited or liked the containing object.</td> 
+</tr> 
+<tr> 
+<td align="left"><tt>notAttending</tt>&nbsp;</td> 
+<td align="left">Used to provide information about the collection of actors that 
+        have responded to an <tt>event</tt> using the 
+        <tt>rsvp-no</tt> verb.</td> 
+</tr> 
+<tr> 
+<td align="left"><tt>maybeAttending</tt>&nbsp;</td> 
+<td align="left">Used to provide information about the collection of actors that 
+        have responded to an <tt>event</tt> using the 
+        <tt>rsvp-maybe</tt> verb.</td> 
+</tr> 
+<tr> 
+<td align="left"><tt>members</tt>&nbsp;</td> 
+<td align="left">Used to provide information about the actors (typically person 
+        objects) that have "joined" the containing object. This is typically
+        only useful for object types that represent groups.</td> 
+</tr> 
+<tr> 
+<td align="left"><tt>replies</tt>&nbsp;</td> 
+<td align="left">Used to provide information about the thread of discussion associated
+        with a given object. Typically, the objects contained will have an 
+        implied <tt>inReplyTo</tt> property value equal to
+        the object containing the <tt>replies</tt> property.</td> 
+</tr> 
+<tr> 
+<td align="left"><tt>reviews</tt>&nbsp;</td> 
+<td align="left">Used to provide information about reviews available for the containing 
+        object.</td> 
+</tr> 
+<tr> 
+<td align="left"><tt>saves</tt>&nbsp;</td> 
+<td align="left">Used to provide information about the actors (typically person 
+        objects) that have "saved" the containing object.</td> 
+</tr> 
+<tr> 
+<td align="left"><tt>shares</tt>&nbsp;</td> 
+<td align="left">Used to provide information about the actors (typically person 
+        objects) that have "shared" the containing object.</td> 
+</tr> 
+</table> 
+<br clear="all" /> 
+ 
+<p>The following example illustrates the use of these 
+      properties. Note that the value of the <tt>totalItems</tt> 
+      property indicates the total number of items in the associated 
+      collections and may not match the actual number of objects in the 
+      <tt>items</tt> property. For instance, in the example
+      below, for the <tt>likes</tt> property, the 
+      <tt>totalItems</tt> property specifies the value 120 but
+      includes only a single object. This SHOULD be interpreted along the 
+      lines of "John and 119 other users like this note".
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre> 
+  {
+    "objectType": "note",
+    "displayName": "A Simple Note",
+    "content": "&lt;p&gt;This is a simple note&lt;/p&gt;",
+    "replies": {
+      "totalItems": 10,
+      "url": "http://example.org/comments-stream",
+    },
+    "followers": {
+      "totalItems": 15,
+      "url": "http://example.org/followers-stream",
+      "items": [
+        {
+          "objectType": "person",
+          "displayName": "Jane"
+        }
+      ]
+    },
+    "likes": {
+      "totalItems": 120,
+      "items": [
+        "objectType": "person",
+        "displayName": "John"
+      ]
+    },
+    "reviews": {
+      "totalItems": 1,
+      "items": [
+        {
+          "objectType": "review",
+          "author": {
+            "displayName": "Joe",
+            "objectType": "person"
+          },
+          "rating": 4.5
+        }
+      ]
+    }
+  }
+</pre></div> 
+<a name="anchor3"></a><br /><hr /> 
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table> 
+<a name="rfc.section.5"></a><h3>5.&nbsp;
+Security Considerations</h3> 
+ 
+<p>The mechanisms defined herein are subject to the same security considerations
+      as all activities. Applications must be aware of the risk posed by a 
+      malicious third party attempting to artificially inject inappropriate 
+      content into the stream of responses and replies of an object. For instance, 
+      services that aggregate activity streams from multiple sources and attempt
+      to reconstruct a thread of discussion using replies and response from across
+      those sources could be tricked into displaying illegitimate content if 
+      appropriate consideration is not given to the content origin. Mitigation 
+      of such threats is considered out of scope for this specification.
+</p> 
+<a name="rfc.references1"></a><br /><hr /> 
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table> 
+<h3>6.&nbsp;Normative References</h3> 
+<table width="99%" border="0"> 
+<tr><td class="author-text" valign="top"><a name="RFC2119">[RFC2119]</a></td> 
+<td class="author-text">Bradner, S., &ldquo;Key words for use in RFCs to Indicate Requirement
+          Levels,&rdquo; March&nbsp;1997.</td></tr> 
+<tr><td class="author-text" valign="top"><a name="RFC4627">[RFC4627]</a></td> 
+<td class="author-text">Crockford, D., &ldquo;The application/json Media Type for JavaScript Object
+          Notation (JSON),&rdquo; July&nbsp;2006.</td></tr> 
+<tr><td class="author-text" valign="top"><a name="json-activity-streams-01">[json-activity-streams-01]</a></td> 
+<td class="author-text">Snell, J., Atkins, M., Norris, W., Messina, C., Wilkinson, M., and R. Dolin, &ldquo;<a href="http://activitystrea.ms/specs/json/1.0/">JSON Activity Streams 1.0</a>,&rdquo; May&nbsp;2011.</td></tr> 
+</table> 
+ 
+<a name="anchor5"></a><br /><hr /> 
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table> 
+<a name="rfc.section.A"></a><h3>Appendix A.&nbsp;
+Acknowledgements</h3> 
+ 
+<p>...
+</p> 
+<a name="rfc.authors"></a><br /><hr /> 
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table> 
+<h3>Author's Address</h3> 
+<table width="99%" border="0" cellpadding="0" cellspacing="0"> 
+<tr><td class="author-text">&nbsp;</td> 
+<td class="author-text">James M Snell</td></tr> 
+<tr><td class="author-text">&nbsp;</td> 
+<td class="author-text">IBM</td></tr> 
+</table> 
+</body></html> 

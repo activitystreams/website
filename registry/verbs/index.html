@@ -18,62 +18,6 @@ layout: registry
   </thead>
   <tbody>
   
-    <tr class="odd draft">
-      <td class="name"><b>Join</b></td>
-      <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#join">join</a></code></td>
-      <td class="spec"><a href="specs/activity-schema/">Activity Schema</a></td>
-      <td class="description">Becoming a member of the object</td>
-    </tr>
-  
-    <tr class="even draft">
-      <td class="name"><b>Make Friend</b></td>
-      <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#make-friend">make-friend</a></code></td>
-      <td class="spec"><a href="specs/activity-schema/">Activity Schema</a></td>
-      <td class="description">Creating a friendship relationship that is reciprocated by the object</td>
-    </tr>
-  
-    <tr class="odd draft">
-      <td class="name"><b>Mark as Favorite</b></td>
-      <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#favorite">favorite</a></code></td>
-      <td class="spec"><a href="specs/activity-schema/">Activity Schema</a></td>
-      <td class="description">Marking the object as an item of special interest</td>
-    </tr>
-  
-    <tr class="even draft">
-      <td class="name"><b>Mark as Liked</b></td>
-      <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#like">like</a></code></td>
-      <td class="spec"><a href="specs/activity-schema/">Activity Schema</a></td>
-      <td class="description">Indicating that one likes the object</td>
-    </tr>
-  
-    <tr class="odd draft">
-      <td class="name"><b>Negative RSVP</b></td>
-      <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#rsvp-no">rsvp-no</a></code></td>
-      <td class="spec"><a href="specs/activity-schema/">Activity Schema</a></td>
-      <td class="description">Indicating a negative RSVP for the object</td>
-    </tr>
-  
-    <tr class="even draft">
-      <td class="name"><b>Play</b></td>
-      <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#play">play</a></code></td>
-      <td class="spec"><a href="specs/activity-schema/">Activity Schema</a></td>
-      <td class="description">Spending some time enjoying the object</td>
-    </tr>
-  
-    <tr class="odd draft">
-      <td class="name"><b>Positive RSVP</b></td>
-      <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#rsvp-yes">rsvp-yes</a></code></td>
-      <td class="spec"><a href="specs/activity-schema/">Activity Schema</a></td>
-      <td class="description">Indicating a positive RSVP for the object</td>
-    </tr>
-  
-    <tr class="even draft">
-      <td class="name"><b>Possible RSVP</b></td>
-      <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#rsvp-maybe">rsvp-maybe</a></code></td>
-      <td class="spec"><a href="specs/activity-schema/">Activity Schema</a></td>
-      <td class="description">Indicating a possible RSVP for the object</td>
-    </tr>
-  
     <tr class="odd">
       <td class="name"><b>Post</b></td>
       <td class="property"><code><a href="http://activitystrea.ms/specs/json/1.0/#post-verb">post</a></code></td>
@@ -82,38 +26,206 @@ layout: registry
     </tr>
   
     <tr class="even draft">
-      <td class="name"><b>Save</b></td>
-      <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#save">save</a></code></td>
+      <td class="name"><b>add</b></td>
+      <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#verbs">add</a></code></td>
       <td class="spec"><a href="specs/activity-schema/">Activity Schema</a></td>
-      <td class="description">Calling out the object as being of interest primarily to the actor</td>
+      <td class="description">Indicates that the actor has added the object to the target. For instance, adding a photo to an album.</td>
     </tr>
   
     <tr class="odd draft">
-      <td class="name"><b>Share</b></td>
-      <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#share">share</a></code></td>
+      <td class="name"><b>cancel</b></td>
+      <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#verbs">cancel</a></code></td>
       <td class="spec"><a href="specs/activity-schema/">Activity Schema</a></td>
-      <td class="description">Calling out the object to attract others to it</td>
+      <td class="description">Indicates that the actor has canceled the object. For instance, canceling a calendar event.</td>
     </tr>
   
     <tr class="even draft">
-      <td class="name"><b>Start Following</b></td>
-      <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#follow">follow</a></code></td>
+      <td class="name"><b>checkin</b></td>
+      <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#verbs">checkin</a></code></td>
       <td class="spec"><a href="specs/activity-schema/">Activity Schema</a></td>
-      <td class="description">Starting to follow the object</td>
+      <td class="description">Indicates that the actor has checked-in to the object. For instance, a person checking-in to a Place.</td>
     </tr>
   
     <tr class="odd draft">
-      <td class="name"><b>Tag</b></td>
-      <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#tag">tag</a></code></td>
+      <td class="name"><b>delete</b></td>
+      <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#verbs">delete</a></code></td>
       <td class="spec"><a href="specs/activity-schema/">Activity Schema</a></td>
-      <td class="description">Identifying the presence of the object inside the target</td>
+      <td class="description">Indicates that the actor has deleted the object. This implies, but does not require, the permanent destruction of the object.</td>
     </tr>
   
     <tr class="even draft">
-      <td class="name"><b>Update</b></td>
-      <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#update">update</a></code></td>
+      <td class="name"><b>favorite</b></td>
+      <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#verbs">favorite</a></code></td>
       <td class="spec"><a href="specs/activity-schema/">Activity Schema</a></td>
-      <td class="description">Modifying the object</td>
+      <td class="description">Indicates that the actor marked the object as an item of special interest.</td>
+    </tr>
+  
+    <tr class="odd draft">
+      <td class="name"><b>follow</b></td>
+      <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#verbs">follow</a></code></td>
+      <td class="spec"><a href="specs/activity-schema/">Activity Schema</a></td>
+      <td class="description">Indicates that the actor began following the activity of the object. In most cases, the object will be a Person, but it can potentially be of any type that can sensibly generate activity. Processors MAY ignore (silently drop) successive identical &quot;follow&quot; activities.</td>
+    </tr>
+  
+    <tr class="even draft">
+      <td class="name"><b>give</b></td>
+      <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#verbs">give</a></code></td>
+      <td class="spec"><a href="specs/activity-schema/">Activity Schema</a></td>
+      <td class="description">Indicates that the actor is giving an object to the target. Examples include one person giving a badge object to another person. The object identifies the object being given. The target identifies the receiver.</td>
+    </tr>
+  
+    <tr class="odd draft">
+      <td class="name"><b>ignore</b></td>
+      <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#verbs">ignore</a></code></td>
+      <td class="spec"><a href="specs/activity-schema/">Activity Schema</a></td>
+      <td class="description">Indicates that the actor has ignored the object. For instance,  this verb may be used when an actor has ignored a friend request, in which case the object may be the request-friend activity.</td>
+    </tr>
+  
+    <tr class="even draft">
+      <td class="name"><b>invite</b></td>
+      <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#verbs">invite</a></code></td>
+      <td class="spec"><a href="specs/activity-schema/">Activity Schema</a></td>
+      <td class="description">Indicates that the actor has invited the object, typically a  person object, to join or participate in the object described by the target. The target could, for instance, be an event, group or a service.</td>
+    </tr>
+  
+    <tr class="odd draft">
+      <td class="name"><b>join</b></td>
+      <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#verbs">join</a></code></td>
+      <td class="spec"><a href="specs/activity-schema/">Activity Schema</a></td>
+      <td class="description">Indicates that the actor has become a member of the object. This specification only defines the meaning of this verb when its object is a group, though implementors SHOULD be prepared to handle other Object types a meaning MAY be provided by extension specifications. Processors MAY ignore (silently drop) successive identical &quot;join&quot; activities.</td>
+    </tr>
+  
+    <tr class="even draft">
+      <td class="name"><b>leave</b></td>
+      <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#verbs">leave</a></code></td>
+      <td class="spec"><a href="specs/activity-schema/">Activity Schema</a></td>
+      <td class="description">Indicates that the actor has left the object. For instance a Person leaving a Group or checking-out of a Place.</td>
+    </tr>
+  
+    <tr class="odd draft">
+      <td class="name"><b>like</b></td>
+      <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#verbs">like</a></code></td>
+      <td class="spec"><a href="specs/activity-schema/">Activity Schema</a></td>
+      <td class="description">Indicates that the actor marked the object as an item of special interest. The &quot;like&quot; verb is considered to be an alias of &quot;favorite&quot;. The two verb are semantically identical.</td>
+    </tr>
+  
+    <tr class="even draft">
+      <td class="name"><b>make-friend</b></td>
+      <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#verbs">make-friend</a></code></td>
+      <td class="spec"><a href="specs/activity-schema/">Activity Schema</a></td>
+      <td class="description">Indicates the creation of a friendship that is reciprocated by  the object. Since this verb implies an activity on the part of its object, processors MUST NOT accept activities with this verb unless they are able to verify through some external means that there is in fact a reciprocated connection. For example, a processor may have received a guarantee from a particular publisher that the publisher will only use this Verb in cases where a reciprocal relationship exists.</td>
+    </tr>
+  
+    <tr class="odd draft">
+      <td class="name"><b>play</b></td>
+      <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#verbs">play</a></code></td>
+      <td class="spec"><a href="specs/activity-schema/">Activity Schema</a></td>
+      <td class="description">Indicates that the actor spent some time enjoying the object. For example, if the object is a video this indicates that the subject  watched all or part of the video.</td>
+    </tr>
+  
+    <tr class="even draft">
+      <td class="name"><b>receive</b></td>
+      <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#verbs">receive</a></code></td>
+      <td class="spec"><a href="specs/activity-schema/">Activity Schema</a></td>
+      <td class="description">Indicates that the actor is receiving an object. Examples include a person receiving a badge object. The object identifies the object being received.</td>
+    </tr>
+  
+    <tr class="odd draft">
+      <td class="name"><b>remove</b></td>
+      <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#verbs">remove</a></code></td>
+      <td class="spec"><a href="specs/activity-schema/">Activity Schema</a></td>
+      <td class="description">Indicates that the actor has removed the object from the target.</td>
+    </tr>
+  
+    <tr class="even draft">
+      <td class="name"><b>remove-friend</b></td>
+      <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#verbs">remove-friend</a></code></td>
+      <td class="spec"><a href="specs/activity-schema/">Activity Schema</a></td>
+      <td class="description">Indicates that the actor has removed the object from the collection of friends.</td>
+    </tr>
+  
+    <tr class="odd draft">
+      <td class="name"><b>request-friend</b></td>
+      <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#verbs">request-friend</a></code></td>
+      <td class="spec"><a href="specs/activity-schema/">Activity Schema</a></td>
+      <td class="description">Indicates the creation of a friendship that has not yet been reciprocated by  the object.</td>
+    </tr>
+  
+    <tr class="even draft">
+      <td class="name"><b>rsvp-maybe</b></td>
+      <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#verbs">rsvp-maybe</a></code></td>
+      <td class="spec"><a href="specs/activity-schema/">Activity Schema</a></td>
+      <td class="description">The &quot;possible RSVP&quot; verb indicates that the actor has made a possible RSVP for the object. This specification only defines the meaning of this verb when its object is an event, though implementors SHOULD be prepared to handle other object types as meaning MAY be provided by extension specifications. The use of this verb is only appropriate when the RSVP was created by an explicit action by the actor. It is not appropriate to use this verb when a user has been added as an attendee by an event organiser or administrator.</td>
+    </tr>
+  
+    <tr class="odd draft">
+      <td class="name"><b>rsvp-no</b></td>
+      <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#verbs">rsvp-no</a></code></td>
+      <td class="spec"><a href="specs/activity-schema/">Activity Schema</a></td>
+      <td class="description">The &quot;negative RSVP&quot; verb indicates that the actor has made a negative RSVP for the object. This specification only defines the meaning of this verb when its object is an event, though implementors SHOULD be prepared to handle other object types as meaning MAY be provided by extension specifications. The use of this verb is only appropriate when the RSVP was created by an explicit action by the actor. It is not appropriate to use this verb when a user has been added as an attendee by an event organiser or administrator.</td>
+    </tr>
+  
+    <tr class="even draft">
+      <td class="name"><b>rsvp-yes</b></td>
+      <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#verbs">rsvp-yes</a></code></td>
+      <td class="spec"><a href="specs/activity-schema/">Activity Schema</a></td>
+      <td class="description">The &quot;positive RSVP&quot; verb indicates that the actor has made a positive RSVP for an object. This specification only defines the meaning of this verb when its object is an event, though implementors SHOULD be prepared to handle other object types as meaning MAY be provided by extension specifications. The use of this verb is only appropriate when the RSVP was created by an explicit action by the actor. It is not appropriate to use this verb when a user has been added as an attendee by an event organiser or administrator.</td>
+    </tr>
+  
+    <tr class="odd draft">
+      <td class="name"><b>save</b></td>
+      <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#verbs">save</a></code></td>
+      <td class="spec"><a href="specs/activity-schema/">Activity Schema</a></td>
+      <td class="description">Indicates that the actor has called out the object as being of interest primarily to him- or herself. Though this action MAY be  shared publicly, the implication is that the object has been saved  primarily for the actor's own benefit rather than to show it to  others as would be indicated by the &quot;share&quot; verb.</td>
+    </tr>
+  
+    <tr class="even draft">
+      <td class="name"><b>share</b></td>
+      <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#verbs">share</a></code></td>
+      <td class="spec"><a href="specs/activity-schema/">Activity Schema</a></td>
+      <td class="description">Indicates that the actor has called out the object to readers. In most cases, the actor did not create the object being shared, but is instead drawing attention to it.</td>
+    </tr>
+  
+    <tr class="odd draft">
+      <td class="name"><b>stop-following</b></td>
+      <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#verbs">stop-following</a></code></td>
+      <td class="spec"><a href="specs/activity-schema/">Activity Schema</a></td>
+      <td class="description">Indicates that the actor has stopped following the object.</td>
+    </tr>
+  
+    <tr class="even draft">
+      <td class="name"><b>tag</b></td>
+      <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#verbs">tag</a></code></td>
+      <td class="spec"><a href="specs/activity-schema/">Activity Schema</a></td>
+      <td class="description">Indicates that the actor has identified the presence of a target inside another object. For example, the actor may have specified that a particular user appears in a photo. The target of the &quot;tag&quot; verb gives the object in which the tag has been added. For example, if a user appears in a photo, the object is the user and the target is the photo.</td>
+    </tr>
+  
+    <tr class="odd draft">
+      <td class="name"><b>unfavorite</b></td>
+      <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#verbs">unfavorite</a></code></td>
+      <td class="spec"><a href="specs/activity-schema/">Activity Schema</a></td>
+      <td class="description">Indicates that the actor has removed the object from the collection of favorited items.</td>
+    </tr>
+  
+    <tr class="even draft">
+      <td class="name"><b>unlike</b></td>
+      <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#verbs">unlike</a></code></td>
+      <td class="spec"><a href="specs/activity-schema/">Activity Schema</a></td>
+      <td class="description">Indicates that the actor has removed the object from the collection of liked items.</td>
+    </tr>
+  
+    <tr class="odd draft">
+      <td class="name"><b>unsave</b></td>
+      <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#verbs">unsave</a></code></td>
+      <td class="spec"><a href="specs/activity-schema/">Activity Schema</a></td>
+      <td class="description">Indicates that the actor has removed the object from the collection of saved items.</td>
+    </tr>
+  
+    <tr class="even draft">
+      <td class="name"><b>update</b></td>
+      <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#verbs">update</a></code></td>
+      <td class="spec"><a href="specs/activity-schema/">Activity Schema</a></td>
+      <td class="description">The &quot;update&quot; verb indicates that the actor has modified the object. Implementors SHOULD use verbs such as &quot;post&quot; where the actor is adding new items to a collection or similar. Update is reserved for modifications to existing object or data such as changing a user's profile information.</td>
     </tr>
   
   </tbody>

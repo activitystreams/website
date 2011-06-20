@@ -26,81 +26,177 @@ layout: registry
     <tbody>
     
       <tr class="odd">
-        <td class="name"><b>Join</b></td>
-        <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#join">join</a></code></td>
-        <td class="description">Becoming a member of the object</td>
+        <td class="name"><b>add</b></td>
+        <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#verbs">add</a></code></td>
+        <td class="description">Indicates that the actor has added the object to the target. For instance, adding a photo to an album.</td>
       </tr>
     
       <tr class="even">
-        <td class="name"><b>Make Friend</b></td>
-        <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#make-friend">make-friend</a></code></td>
-        <td class="description">Creating a friendship relationship that is reciprocated by the object</td>
+        <td class="name"><b>cancel</b></td>
+        <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#verbs">cancel</a></code></td>
+        <td class="description">Indicates that the actor has canceled the object. For instance, canceling a calendar event.</td>
       </tr>
     
       <tr class="odd">
-        <td class="name"><b>Mark as Favorite</b></td>
-        <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#favorite">favorite</a></code></td>
-        <td class="description">Marking the object as an item of special interest</td>
+        <td class="name"><b>checkin</b></td>
+        <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#verbs">checkin</a></code></td>
+        <td class="description">Indicates that the actor has checked-in to the object. For instance, a person checking-in to a Place.</td>
       </tr>
     
       <tr class="even">
-        <td class="name"><b>Mark as Liked</b></td>
-        <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#like">like</a></code></td>
-        <td class="description">Indicating that one likes the object</td>
+        <td class="name"><b>delete</b></td>
+        <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#verbs">delete</a></code></td>
+        <td class="description">Indicates that the actor has deleted the object. This implies, but does not require, the permanent destruction of the object.</td>
       </tr>
     
       <tr class="odd">
-        <td class="name"><b>Negative RSVP</b></td>
-        <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#rsvp-no">rsvp-no</a></code></td>
-        <td class="description">Indicating a negative RSVP for the object</td>
+        <td class="name"><b>favorite</b></td>
+        <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#verbs">favorite</a></code></td>
+        <td class="description">Indicates that the actor marked the object as an item of special interest.</td>
       </tr>
     
       <tr class="even">
-        <td class="name"><b>Play</b></td>
-        <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#play">play</a></code></td>
-        <td class="description">Spending some time enjoying the object</td>
+        <td class="name"><b>follow</b></td>
+        <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#verbs">follow</a></code></td>
+        <td class="description">Indicates that the actor began following the activity of the object. In most cases, the object will be a Person, but it can potentially be of any type that can sensibly generate activity. Processors MAY ignore (silently drop) successive identical &quot;follow&quot; activities.</td>
       </tr>
     
       <tr class="odd">
-        <td class="name"><b>Positive RSVP</b></td>
-        <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#rsvp-yes">rsvp-yes</a></code></td>
-        <td class="description">Indicating a positive RSVP for the object</td>
+        <td class="name"><b>give</b></td>
+        <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#verbs">give</a></code></td>
+        <td class="description">Indicates that the actor is giving an object to the target. Examples include one person giving a badge object to another person. The object identifies the object being given. The target identifies the receiver.</td>
       </tr>
     
       <tr class="even">
-        <td class="name"><b>Possible RSVP</b></td>
-        <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#rsvp-maybe">rsvp-maybe</a></code></td>
-        <td class="description">Indicating a possible RSVP for the object</td>
+        <td class="name"><b>ignore</b></td>
+        <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#verbs">ignore</a></code></td>
+        <td class="description">Indicates that the actor has ignored the object. For instance,  this verb may be used when an actor has ignored a friend request, in which case the object may be the request-friend activity.</td>
       </tr>
     
       <tr class="odd">
-        <td class="name"><b>Save</b></td>
-        <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#save">save</a></code></td>
-        <td class="description">Calling out the object as being of interest primarily to the actor</td>
+        <td class="name"><b>invite</b></td>
+        <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#verbs">invite</a></code></td>
+        <td class="description">Indicates that the actor has invited the object, typically a  person object, to join or participate in the object described by the target. The target could, for instance, be an event, group or a service.</td>
       </tr>
     
       <tr class="even">
-        <td class="name"><b>Share</b></td>
-        <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#share">share</a></code></td>
-        <td class="description">Calling out the object to attract others to it</td>
+        <td class="name"><b>join</b></td>
+        <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#verbs">join</a></code></td>
+        <td class="description">Indicates that the actor has become a member of the object. This specification only defines the meaning of this verb when its object is a group, though implementors SHOULD be prepared to handle other Object types a meaning MAY be provided by extension specifications. Processors MAY ignore (silently drop) successive identical &quot;join&quot; activities.</td>
       </tr>
     
       <tr class="odd">
-        <td class="name"><b>Start Following</b></td>
-        <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#follow">follow</a></code></td>
-        <td class="description">Starting to follow the object</td>
+        <td class="name"><b>leave</b></td>
+        <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#verbs">leave</a></code></td>
+        <td class="description">Indicates that the actor has left the object. For instance a Person leaving a Group or checking-out of a Place.</td>
       </tr>
     
       <tr class="even">
-        <td class="name"><b>Tag</b></td>
-        <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#tag">tag</a></code></td>
-        <td class="description">Identifying the presence of the object inside the target</td>
+        <td class="name"><b>like</b></td>
+        <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#verbs">like</a></code></td>
+        <td class="description">Indicates that the actor marked the object as an item of special interest. The &quot;like&quot; verb is considered to be an alias of &quot;favorite&quot;. The two verb are semantically identical.</td>
       </tr>
     
       <tr class="odd">
-        <td class="name"><b>Update</b></td>
-        <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#update">update</a></code></td>
-        <td class="description">Modifying the object</td>
+        <td class="name"><b>make-friend</b></td>
+        <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#verbs">make-friend</a></code></td>
+        <td class="description">Indicates the creation of a friendship that is reciprocated by  the object. Since this verb implies an activity on the part of its object, processors MUST NOT accept activities with this verb unless they are able to verify through some external means that there is in fact a reciprocated connection. For example, a processor may have received a guarantee from a particular publisher that the publisher will only use this Verb in cases where a reciprocal relationship exists.</td>
+      </tr>
+    
+      <tr class="even">
+        <td class="name"><b>play</b></td>
+        <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#verbs">play</a></code></td>
+        <td class="description">Indicates that the actor spent some time enjoying the object. For example, if the object is a video this indicates that the subject  watched all or part of the video.</td>
+      </tr>
+    
+      <tr class="odd">
+        <td class="name"><b>receive</b></td>
+        <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#verbs">receive</a></code></td>
+        <td class="description">Indicates that the actor is receiving an object. Examples include a person receiving a badge object. The object identifies the object being received.</td>
+      </tr>
+    
+      <tr class="even">
+        <td class="name"><b>remove</b></td>
+        <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#verbs">remove</a></code></td>
+        <td class="description">Indicates that the actor has removed the object from the target.</td>
+      </tr>
+    
+      <tr class="odd">
+        <td class="name"><b>remove-friend</b></td>
+        <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#verbs">remove-friend</a></code></td>
+        <td class="description">Indicates that the actor has removed the object from the collection of friends.</td>
+      </tr>
+    
+      <tr class="even">
+        <td class="name"><b>request-friend</b></td>
+        <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#verbs">request-friend</a></code></td>
+        <td class="description">Indicates the creation of a friendship that has not yet been reciprocated by  the object.</td>
+      </tr>
+    
+      <tr class="odd">
+        <td class="name"><b>rsvp-maybe</b></td>
+        <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#verbs">rsvp-maybe</a></code></td>
+        <td class="description">The &quot;possible RSVP&quot; verb indicates that the actor has made a possible RSVP for the object. This specification only defines the meaning of this verb when its object is an event, though implementors SHOULD be prepared to handle other object types as meaning MAY be provided by extension specifications. The use of this verb is only appropriate when the RSVP was created by an explicit action by the actor. It is not appropriate to use this verb when a user has been added as an attendee by an event organiser or administrator.</td>
+      </tr>
+    
+      <tr class="even">
+        <td class="name"><b>rsvp-no</b></td>
+        <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#verbs">rsvp-no</a></code></td>
+        <td class="description">The &quot;negative RSVP&quot; verb indicates that the actor has made a negative RSVP for the object. This specification only defines the meaning of this verb when its object is an event, though implementors SHOULD be prepared to handle other object types as meaning MAY be provided by extension specifications. The use of this verb is only appropriate when the RSVP was created by an explicit action by the actor. It is not appropriate to use this verb when a user has been added as an attendee by an event organiser or administrator.</td>
+      </tr>
+    
+      <tr class="odd">
+        <td class="name"><b>rsvp-yes</b></td>
+        <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#verbs">rsvp-yes</a></code></td>
+        <td class="description">The &quot;positive RSVP&quot; verb indicates that the actor has made a positive RSVP for an object. This specification only defines the meaning of this verb when its object is an event, though implementors SHOULD be prepared to handle other object types as meaning MAY be provided by extension specifications. The use of this verb is only appropriate when the RSVP was created by an explicit action by the actor. It is not appropriate to use this verb when a user has been added as an attendee by an event organiser or administrator.</td>
+      </tr>
+    
+      <tr class="even">
+        <td class="name"><b>save</b></td>
+        <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#verbs">save</a></code></td>
+        <td class="description">Indicates that the actor has called out the object as being of interest primarily to him- or herself. Though this action MAY be  shared publicly, the implication is that the object has been saved  primarily for the actor's own benefit rather than to show it to  others as would be indicated by the &quot;share&quot; verb.</td>
+      </tr>
+    
+      <tr class="odd">
+        <td class="name"><b>share</b></td>
+        <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#verbs">share</a></code></td>
+        <td class="description">Indicates that the actor has called out the object to readers. In most cases, the actor did not create the object being shared, but is instead drawing attention to it.</td>
+      </tr>
+    
+      <tr class="even">
+        <td class="name"><b>stop-following</b></td>
+        <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#verbs">stop-following</a></code></td>
+        <td class="description">Indicates that the actor has stopped following the object.</td>
+      </tr>
+    
+      <tr class="odd">
+        <td class="name"><b>tag</b></td>
+        <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#verbs">tag</a></code></td>
+        <td class="description">Indicates that the actor has identified the presence of a target inside another object. For example, the actor may have specified that a particular user appears in a photo. The target of the &quot;tag&quot; verb gives the object in which the tag has been added. For example, if a user appears in a photo, the object is the user and the target is the photo.</td>
+      </tr>
+    
+      <tr class="even">
+        <td class="name"><b>unfavorite</b></td>
+        <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#verbs">unfavorite</a></code></td>
+        <td class="description">Indicates that the actor has removed the object from the collection of favorited items.</td>
+      </tr>
+    
+      <tr class="odd">
+        <td class="name"><b>unlike</b></td>
+        <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#verbs">unlike</a></code></td>
+        <td class="description">Indicates that the actor has removed the object from the collection of liked items.</td>
+      </tr>
+    
+      <tr class="even">
+        <td class="name"><b>unsave</b></td>
+        <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#verbs">unsave</a></code></td>
+        <td class="description">Indicates that the actor has removed the object from the collection of saved items.</td>
+      </tr>
+    
+      <tr class="odd">
+        <td class="name"><b>update</b></td>
+        <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#verbs">update</a></code></td>
+        <td class="description">The &quot;update&quot; verb indicates that the actor has modified the object. Implementors SHOULD use verbs such as &quot;post&quot; where the actor is adding new items to a collection or similar. Update is reserved for modifications to existing object or data such as changing a user's profile information.</td>
       </tr>
     
     </tbody>
@@ -135,9 +231,21 @@ layout: registry
       </tr>
     
       <tr class="odd">
+        <td class="name"><b>Badge</b></td>
+        <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#badge">badge</a></code></td>
+        <td class="spec">A badge or award given to an entity</td>
+      </tr>
+    
+      <tr class="even">
         <td class="name"><b>Bookmark</b></td>
         <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#bookmark">bookmark</a></code></td>
         <td class="spec">A pointer to a URL</td>
+      </tr>
+    
+      <tr class="odd">
+        <td class="name"><b>Collection</b></td>
+        <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#collection">collection</a></code></td>
+        <td class="spec">A generic collection of objects of any type.</td>
       </tr>
     
       <tr class="even">
@@ -159,57 +267,33 @@ layout: registry
       </tr>
     
       <tr class="odd">
-        <td class="name"><b>Folder</b></td>
-        <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#folder">folder</a></code></td>
-        <td class="spec">A collection of files or media objects</td>
-      </tr>
-    
-      <tr class="even">
         <td class="name"><b>Group</b></td>
         <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#group">group</a></code></td>
         <td class="spec">A social networking group</td>
       </tr>
     
-      <tr class="odd">
-        <td class="name"><b>List</b></td>
-        <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#list">list</a></code></td>
-        <td class="spec">A collection of related objects</td>
+      <tr class="even">
+        <td class="name"><b>Image</b></td>
+        <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#image">image</a></code></td>
+        <td class="spec">A graphical image</td>
       </tr>
     
-      <tr class="even">
+      <tr class="odd">
         <td class="name"><b>Note</b></td>
         <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#note">note</a></code></td>
         <td class="spec">A short-form text message</td>
       </tr>
     
-      <tr class="odd">
+      <tr class="even">
         <td class="name"><b>Person</b></td>
         <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#person">person</a></code></td>
         <td class="spec">A user account</td>
       </tr>
     
-      <tr class="even">
-        <td class="name"><b>Photo</b></td>
-        <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#photo">photo</a></code></td>
-        <td class="spec">A graphical still image</td>
-      </tr>
-    
       <tr class="odd">
-        <td class="name"><b>Photo Album</b></td>
-        <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#photo-album">photo-album</a></code></td>
-        <td class="spec">A collection of images</td>
-      </tr>
-    
-      <tr class="even">
         <td class="name"><b>Place</b></td>
         <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#place">place</a></code></td>
-        <td class="spec">A location on earth</td>
-      </tr>
-    
-      <tr class="odd">
-        <td class="name"><b>Playlist</b></td>
-        <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#playlist">playlist</a></code></td>
-        <td class="spec">An ordered list of time-based media items</td>
+        <td class="spec">A location on Earth.</td>
       </tr>
     
       <tr class="even">
@@ -219,30 +303,24 @@ layout: registry
       </tr>
     
       <tr class="odd">
+        <td class="name"><b>Question</b></td>
+        <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#question">question</a></code></td>
+        <td class="spec">A question or poll</td>
+      </tr>
+    
+      <tr class="even">
         <td class="name"><b>Review</b></td>
         <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#review">review</a></code></td>
         <td class="spec">A primarily prosed-based commentary on another object</td>
       </tr>
     
-      <tr class="even">
+      <tr class="odd">
         <td class="name"><b>Service</b></td>
         <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#service">service</a></code></td>
         <td class="spec">Something that provides a service to others</td>
       </tr>
     
-      <tr class="odd">
-        <td class="name"><b>Song</b></td>
-        <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#song">song</a></code></td>
-        <td class="spec">A song or a recording of a song</td>
-      </tr>
-    
       <tr class="even">
-        <td class="name"><b>Status</b></td>
-        <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#status">status</a></code></td>
-        <td class="spec">A human-readable update of the author's situation, mood, location or other status</td>
-      </tr>
-    
-      <tr class="odd">
         <td class="name"><b>Video</b></td>
         <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html#video">video</a></code></td>
         <td class="spec">An item of video content</td>
@@ -279,6 +357,24 @@ layout: registry
         <td class="description">A human-readable keyword or short phrase describing the mood of the actor at the time the activity was performed.</td>
       </tr>
     
+      <tr class="odd">
+        <td class="name"><b>Rating</b></td>
+        <td class="property"></td>
+        <td class="description">A rating given as a number between 1.0 and 5.0 inclusive with one decimal place of precision.</td>
+      </tr>
+    
+      <tr class="even">
+        <td class="name"><b>Source</b></td>
+        <td class="property"></td>
+        <td class="description">A reference to the original source of an object or activity.</td>
+      </tr>
+    
+      <tr class="odd">
+        <td class="name"><b>Tags</b></td>
+        <td class="property"></td>
+        <td class="description">A listing of the objects that have been associated with a particular object using the tag verb.</td>
+      </tr>
+    
     </tbody>
   </table>
 </section>
@@ -300,81 +396,33 @@ layout: registry
     <tbody>
     
       <tr class="odd">
-        <td class="name"><b>Embed Code</b></td>
-        <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html">embedCode</a></code></td>
-        <td class="description">A HTML fragment that provides a viewer or interactive player for the media asset of a media object</td>
+        <td class="name"><b>Location</b></td>
+        <td class="property"></td>
+        <td class="description">An object construct representing the location at which the activity occured.</td>
       </tr>
     
       <tr class="even">
-        <td class="name"><b>End Date and Time</b></td>
-        <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html">endTime</a></code></td>
-        <td class="description">For objects that cease to exist after a certain time, the time that the object ceases to exist</td>
-      </tr>
-    
-      <tr class="odd">
-        <td class="name"><b>File URL</b></td>
-        <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html">fileUrl</a></code></td>
-        <td class="description">For an object that represents some kind of file, the URL at which the file can be retrieved</td>
-      </tr>
-    
-      <tr class="even">
-        <td class="name"><b>Full Content</b></td>
-        <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html">content</a></code></td>
-        <td class="description">A HTML fragment that represents the object excluding its title and author</td>
-      </tr>
-    
-      <tr class="odd">
-        <td class="name"><b>Full Media Stream</b></td>
-        <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html">stream</a></code></td>
-        <td class="description">A media link construct linking to the full-fidelity media asset for a time-based media object</td>
-      </tr>
-    
-      <tr class="even">
-        <td class="name"><b>Icon</b></td>
-        <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html">icon</a></code></td>
-        <td class="description">A media link construct for a small icon representing the object</td>
-      </tr>
-    
-      <tr class="odd">
-        <td class="name"><b>Larger Image</b></td>
-        <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html">fullImage</a></code></td>
-        <td class="description">A media link construct for an alternative version of the representative image that is larger and intended for standalone viewing</td>
-      </tr>
-    
-      <tr class="even">
-        <td class="name"><b>Latitude</b></td>
-        <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html">latitude</a></code></td>
-        <td class="description">For objects that have a physical presence on earth, the (possibly-approximate) latitude of its current location</td>
-      </tr>
-    
-      <tr class="odd">
-        <td class="name"><b>Longitude</b></td>
-        <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html">longitude</a></code></td>
-        <td class="description">For objects that have a physical presence on earth, the (possibly-approximate) longitude of its current location</td>
-      </tr>
-    
-      <tr class="even">
-        <td class="name"><b>MIME Type</b></td>
-        <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html">mimeType</a></code></td>
-        <td class="description">For an object that has a File URL, an advisory MIME type for the resource at that URL</td>
+        <td class="name"><b>Mood</b></td>
+        <td class="property"></td>
+        <td class="description">A human-readable keyword or short phrase describing the mood of the actor at the time the activity was performed.</td>
       </tr>
     
       <tr class="odd">
         <td class="name"><b>Rating</b></td>
-        <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html">rating</a></code></td>
-        <td class="description">For objects that represent some kind of opinion, a number representing the overall rating</td>
+        <td class="property"></td>
+        <td class="description">A rating given as a number between 1.0 and 5.0 inclusive with one decimal place of precision.</td>
       </tr>
     
       <tr class="even">
-        <td class="name"><b>Start Date and Time</b></td>
-        <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html">startTime</a></code></td>
-        <td class="description">For objects that exist only after a certain time, the time that the object begins to exist</td>
+        <td class="name"><b>Source</b></td>
+        <td class="property"></td>
+        <td class="description">A reference to the original source of an object or activity.</td>
       </tr>
     
       <tr class="odd">
-        <td class="name"><b>Target URL</b></td>
-        <td class="property"><code><a href="http://activitystrea.ms/head/activity-schema.html">targetUrl</a></code></td>
-        <td class="description">For an object that acts as a pointer to a URL, the URL that is the target of the pointer</td>
+        <td class="name"><b>Tags</b></td>
+        <td class="property"></td>
+        <td class="description">A listing of the objects that have been associated with a particular object using the tag verb.</td>
       </tr>
     
     </tbody>

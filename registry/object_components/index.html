@@ -25,46 +25,88 @@ layout: registry
       <td class="description">A collection of one or more additional, associated objects, similar to the concept of attached files in an email message.</td>
     </tr>
   
-    <tr class="even">
+    <tr class="even draft">
+      <td class="name"><b>Attending</b></td>
+      <td class="property"><code><a href="http://activitystrea.ms/specs/json/1.0/#stream">attending</a></code></td>
+      <td class="spec"><a href="specs/activity-streams-replies/">Responses for Activity Streams</a></td>
+      <td class="description">Used to provide information about the collection of actors that have responded to an event using the rsvp-yes verb.</td>
+    </tr>
+  
+    <tr class="odd">
       <td class="name"><b>Author</b></td>
       <td class="property"><code><a href="http://activitystrea.ms/specs/json/1.0/#object">author</a></code></td>
       <td class="spec"><a href="specs/json-activity/">JSON Activity Streams 1.0</a></td>
       <td class="description">An Object that describes the entity that created or authored the object.  Note that the author field identifies the entity that created the object and does not necessarily identify the entity that published the object.</td>
     </tr>
   
-    <tr class="odd">
+    <tr class="even">
       <td class="name"><b>Content</b></td>
       <td class="property"><code><a href="http://activitystrea.ms/specs/json/1.0/#object">content</a></code></td>
       <td class="spec"><a href="specs/json-activity/">JSON Activity Streams 1.0</a></td>
       <td class="description">Natural-language description of the object encoded as a single JSON String containing HTML markup.</td>
     </tr>
   
-    <tr class="even">
+    <tr class="odd">
       <td class="name"><b>Display Name</b></td>
       <td class="property"><code><a href="http://activitystrea.ms/specs/json/1.0/#object">displayName</a></code></td>
       <td class="spec"><a href="specs/json-activity/">JSON Activity Streams 1.0</a></td>
       <td class="description">A natural-language, human-readable and plain-text name for the object. HTML markup MUST NOT be included.</td>
     </tr>
   
-    <tr class="odd">
+    <tr class="even">
       <td class="name"><b>Downstream Duplicates</b></td>
       <td class="property"><code><a href="http://activitystrea.ms/specs/json/1.0/#object">downstreamDuplicates</a></code></td>
       <td class="spec"><a href="specs/json-activity/">JSON Activity Streams 1.0</a></td>
       <td class="description">A JSON Array of one or more absolute IRIs identifying objects that duplicate this object's content.</td>
     </tr>
   
-    <tr class="even">
+    <tr class="odd draft">
+      <td class="name"><b>Followers</b></td>
+      <td class="property"><code><a href="http://activitystrea.ms/specs/json/1.0/#stream">followers</a></code></td>
+      <td class="spec"><a href="specs/activity-streams-replies/">Responses for Activity Streams</a></td>
+      <td class="description">Used to provide information about the collection of objects (typically person objects) that are &quot;following&quot; the containing object.</td>
+    </tr>
+  
+    <tr class="even draft">
+      <td class="name"><b>Following</b></td>
+      <td class="property"><code><a href="http://activitystrea.ms/specs/json/1.0/#stream">following</a></code></td>
+      <td class="spec"><a href="specs/activity-streams-replies/">Responses for Activity Streams</a></td>
+      <td class="description">Used to provide information about the collection of objects that this object is &quot;following&quot;.</td>
+    </tr>
+  
+    <tr class="odd draft">
+      <td class="name"><b>Friend Requests</b></td>
+      <td class="property"><code><a href="http://activitystrea.ms/specs/json/1.0/#stream">friend-requests</a></code></td>
+      <td class="spec"><a href="specs/activity-streams-replies/">Responses for Activity Streams</a></td>
+      <td class="description">Used to provide information about the collection of objects with which a &quot;friendship&quot; relationship is being requested using the request-friend verb. This property will typically only be relevant for the person object type.</td>
+    </tr>
+  
+    <tr class="even draft">
+      <td class="name"><b>Friends</b></td>
+      <td class="property"><code><a href="http://activitystrea.ms/specs/json/1.0/#stream">friends</a></code></td>
+      <td class="spec"><a href="specs/activity-streams-replies/">Responses for Activity Streams</a></td>
+      <td class="description">Used to provide information about the collection of objects with which a &quot;friendship&quot; relationship has been established using the make-friend verb. This property will typically only be relevant for the person object type.</td>
+    </tr>
+  
+    <tr class="odd">
       <td class="name"><b>ID</b></td>
       <td class="property"><code><a href="http://activitystrea.ms/specs/json/1.0/#object">id</a></code></td>
       <td class="spec"><a href="specs/json-activity/">JSON Activity Streams 1.0</a></td>
       <td class="description">An absolute URI that uniquely identifies the object.</td>
     </tr>
   
-    <tr class="odd">
+    <tr class="even">
       <td class="name"><b>Image</b></td>
       <td class="property"><code><a href="http://activitystrea.ms/specs/json/1.0/#object">image</a></code></td>
       <td class="spec"><a href="specs/json-activity/">JSON Activity Streams 1.0</a></td>
       <td class="description">A Media Link that describes a resource providing a visual representation of the object, intended for human consumption.</td>
+    </tr>
+  
+    <tr class="odd draft">
+      <td class="name"><b>Likes</b></td>
+      <td class="property"><code><a href="http://activitystrea.ms/specs/json/1.0/#stream">likes</a></code></td>
+      <td class="spec"><a href="specs/activity-streams-replies/">Responses for Activity Streams</a></td>
+      <td class="description">Used to provide information about the actors (typically person objects) that have favorited or liked the containing object.</td>
     </tr>
   
     <tr class="even draft">
@@ -75,69 +117,118 @@ layout: registry
     </tr>
   
     <tr class="odd draft">
+      <td class="name"><b>Maybe Attending</b></td>
+      <td class="property"><code><a href="http://activitystrea.ms/specs/json/1.0/#stream">maybeAttending</a></code></td>
+      <td class="spec"><a href="specs/activity-streams-replies/">Responses for Activity Streams</a></td>
+      <td class="description">Used to provide information about the collection of actors that have responded to an event using the rsvp-maybe verb.</td>
+    </tr>
+  
+    <tr class="even draft">
+      <td class="name"><b>Members</b></td>
+      <td class="property"><code><a href="http://activitystrea.ms/specs/json/1.0/#stream">members</a></code></td>
+      <td class="spec"><a href="specs/activity-streams-replies/">Responses for Activity Streams</a></td>
+      <td class="description">Used to provide information about the actors (typically person objects) that have &quot;joined&quot; the containing object. This is typically only useful for object types that represent groups.</td>
+    </tr>
+  
+    <tr class="odd draft">
       <td class="name"><b>Mood</b></td>
       <td class="property"></td>
       <td class="spec"><a href="specs/activity-schema/">Activity Schema</a></td>
       <td class="description">A human-readable keyword or short phrase describing the mood of the actor at the time the activity was performed.</td>
     </tr>
   
-    <tr class="even">
+    <tr class="even draft">
+      <td class="name"><b>Not Attending</b></td>
+      <td class="property"><code><a href="http://activitystrea.ms/specs/json/1.0/#stream">notAttending</a></code></td>
+      <td class="spec"><a href="specs/activity-streams-replies/">Responses for Activity Streams</a></td>
+      <td class="description">Used to provide information about the collection of actors that have responded to an event using the rsvp-no verb.</td>
+    </tr>
+  
+    <tr class="odd">
       <td class="name"><b>Object Type</b></td>
       <td class="property"><code><a href="http://activitystrea.ms/specs/json/1.0/#object">objectType</a></code></td>
       <td class="spec"><a href="specs/json-activity/">JSON Activity Streams 1.0</a></td>
       <td class="description">Identifies the type of object.</td>
     </tr>
   
-    <tr class="odd">
+    <tr class="even">
       <td class="name"><b>Published</b></td>
       <td class="property"><code><a href="http://activitystrea.ms/specs/json/1.0/#activity">published</a></code></td>
       <td class="spec"><a href="specs/json-activity/">JSON Activity Streams 1.0</a></td>
       <td class="description">The date and time at which the object was published.</td>
     </tr>
   
-    <tr class="even draft">
+    <tr class="odd draft">
       <td class="name"><b>Rating</b></td>
       <td class="property"></td>
       <td class="spec"><a href="specs/activity-schema/">Activity Schema</a></td>
       <td class="description">A rating given as a number between 1.0 and 5.0 inclusive with one decimal place of precision.</td>
     </tr>
   
+    <tr class="even draft">
+      <td class="name"><b>Replies</b></td>
+      <td class="property"><code><a href="http://activitystrea.ms/specs/json/1.0/#stream">replies</a></code></td>
+      <td class="spec"><a href="specs/activity-streams-replies/">Responses for Activity Streams</a></td>
+      <td class="description">Used to provide information about the thread of discussion associated with a given object. Typically, the objects contained will have an implied inReplyTo property value equal to the object containing the replies property.</td>
+    </tr>
+  
     <tr class="odd draft">
+      <td class="name"><b>Reviews</b></td>
+      <td class="property"><code><a href="http://activitystrea.ms/specs/json/1.0/#stream">reviews</a></code></td>
+      <td class="spec"><a href="specs/activity-streams-replies/">Responses for Activity Streams</a></td>
+      <td class="description">Used to provide information about reviews available for the containing object.</td>
+    </tr>
+  
+    <tr class="even draft">
+      <td class="name"><b>Saves</b></td>
+      <td class="property"><code><a href="http://activitystrea.ms/specs/json/1.0/#stream">saves</a></code></td>
+      <td class="spec"><a href="specs/activity-streams-replies/">Responses for Activity Streams</a></td>
+      <td class="description">Used to provide information about the actors (typically person objects) that have &quot;saved&quot; the containing object.</td>
+    </tr>
+  
+    <tr class="odd draft">
+      <td class="name"><b>Shares</b></td>
+      <td class="property"><code><a href="http://activitystrea.ms/specs/json/1.0/#stream">shares</a></code></td>
+      <td class="spec"><a href="specs/activity-streams-replies/">Responses for Activity Streams</a></td>
+      <td class="description">Used to provide information about the actors (typically person objects) that have &quot;shared&quot; the containing object.</td>
+    </tr>
+  
+    <tr class="even draft">
       <td class="name"><b>Source</b></td>
       <td class="property"></td>
       <td class="spec"><a href="specs/activity-schema/">Activity Schema</a></td>
       <td class="description">A reference to the original source of an object or activity.</td>
     </tr>
   
-    <tr class="even">
+    <tr class="odd">
       <td class="name"><b>Summary</b></td>
       <td class="property"><code><a href="http://activitystrea.ms/specs/json/1.0/#object">summary</a></code></td>
       <td class="spec"><a href="specs/json-activity/">JSON Activity Streams 1.0</a></td>
       <td class="description">Natural-language summarization of the object encoded as a single JSON String containing HTML markup.</td>
     </tr>
   
-    <tr class="odd draft">
+    <tr class="even draft">
       <td class="name"><b>Tags</b></td>
       <td class="property"></td>
       <td class="spec"><a href="specs/activity-schema/">Activity Schema</a></td>
       <td class="description">A listing of the objects that have been associated with a particular object using the tag verb.</td>
     </tr>
   
-    <tr class="even">
+    <tr class="odd">
       <td class="name"><b>URL</b></td>
       <td class="property"><code><a href="http://activitystrea.ms/specs/json/1.0/#object">url</a></code></td>
       <td class="spec"><a href="specs/json-activity/">JSON Activity Streams 1.0</a></td>
       <td class="description">An IRI identifying a resource providing an HTML representation of the object.</td>
     </tr>
   
-    <tr class="odd">
+    <tr class="even">
       <td class="name"><b>Updated</b></td>
       <td class="property"><code><a href="http://activitystrea.ms/specs/json/1.0/#object">updated</a></code></td>
       <td class="spec"><a href="specs/json-activity/">JSON Activity Streams 1.0</a></td>
       <td class="description">The date and time at which the object was modified.</td>
     </tr>
   
-    <tr class="even">
+    <tr class="odd">
       <td class="name"><b>Upstream Duplicates</b></td>
       <td class="property"><code><a href="http://activitystrea.ms/specs/json/1.0/#object">upstreamDuplicates</a></code></td>
       <td class="spec"><a href="specs/json-activity/">JSON Activity Streams 1.0</a></td>

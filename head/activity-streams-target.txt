@@ -1,0 +1,392 @@
+
+
+
+Network Working Group                                           J. Snell
+Internet-Draft                                                       IBM
+Intended status: Experimental                                 March 2011
+Expires: September 2, 2011
+
+
+          Audience Targeting for JSON Activity Streams (Draft)
+                            json-activity-01
+
+Abstract
+
+   This specification details an extension to the JSON Activity Streams
+   serialization to support explicit identification of the audience for
+   a specific activity.
+
+Status of this Memo
+
+   This document is an Internet-Draft and is NOT offered in accordance
+   with Section 10 of RFC 2026, and the author does not provide the IETF
+   with any rights other than to publish as an Internet-Draft.
+
+   Internet-Drafts are working documents of the Internet Engineering
+   Task Force (IETF).  Note that other groups may also distribute
+   working documents as Internet-Drafts.  The list of current Internet-
+   Drafts is at http://datatracker.ietf.org/drafts/current/.
+
+   Internet-Drafts are draft documents valid for a maximum of six months
+   and may be updated, replaced, or obsoleted by other documents at any
+   time.  It is inappropriate to use Internet-Drafts as reference
+   material or to cite them other than as "work in progress."
+
+   This Internet-Draft will expire on September 2, 2011.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Snell                   Expires September 2, 2011               [Page 1]
+
+Internet-Draft               ActivityStreams                  March 2011
+
+
+Table of Contents
+
+   1.  Introduction  . . . . . . . . . . . . . . . . . . . . . . . . . 3
+   2.  Notational Conventions  . . . . . . . . . . . . . . . . . . . . 3
+   3.  Targeting Properties  . . . . . . . . . . . . . . . . . . . . . 4
+     3.1.  Public and Private Audiences  . . . . . . . . . . . . . . . 4
+   4.  Security Considerations . . . . . . . . . . . . . . . . . . . . 6
+   5.  IANA Considerations . . . . . . . . . . . . . . . . . . . . . . 6
+   6.  Normative References  . . . . . . . . . . . . . . . . . . . . . 6
+   Appendix A.  Acknowledgements . . . . . . . . . . . . . . . . . . . 7
+   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . . . 7
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Snell                   Expires September 2, 2011               [Page 2]
+
+Internet-Draft               ActivityStreams                  March 2011
+
+
+1.  Introduction
+
+   The Activity Streams specification defines a format for describing
+   socially interesting events, or "Activities", about the people and
+   things an individual cares about.
+
+   Every Activity has both a Primary and Secondary audience.  The
+   Primary audience consists of those entities either directly involved
+   in the activity or who "own" the objects involved.  The Secondary
+   audience consists of the collection of entities sharing an interest
+   in the activity but who are not directly involved (e.g. "followers").
+
+   For instance, suppose a social network of three individuals: Bob, Joe
+   and Jane.  Bob and Joe are each friends with Jane but not friends
+   with one another.  Bob has chosen to "follow" activities for which
+   Jane is directly involved.  Jane shares a file with Joe.
+
+   In this example, Jane and Joe are each directly involved in the file
+   sharing activity and together make up the Primary Audience for that
+   event.  Bob, having an interest in activities involving Jane, is the
+   Secondary Audience.  Knowing this, a system that produces or consumes
+   the activity can more intelligently notify each of the users of the
+   event.
+
+   The core Activity Streams specification does not define a means of
+   explicitly identifying the Primary or Secondary audience for an
+   event.  There are means, based on the verb, actor, object and target
+   of the activity, to infer the primary audience for many types of
+   activities, but not all.  This specification introduces four optional
+   extension properties for an Activity to explicitly describe the
+   Primary and Secondary audience.  An activity utilizing these
+   extension properties is hereafter referred to as a "Targeted
+   Activity".
+
+   TODO: Need to clean up the narrative in this section
+
+
+2.  Notational Conventions
+
+   The text of this specification provides the sole definition of
+   conformance.  Examples in this specification are non-normative.
+
+   The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
+   "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this
+   document are to be interpreted as described in [RFC2119].
+
+
+
+
+
+
+Snell                   Expires September 2, 2011               [Page 3]
+
+Internet-Draft               ActivityStreams                  March 2011
+
+
+3.  Targeting Properties
+
+   The "to", "cc", "bto" and "bcc" properties MAY be used within an
+   Activity to identify the Primary and Secondary audiences.  The value
+   of each of these properties when serialized using the JSON format is
+   an array of Activity Streams Objects.  The objects can be of any
+   object type but will typically represent individuals or groups of
+   individuals.
+
+   +-----------+---------------+---------------------------------------+
+   | Property  | Value         | Description                           |
+   +-----------+---------------+---------------------------------------+
+   | "to"      | JSON Array of | Specifies the Primary Audience of an  |
+   |           | Activity      | Activity.                             |
+   |           | Stream        |                                       |
+   |           | Objects       |                                       |
+   | "cc"      | JSON Array of | Specifies the Public Secondary        |
+   |           | Activity      | Audience of an Activity.              |
+   |           | Stream        |                                       |
+   |           | Objects       |                                       |
+   | "bto"     | JSON Array of | Specifies the Private Primary         |
+   |           | Activity      | Audience of an Activity.              |
+   |           | Stream        |                                       |
+   |           | Objects       |                                       |
+   | "bcc"     | JSON Array of | Specifies the Private Second Audience |
+   |           | Activity      | of an Activity.                       |
+   |           | Stream        |                                       |
+   |           | Objects       |                                       |
+   +-----------+---------------+---------------------------------------+
+
+3.1.  Public and Private Audiences
+
+   The prototypical use case for Targeted Activities is the publication
+   and redistribution of Activities through an intermediary.  A event
+   source generates the activity and publishes it to the intermediary
+   which determines which subset of events to display to specific
+   individual users.  Such a determination can be made, in part, by
+   identifying the Primary and Secondary Audiences for the activity.
+
+   When the event source generates the activity and specifies values for
+   the "to" and "cc" fields, the intermediary SHOULD redistribute that
+   event with the values of those fields intact, allowing any entity
+   receiving and processing that entity to see who the activity has been
+   targeted to.  This is precisely that same model used by the to and cc
+   fields in email systems.
+
+   There are situations, however, in which disclosing the identity of
+   specific members of the audience may be inappropriate.  For instance,
+
+
+
+Snell                   Expires September 2, 2011               [Page 4]
+
+Internet-Draft               ActivityStreams                  March 2011
+
+
+   a user may not wish to let other users know that they are interested
+   in various topics, individuals or types of events.  To support this
+   option, an event source generating an activity MAY use the "bto" and
+   "bcc" properties to list entities to whom the activity should be
+   privately targeted.  When the intermediary receives an activity
+   containing these properties, it MUST remove them prior to
+   redistributing the activity.  The intermediary MAY insert new "bto"
+   and "bcc" property values containing empty arrays as an indication
+   that a private audience exists without disclosing the specific
+   individual members of that private audience.
+
+   The following example illustrates the expected behavior of an
+   intermediary redistributing an activity that has both a public and
+   private audience:
+
+   First, the event source generates an activity that is published to
+   the intermediary.
+
+     {
+       "to":[
+         {"objectType":"person",
+          "id":"tag:example.org,2011:jane"}
+       ],
+       "bto":[
+         {"objectType":"person",
+          "id":"tag:example.org,2011:joe"}
+       ],
+       "cc":[
+         {"objectType":"person",
+          "id":"tag:example.org,2011:bob"}
+       ],
+       "bcc":[
+         {"objectType":"person",
+          "id":"tag:example.org,2011:lisa"}
+       ],
+       "verb":"post",
+       "actor":{
+         "objectType":"person",
+         "id":"tag:example.org,2011:jane"},
+       "object":{
+         ...
+       }
+     }
+
+   Upon receiving the activity, the intermediary will generate a
+   modified copy of the activity that omits the "bto" and "bcc" values
+   and will make that activity available to each of the four people
+   identified.
+
+
+
+Snell                   Expires September 2, 2011               [Page 5]
+
+Internet-Draft               ActivityStreams                  March 2011
+
+
+     {
+       "to":[
+         {"objectType":"person",
+          "id":"tag:example.org,2011:jane"}
+       ],
+       "cc":[
+         {"objectType":"person",
+          "id":"tag:example.org,2011:bob"}
+       ],
+       "bto":[],
+       "bcc":[],
+       "verb":"post",
+       "actor":{
+         "objectType":"person",
+         "id":"tag:example.org,2011:jane"},
+       "object":{
+         ...
+       }
+     }
+
+
+4.  Security Considerations
+
+   TBD
+
+
+5.  IANA Considerations
+
+   None.
+
+
+6.  Normative References
+
+   [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
+              Requirement Levels", March 1997.
+
+   [RFC3339]  Klyne, G., "Date and Time on the Internet: Timestamps",
+              July 2002.
+
+   [RFC3986]  Berners-Lee, T., Fielding, R., and L. Masinter, "Uniform
+              Resource Identifier (URI)", January 2005.
+
+   [RFC3987]  Duerst, M. and M. Suignard, "Internationalized Resource
+              Identifiers (IRIs)", January 2005.
+
+   [RFC4627]  Crockford, D., "The application/json Media Type for
+              JavaScript Object Notation (JSON)", July 2006.
+
+
+
+
+Snell                   Expires September 2, 2011               [Page 6]
+
+Internet-Draft               ActivityStreams                  March 2011
+
+
+   [activity-schema-01]
+              Atkins, M., Norris, W., Messina, C., Wilkinson, M., and R.
+              Dolin, "Atom Activity Base Schema",
+              <http://activitystrea.ms/activity-schema.html>.
+
+   [draft-nottingham-http-link-header-10]
+              Nottingham, M., "Web Linking", May 2010.
+
+
+Appendix A.  Acknowledgements
+
+   ...
+
+
+Author's Address
+
+   James M Snell
+   IBM
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Snell                   Expires September 2, 2011               [Page 7]
+

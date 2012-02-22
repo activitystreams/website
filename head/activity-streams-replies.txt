@@ -1,0 +1,392 @@
+
+
+
+Network Working Group                                           J. Snell
+Internet-Draft                                                       IBM
+Intended status: Experimental                                 April 2011
+Expires: October 3, 2011
+
+
+                 Responses for Activity Streams (Draft)
+                            json-activity-01
+
+Abstract
+
+   This specification details an extension to the JSON Activity Streams
+   to express the serialization of responses and reactions to an
+   Activity or an Object.
+
+Status of this Memo
+
+   This document is an Internet-Draft and is NOT offered in accordance
+   with Section 10 of RFC 2026, and the author does not provide the IETF
+   with any rights other than to publish as an Internet-Draft.
+
+   Internet-Drafts are working documents of the Internet Engineering
+   Task Force (IETF).  Note that other groups may also distribute
+   working documents as Internet-Drafts.  The list of current Internet-
+   Drafts is at http://datatracker.ietf.org/drafts/current/.
+
+   Internet-Drafts are draft documents valid for a maximum of six months
+   and may be updated, replaced, or obsoleted by other documents at any
+   time.  It is inappropriate to use Internet-Drafts as reference
+   material or to cite them other than as "work in progress."
+
+   This Internet-Draft will expire on October 3, 2011.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Snell                    Expires October 3, 2011                [Page 1]
+
+Internet-Draft               ActivityStreams                  April 2011
+
+
+Table of Contents
+
+   1.  Introduction  . . . . . . . . . . . . . . . . . . . . . . . . . 3
+   2.  Notational Conventions  . . . . . . . . . . . . . . . . . . . . 3
+   3.  The "inReplyTo" Property  . . . . . . . . . . . . . . . . . . . 3
+   4.  Responses and Activity Summaries  . . . . . . . . . . . . . . . 4
+   5.  Security Considerations . . . . . . . . . . . . . . . . . . . . 6
+   6.  Normative References  . . . . . . . . . . . . . . . . . . . . . 7
+   Appendix A.  Acknowledgements . . . . . . . . . . . . . . . . . . . 7
+   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . . . 7
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Snell                    Expires October 3, 2011                [Page 2]
+
+Internet-Draft               ActivityStreams                  April 2011
+
+
+1.  Introduction
+
+   The Activity Streams specification defines a format for describing
+   socially interesting events, or "Activities", about the people and
+   things an individual may care about.  This specification describes
+   the mechanisms by which responses or reactions to those events or
+   their related objects may also be described.
+
+   The possible range of reactions to an event or object vary broadly
+   and include such actions as posting a comment, sharing the event with
+   others, "liking" or "favoriting" the event or object, RSVP'ing to an
+   event invite and so on.  This specification does not attempt to cover
+   the full range of possible reactions.  Rather, it seeks to establish
+   a common pattern for the expression of those reactions within an
+   Activity Stream and defines a set of extension properties
+   exemplifying that pattern.
+
+
+2.  Notational Conventions
+
+   The text of this specification provides the sole definition of
+   conformance.  Examples in this specification are non-normative.
+
+   The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
+   "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this
+   document are to be interpreted as described in [RFC2119].
+
+
+3.  The "inReplyTo" Property
+
+   The "inReplyTo" property MAY be used within any Activity Stream
+   object to identify other objects for which the containing object is
+   considered a response.  The value of the "inReplyTo" property is a
+   JSON [RFC4627] Array of Activity Stream Objects.  For example:
+
+     {
+       "objectType": "comment",
+       "content": "<p>This is a comment</p>",
+       "inReplyTo": [
+         {
+           "objectType": "note",
+           "id": "http://example.org/objects/123",
+           "displayName": "A simple note"
+         }
+       ]
+     }
+
+   In many cases, such as when an object appears as a member of a
+
+
+
+Snell                    Expires October 3, 2011                [Page 3]
+
+Internet-Draft               ActivityStreams                  April 2011
+
+
+   collection of objects in a property that clearly indicates a response
+   or reaction relationship with a parent object, the "inReplyTo"
+   property can be implied.  For instance, the "replies" property
+   defined below in Section 4 may contain a listing of child objects
+   with an implied "inReplyTo" property referring to the parent object.
+
+
+4.  Responses and Activity Summaries
+
+   It is common practice to provide summary information on the number
+   and types of activities that have occurred with respect to a given
+   object.  For instance, a "note" object may have been the target of
+   any number of comment, like, or share activities.  This summary
+   information MAY be expressed in the JSON serialization of an object
+   by using a property name descriptive of the data being summarized and
+   using the Collection object as defined by the JSON Activity Streams
+   document.
+
+   The following properties MAY be used on any object type or activity
+   for each of the specified situations:
+
+   +-------------------+-----------------------------------------------+
+   | Property          | Description                                   |
+   +-------------------+-----------------------------------------------+
+   | "attending"       | Used to provide information about the         |
+   |                   | collection of actors that have responded to   |
+   |                   | an "event" using the "rsvp-yes" verb.         |
+   | "followers"       | Used to provide information about the         |
+   |                   | collection of objects (typically person       |
+   |                   | objects) that are "following" the containing  |
+   |                   | object.                                       |
+   | "following"       | Used to provide information about the         |
+   |                   | collection of objects that this object is     |
+   |                   | "following".                                  |
+   | "friends"         | Used to provide information about the         |
+   |                   | collection of objects with which a            |
+   |                   | "friendship" relationship has been            |
+   |                   | established using the "make-friend" verb.     |
+   |                   | This property will typically only be relevant |
+   |                   | for the "person" object type.                 |
+   | "friend-requests" | Used to provide information about the         |
+   |                   | collection of objects with which a            |
+   |                   | "friendship" relationship is being requested  |
+   |                   | using the "request-friend" verb.  This        |
+   |                   | property will typically only be relevant for  |
+   |                   | the "person" object type.                     |
+
+
+
+
+
+Snell                    Expires October 3, 2011                [Page 4]
+
+Internet-Draft               ActivityStreams                  April 2011
+
+
+   | "likes"           | Used to provide information about the actors  |
+   |                   | (typically person objects) that have          |
+   |                   | favorited or liked the containing object.     |
+   | "notAttending"    | Used to provide information about the         |
+   |                   | collection of actors that have responded to   |
+   |                   | an "event" using the "rsvp-no" verb.          |
+   | "maybeAttending"  | Used to provide information about the         |
+   |                   | collection of actors that have responded to   |
+   |                   | an "event" using the "rsvp-maybe" verb.       |
+   | "members"         | Used to provide information about the actors  |
+   |                   | (typically person objects) that have "joined" |
+   |                   | the containing object.  This is typically     |
+   |                   | only useful for object types that represent   |
+   |                   | groups.                                       |
+   | "replies"         | Used to provide information about the thread  |
+   |                   | of discussion associated with a given object. |
+   |                   | Typically, the objects contained will have an |
+   |                   | implied "inReplyTo" property value equal to   |
+   |                   | the object containing the "replies" property. |
+   | "reviews"         | Used to provide information about reviews     |
+   |                   | available for the containing object.          |
+   | "saves"           | Used to provide information about the actors  |
+   |                   | (typically person objects) that have "saved"  |
+   |                   | the containing object.                        |
+   | "shares"          | Used to provide information about the actors  |
+   |                   | (typically person objects) that have "shared" |
+   |                   | the containing object.                        |
+   +-------------------+-----------------------------------------------+
+
+   The following example illustrates the use of these properties.  Note
+   that the value of the "totalItems" property indicates the total
+   number of items in the associated collections and may not match the
+   actual number of objects in the "items" property.  For instance, in
+   the example below, for the "likes" property, the "totalItems"
+   property specifies the value 120 but includes only a single object.
+   This SHOULD be interpreted along the lines of "John and 119 other
+   users like this note".
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Snell                    Expires October 3, 2011                [Page 5]
+
+Internet-Draft               ActivityStreams                  April 2011
+
+
+     {
+       "objectType": "note",
+       "displayName": "A Simple Note",
+       "content": "<p>This is a simple note</p>",
+       "replies": {
+         "totalItems": 10,
+         "url": "http://example.org/comments-stream",
+       },
+       "followers": {
+         "totalItems": 15,
+         "url": "http://example.org/followers-stream",
+         "items": [
+           {
+             "objectType": "person",
+             "displayName": "Jane"
+           }
+         ]
+       },
+       "likes": {
+         "totalItems": 120,
+         "items": [
+           "objectType": "person",
+           "displayName": "John"
+         ]
+       },
+       "reviews": {
+         "totalItems": 1,
+         "items": [
+           {
+             "objectType": "review",
+             "author": {
+               "displayName": "Joe",
+               "objectType": "person"
+             },
+             "rating": 4.5
+           }
+         ]
+       }
+     }
+
+
+5.  Security Considerations
+
+   The mechanisms defined herein are subject to the same security
+   considerations as all activities.  Applications must be aware of the
+   risk posed by a malicious third party attempting to artificially
+   inject inappropriate content into the stream of responses and replies
+   of an object.  For instance, services that aggregate activity streams
+
+
+
+Snell                    Expires October 3, 2011                [Page 6]
+
+Internet-Draft               ActivityStreams                  April 2011
+
+
+   from multiple sources and attempt to reconstruct a thread of
+   discussion using replies and response from across those sources could
+   be tricked into displaying illegitimate content if appropriate
+   consideration is not given to the content origin.  Mitigation of such
+   threats is considered out of scope for this specification.
+
+
+6.  Normative References
+
+   [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
+              Requirement Levels", March 1997.
+
+   [RFC4627]  Crockford, D., "The application/json Media Type for
+              JavaScript Object Notation (JSON)", July 2006.
+
+   [json-activity-streams-01]
+              Snell, J., Atkins, M., Norris, W., Messina, C., Wilkinson,
+              M., and R. Dolin, "JSON Activity Streams 1.0", May 2011,
+              <http://activitystrea.ms/specs/json/1.0/>.
+
+
+Appendix A.  Acknowledgements
+
+   ...
+
+
+Author's Address
+
+   James M Snell
+   IBM
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Snell                    Expires October 3, 2011                [Page 7]
+

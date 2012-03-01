@@ -13,7 +13,7 @@ Activity Streams Working Group                                  J. Snell
                                            MySpace, Facebook, Socialcast
                                                                 R. Dolin
                                                                Microsoft
-                                                            May 18, 2011
+                                                                May 2011
 
 
                        JSON Activity Streams 1.0
@@ -78,10 +78,10 @@ Table of Contents
    11. Security Considerations  . . . . . . . . . . . . . . . . . . . 18
    12. IANA Considerations  . . . . . . . . . . . . . . . . . . . . . 19
    13. License  . . . . . . . . . . . . . . . . . . . . . . . . . . . 19
-   14. Normative References . . . . . . . . . . . . . . . . . . . . . 20
+   14. Errata . . . . . . . . . . . . . . . . . . . . . . . . . . . . 20
+   15. Normative References . . . . . . . . . . . . . . . . . . . . . 20
    Appendix A.  Acknowledgements  . . . . . . . . . . . . . . . . . . 20
    Authors' Addresses . . . . . . . . . . . . . . . . . . . . . . . . 21
-
 
 
 
@@ -1075,7 +1075,13 @@ Snell, et al.                                                  [Page 19]
    BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
-14.  Normative References
+14.  Errata
+
+   Changes and clarifications to this document are available at
+   <http://activitystrea.ms/specs/json/1.0/errata>.
+
+
+15.  Normative References
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", March 1997.
@@ -1107,12 +1113,6 @@ Appendix A.  Acknowledgements
    Cauthen, Chris Chabot, Chris Toomey, Christian Crumlish, Dan
    Brickley, Dan Scott, Daniel Chapman, Danny Ayers, Dare Obasanjo,
    Darren Bounds, David Cramer, David Nelson, David Recordon, DeWitt
-   Clinton, Douglas Pearce, Ed Summers, Elias Bizannes, Elisabeth
-   Norris, Eric Marcoullier, Eric Woods, Evan Prodromou, Gee-Hsien
-   Chuang, Greg Biggers, Gregory Foster, Henry Saputra, Hillary Madsen,
-   Howard Liptzin, Hung Tran, Ian Kennedy, Ian Mulvany, Ivan Pulleyn,
-   Jacob Kim, James Falkner, James Pike, James Walker, Jason Kahn, Jason
-   Kantz, Jeff Kunins, Jeff Martin, Jian Lin, Johannes Ernst, John
 
 
 
@@ -1121,6 +1121,12 @@ Snell, et al.                                                  [Page 20]
                              ActivityStreams                    May 2011
 
 
+   Clinton, Douglas Pearce, Ed Summers, Elias Bizannes, Elisabeth
+   Norris, Eric Marcoullier, Eric Woods, Evan Prodromou, Gee-Hsien
+   Chuang, Greg Biggers, Gregory Foster, Henry Saputra, Hillary Madsen,
+   Howard Liptzin, Hung Tran, Ian Kennedy, Ian Mulvany, Ivan Pulleyn,
+   Jacob Kim, James Falkner, James Pike, James Walker, Jason Kahn, Jason
+   Kantz, Jeff Kunins, Jeff Martin, Jian Lin, Johannes Ernst, John
    Panzer, Jon Lebkowsky, Jon Paul Davies, Jonathan Coffman, Jonathan
    Dugan, Joseph Boyle, Joseph Holsten, Joseph Smarr, Josh Brewer, Jud
    Valeski, Julien Chaumond, Julien Genestoux, Jyri Engestroem, Kaliya
@@ -1161,6 +1167,16 @@ Authors' Addresses
    Citizen Agency, Google
 
 
+
+
+
+
+
+Snell, et al.                                                  [Page 21]
+
+                             ActivityStreams                    May 2011
+
+
    Monica Wilkinson
    MySpace, Facebook, Socialcast
 
@@ -1172,5 +1188,45 @@ Authors' Addresses
 
 
 
-Snell, et al.                                                  [Page 21]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Snell, et al.                                                  [Page 22]
 

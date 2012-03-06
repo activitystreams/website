@@ -361,7 +361,12 @@ Public and Private Audiences</h3>
     }
   }
 </pre></div>
-<p>Note that audience targeting information included within an Activity
+<p>Implementations are free to use what they know about an activity's 
+      Primary and Secondary audiences to determine access, change and redistribution
+      controls for the activity (e.g. limiting who is able to see the activity). However,
+      the mere presence of targeting properties does not imply that distribution 
+      of the activity is limited to only explicitly targeted entities.
+      Audience targeting information included within an Activity
       using these mechanisms is intended only to express the intent of the 
       entity creating the activity. With clear exception given to the 
       appropriate handling of "bto" and "bcc", this specification leaves it 
@@ -437,9 +442,10 @@ Security Considerations</h3>
 <p>Targeted Activities are subject to the same security considerations
       as all activities. Applications publishing targeted activities to 
       untrusted intermediaries must be aware of the risk that the intermediary 
-      may not properly handle the <tt>bto</tt> and 
+      may not properly handle (intentionally or unintentionally) 
+      the <tt>bto</tt> and 
       <tt>bcc</tt> properties leading to inappropriate 
-      disclosure of a targets private audience. Intermediaries and consumers
+      disclosure of a target's private audience. Intermediaries and consumers
       of targeted activities must be aware of the potential for spoofing 
       and phishing attacks caused by inappropriately or maliciously targeted
       activities.

@@ -144,7 +144,7 @@
 <table summary="layout" width="66%" border="0" cellpadding="0" cellspacing="0"><tr><td><table summary="layout" width="100%" border="0" cellpadding="2" cellspacing="1">
 <tr><td class="header">Activity Streams Working Group</td><td class="header">J. Snell</td></tr>
 <tr><td class="header">&nbsp;</td><td class="header">IBM</td></tr>
-<tr><td class="header">&nbsp;</td><td class="header">March 5, 2012</td></tr>
+<tr><td class="header">&nbsp;</td><td class="header">March 6, 2012</td></tr>
 </table></td></tr></table>
 <h1><br />Audience Targeting for JSON Activity Streams</h1>
 
@@ -223,7 +223,7 @@ Notational Conventions</h3>
 </p>
 <p>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
       "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this
-      document are to be interpreted as described in <a class='info' href='#RFC2119'>[RFC2119]<span> (</span><span class='info'>Bradner, S., &ldquo;Key words for use in RFCs to Indicate Requirement           Levels,&rdquo; March&nbsp;1997.</span><span>)</span></a>.
+      document are to be interpreted as described in <a class='info' href='#RFC2119'>[RFC2119]<span> (</span><span class='info'>Bradner, S., &ldquo;Key words for use in RFCs to Indicate Requirement Levels,&rdquo; March&nbsp;1997.</span><span>)</span></a>.
 </p>
 <a name="properties"></a><br /><hr />
 <table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
@@ -263,6 +263,12 @@ Targeting Properties</h3>
 </table>
 <br clear="all" />
 
+<p>This specification places no restrictions on the types
+        of objects that can be used within the values for each of these
+        properties. This means that any type of object, not only those 
+        representing individual people or groups, can be included within 
+        the target audience for an Activity.
+</p>
 <a name="cc-bcc"></a><br /><hr />
 <table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
 <a name="rfc.section.3.1"></a><h3>3.1.&nbsp;
@@ -307,15 +313,15 @@ Public and Private Audiences</h3>
   {
     "to":[
       {"objectType":"person",
-       "id":"tag:example.org,2011:jane"}
+       "id":"acct:jane@example.org"}
     ],
     "bto":[
       {"objectType":"person",
-       "id":"tag:example.org,2011:joe"}
+       "id":"tag:example.org,2011/12/11:joe"}
     ],
     "cc":[
       {"objectType":"person",
-       "id":"tag:example.org,2011:bob"}
+       "id":"http://example.com/profiles/bob"}
     ],
     "bcc":[
       {"objectType":"person",
@@ -324,7 +330,7 @@ Public and Private Audiences</h3>
     "verb":"post",
     "actor":{
       "objectType":"person",
-      "id":"tag:example.org,2011:jane"},
+      "id":"acct:jane@example.org"},
     "object":{
       ...
     }
@@ -338,18 +344,18 @@ Public and Private Audiences</h3>
   {
     "to":[
       {"objectType":"person",
-       "id":"tag:example.org,2011:jane"}
+       "id":"acct:jane@example.org"}
     ],
     "cc":[
       {"objectType":"person",
-       "id":"tag:example.org,2011:bob"}
+       "id":"http://example.com/profiles/bob"}
     ],
     "bto":[],
     "bcc":[],
     "verb":"post",
     "actor":{
       "objectType":"person",
-      "id":"tag:example.org,2011:jane"},
+      "id":"acct:jane@example.org"},
     "object":{
       ...
     }
@@ -370,12 +376,17 @@ Public and Private Audiences</h3>
 <a name="rfc.section.4"></a><h3>4.&nbsp;
 The &quot;alias&quot; Object Property</h3>
 
-<p>Within Activity Streams objects, the "alias" property is a simple, 
-      plain-text string value that serves as an alternative meaningful label 
-      for the object in addition to the "id". For instance, within some systems, 
-      groups can be identified by both a unique global ID and a more friendly
-      label such as "@friends" or "@network", etc. In some systems, the alias
-      can be used as an alternative to the "id" in certain situations.
+<p>Within Activity Streams objects, the value of the "alias" property 
+      serves as an alternative meaningful label for the object in addition to 
+      the "id". For instance, within some systems, groups can be identified by 
+      both a unique global ID and a more friendly label such as "@friends" or 
+      "@network", etc. In some systems, the alias can be used as an alternative 
+      to the "id" in certain situations.
+</p>
+<p>The value of the "alias" property MUST be a non-empty string that 
+      matches either the "isegment-nz-nc" or "IRI" productions defined in
+      <a class='info' href='#RFC3987'>[RFC3987]<span> (</span><span class='info'>Duerst, M. and M. Suignard, &ldquo;Internationalized Resource Identifiers (IRIs),&rdquo; January&nbsp;2005.</span><span>)</span></a>. Note that the use of relative references 
+      other than a simple name is not allowed.
 </p>
 <p>The following example shows an activity targeted at a group object 
       aliased as "@friends":
@@ -388,7 +399,31 @@ The &quot;alias&quot; Object Property</h3>
     "verb":"post",
     "actor":{
       "objectType":"person",
-      "id":"tag:example.org,2011:jane"},
+      "id":"acct:jane@example.org"},
+    "object":{
+      ...
+    }
+  }
+</pre></div>
+<p>Note that the use of simple alias values is intentionally ambiguous and
+      that such aliases are only meaningful within specific limited application
+      contexts. For instance, two separate systems may each interpret the "@friends"
+      alias in distinctly different ways. It is recommended that use of such simple aliases 
+      be limited to communication between parties that share a common understanding 
+      of the meaning and interpretation of such simple aliases.
+</p>
+<p>The following example shows an activity targeted at a group object 
+      aliased using a fully-qualified IRI:
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>
+  {
+    "to":[
+      {"objectType":"group",
+       "alias":"http://example.org/api/people/@me/@friends"}
+    ],
+    "verb":"post",
+    "actor":{
+      "objectType":"person",
+      "id":"acct:jane@example.org"},
     "object":{
       ...
     }
@@ -442,11 +477,11 @@ License</h3>
 <h3>7.&nbsp;Normative References</h3>
 <table width="99%" border="0">
 <tr><td class="author-text" valign="top"><a name="RFC2119">[RFC2119]</a></td>
-<td class="author-text">Bradner, S., &ldquo;Key words for use in RFCs to Indicate Requirement
-          Levels,&rdquo; March&nbsp;1997.</td></tr>
+<td class="author-text"><a href="mailto:sob@harvard.edu">Bradner, S.</a>, &ldquo;<a href="http://tools.ietf.org/html/rfc2119">Key words for use in RFCs to Indicate Requirement Levels</a>,&rdquo; BCP&nbsp;14, RFC&nbsp;2119, March&nbsp;1997 (<a href="http://www.rfc-editor.org/rfc/rfc2119.txt">TXT</a>, <a href="http://xml.resource.org/public/rfc/html/rfc2119.html">HTML</a>, <a href="http://xml.resource.org/public/rfc/xml/rfc2119.xml">XML</a>).</td></tr>
+<tr><td class="author-text" valign="top"><a name="RFC3987">[RFC3987]</a></td>
+<td class="author-text">Duerst, M. and M. Suignard, &ldquo;<a href="http://tools.ietf.org/html/rfc3987">Internationalized Resource Identifiers (IRIs)</a>,&rdquo; RFC&nbsp;3987, January&nbsp;2005 (<a href="http://www.rfc-editor.org/rfc/rfc3987.txt">TXT</a>).</td></tr>
 <tr><td class="author-text" valign="top"><a name="RFC4627">[RFC4627]</a></td>
-<td class="author-text">Crockford, D., &ldquo;The application/json Media Type for JavaScript Object
-          Notation (JSON),&rdquo; July&nbsp;2006.</td></tr>
+<td class="author-text">Crockford, D., &ldquo;<a href="http://tools.ietf.org/html/rfc4627">The application/json Media Type for JavaScript Object Notation (JSON)</a>,&rdquo; RFC&nbsp;4627, July&nbsp;2006 (<a href="http://www.rfc-editor.org/rfc/rfc4627.txt">TXT</a>).</td></tr>
 <tr><td class="author-text" valign="top"><a name="json-activity-streams-01">[json-activity-streams-01]</a></td>
 <td class="author-text">Snell, J., Atkins, M., Norris, W., Messina, C., Wilkinson, M., and R. Dolin, &ldquo;<a href="http://activitystrea.ms/specs/json/1.0/">JSON Activity Streams 1.0</a>,&rdquo; May&nbsp;2011.</td></tr>
 </table>

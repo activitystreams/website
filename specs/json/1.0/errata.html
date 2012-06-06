@@ -154,6 +154,12 @@
 <p class="toc">
 <a href="#anchor1">1.</a>&nbsp;
 Abstract Change [2012-02-14]<br />
+<a href="#anchor2">2.</a>&nbsp;
+Incorrect Descriptions in Collection Serialization<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#anchor3">2.1.</a>&nbsp;
+totalItems Property<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#anchor4">2.2.</a>&nbsp;
+url Property<br />
 <a href="#rfc.authors">&#167;</a>&nbsp;
 Author's Address<br />
 </p>
@@ -173,6 +179,52 @@ Abstract Change [2012-02-14]</h3>
       data using the JSON format.  As this specification only describes that
       serialization format, the methods used to transmit, receive, or process
       that data are outside the scope of this specification.
+</p>
+<a name="anchor2"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.2"></a><h3>2.&nbsp;
+Incorrect Descriptions in Collection Serialization</h3>
+
+<p>The descriptions for the fields on the Collection Serialization
+      in Section 3.5 are incorrect.
+</p>
+<a name="anchor3"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.2.1"></a><h3>2.1.&nbsp;
+totalItems Property</h3>
+
+<p>The description for totalItems current says:
+</p>
+<p>"Non-negative integer specifying the total number of activities
+        within the stream. The Stream serialization MAY contain a count
+        property."
+</p>
+<p>It SHOULD say:
+</p>
+<p>"Non-negative integer specifying the total number of objects within
+        the collection. Note that the actual number of objects included within
+        the value of the "items" property MAY be less than the total number of
+        objects specified. The Collection serialization MAY contain a
+        totalItems property"
+</p>
+<a name="anchor4"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.2.2"></a><h3>2.2.&nbsp;
+url Property</h3>
+
+<p>The description for url currently states:
+</p>
+<p>"An IRI [RFC3987] referencing a JSON document containing the full
+        listing of objects in the collection."
+</p>
+<p>This does not make it clear that the original intent was for the 
+        url property on the collection to point to a JSON document whose root
+        object is itself a Collection object. Therefore, this description SHOULD
+        read:
+</p>
+<p>"An IRI [RFC3987] referencing a JSON Document whose root object is a
+        Collection object providing access to the full listing of objects in the
+        collection."
 </p>
 <a name="rfc.authors"></a><br /><hr />
 <table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>

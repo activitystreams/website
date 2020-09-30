@@ -13,9 +13,7 @@ are in the `sass` directory.
 
 ## Developers ##
 
-For anyone that intends to work on the website, it is recommended that you install [compass][] and [jekyll][].  Then 
-open two extra terminal windows and run the following in the root directory of the website.  This will allow your 
-changes to be immediately visible in your local development environment.
+For anyone that intends to work on the website, it is recommended that you install [a compass][] and [Jekyll][]. Then open two extra terminal windows and run the following in the root directory of the website. This will allow your changes to be immediately visible in your local development environment.
 
 Run jekyll in one terminal:
 

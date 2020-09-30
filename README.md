@@ -1,4 +1,4 @@
-This repository houses the Activity Streams website at <http://activitystrea.ms/>.
+This repository houses the Activity Streams An Amazing Website at <http://activitystrea.ms/>.
 
 ## Special Directories ##
 

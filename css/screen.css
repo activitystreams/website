@@ -1,8 +1,11 @@
 /* line 4, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.1/frameworks/blueprint/stylesheets/blueprint/reset/_utilities.scss */
+@import url('https://fonts.googleapis.com/css2?family=Mulish&display=swap');
+
 html {
   margin: 0;
   padding: 0;
   border: 0;
+  font-family: 'Mulish', sans-serif;
 }
 
 /* line 18, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.1/frameworks/blueprint/stylesheets/blueprint/reset/_utilities.scss */
@@ -136,7 +139,7 @@ p .right {
 
 /* line 62, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.1/frameworks/blueprint/stylesheets/blueprint/_typography.scss */
 a {
-  text-decoration: underline;
+  text-decoration: none;
   color: #1e6b9f;
 }
 /* line 18, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.1/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
@@ -1314,7 +1317,7 @@ textarea {
 
 /* line 32, ../sass/screen.scss */
 #wrapper {
-  width: 950px;
+  width: 100vw;
   margin: 0 auto;
   overflow: hidden;
   *zoom: 1;
@@ -1324,10 +1327,8 @@ textarea {
 /* line 37, ../sass/screen.scss */
 #header > h1 {
   background-color: #1e6b9f;
-  border-bottom: 4px solid #333;
   font-family: "bello-pro-1", "bello-pro-2", sans-serif;
   font-weight: normal;
-  text-shadow: 0 0.13em #000;
   margin: 0;
   padding: 0 0.5em;
 }
@@ -1405,7 +1406,7 @@ textarea {
 
 /* line 84, ../sass/screen.scss */
 #footer {
-  text-align: right;
+  text-align: center;
   border-top: 1px solid #999;
   padding: 0.5em 1em;
   font-size: 85%;

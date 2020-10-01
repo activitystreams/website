@@ -3,7 +3,7 @@ This repository houses the Activity Streams website at <http://activitystrea.ms/
 ## Special Directories ##
 
 The `registry` directory is auto-generated from the [Activity Streams Registry][registry] repository.  Do not make
-changes directly in the `registry` directory.
+changes directly in it(`registry` directory).
 
 The specifications in the `head` directory are auto-generated from their various repositories.  Do not edit them 
 directly.

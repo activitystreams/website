@@ -1,4 +1,4 @@
-This repository houses the Activity Streams website at <http://activitystrea.ms/>.
+--> This repository houses the Activity Streams website at <http://activitystrea.ms/>.
 
 ## Special Directories ##
 
@@ -28,3 +28,4 @@ Run compass in the other:
 [registry]: https://github.com/activitystreams/registry
 [compass]: http://compass-style.org/
 [jekyll]: https://github.com/mojombo/jekyll
+Thanks for visit our site :)
